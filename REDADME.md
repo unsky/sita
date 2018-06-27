@@ -1,0 +1,1 @@
+##synergic tracking build architecture
