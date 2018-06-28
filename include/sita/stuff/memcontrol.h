@@ -8,39 +8,38 @@
 #include <cstdlib>
 #include "sita/stuff/common.h"
 
-namespace sita{
-    class MemControl{
-        public:
-            MemControl();
-            MemControl(size_t size);
-            ~MemControl();
+namespace sita {
+class MemControl {
+public:
+    MemControl();
+    MemControl(size_t size);
+    ~MemControl();
 
-            void * mutable_cpu_data();
-            void * mutable_gpu_data();
-            const void * cpu_data();
-            const void * gpu_data();
-            inline size_t size(){
-                return _size;
-            }
-            enum  HeadAt{UNINIT, CPU, GPU, SYNCED};
-            inline HeadAt head_at()
-            {
-                return _head_at;
-            }
+    void* mutable_cpu_data();
+    void* mutable_gpu_data();
+    const void* cpu_data();
+    const void* gpu_data();
+    inline size_t size() {
+        return _size;
+    }
+    enum  HeadAt {UNINIT, CPU, GPU, SYNCED};
+    inline HeadAt head_at() {
+        return _head_at;
+    }
 
-        private:
-            void * _ptr_cpu;
-            void * _ptr_gpu;
-            void push_data_to_cpu();
-            void push_data_to_gpu();
+private:
+    void* _ptr_cpu;
+    void* _ptr_gpu;
+    void push_data_to_cpu();
+    void push_data_to_gpu();
 
-            bool _has_cpu_data;
-            bool _has_gpu_data;
+    bool _has_cpu_data;
+    bool _has_gpu_data;
 
-            size_t _size;
-            HeadAt _head_at;
-            DISABLE_COPY_AND_ASSIGN(MemControl);
-    };
+    size_t _size;
+    HeadAt _head_at;
+    DISABLE_COPY_AND_ASSIGN(MemControl);
+};
 
 }//namespace
 
