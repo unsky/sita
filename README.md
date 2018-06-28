@@ -1,2 +1,2 @@
-# sita
-sita: an synergic islets tracking  architecture
+# Sita
+Sita: an synergic islets tracking  architecture
