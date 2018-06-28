@@ -2,19 +2,20 @@
 // Created by unsky on 27/06/18.
 //
 
-#ifndef STBA_STUFF_MEMCONTROL_H
-#define STBA_STUFF_MEMCONTROL_H
+#ifndef SITA_STUFF_MEMCONTROL_H
+#define SITA_STUFF_MEMCONTROL_H
 
 #include <cstdlib>
-#include "stba/stuff/common.h"
+#include "sita/stuff/common.h"
 
-namespace stba{
-    class MemContol{
+namespace sita{
+    class MemControl{
         public:
             MemControl();
+            MemControl(size_t size);
             ~MemControl();
 
-            void * mutable_gpu_data();
+            void * mutable_cpu_data();
             void * mutable_gpu_data();
             const void * cpu_data();
             const void * gpu_data();
@@ -39,4 +40,4 @@ namespace stba{
 
 }//namespace
 
-#endif //STBA_MEMCONTROL_H
+#endif //SITA_MEMCONTROL_H

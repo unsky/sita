@@ -2,12 +2,13 @@
 // Created by unsky on 27/06/18.
 //
 
-#ifndef STBA_STUFF_COMMON_H
-#define STBA_STUFF_COMMON_H
+#ifndef SITA_STUFF_COMMON_H
+#define SITA_STUFF_COMMON_H
 
 #include <vector>
 #include <glog/logging.h>
-namespace stba {
+#include <cuda_runtime.h>
+namespace sita {
 // Disable the copy and assignment operator for a class.
 #define DISABLE_COPY_AND_ASSIGN(classname) \
 private:\
@@ -19,5 +20,12 @@ private:\
 #define NOT_IMPLEMENTED LOG(FATAL) << "Not Implemented Yet"
 
 
+#define CUDA_CHECK(condition) \
+  /* Code block avoids redefinition of cudaError_t error */ \
+  do { \
+    cudaError_t error = condition; \
+    CHECK_EQ(error, cudaSuccess) << " " << cudaGetErrorString(error); \
+  } while (0)
+
 }//namespace
-#endif //STBA_STUFF_COMMON_H
+#endif //SITA_STUFF_COMMON_H

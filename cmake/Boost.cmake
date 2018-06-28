@@ -1,0 +1,22 @@
+# author: zhengwenchao@baidu.com
+
+# Boost
+if ("$ENV{SYSTEM_ENVIRONMENT}" STREQUAL "16.04x86_64")
+    SET (BOOST_ROOT "/usr")
+    SET (BOOST_INCLUDEDIR "${BOOST_ROOT}/include")
+    SET (BOOST_LIBRARYDIR "${BOOST_ROOT}/lib/x86_64-linux-gnu/")
+    find_package(Boost 1.58 COMPONENTS system filesystem thread REQUIRED)
+    include_directories(${Boost_INCLUDE_DIRS} SYSTEM)
+    link_directories(${Boost_LIBRARY_DIRS})
+elseif ("$ENV{SYSTEM_ENVIRONMENT}" STREQUAL "14.04x86_64")
+    find_package(Boost 1.5.4 COMPONENTS system filesystem thread)
+    include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+    link_directories(${Boost_LIBRARY_DIRS})
+elseif ("$ENV{SYSTEM_ENVIRONMENT}" STREQUAL "16.04aarch64")
+    SET (BOOST_ROOT "/usr")
+    SET (BOOST_INCLUDEDIR "${BOOST_ROOT}/include")
+    SET (BOOST_LIBRARYDIR "${BOOST_ROOT}/lib/aarch64-linux-gnu/")
+    find_package(Boost 1.58 COMPONENTS system filesystem thread REQUIRED)
+    include_directories(${Boost_INCLUDE_DIRS} SYSTEM)
+    link_directories(${Boost_LIBRARY_DIRS})
+endif ("$ENV{SYSTEM_ENVIRONMENT}" STREQUAL "16.04x86_64")
