@@ -14,7 +14,7 @@
 
 namespace  sita{
 
-export template <typename Dtype>
+template <typename Dtype>
 class Tensor {
     public:
 
@@ -23,9 +23,32 @@ class Tensor {
             _shape.push_back(0);
         }
 
-        explicit Tensor(const int num, const int channels, const int height, const int width);
+        explicit Tensor(const int num, const int channels, const int height,
+                        const int width){
+            _shape.push_back(num);
+            _shape.push_back(channels);
+            _shape.push_back(height);
+            _shape.push_back(width);
+            _count = num * channels * height * width;
+            _dim = 4;
+            _data.reset(new MemControl(_count * sizeof(Dtype)));
+            _diff.reset(new MemControl(_count * sizeof(Dtype)));
+        }
 
-        explicit Tensor(const std::vector<int > &shape);
+        explicit Tensor(const std::vector<int > &shape){
+            _shape.clear();
+            _count = 0;
+            int count = 1;
+            for(int i = 0; i < shape.size(); i++){
+                _shape.push_back(shape[i]);
+                count *= shape[i];
+            }
+
+            _dim = shape.size();
+            _count = count;
+            _data.reset(new MemControl(_count * sizeof(Dtype)));
+            _diff.reset(new MemControl(_count * sizeof(Dtype)));
+        }
 
         // fetch data ptr from gpu or cpu
         inline Dtype * mutable_cpu_data(){

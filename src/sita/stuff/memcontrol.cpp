@@ -6,13 +6,18 @@
 
 namespace sita{
 
-    MemControl::MemControl(): _size(0), _head_at(UNINIT){};
-    MemControl::MemControl(size_t size):_size(size), _head_at(UNINIT){};
+    MemControl::MemControl(): _size(0),_ptr_cpu(NULL),_ptr_gpu(NULL), _head_at(UNINIT),
+                              _has_cpu_data(false),
+                              _has_gpu_data(false){};
+    MemControl::MemControl(size_t size):_size(size), _head_at(UNINIT),
+                                        _has_cpu_data(false),
+                                        _has_gpu_data(false){};
     MemControl::~MemControl(){
-        if (_ptr_cpu){
+        if(_ptr_cpu && _has_cpu_data){
             free(_ptr_cpu);
-        }
-        if(_ptr_gpu){
+            }
+
+        if(_ptr_gpu && _has_gpu_data){
             cudaFree(_ptr_gpu);
         }
     }
@@ -46,6 +51,7 @@ namespace sita{
                 CHECK(_ptr_cpu)<<"malloc cpu mem fail";
                 memset(_ptr_cpu, 0, _size);
                 _head_at = CPU;
+                _has_cpu_data = true;
                 break;
             case GPU:
                 if (_ptr_cpu == NULL) {
@@ -54,6 +60,7 @@ namespace sita{
                 }
                 CUDA_CHECK(cudaMemcpy(_ptr_cpu, _ptr_gpu, _size, cudaMemcpyDeviceToHost));
                 _head_at = SYNCED;
+                _has_cpu_data = true;
                 break;
             case CPU:
             default:
@@ -67,6 +74,7 @@ namespace sita{
                 CUDA_CHECK(cudaMalloc(&_ptr_gpu, _size));
                 CUDA_CHECK(cudaMemset(_ptr_gpu, 0, _size));
                 _head_at = GPU;
+                _has_gpu_data = true;
                 break;
             case CPU:
                 if(_ptr_gpu == NULL){
@@ -74,6 +82,7 @@ namespace sita{
                 }
                 CUDA_CHECK(cudaMemcpy(_ptr_gpu, _ptr_cpu, _size, cudaMemcpyHostToDevice));
                 _head_at = SYNCED;
+                _has_gpu_data = true;
                 break;
             case GPU:
             default:

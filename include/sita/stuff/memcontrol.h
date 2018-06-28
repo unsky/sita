@@ -33,6 +33,10 @@ namespace sita{
             void * _ptr_gpu;
             void push_data_to_cpu();
             void push_data_to_gpu();
+
+            bool _has_cpu_data;
+            bool _has_gpu_data;
+
             size_t _size;
             HeadAt _head_at;
             DISABLE_COPY_AND_ASSIGN(MemControl);

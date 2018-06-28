@@ -50,12 +50,6 @@ cuda_runtime.h
 sita/stuff/memcontrol.h
 /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/memcontrol.h
 
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp
-sita/stuff/tensor.h
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/tensor.h
-cuda_runtime.h
--
-
 /home/cs/boost_1_58_0/boost/assert.hpp
 boost/config.hpp
 -

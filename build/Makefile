@@ -180,33 +180,6 @@ src/sita/stuff/memcontrol.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.s
 .PHONY : src/sita/stuff/memcontrol.cpp.s
 
-src/sita/stuff/tensor.o: src/sita/stuff/tensor.cpp.o
-
-.PHONY : src/sita/stuff/tensor.o
-
-# target to build an object file
-src/sita/stuff/tensor.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
-.PHONY : src/sita/stuff/tensor.cpp.o
-
-src/sita/stuff/tensor.i: src/sita/stuff/tensor.cpp.i
-
-.PHONY : src/sita/stuff/tensor.i
-
-# target to preprocess a source file
-src/sita/stuff/tensor.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.i
-.PHONY : src/sita/stuff/tensor.cpp.i
-
-src/sita/stuff/tensor.s: src/sita/stuff/tensor.cpp.s
-
-.PHONY : src/sita/stuff/tensor.s
-
-# target to generate assembly for a file
-src/sita/stuff/tensor.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.s
-.PHONY : src/sita/stuff/tensor.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,9 +195,6 @@ help:
 	@echo "... src/sita/stuff/memcontrol.o"
 	@echo "... src/sita/stuff/memcontrol.i"
 	@echo "... src/sita/stuff/memcontrol.s"
-	@echo "... src/sita/stuff/tensor.o"
-	@echo "... src/sita/stuff/tensor.i"
-	@echo "... src/sita/stuff/tensor.s"
 .PHONY : help
 
 
