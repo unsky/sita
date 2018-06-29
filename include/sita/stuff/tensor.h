@@ -8,9 +8,10 @@
 #include <iostream>
 #include <sstream>
 #include <boost/shared_ptr.hpp>
+#include <climits>
 
-#include "../../../include/sita/stuff/memcontrol.h"
-#include "../../../include/sita/stuff/common.h"
+#include "sita/stuff/memcontrol.h"
+#include "sita/stuff/common.h"
 
 namespace  sita {
 
@@ -24,33 +25,9 @@ public:
     }
 
     explicit Tensor(const int num, const int channels, const int height,
-                    const int width) {
-        _shape.push_back(num);
-        _shape.push_back(channels);
-        _shape.push_back(height);
-        _shape.push_back(width);
-        _count = num * channels * height * width;
-        _dim = 4;
-        _data.reset(new MemControl(_count * sizeof(Dtype)));
-        _diff.reset(new MemControl(_count * sizeof(Dtype)));
-    }
+                    const int width);
 
-    explicit Tensor(const std::vector<int >& shape) {
-        _shape.clear();
-        _count = 0;
-        int count = 1;
-
-        for (int i = 0; i < shape.size(); i++) {
-            _shape.push_back(shape[i]);
-            count *= shape[i];
-        }
-
-        _dim = shape.size();
-        _count = count;
-        _data.reset(new MemControl(_count * sizeof(Dtype)));
-        _diff.reset(new MemControl(_count * sizeof(Dtype)));
-    }
-
+    explicit Tensor(const std::vector<int >& shape);
     // fetch data ptr from gpu or cpu
     inline Dtype* mutable_cpu_data() {
         return (Dtype*)_data->mutable_cpu_data();
@@ -79,11 +56,9 @@ public:
         return (const Dtype*)_diff->gpu_data();
     }
 
-    inline std::vector<int >shape() {
+    inline const std::vector<int >shape() const{
         return _shape;
     }
-
-    void reshape(std::vector<int> shape);
 
     inline std::string shape_string() const {
         std::ostringstream stream;
@@ -103,6 +78,18 @@ public:
     inline const int count() const {
         return _count;
     }
+
+    void reshape(const std::vector<int> &shape);
+    void reshape(const int num, const int channels, const int height, const int width);
+    void reshape_like(const Tensor<Dtype> &t_other);
+
+    void copy_from(const Tensor<Dtype> &t_other, bool reshape = true);
+
+    void set_data_zero();
+    void set_diff_zero();
+
+   int get_site_by_coord(const int num, const int channels, const int height, const int width);
+   int get_site_by_coord(const std::vector<int > &coord);
 
 protected:
     std::vector<int > _shape;

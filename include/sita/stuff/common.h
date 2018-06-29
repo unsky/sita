@@ -18,7 +18,12 @@ private:\
 // A simple macro to mark codes that are not implemented, so that when the code
 // is executed we will see a fatal log.
 #define NOT_IMPLEMENTED LOG(FATAL) << "Not Implemented Yet"
-
+//for template
+#define INSTANTIATE_CLASS(classname) \
+  char gInstantiationGuard##classname; \
+  template class classname<float>; \
+  template class classname<double>; \
+  template class classname<int>
 
 #define CUDA_CHECK(condition) \
   /* Code block avoids redefinition of cudaError_t error */ \

@@ -13,7 +13,6 @@ find_package(CUDA 8.0 REQUIRED)
 set (CUDA_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O2 -m64 -fpermissive -std=c++11 -g -pthread -lboost_system ")
 
 set(INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
-
 include_directories(${INCLUDE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/src)
 cuda_include_directories(${PROJECT_SOURCE_DIR}/src)
@@ -34,6 +33,7 @@ file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 set(SITA_FILES
         main.cpp
         src/sita/stuff/memcontrol.cpp
+        src/sita/stuff/tensor.cpp
         )
 
 

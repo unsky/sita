@@ -53,7 +53,7 @@ void MemControl::push_data_to_cpu() {
         break;
 
     case GPU:
-        if (_ptr_cpu == NULL) {
+        if (_has_cpu_data == false) {
             _ptr_cpu = malloc(_size);
             CHECK(_ptr_cpu) << "malloc cpu mem fail";
         }
@@ -79,7 +79,8 @@ void MemControl::push_data_to_gpu() {
         break;
 
     case CPU:
-        if (_ptr_gpu == NULL) {
+        if (_has_gpu_data == false) {
+
             CUDA_CHECK(cudaMalloc(&_ptr_gpu, _size));
         }
 
