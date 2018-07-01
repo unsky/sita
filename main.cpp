@@ -2,7 +2,7 @@
 // Created by unsky on 28/06/18.
 //
 #include "sita/stuff/macros.h"
-#include "sita/stuff/mem_control.h"
+#include "sita/stuff/memory_control.h"
 #include "sita/stuff/tensor.h"
 #include <glog/logging.h>
 

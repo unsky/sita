@@ -4,7 +4,7 @@
 CMakeFiles/sita.dir/main.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/macros.h
- ../include/sita/stuff/mem_control.h
+ ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/tensor.h
  /home/cs/Desktop/cs_work/unsky/sita/main.cpp
  /home/cs/boost_1_58_0/boost/assert.hpp
@@ -469,11 +469,11 @@ CMakeFiles/sita.dir/main.cpp.o
  /usr/local/cuda/include/vector_functions.h
  /usr/local/cuda/include/vector_functions.hpp
  /usr/local/cuda/include/vector_types.h
-CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
+CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/macros.h
- ../include/sita/stuff/mem_control.h
- /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp
+ ../include/sita/stuff/memory_control.h
+ /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memory_control.cpp
  /home/cs/work/detector/thirdparty/for_x86/glog/include/glog/log_severity.h
  /home/cs/work/detector/thirdparty/for_x86/glog/include/glog/logging.h
  /home/cs/work/detector/thirdparty/for_x86/glog/include/glog/vlog_is_on.h
@@ -533,7 +533,7 @@ CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
 CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/macros.h
- ../include/sita/stuff/mem_control.h
+ ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/tensor.h
  /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp
  /home/cs/boost_1_58_0/boost/assert.hpp

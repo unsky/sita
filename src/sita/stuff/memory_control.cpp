@@ -1,7 +1,7 @@
 //
 // Created by unsky on 27/06/18.
 //
-#include "sita/stuff/mem_control.h"
+#include "sita/stuff/memory_control.h"
 #include "sita/stuff/context.h"
 #include "sita/stuff/macros.h"
 

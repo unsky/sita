@@ -10,7 +10,7 @@
 #include <boost/shared_ptr.hpp>
 #include <climits>
 
-#include "sita/stuff/mem_control.h"
+#include "sita/stuff/memory_control.h"
 #include "sita/stuff/macros.h"
 #include "sita/stuff/context.h"
 

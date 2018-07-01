@@ -20,7 +20,7 @@ vector
 glog/logging.h
 -
 
-../include/sita/stuff/mem_control.h
+../include/sita/stuff/memory_control.h
 cstdlib
 -
 sita/stuff/macros.h
@@ -39,8 +39,8 @@ boost/shared_ptr.hpp
 -
 climits
 -
-sita/stuff/mem_control.h
-../include/sita/stuff/sita/stuff/mem_control.h
+sita/stuff/memory_control.h
+../include/sita/stuff/sita/stuff/memory_control.h
 sita/stuff/macros.h
 ../include/sita/stuff/sita/stuff/macros.h
 sita/stuff/context.h
@@ -49,16 +49,16 @@ sita/stuff/context.h
 /home/cs/Desktop/cs_work/unsky/sita/main.cpp
 sita/stuff/macros.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/macros.h
-sita/stuff/mem_control.h
-/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/mem_control.h
+sita/stuff/memory_control.h
+/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/memory_control.h
 sita/stuff/tensor.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/tensor.h
 glog/logging.h
 -
 
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp
-sita/stuff/mem_control.h
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/mem_control.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memory_control.cpp
+sita/stuff/memory_control.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/memory_control.h
 sita/stuff/context.h
 /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/context.h
 sita/stuff/macros.h

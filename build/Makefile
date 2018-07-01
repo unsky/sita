@@ -153,32 +153,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/sita/stuff/mem_control.o: src/sita/stuff/mem_control.cpp.o
+src/sita/stuff/memory_control.o: src/sita/stuff/memory_control.cpp.o
 
-.PHONY : src/sita/stuff/mem_control.o
+.PHONY : src/sita/stuff/memory_control.o
 
 # target to build an object file
-src/sita/stuff/mem_control.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
-.PHONY : src/sita/stuff/mem_control.cpp.o
+src/sita/stuff/memory_control.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
+.PHONY : src/sita/stuff/memory_control.cpp.o
 
-src/sita/stuff/mem_control.i: src/sita/stuff/mem_control.cpp.i
+src/sita/stuff/memory_control.i: src/sita/stuff/memory_control.cpp.i
 
-.PHONY : src/sita/stuff/mem_control.i
+.PHONY : src/sita/stuff/memory_control.i
 
 # target to preprocess a source file
-src/sita/stuff/mem_control.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.i
-.PHONY : src/sita/stuff/mem_control.cpp.i
+src/sita/stuff/memory_control.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.i
+.PHONY : src/sita/stuff/memory_control.cpp.i
 
-src/sita/stuff/mem_control.s: src/sita/stuff/mem_control.cpp.s
+src/sita/stuff/memory_control.s: src/sita/stuff/memory_control.cpp.s
 
-.PHONY : src/sita/stuff/mem_control.s
+.PHONY : src/sita/stuff/memory_control.s
 
 # target to generate assembly for a file
-src/sita/stuff/mem_control.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.s
-.PHONY : src/sita/stuff/mem_control.cpp.s
+src/sita/stuff/memory_control.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.s
+.PHONY : src/sita/stuff/memory_control.cpp.s
 
 src/sita/stuff/tensor.o: src/sita/stuff/tensor.cpp.o
 
@@ -219,9 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/sita/stuff/mem_control.o"
-	@echo "... src/sita/stuff/mem_control.i"
-	@echo "... src/sita/stuff/mem_control.s"
+	@echo "... src/sita/stuff/memory_control.o"
+	@echo "... src/sita/stuff/memory_control.i"
+	@echo "... src/sita/stuff/memory_control.s"
 	@echo "... src/sita/stuff/tensor.o"
 	@echo "... src/sita/stuff/tensor.i"
 	@echo "... src/sita/stuff/tensor.s"
