@@ -1,8 +1,8 @@
 //
 // Created by unsky on 28/06/18.
 //
-#include "sita/stuff/common.h"
-#include "sita/stuff/memcontrol.h"
+#include "sita/stuff/macros.h"
+#include "sita/stuff/mem_control.h"
 #include "sita/stuff/tensor.h"
 #include <glog/logging.h>
 
@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
         LOG(INFO) << t1.get_site_by_coord(0, 1, 0, 0);
 
         sita::Tensor<float> t2(1, 100, 1000, 1000);
+        t2.gpu_data();
         LOG(INFO) << t2.get_site_by_coord(0, 60, 50, 100);
 
 

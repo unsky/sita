@@ -6,19 +6,27 @@
 
 #IncludeRegexTransform: 
 
-../include/sita/stuff/common.h
+../include/sita/stuff/context.h
+cuda_runtime.h
+-
+glog/logging.h
+-
+cstdlib
+-
+
+../include/sita/stuff/macros.h
 vector
 -
 glog/logging.h
 -
-cuda_runtime.h
--
 
-../include/sita/stuff/memcontrol.h
+../include/sita/stuff/mem_control.h
 cstdlib
 -
-sita/stuff/common.h
-../include/sita/stuff/sita/stuff/common.h
+sita/stuff/macros.h
+../include/sita/stuff/sita/stuff/macros.h
+sita/stuff/context.h
+../include/sita/stuff/sita/stuff/context.h
 
 ../include/sita/stuff/tensor.h
 vector
@@ -31,26 +39,30 @@ boost/shared_ptr.hpp
 -
 climits
 -
-sita/stuff/memcontrol.h
-../include/sita/stuff/sita/stuff/memcontrol.h
-sita/stuff/common.h
-../include/sita/stuff/sita/stuff/common.h
+sita/stuff/mem_control.h
+../include/sita/stuff/sita/stuff/mem_control.h
+sita/stuff/macros.h
+../include/sita/stuff/sita/stuff/macros.h
+sita/stuff/context.h
+../include/sita/stuff/sita/stuff/context.h
 
 /home/cs/Desktop/cs_work/unsky/sita/main.cpp
-sita/stuff/common.h
-/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/common.h
-sita/stuff/memcontrol.h
-/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/memcontrol.h
+sita/stuff/macros.h
+/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/macros.h
+sita/stuff/mem_control.h
+/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/mem_control.h
 sita/stuff/tensor.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/tensor.h
 glog/logging.h
 -
 
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memcontrol.cpp
-cuda_runtime.h
--
-sita/stuff/memcontrol.h
-/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/memcontrol.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp
+sita/stuff/mem_control.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/mem_control.h
+sita/stuff/context.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/context.h
+sita/stuff/macros.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/macros.h
 
 /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp
 sita/stuff/tensor.h

@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/cs/Desktop/cs_work/unsky/sita/main.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/main.cpp.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memcontrol.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o"
+  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o"
   "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

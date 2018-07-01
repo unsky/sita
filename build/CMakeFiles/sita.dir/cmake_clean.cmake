@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sita.dir/main.cpp.o"
-  "CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o"
+  "CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o"
   "CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
   "sita.pdb"
   "sita"

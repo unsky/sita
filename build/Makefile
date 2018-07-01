@@ -153,32 +153,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/sita/stuff/memcontrol.o: src/sita/stuff/memcontrol.cpp.o
+src/sita/stuff/mem_control.o: src/sita/stuff/mem_control.cpp.o
 
-.PHONY : src/sita/stuff/memcontrol.o
+.PHONY : src/sita/stuff/mem_control.o
 
 # target to build an object file
-src/sita/stuff/memcontrol.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o
-.PHONY : src/sita/stuff/memcontrol.cpp.o
+src/sita/stuff/mem_control.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
+.PHONY : src/sita/stuff/mem_control.cpp.o
 
-src/sita/stuff/memcontrol.i: src/sita/stuff/memcontrol.cpp.i
+src/sita/stuff/mem_control.i: src/sita/stuff/mem_control.cpp.i
 
-.PHONY : src/sita/stuff/memcontrol.i
+.PHONY : src/sita/stuff/mem_control.i
 
 # target to preprocess a source file
-src/sita/stuff/memcontrol.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.i
-.PHONY : src/sita/stuff/memcontrol.cpp.i
+src/sita/stuff/mem_control.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.i
+.PHONY : src/sita/stuff/mem_control.cpp.i
 
-src/sita/stuff/memcontrol.s: src/sita/stuff/memcontrol.cpp.s
+src/sita/stuff/mem_control.s: src/sita/stuff/mem_control.cpp.s
 
-.PHONY : src/sita/stuff/memcontrol.s
+.PHONY : src/sita/stuff/mem_control.s
 
 # target to generate assembly for a file
-src/sita/stuff/memcontrol.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.s
-.PHONY : src/sita/stuff/memcontrol.cpp.s
+src/sita/stuff/mem_control.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.s
+.PHONY : src/sita/stuff/mem_control.cpp.s
 
 src/sita/stuff/tensor.o: src/sita/stuff/tensor.cpp.o
 
@@ -219,9 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/sita/stuff/memcontrol.o"
-	@echo "... src/sita/stuff/memcontrol.i"
-	@echo "... src/sita/stuff/memcontrol.s"
+	@echo "... src/sita/stuff/mem_control.o"
+	@echo "... src/sita/stuff/mem_control.i"
+	@echo "... src/sita/stuff/mem_control.s"
 	@echo "... src/sita/stuff/tensor.o"
 	@echo "... src/sita/stuff/tensor.i"
 	@echo "... src/sita/stuff/tensor.s"

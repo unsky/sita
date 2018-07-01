@@ -6,7 +6,8 @@
 #define SITA_STUFF_MEMCONTROL_H
 
 #include <cstdlib>
-#include "sita/stuff/common.h"
+#include "sita/stuff/macros.h"
+#include "sita/stuff/context.h"
 
 namespace sita {
 class MemControl {

@@ -10,8 +10,9 @@
 #include <boost/shared_ptr.hpp>
 #include <climits>
 
-#include "sita/stuff/memcontrol.h"
-#include "sita/stuff/common.h"
+#include "sita/stuff/mem_control.h"
+#include "sita/stuff/macros.h"
+#include "sita/stuff/context.h"
 
 namespace  sita {
 

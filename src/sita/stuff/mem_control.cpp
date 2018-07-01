@@ -1,8 +1,9 @@
 //
 // Created by unsky on 27/06/18.
 //
-#include <cuda_runtime.h>
-#include "sita/stuff/memcontrol.h"
+#include "sita/stuff/mem_control.h"
+#include "sita/stuff/context.h"
+#include "sita/stuff/macros.h"
 
 namespace sita {
 
@@ -14,11 +15,11 @@ MemControl::MemControl(size_t size): _size(size), _head_at(UNINIT),
 
 MemControl::~MemControl() {
     if (_ptr_cpu && _has_cpu_data) {
-        free(_ptr_cpu);
+        Context::cpu_free(_ptr_cpu);
     }
 
     if (_ptr_gpu && _has_gpu_data) {
-        cudaFree(_ptr_gpu);
+        Context::gpu_free(_ptr_gpu);
     }
 }
 
@@ -44,26 +45,25 @@ void* MemControl::mutable_gpu_data() {
 
 void MemControl::push_data_to_cpu() {
     switch (_head_at) {
+
     case UNINIT:
-        _ptr_cpu = malloc(_size);
-        CHECK(_ptr_cpu) << "malloc cpu mem fail";
-        memset(_ptr_cpu, 0, _size);
+        _ptr_cpu = Context::cpu_malloc(_ptr_cpu, _size);
+        Context::cpu_memset(_ptr_cpu, _size);
         _head_at = CPU;
         _has_cpu_data = true;
         break;
 
     case GPU:
         if (_has_cpu_data == false) {
-            _ptr_cpu = malloc(_size);
-            CHECK(_ptr_cpu) << "malloc cpu mem fail";
+            Context::cpu_malloc(_ptr_cpu, _size);
         }
-
-        CUDA_CHECK(cudaMemcpy(_ptr_cpu, _ptr_gpu, _size, cudaMemcpyDeviceToHost));
+        Context::gpu_memcpy(_ptr_cpu, _ptr_gpu, _size, gpu2cpu);
         _head_at = SYNCED;
         _has_cpu_data = true;
         break;
 
     case CPU:
+
     default:
         break;
     }
@@ -72,24 +72,23 @@ void MemControl::push_data_to_cpu() {
 void MemControl::push_data_to_gpu() {
     switch (_head_at) {
     case UNINIT:
-        CUDA_CHECK(cudaMalloc(&_ptr_gpu, _size));
-        CUDA_CHECK(cudaMemset(_ptr_gpu, 0, _size));
+        _ptr_gpu = Context::gpu_malloc(_ptr_gpu, _size);
+        Context::gpu_memset(_ptr_gpu, _size);
         _head_at = GPU;
         _has_gpu_data = true;
         break;
 
     case CPU:
         if (_has_gpu_data == false) {
-
-            CUDA_CHECK(cudaMalloc(&_ptr_gpu, _size));
+            _ptr_gpu = Context::gpu_malloc(_ptr_gpu, _size);
         }
-
-        CUDA_CHECK(cudaMemcpy(_ptr_gpu, _ptr_cpu, _size, cudaMemcpyHostToDevice));
+        Context::gpu_memcpy(_ptr_gpu, _ptr_cpu, _size, cpu2gpu);
         _head_at = SYNCED;
         _has_gpu_data = true;
         break;
 
     case GPU:
+
     default:
         break;
     }

@@ -84,28 +84,28 @@ CMakeFiles/sita.dir/main.cpp.o.provides: CMakeFiles/sita.dir/main.cpp.o.requires
 CMakeFiles/sita.dir/main.cpp.o.provides.build: CMakeFiles/sita.dir/main.cpp.o
 
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o: CMakeFiles/sita.dir/flags.make
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o: ../src/sita/stuff/memcontrol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o -c /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memcontrol.cpp
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o: CMakeFiles/sita.dir/flags.make
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o: ../src/sita/stuff/mem_control.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o -c /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memcontrol.cpp > CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.i
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp > CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.i
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memcontrol.cpp -o CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.s
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/mem_control.cpp -o CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.s
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.requires:
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.requires:
 
-.PHONY : CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.requires
+.PHONY : CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.requires
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.provides: CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.requires
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.provides.build
-.PHONY : CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.provides
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.provides: CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.provides.build
+.PHONY : CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.provides
 
-CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o
+CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
 
 
 CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o: CMakeFiles/sita.dir/flags.make
@@ -135,14 +135,14 @@ CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o.provides.build: CMakeFiles/sita.
 # Object files for target sita
 sita_OBJECTS = \
 "CMakeFiles/sita.dir/main.cpp.o" \
-"CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o" \
+"CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o" \
 "CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
 
 # External object files for target sita
 sita_EXTERNAL_OBJECTS =
 
 sita: CMakeFiles/sita.dir/main.cpp.o
-sita: CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o
+sita: CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
 sita: CMakeFiles/sita.dir/build.make
 sita: /usr/local/cuda/lib64/libcudart_static.a
@@ -172,7 +172,7 @@ CMakeFiles/sita.dir/build: sita
 .PHONY : CMakeFiles/sita.dir/build
 
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/main.cpp.o.requires
-CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/memcontrol.cpp.o.requires
+CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/mem_control.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o.requires
 
 .PHONY : CMakeFiles/sita.dir/requires

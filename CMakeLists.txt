@@ -32,7 +32,7 @@ file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
 set(SITA_FILES
         main.cpp
-        src/sita/stuff/memcontrol.cpp
+        src/sita/stuff/mem_control.cpp
         src/sita/stuff/tensor.cpp
         )
 
