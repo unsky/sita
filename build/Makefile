@@ -153,6 +153,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/sita/protos/sita.pb.o: src/sita/protos/sita.pb.cc.o
+
+.PHONY : src/sita/protos/sita.pb.o
+
+# target to build an object file
+src/sita/protos/sita.pb.cc.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o
+.PHONY : src/sita/protos/sita.pb.cc.o
+
+src/sita/protos/sita.pb.i: src/sita/protos/sita.pb.cc.i
+
+.PHONY : src/sita/protos/sita.pb.i
+
+# target to preprocess a source file
+src/sita/protos/sita.pb.cc.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.i
+.PHONY : src/sita/protos/sita.pb.cc.i
+
+src/sita/protos/sita.pb.s: src/sita/protos/sita.pb.cc.s
+
+.PHONY : src/sita/protos/sita.pb.s
+
+# target to generate assembly for a file
+src/sita/protos/sita.pb.cc.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.s
+.PHONY : src/sita/protos/sita.pb.cc.s
+
+src/sita/stuff/graph.o: src/sita/stuff/graph.cpp.o
+
+.PHONY : src/sita/stuff/graph.o
+
+# target to build an object file
+src/sita/stuff/graph.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o
+.PHONY : src/sita/stuff/graph.cpp.o
+
+src/sita/stuff/graph.i: src/sita/stuff/graph.cpp.i
+
+.PHONY : src/sita/stuff/graph.i
+
+# target to preprocess a source file
+src/sita/stuff/graph.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.i
+.PHONY : src/sita/stuff/graph.cpp.i
+
+src/sita/stuff/graph.s: src/sita/stuff/graph.cpp.s
+
+.PHONY : src/sita/stuff/graph.s
+
+# target to generate assembly for a file
+src/sita/stuff/graph.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s
+.PHONY : src/sita/stuff/graph.cpp.s
+
 src/sita/stuff/memory_control.o: src/sita/stuff/memory_control.cpp.o
 
 .PHONY : src/sita/stuff/memory_control.o
@@ -246,6 +300,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/sita/protos/sita.pb.o"
+	@echo "... src/sita/protos/sita.pb.i"
+	@echo "... src/sita/protos/sita.pb.s"
+	@echo "... src/sita/stuff/graph.o"
+	@echo "... src/sita/stuff/graph.i"
+	@echo "... src/sita/stuff/graph.s"
 	@echo "... src/sita/stuff/memory_control.o"
 	@echo "... src/sita/stuff/memory_control.i"
 	@echo "... src/sita/stuff/memory_control.s"

@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+message OperatorSym {
+    repeated string inputs = 1;
+    repeated string outputs = 2;
+    optional string name = 3;
+    optional string type = 4;
+}
+
+message GraphSym {
+    optional string name = 1;
+    repeated OperatorSym op = 2;
+}

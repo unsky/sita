@@ -29,12 +29,16 @@ include_directories(${GLOG_INCLUDE_DIR})
 link_directories(${GLOG_LIBRARY_DIR})
 file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
+execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/protos/ ${PROJECT_SOURCE_DIR}/src/sita/protos/sita.proto)
+
 
 set(SITA_FILES
         main.cpp
         src/sita/stuff/memory_control.cpp
         src/sita/stuff/tensor.cpp
         src/sita/stuff/workspace.cpp
+        src/sita/protos/sita.pb.cc
+        src/sita/stuff/graph.cpp
         )
 
 

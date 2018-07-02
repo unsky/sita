@@ -5,6 +5,7 @@
 #include "sita/stuff/memory_control.h"
 #include "sita/stuff/tensor.h"
 #include "sita/stuff/workspace.h"
+#include "sita/stuff/graph.h"
 #include <glog/logging.h>
 
 int test_tensor() {
@@ -16,6 +17,14 @@ int main(int argc, char** argv) {
     gws.device_query();
     gws.set_device(0);
     int k = 0;
+    LOG(INFO) << "开始创建图结构： ";
+    sita::Graph graph("lenet");
+
+    graph.append("data", "data", {"images"}, {"data, label"});
+    graph.append("conv", "conv1", {"data"},{"conv1"});
+    graph.append("conv", "conv2", {"conv1"},{"conv2"});
+    LOG(INFO) << "图结构" << graph.graph_name()<<"构建完成..";
+    graph.graph_symbol_show();
     while(k!=2) {
         k ++;
 

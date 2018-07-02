@@ -16,7 +16,7 @@ namespace sita{
 
 class WorkSpace{
 public:
-    WorkSpace(){}
+    WorkSpace():_gpu_id(0){}
 
     ~WorkSpace(){}
 

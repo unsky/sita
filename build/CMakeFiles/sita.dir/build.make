@@ -156,12 +156,62 @@ CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o.provides: CMakeFiles/sita.dir
 CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o
 
 
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o: CMakeFiles/sita.dir/flags.make
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o: ../src/sita/protos/sita.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o -c /home/cs/Desktop/cs_work/unsky/sita/src/sita/protos/sita.pb.cc
+
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/unsky/sita/src/sita/protos/sita.pb.cc > CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.i
+
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/unsky/sita/src/sita/protos/sita.pb.cc -o CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.s
+
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.requires:
+
+.PHONY : CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.requires
+
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.provides: CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.requires
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.provides.build
+.PHONY : CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.provides
+
+CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.provides.build: CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o
+
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o: CMakeFiles/sita.dir/flags.make
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o: ../src/sita/stuff/graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o -c /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/graph.cpp
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/graph.cpp > CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.i
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/graph.cpp -o CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.requires:
+
+.PHONY : CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.requires
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.provides: CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.provides.build
+.PHONY : CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.provides
+
+CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o
+
+
 # Object files for target sita
 sita_OBJECTS = \
 "CMakeFiles/sita.dir/main.cpp.o" \
 "CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o" \
 "CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o" \
-"CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o"
+"CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o" \
+"CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o" \
+"CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
 
 # External object files for target sita
 sita_EXTERNAL_OBJECTS =
@@ -170,6 +220,8 @@ sita: CMakeFiles/sita.dir/main.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o
+sita: CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o
+sita: CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o
 sita: CMakeFiles/sita.dir/build.make
 sita: /usr/local/cuda/lib64/libcudart_static.a
 sita: /usr/lib/x86_64-linux-gnu/librt.so
@@ -189,7 +241,7 @@ sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgcodecs3.so.3.3.1
 sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
 sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
 sita: CMakeFiles/sita.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable sita"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable sita"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sita.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -201,6 +253,8 @@ CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/main.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o.requires
+CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o.requires
+CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o.requires
 
 .PHONY : CMakeFiles/sita.dir/requires
 
