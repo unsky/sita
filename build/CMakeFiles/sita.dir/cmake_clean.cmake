@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sita.dir/main.cpp.o"
   "CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o"
   "CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
+  "CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o"
   "sita.pdb"
   "sita"
 )

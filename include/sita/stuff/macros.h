@@ -9,6 +9,9 @@
 #include <glog/logging.h>
 
 namespace sita {
+
+
+
 #define  cudaMemcpyHostToDevice cpu2gpu
 #define  cudaMemcpyDeviceToHost gpu2cpu
 #define  cudaMemcpyDeviceToDevice gpu2gpu

@@ -99,7 +99,7 @@ protected:
     boost::shared_ptr<MemControl> _data;
     boost::shared_ptr<MemControl> _diff;
 
-    DISABLE_COPY_AND_ASSIGN(Tensor);
+  //  DISABLE_COPY_AND_ASSIGN(Tensor);
 };
 
 

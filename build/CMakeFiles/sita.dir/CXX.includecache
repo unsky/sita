@@ -46,6 +46,24 @@ sita/stuff/macros.h
 sita/stuff/context.h
 ../include/sita/stuff/sita/stuff/context.h
 
+../include/sita/stuff/workspace.h
+vector
+-
+map
+-
+set
+-
+glog/logging.h
+-
+cuda_runtime.h
+-
+tensor.h
+../include/sita/stuff/tensor.h
+context.h
+../include/sita/stuff/context.h
+macros.h
+../include/sita/stuff/macros.h
+
 /home/cs/Desktop/cs_work/unsky/sita/main.cpp
 sita/stuff/macros.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/macros.h
@@ -53,6 +71,8 @@ sita/stuff/memory_control.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/memory_control.h
 sita/stuff/tensor.h
 /home/cs/Desktop/cs_work/unsky/sita/sita/stuff/tensor.h
+sita/stuff/workspace.h
+/home/cs/Desktop/cs_work/unsky/sita/sita/stuff/workspace.h
 glog/logging.h
 -
 
@@ -67,6 +87,10 @@ sita/stuff/macros.h
 /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp
 sita/stuff/tensor.h
 /home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/tensor.h
+
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/workspace.cpp
+sita/stuff/workspace.h
+/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/sita/stuff/workspace.h
 
 /home/cs/boost_1_58_0/boost/assert.hpp
 boost/config.hpp

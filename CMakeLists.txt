@@ -34,6 +34,7 @@ set(SITA_FILES
         main.cpp
         src/sita/stuff/memory_control.cpp
         src/sita/stuff/tensor.cpp
+        src/sita/stuff/workspace.cpp
         )
 
 

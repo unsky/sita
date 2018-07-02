@@ -4,15 +4,21 @@
 #include "sita/stuff/macros.h"
 #include "sita/stuff/memory_control.h"
 #include "sita/stuff/tensor.h"
+#include "sita/stuff/workspace.h"
 #include <glog/logging.h>
-
 
 int test_tensor() {
     sita::Tensor<float> t(1, 1, 1, 4);
 
 }
 int main(int argc, char** argv) {
-    while(true) {
+    sita::GlobalWorkSpace<float > gws;
+    gws.device_query();
+    gws.set_device(0);
+    int k = 0;
+    while(k!=2) {
+        k ++;
+
         std::vector<int> shape;
 
         shape.push_back(100);
@@ -64,8 +70,32 @@ int main(int argc, char** argv) {
         t2.gpu_data();
         LOG(INFO) << t2.get_site_by_coord(0, 60, 50, 100);
 
+        std::pair<int, sita::Tensor<float> * > Tensor_pair;
+        Tensor_pair = gws.fetch_temp_tensor();
+        Tensor_pair.second->reshape(30,40,50,60);
+        Tensor_pair.second->gpu_data();
+        gws.release_temp_tensor(Tensor_pair.first);
+
+        std::pair<int, sita::Tensor<float> * > Tensor_pair1;
+
+        Tensor_pair1 = gws.fetch_temp_tensor();
+
+        Tensor_pair1.second->reshape(100,100,110,100);
+        Tensor_pair1.second->gpu_data();
+
+        LOG(INFO) << gws.temp_tensor_memory_size();
+
+        gws.release_temp_tensor(Tensor_pair1.first);
+
+
+
+        LOG(INFO) << gws.temp_tensor_memory_size();
+        gws.train();
+
 
     }
+    //workspace test
+
 
     return 0;
 }
