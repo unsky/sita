@@ -7,10 +7,17 @@
 #include "sita/stuff/workspace.h"
 #include "sita/stuff/graph.h"
 #include <glog/logging.h>
+class A{
+public:
+    A(){};
+    static sita::Tensor<float>  get(){
+        sita::Tensor<float>  aa(2,3,4,5);
+        return aa;
+    }
+};
 
 int test_tensor() {
     sita::Tensor<float> t(1, 1, 1, 4);
-
 }
 int main(int argc, char** argv) {
     sita::GlobalWorkSpace<float > gws;
@@ -100,6 +107,10 @@ int main(int argc, char** argv) {
 
         LOG(INFO) << gws.temp_tensor_memory_size();
         gws.train();
+
+       // A a;
+        sita::Tensor<float> k = A::get();
+        LOG(INFO)<<"000000000"<<k.count();
 
 
     }

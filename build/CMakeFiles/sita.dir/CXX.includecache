@@ -21,6 +21,8 @@ glog/logging.h
 -
 macros.h
 ../include/sita/stuff/macros.h
+operator.h
+../include/sita/stuff/operator.h
 sita/protos/sita.pb.h
 ../include/sita/stuff/sita/protos/sita.pb.h
 
@@ -37,6 +39,14 @@ sita/stuff/macros.h
 ../include/sita/stuff/sita/stuff/macros.h
 sita/stuff/context.h
 ../include/sita/stuff/sita/stuff/context.h
+
+../include/sita/stuff/operator.h
+vector
+-
+string
+-
+sita/stuff/workspace.h
+../include/sita/stuff/sita/stuff/workspace.h
 
 ../include/sita/stuff/tensor.h
 vector
