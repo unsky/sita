@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-message OperatorSym {
+message OperatorDef {
     repeated string inputs = 1;
     repeated string outputs = 2;
     optional string name = 3;
@@ -9,5 +9,5 @@ message OperatorSym {
 
 message GraphSym {
     optional string name = 1;
-    repeated OperatorSym op = 2;
+    repeated OperatorDef op = 2;
 }

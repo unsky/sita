@@ -68,6 +68,14 @@ float GlobalWorkSpace<Dtype>::temp_tensor_memory_size(){
     }
     return memory_size/(1024 * 1024 * 8);
 }
+template <typename Dtype>
+void GlobalWorkSpace<Dtype>::global_init()
+{   
+    _ops.clear();
+    for(int i = 0; i < _graph->_grap_sym.op_size(); i++){
+        _ops.push_back(OperatorRegistry<Dtype>::CreateOperator(_grap_sym.op(i), this));
+    }
+}
 
 INSTANTIATE_CLASS(GlobalWorkSpace);
 }

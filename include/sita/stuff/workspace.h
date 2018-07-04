@@ -39,13 +39,18 @@ public:
     ~GlobalWorkSpace(){};
 
     //temp tensor
-
     std::pair<int, Tensor<Dtype> * > fetch_temp_tensor();
     void release_temp_tensor(int released_id);
     float temp_tensor_memory_size();
 
     //grap
-    void build_grap(){};
+    inline void build_graph(Graph * graph){
+        _graph = graph;
+    };
+    inline void graph_show(){
+        _graph->graph_show();
+    }
+    void global_init();
     void train(){};
 
     //net
@@ -56,6 +61,14 @@ private:
     std::vector<Tensor<Dtype> > _temp_tensor;
 
 
+    //graph
+    Graph * _graph;
+    std::vector<Operator<Dtype> *> _ops;
+    // input/output name                         using count
+    std::map<std::sting, std::pair<Tensor<Dtype>, int> > _flow_mem;
+
+    // params         name                   type          weight/bias name  weight/bias
+    std::vector<std::string, std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > _weights;
 
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };

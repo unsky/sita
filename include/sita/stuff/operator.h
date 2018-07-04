@@ -6,13 +6,14 @@
 #define SITA_STUFF_OPERATORS_H
 #include <vector>
 #include <string>
-#include "sita/stuff/workspace.h"
+#include "macros.h"
+#include "workspace.h"
 namespace sita{
 
 template <typename Dtype>
 class Operator{
 public:
-    Operator(std::string op_type, GlobalWorkSpace<Dtype> *gws):_op_type(op_type),_gws(gws){}
+    Operator(const OperatorDef&, GlobalWorkSpace<Dtype> *gws):_op_type(op_type),_gws(gws){}
     ~Operator(){}
     init(){};
     forward(){};
@@ -23,5 +24,6 @@ protected:
 };
 
 }//namespace
+
 
 #endif //SITA_STUFF_OPERATORS_H

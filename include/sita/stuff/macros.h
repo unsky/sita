@@ -7,10 +7,9 @@
 
 #include <vector>
 #include <glog/logging.h>
+#include "registry.h"
 
 namespace sita {
-
-
 
 #define  cudaMemcpyHostToDevice cpu2gpu
 #define  cudaMemcpyDeviceToHost gpu2cpu
@@ -67,6 +66,7 @@ private:\
   template class classname<float>; \
   template class classname<double>; \
   template class classname<int>
+
 
 
 }//namespace

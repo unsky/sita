@@ -15,20 +15,14 @@ class Graph{
 public:
     Graph(std::string name);
     ~Graph(){};
-    inline const std::string graph_name() const{
-        return _grap_sym.name();
-    }
 
     void append(std::string op_type, std::string name, std::vector<std::string> inputs, std::vector<std::string> outputs);
     void graph_symbol_show();
-    void get_graph_instance();
 
 
 private:
     GraphSym _grap_sym;
 
-    std::vector<Operator<float>> _ops;
-    DISABLE_COPY_AND_ASSIGN(Graph);
 };
 
 }//namespace
