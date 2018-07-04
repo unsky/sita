@@ -1,0 +1,64 @@
+cmake_minimum_required(VERSION 3.5)
+project(sita)
+
+
+
+set (CMAKE_CXX_STANDARD 11)
+##cxx f
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O2 -m64 -fpermissive -g -pthread -lboost_system ")
+
+set (CMAKE_VERBOSE_MAKEFILE ON)
+set (USE_CUDNN ON)
+set(Cuda_ROOT /home/work/cuda-8.0)
+    
+find_package(CUDA 8.0 REQUIRED)
+set (CUDA_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O2  -m64 -fpermissive -g -pthread -lboost_system ")
+
+include_directories(${INCLUDE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/src)
+cuda_include_directories(${PROJECT_SOURCE_DIR}/src)
+cuda_include_directories(${INCLUDE_DIR})
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+cuda_include_directories(${PROJECT_SOURCE_DIR}/include)
+link_directories(${Cuda_ROOT}/lib64)
+link_directories(${Cuda_ROOT}/lib64/stubs/)
+set(GLOG_ROOT /home/adu/cs/third/glog)
+set(GLOG_INCLUDE_DIR ${GLOG_ROOT}/include)
+set(GLOG_LIBRARY_DIR ${GLOG_ROOT}/lib)
+include_directories(${GLOG_INCLUDE_DIR})
+link_directories(${GLOG_LIBRARY_DIR})
+file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
+
+include_directories(/home/adu/cs/third/protobuf/include)
+link_directories(/home/adu/cs/third/protobuf/lib)
+set(SITA_FILES
+        main.cpp
+        src/sita/stuff/memory_control.cpp
+        src/sita/stuff/tensor.cpp
+        src/sita/protos/sita.pb.cc
+        src/sita/stuff/operators/add_op.cpp
+        src/sita/stuff/workspace.cpp
+        src/sita/stuff/operator.cpp
+        src/sita/stuff/graph.cpp
+        )
+
+
+######################c++ and cuda##########################
+cuda_add_executable(sita  ${SITA_FILES})
+
+###########################################################
+
+
+###boost
+find_package(Boost 1.41 REQUIRED COMPONENTS system thread filesystem regex)
+include_directories(system thread filesystem regex ${Boost_INCLUDE_DIRS})
+link_directories(system  thread filesystem regex${Boost_LIBRARIES})
+
+
+
+
+target_link_libraries(sita
+    /home/adu/cs/third/protobuf/lib/libprotobuf.so
+    /home/adu/cs/third/glog/lib/libglog.so)

@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -18,9 +19,9 @@
 
 namespace {
 
-const ::google::protobuf::Descriptor* OperatorSym_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* OperatorDef_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  OperatorSym_reflection_ = NULL;
+  OperatorDef_reflection_ = NULL;
 const ::google::protobuf::Descriptor* GraphSym_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GraphSym_reflection_ = NULL;
@@ -28,93 +29,108 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_sita_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_sita_2eproto() {
   protobuf_AddDesc_sita_2eproto();
   const ::google::protobuf::FileDescriptor* file =
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "sita.proto");
   GOOGLE_CHECK(file != NULL);
-  OperatorSym_descriptor_ = file->message_type(0);
-  static const int OperatorSym_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, inputs_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, outputs_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, type_),
+  OperatorDef_descriptor_ = file->message_type(0);
+  static const int OperatorDef_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, inputs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, outputs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, type_),
   };
-  OperatorSym_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      OperatorSym_descriptor_,
-      OperatorSym::default_instance_,
-      OperatorSym_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorSym, _unknown_fields_),
+  OperatorDef_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      OperatorDef_descriptor_,
+      OperatorDef::internal_default_instance(),
+      OperatorDef_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, _has_bits_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(OperatorSym));
+      -1,
+      sizeof(OperatorDef),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorDef, _internal_metadata_));
   GraphSym_descriptor_ = file->message_type(1);
   static const int GraphSym_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, op_),
   };
   GraphSym_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       GraphSym_descriptor_,
-      GraphSym::default_instance_,
+      GraphSym::internal_default_instance(),
       GraphSym_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, _unknown_fields_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, _has_bits_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(GraphSym));
+      -1,
+      sizeof(GraphSym),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphSym, _internal_metadata_));
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
+void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_sita_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    OperatorSym_descriptor_, &OperatorSym::default_instance());
+      OperatorDef_descriptor_, OperatorDef::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    GraphSym_descriptor_, &GraphSym::default_instance());
+      GraphSym_descriptor_, GraphSym::internal_default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_sita_2eproto() {
-  delete OperatorSym::default_instance_;
-  delete OperatorSym_reflection_;
-  delete GraphSym::default_instance_;
+  OperatorDef_default_instance_.Shutdown();
+  delete OperatorDef_reflection_;
+  GraphSym_default_instance_.Shutdown();
   delete GraphSym_reflection_;
 }
 
-void protobuf_AddDesc_sita_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void protobuf_InitDefaults_sita_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::GetEmptyString();
+  OperatorDef_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  GraphSym_default_instance_.DefaultConstruct();
+  OperatorDef_default_instance_.get_mutable()->InitAsDefaultInstance();
+  GraphSym_default_instance_.get_mutable()->InitAsDefaultInstance();
+}
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_sita_2eproto_once_);
+void protobuf_InitDefaults_sita_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_sita_2eproto_once_,
+                 &protobuf_InitDefaults_sita_2eproto_impl);
+}
+void protobuf_AddDesc_sita_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_sita_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\nsita.proto\"J\n\013OperatorSym\022\016\n\006inputs\030\001 "
+    "\n\nsita.proto\"J\n\013OperatorDef\022\016\n\006inputs\030\001 "
     "\003(\t\022\017\n\007outputs\030\002 \003(\t\022\014\n\004name\030\003 \001(\t\022\014\n\004ty"
     "pe\030\004 \001(\t\"2\n\010GraphSym\022\014\n\004name\030\001 \001(\t\022\030\n\002op"
-    "\030\002 \003(\0132\014.OperatorSym", 140);
+    "\030\002 \003(\0132\014.OperatorDef", 140);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sita.proto", &protobuf_RegisterTypes);
-  OperatorSym::default_instance_ = new OperatorSym();
-  GraphSym::default_instance_ = new GraphSym();
-  OperatorSym::default_instance_->InitAsDefaultInstance();
-  GraphSym::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_sita_2eproto);
 }
 
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_sita_2eproto_once_);
+void protobuf_AddDesc_sita_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_sita_2eproto_once_,
+                 &protobuf_AddDesc_sita_2eproto_impl);
+}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_sita_2eproto {
   StaticDescriptorInitializer_sita_2eproto() {
@@ -122,100 +138,107 @@ struct StaticDescriptorInitializer_sita_2eproto {
   }
 } static_descriptor_initializer_sita_2eproto_;
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
+
+
 // ===================================================================
 
-#ifndef _MSC_VER
-const int OperatorSym::kInputsFieldNumber;
-const int OperatorSym::kOutputsFieldNumber;
-const int OperatorSym::kNameFieldNumber;
-const int OperatorSym::kTypeFieldNumber;
-#endif  // !_MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int OperatorDef::kInputsFieldNumber;
+const int OperatorDef::kOutputsFieldNumber;
+const int OperatorDef::kNameFieldNumber;
+const int OperatorDef::kTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-OperatorSym::OperatorSym()
-  : ::google::protobuf::Message() {
+OperatorDef::OperatorDef()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_sita_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:OperatorSym)
+  // @@protoc_insertion_point(constructor:OperatorDef)
 }
 
-void OperatorSym::InitAsDefaultInstance() {
+void OperatorDef::InitAsDefaultInstance() {
 }
 
-OperatorSym::OperatorSym(const OperatorSym& from)
-  : ::google::protobuf::Message() {
+OperatorDef::OperatorDef(const OperatorDef& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:OperatorSym)
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:OperatorDef)
 }
 
-void OperatorSym::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
+void OperatorDef::SharedCtor() {
   _cached_size_ = 0;
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  type_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-OperatorSym::~OperatorSym() {
-  // @@protoc_insertion_point(destructor:OperatorSym)
+OperatorDef::~OperatorDef() {
+  // @@protoc_insertion_point(destructor:OperatorDef)
   SharedDtor();
 }
 
-void OperatorSym::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete name_;
-  }
-  if (type_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete type_;
-  }
-  if (this != default_instance_) {
-  }
+void OperatorDef::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void OperatorSym::SetCachedSize(int size) const {
+void OperatorDef::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* OperatorSym::descriptor() {
+const ::google::protobuf::Descriptor* OperatorDef::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return OperatorSym_descriptor_;
+  return OperatorDef_descriptor_;
 }
 
-const OperatorSym& OperatorSym::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_sita_2eproto();
-  return *default_instance_;
+const OperatorDef& OperatorDef::default_instance() {
+  protobuf_InitDefaults_sita_2eproto();
+  return *internal_default_instance();
 }
 
-OperatorSym* OperatorSym::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<OperatorDef> OperatorDef_default_instance_;
 
-OperatorSym* OperatorSym::New() const {
-  return new OperatorSym;
+OperatorDef* OperatorDef::New(::google::protobuf::Arena* arena) const {
+  OperatorDef* n = new OperatorDef;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
-void OperatorSym::Clear() {
-  if (_has_bits_[0 / 32] & 12) {
+void OperatorDef::Clear() {
+// @@protoc_insertion_point(message_clear_start:OperatorDef)
+  if (_has_bits_[0 / 32] & 12u) {
     if (has_name()) {
-      if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        name_->clear();
-      }
+      name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_type()) {
-      if (type_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        type_->clear();
-      }
+      type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   inputs_.Clear();
   outputs_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  _has_bits_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
-bool OperatorSym::MergePartialFromCodedStream(
+bool OperatorDef::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:OperatorSym)
+  // @@protoc_insertion_point(parse_start:OperatorDef)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -231,7 +254,7 @@ bool OperatorSym::MergePartialFromCodedStream(
             this->inputs(this->inputs_size() - 1).data(),
             this->inputs(this->inputs_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "inputs");
+            "OperatorDef.inputs");
         } else {
           goto handle_unusual;
         }
@@ -250,7 +273,7 @@ bool OperatorSym::MergePartialFromCodedStream(
             this->outputs(this->outputs_size() - 1).data(),
             this->outputs(this->outputs_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "outputs");
+            "OperatorDef.outputs");
         } else {
           goto handle_unusual;
         }
@@ -268,7 +291,7 @@ bool OperatorSym::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "name");
+            "OperatorDef.name");
         } else {
           goto handle_unusual;
         }
@@ -285,7 +308,7 @@ bool OperatorSym::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->type().data(), this->type().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "type");
+            "OperatorDef.type");
         } else {
           goto handle_unusual;
         }
@@ -307,33 +330,33 @@ bool OperatorSym::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:OperatorSym)
+  // @@protoc_insertion_point(parse_success:OperatorDef)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:OperatorSym)
+  // @@protoc_insertion_point(parse_failure:OperatorDef)
   return false;
 #undef DO_
 }
 
-void OperatorSym::SerializeWithCachedSizes(
+void OperatorDef::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:OperatorSym)
+  // @@protoc_insertion_point(serialize_start:OperatorDef)
   // repeated string inputs = 1;
   for (int i = 0; i < this->inputs_size(); i++) {
-  ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-    this->inputs(i).data(), this->inputs(i).length(),
-    ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "inputs");
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->inputs(i).data(), this->inputs(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "OperatorDef.inputs");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->inputs(i), output);
   }
 
   // repeated string outputs = 2;
   for (int i = 0; i < this->outputs_size(); i++) {
-  ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-    this->outputs(i).data(), this->outputs(i).length(),
-    ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "outputs");
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->outputs(i).data(), this->outputs(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "OperatorDef.outputs");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->outputs(i), output);
   }
@@ -343,7 +366,7 @@ void OperatorSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "name");
+      "OperatorDef.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->name(), output);
   }
@@ -353,27 +376,28 @@ void OperatorSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "type");
+      "OperatorDef.type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->type(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:OperatorSym)
+  // @@protoc_insertion_point(serialize_end:OperatorDef)
 }
 
-::google::protobuf::uint8* OperatorSym::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:OperatorSym)
+::google::protobuf::uint8* OperatorDef::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:OperatorDef)
   // repeated string inputs = 1;
   for (int i = 0; i < this->inputs_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->inputs(i).data(), this->inputs(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "inputs");
+      "OperatorDef.inputs");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->inputs(i), target);
   }
@@ -383,7 +407,7 @@ void OperatorSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->outputs(i).data(), this->outputs(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "outputs");
+      "OperatorDef.outputs");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(2, this->outputs(i), target);
   }
@@ -393,7 +417,7 @@ void OperatorSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "name");
+      "OperatorDef.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->name(), target);
@@ -404,24 +428,25 @@ void OperatorSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "type");
+      "OperatorDef.type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->type(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:OperatorSym)
+  // @@protoc_insertion_point(serialize_to_array_end:OperatorDef)
   return target;
 }
 
-int OperatorSym::ByteSize() const {
-  int total_size = 0;
+size_t OperatorDef::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:OperatorDef)
+  size_t total_size = 0;
 
-  if (_has_bits_[2 / 32] & (0xffu << (2 % 32))) {
+  if (_has_bits_[2 / 32] & 12u) {
     // optional string name = 3;
     if (has_name()) {
       total_size += 1 +
@@ -438,104 +463,354 @@ int OperatorSym::ByteSize() const {
 
   }
   // repeated string inputs = 1;
-  total_size += 1 * this->inputs_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->inputs_size());
   for (int i = 0; i < this->inputs_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->inputs(i));
   }
 
   // repeated string outputs = 2;
-  total_size += 1 * this->outputs_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->outputs_size());
   for (int i = 0; i < this->outputs_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->outputs(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void OperatorSym::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const OperatorSym* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const OperatorSym*>(
-      &from);
+void OperatorDef::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:OperatorDef)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const OperatorDef* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const OperatorDef>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:OperatorDef)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-    MergeFrom(*source);
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:OperatorDef)
+    UnsafeMergeFrom(*source);
   }
 }
 
-void OperatorSym::MergeFrom(const OperatorSym& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  inputs_.MergeFrom(from.inputs_);
-  outputs_.MergeFrom(from.outputs_);
+void OperatorDef::MergeFrom(const OperatorDef& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:OperatorDef)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void OperatorDef::UnsafeMergeFrom(const OperatorDef& from) {
+  GOOGLE_DCHECK(&from != this);
+  inputs_.UnsafeMergeFrom(from.inputs_);
+  outputs_.UnsafeMergeFrom(from.outputs_);
   if (from._has_bits_[2 / 32] & (0xffu << (2 % 32))) {
     if (from.has_name()) {
-      set_name(from.name());
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
     if (from.has_type()) {
-      set_type(from.type());
+      set_has_type();
+      type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
+  }
 }
 
-void OperatorSym::CopyFrom(const ::google::protobuf::Message& from) {
+void OperatorDef::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:OperatorDef)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void OperatorSym::CopyFrom(const OperatorSym& from) {
+void OperatorDef::CopyFrom(const OperatorDef& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:OperatorDef)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
-bool OperatorSym::IsInitialized() const {
+bool OperatorDef::IsInitialized() const {
 
   return true;
 }
 
-void OperatorSym::Swap(OperatorSym* other) {
-  if (other != this) {
-    inputs_.Swap(&other->inputs_);
-    outputs_.Swap(&other->outputs_);
-    std::swap(name_, other->name_);
-    std::swap(type_, other->type_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+void OperatorDef::Swap(OperatorDef* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void OperatorDef::InternalSwap(OperatorDef* other) {
+  inputs_.UnsafeArenaSwap(&other->inputs_);
+  outputs_.UnsafeArenaSwap(&other->outputs_);
+  name_.Swap(&other->name_);
+  type_.Swap(&other->type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata OperatorSym::GetMetadata() const {
+::google::protobuf::Metadata OperatorDef::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = OperatorSym_descriptor_;
-  metadata.reflection = OperatorSym_reflection_;
+  metadata.descriptor = OperatorDef_descriptor_;
+  metadata.reflection = OperatorDef_reflection_;
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// OperatorDef
+
+// repeated string inputs = 1;
+int OperatorDef::inputs_size() const {
+  return inputs_.size();
+}
+void OperatorDef::clear_inputs() {
+  inputs_.Clear();
+}
+const ::std::string& OperatorDef::inputs(int index) const {
+  // @@protoc_insertion_point(field_get:OperatorDef.inputs)
+  return inputs_.Get(index);
+}
+::std::string* OperatorDef::mutable_inputs(int index) {
+  // @@protoc_insertion_point(field_mutable:OperatorDef.inputs)
+  return inputs_.Mutable(index);
+}
+void OperatorDef::set_inputs(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:OperatorDef.inputs)
+  inputs_.Mutable(index)->assign(value);
+}
+void OperatorDef::set_inputs(int index, const char* value) {
+  inputs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:OperatorDef.inputs)
+}
+void OperatorDef::set_inputs(int index, const char* value, size_t size) {
+  inputs_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:OperatorDef.inputs)
+}
+::std::string* OperatorDef::add_inputs() {
+  // @@protoc_insertion_point(field_add_mutable:OperatorDef.inputs)
+  return inputs_.Add();
+}
+void OperatorDef::add_inputs(const ::std::string& value) {
+  inputs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:OperatorDef.inputs)
+}
+void OperatorDef::add_inputs(const char* value) {
+  inputs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:OperatorDef.inputs)
+}
+void OperatorDef::add_inputs(const char* value, size_t size) {
+  inputs_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:OperatorDef.inputs)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+OperatorDef::inputs() const {
+  // @@protoc_insertion_point(field_list:OperatorDef.inputs)
+  return inputs_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+OperatorDef::mutable_inputs() {
+  // @@protoc_insertion_point(field_mutable_list:OperatorDef.inputs)
+  return &inputs_;
+}
+
+// repeated string outputs = 2;
+int OperatorDef::outputs_size() const {
+  return outputs_.size();
+}
+void OperatorDef::clear_outputs() {
+  outputs_.Clear();
+}
+const ::std::string& OperatorDef::outputs(int index) const {
+  // @@protoc_insertion_point(field_get:OperatorDef.outputs)
+  return outputs_.Get(index);
+}
+::std::string* OperatorDef::mutable_outputs(int index) {
+  // @@protoc_insertion_point(field_mutable:OperatorDef.outputs)
+  return outputs_.Mutable(index);
+}
+void OperatorDef::set_outputs(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:OperatorDef.outputs)
+  outputs_.Mutable(index)->assign(value);
+}
+void OperatorDef::set_outputs(int index, const char* value) {
+  outputs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:OperatorDef.outputs)
+}
+void OperatorDef::set_outputs(int index, const char* value, size_t size) {
+  outputs_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:OperatorDef.outputs)
+}
+::std::string* OperatorDef::add_outputs() {
+  // @@protoc_insertion_point(field_add_mutable:OperatorDef.outputs)
+  return outputs_.Add();
+}
+void OperatorDef::add_outputs(const ::std::string& value) {
+  outputs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:OperatorDef.outputs)
+}
+void OperatorDef::add_outputs(const char* value) {
+  outputs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:OperatorDef.outputs)
+}
+void OperatorDef::add_outputs(const char* value, size_t size) {
+  outputs_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:OperatorDef.outputs)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+OperatorDef::outputs() const {
+  // @@protoc_insertion_point(field_list:OperatorDef.outputs)
+  return outputs_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+OperatorDef::mutable_outputs() {
+  // @@protoc_insertion_point(field_mutable_list:OperatorDef.outputs)
+  return &outputs_;
+}
+
+// optional string name = 3;
+bool OperatorDef::has_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void OperatorDef::set_has_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void OperatorDef::clear_has_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void OperatorDef::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& OperatorDef::name() const {
+  // @@protoc_insertion_point(field_get:OperatorDef.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void OperatorDef::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:OperatorDef.name)
+}
+void OperatorDef::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:OperatorDef.name)
+}
+void OperatorDef::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:OperatorDef.name)
+}
+::std::string* OperatorDef::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:OperatorDef.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* OperatorDef::release_name() {
+  // @@protoc_insertion_point(field_release:OperatorDef.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void OperatorDef::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:OperatorDef.name)
+}
+
+// optional string type = 4;
+bool OperatorDef::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void OperatorDef::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void OperatorDef::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void OperatorDef::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_type();
+}
+const ::std::string& OperatorDef::type() const {
+  // @@protoc_insertion_point(field_get:OperatorDef.type)
+  return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void OperatorDef::set_type(const ::std::string& value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:OperatorDef.type)
+}
+void OperatorDef::set_type(const char* value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:OperatorDef.type)
+}
+void OperatorDef::set_type(const char* value, size_t size) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:OperatorDef.type)
+}
+::std::string* OperatorDef::mutable_type() {
+  set_has_type();
+  // @@protoc_insertion_point(field_mutable:OperatorDef.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* OperatorDef::release_type() {
+  // @@protoc_insertion_point(field_release:OperatorDef.type)
+  clear_has_type();
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void OperatorDef::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    set_has_type();
+  } else {
+    clear_has_type();
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:OperatorDef.type)
+}
+
+inline const OperatorDef* OperatorDef::internal_default_instance() {
+  return &OperatorDef_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GraphSym::kNameFieldNumber;
 const int GraphSym::kOpFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GraphSym::GraphSym()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_sita_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:GraphSym)
 }
@@ -544,17 +819,16 @@ void GraphSym::InitAsDefaultInstance() {
 }
 
 GraphSym::GraphSym(const GraphSym& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:GraphSym)
 }
 
 void GraphSym::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 GraphSym::~GraphSym() {
@@ -563,11 +837,7 @@ GraphSym::~GraphSym() {
 }
 
 void GraphSym::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete name_;
-  }
-  if (this != default_instance_) {
-  }
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GraphSym::SetCachedSize(int size) const {
@@ -581,30 +851,35 @@ const ::google::protobuf::Descriptor* GraphSym::descriptor() {
 }
 
 const GraphSym& GraphSym::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_sita_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_sita_2eproto();
+  return *internal_default_instance();
 }
 
-GraphSym* GraphSym::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<GraphSym> GraphSym_default_instance_;
 
-GraphSym* GraphSym::New() const {
-  return new GraphSym;
+GraphSym* GraphSym::New(::google::protobuf::Arena* arena) const {
+  GraphSym* n = new GraphSym;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void GraphSym::Clear() {
+// @@protoc_insertion_point(message_clear_start:GraphSym)
   if (has_name()) {
-    if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-      name_->clear();
-    }
+    name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   op_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  _has_bits_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool GraphSym::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:GraphSym)
   for (;;) {
@@ -620,7 +895,7 @@ bool GraphSym::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "name");
+            "GraphSym.name");
         } else {
           goto handle_unusual;
         }
@@ -628,16 +903,19 @@ bool GraphSym::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .OperatorSym op = 2;
+      // repeated .OperatorDef op = 2;
       case 2: {
         if (tag == 18) {
          parse_op:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_op:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_op()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_op;
+        if (input->ExpectTag(18)) goto parse_loop_op;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -672,46 +950,47 @@ void GraphSym::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "name");
+      "GraphSym.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // repeated .OperatorSym op = 2;
-  for (int i = 0; i < this->op_size(); i++) {
+  // repeated .OperatorDef op = 2;
+  for (unsigned int i = 0, n = this->op_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->op(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:GraphSym)
 }
 
-::google::protobuf::uint8* GraphSym::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* GraphSym::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:GraphSym)
   // optional string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "name");
+      "GraphSym.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // repeated .OperatorSym op = 2;
-  for (int i = 0; i < this->op_size(); i++) {
+  // repeated .OperatorDef op = 2;
+  for (unsigned int i = 0, n = this->op_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->op(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        2, this->op(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -719,70 +998,91 @@ void GraphSym::SerializeWithCachedSizes(
   return target;
 }
 
-int GraphSym::ByteSize() const {
-  int total_size = 0;
+size_t GraphSym::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:GraphSym)
+  size_t total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string name = 1;
-    if (has_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+  // optional string name = 1;
+  if (has_name()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // repeated .OperatorDef op = 2;
+  {
+    unsigned int count = this->op_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->op(i));
     }
-
-  }
-  // repeated .OperatorSym op = 2;
-  total_size += 1 * this->op_size();
-  for (int i = 0; i < this->op_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->op(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void GraphSym::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(generalized_merge_from_start:GraphSym)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const GraphSym* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const GraphSym*>(
-      &from);
+      ::google::protobuf::internal::DynamicCastToGenerated<const GraphSym>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GraphSym)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-    MergeFrom(*source);
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:GraphSym)
+    UnsafeMergeFrom(*source);
   }
 }
 
 void GraphSym::MergeFrom(const GraphSym& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:GraphSym)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void GraphSym::UnsafeMergeFrom(const GraphSym& from) {
+  GOOGLE_DCHECK(&from != this);
   op_.MergeFrom(from.op_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
-      set_name(from.name());
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
+  }
 }
 
 void GraphSym::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:GraphSym)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void GraphSym::CopyFrom(const GraphSym& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:GraphSym)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool GraphSym::IsInitialized() const {
@@ -791,13 +1091,15 @@ bool GraphSym::IsInitialized() const {
 }
 
 void GraphSym::Swap(GraphSym* other) {
-  if (other != this) {
-    std::swap(name_, other->name_);
-    op_.Swap(&other->op_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GraphSym::InternalSwap(GraphSym* other) {
+  name_.Swap(&other->name_);
+  op_.UnsafeArenaSwap(&other->op_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata GraphSym::GetMetadata() const {
@@ -808,6 +1110,97 @@ void GraphSym::Swap(GraphSym* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// GraphSym
+
+// optional string name = 1;
+bool GraphSym::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void GraphSym::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void GraphSym::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void GraphSym::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+const ::std::string& GraphSym::name() const {
+  // @@protoc_insertion_point(field_get:GraphSym.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void GraphSym::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:GraphSym.name)
+}
+void GraphSym::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:GraphSym.name)
+}
+void GraphSym::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:GraphSym.name)
+}
+::std::string* GraphSym::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:GraphSym.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* GraphSym::release_name() {
+  // @@protoc_insertion_point(field_release:GraphSym.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void GraphSym::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:GraphSym.name)
+}
+
+// repeated .OperatorDef op = 2;
+int GraphSym::op_size() const {
+  return op_.size();
+}
+void GraphSym::clear_op() {
+  op_.Clear();
+}
+const ::OperatorDef& GraphSym::op(int index) const {
+  // @@protoc_insertion_point(field_get:GraphSym.op)
+  return op_.Get(index);
+}
+::OperatorDef* GraphSym::mutable_op(int index) {
+  // @@protoc_insertion_point(field_mutable:GraphSym.op)
+  return op_.Mutable(index);
+}
+::OperatorDef* GraphSym::add_op() {
+  // @@protoc_insertion_point(field_add:GraphSym.op)
+  return op_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::OperatorDef >*
+GraphSym::mutable_op() {
+  // @@protoc_insertion_point(field_mutable_list:GraphSym.op)
+  return &op_;
+}
+const ::google::protobuf::RepeatedPtrField< ::OperatorDef >&
+GraphSym::op() const {
+  // @@protoc_insertion_point(field_list:GraphSym.op)
+  return op_;
+}
+
+inline const GraphSym* GraphSym::internal_default_instance() {
+  return &GraphSym_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

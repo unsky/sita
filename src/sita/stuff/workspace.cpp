@@ -72,9 +72,16 @@ template <typename Dtype>
 void GlobalWorkSpace<Dtype>::global_init()
 {   
     _ops.clear();
-    for(int i = 0; i < _graph->_grap_sym.op_size(); i++){
-        _ops.push_back(OperatorRegistry<Dtype>::CreateOperator(_grap_sym.op(i), this));
+    for(int i = 0; i < _graph->graph_sym()->op_size(); i++){
+        GlobalWorkSpace<Dtype> *gws = this;
+        OperatorDef opdef = _graph->graph_sym()->op(i);
+        boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef,gws);
+        op->forward(i);
+       // op->backward();
+        _ops.push_back(op);
     }
+    _ops[0]->backward();
+    _ops[1]->backward();
 }
 
 INSTANTIATE_CLASS(GlobalWorkSpace);

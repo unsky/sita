@@ -26,12 +26,19 @@ int main(int argc, char** argv) {
     int k = 0;
     LOG(INFO) << "开始创建图结构： ";
     sita::Graph graph("lenet");
-
-    graph.append("data", "data", {"images"}, {"data, label"});
-    graph.append("conv", "conv1", {"data"},{"conv1"});
-    graph.append("conv", "conv2", {"conv1"},{"conv2"});
-    LOG(INFO) << "图结构" << graph.graph_name()<<"构建完成..";
+    std::vector<std::string> inputs;
+    inputs.push_back("images");
+    inputs.push_back("data");
+    graph.append("AddOp", "AddOp", inputs, inputs);
+    graph.append("AddOp", "data", inputs, inputs);
+    
+    graph.append("AdOpaaaaaa", "data", inputs, inputs);
     graph.graph_symbol_show();
+    gws.build_graph(&graph);
+    gws.global_init();
+    LOG(INFO)<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLL"; 
+    gws.show()[0]->backward();
+    gws.show()[1]->backward();
     while(k!=2) {
         k ++;
 
@@ -42,7 +49,7 @@ int main(int argc, char** argv) {
         shape.push_back(100);
         shape.push_back(200);
 
-        boost::shared_ptr <sita::Tensor<float>> test1(new sita::Tensor<float>(shape));
+        boost::shared_ptr <sita::Tensor<float> > test1(new sita::Tensor<float>(shape));
 
         LOG(INFO) << test1->shape_string() << INT_MAX;
 

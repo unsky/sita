@@ -11,6 +11,9 @@
 #include "tensor.h"
 #include "context.h"
 #include "macros.h"
+#include "graph.h"
+#include "registry.h"
+#include "sita/protos/sita.pb.h"
 namespace sita{
 
 
@@ -32,6 +35,10 @@ protected:
 };
 
 template <typename Dtype>
+class Operator;
+
+
+template <typename Dtype>
 class GlobalWorkSpace : public WorkSpace{
 
 public:
@@ -48,10 +55,13 @@ public:
         _graph = graph;
     };
     inline void graph_show(){
-        _graph->graph_show();
+        _graph->graph_symbol_show();
     }
     void global_init();
     void train(){};
+    
+    std::vector<boost::shared_ptr<Operator<Dtype> > > show(){
+        return _ops;};
 
     //net
 
@@ -63,12 +73,12 @@ private:
 
     //graph
     Graph * _graph;
-    std::vector<Operator<Dtype> *> _ops;
+    std::vector<boost::shared_ptr<Operator<Dtype> > > _ops;
     // input/output name                         using count
-    std::map<std::sting, std::pair<Tensor<Dtype>, int> > _flow_mem;
+    std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_mem;
 
     // params         name                   type          weight/bias name  weight/bias
-    std::vector<std::string, std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > _weights;
+    //std::vector<std::string, std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > _weights;
 
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };

@@ -8,18 +8,21 @@
 #include <string>
 #include "macros.h"
 #include "workspace.h"
+#include "sita/protos/sita.pb.h"
 namespace sita{
+
+template <typename Dtype>
+class GlobalWorkSpace;
 
 template <typename Dtype>
 class Operator{
 public:
-    Operator(const OperatorDef&, GlobalWorkSpace<Dtype> *gws):_op_type(op_type),_gws(gws){}
+    Operator(const OperatorDef&, GlobalWorkSpace<Dtype> *gws):_gws(gws){}
     ~Operator(){}
-    init(){};
-    forward(){};
-    backward(){};
+    void  init();
+    virtual void forward(int num){};
+    virtual void backward(){};
 protected:
-    std::string _op_type;
     GlobalWorkSpace<Dtype> *_gws;
 };
 

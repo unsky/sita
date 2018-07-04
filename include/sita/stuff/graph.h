@@ -7,7 +7,6 @@
 #include <vector>
 #include <glog/logging.h>
 #include "macros.h"
-#include "operator.h"
 #include "sita/protos/sita.pb.h"
 namespace sita{
 
@@ -18,10 +17,11 @@ public:
 
     void append(std::string op_type, std::string name, std::vector<std::string> inputs, std::vector<std::string> outputs);
     void graph_symbol_show();
-
+    GraphSym * graph_sym(){
+        return &_graph_sym;}
 
 private:
-    GraphSym _grap_sym;
+    GraphSym _graph_sym;
 
 };
 

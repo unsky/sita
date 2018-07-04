@@ -17,9 +17,8 @@
 #include <boost/shared_ptr.hpp>
 #include "sita/protos/sita.pb.h"
 #include "workspace.h"
-
+#include "operator.h"
 namespace sita {
-
 template <typename Dtype>
 class Operator;
 
@@ -29,8 +28,8 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class OperatorRegistry {
  public:
-  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorDef&, GlobalWorkSpace *);
-  typedef std::map<string, Creator> CreatorRegistry;
+  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorDef&, GlobalWorkSpace<Dtype> *);
+  typedef std::map<std::string, Creator> CreatorRegistry;
 
   static CreatorRegistry& Registry() {
     static CreatorRegistry* g_registry_ = new CreatorRegistry();
@@ -38,7 +37,7 @@ class OperatorRegistry {
   }
 
   // Adds a creator.
-  static void add_creator(const string& type, Creator creator) {
+  static void  AddCreator(const std::string& type, Creator creator) {
     CreatorRegistry& registry = Registry();
     CHECK_EQ(registry.count(type), 0)
         << "Operator type " << type << " already registered.";
@@ -46,18 +45,21 @@ class OperatorRegistry {
   }
 
   // Get a operator using a Parameter.
-  static booat::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorDef& param, GlobalWorkSpace* gws) {
+  static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorDef& param, GlobalWorkSpace<Dtype>* gws) {
     LOG(INFO) << "Creating Operator " << param.name();
     const std::string& type = param.type();
     CreatorRegistry& registry = Registry();
+    LOG(INFO)<<OperatorTypeListString();
+    LOG(INFO)<<registry.count(type);
+    LOG(INFO)<<type;
     CHECK_EQ(registry.count(type), 1) << "Unknown Operator type: " << type
         << " (known types: " << OperatorTypeListString() << ")";
-    return registry[type](param);
+    return registry[type](param, gws);
   }
 
-  static vector<std::string> OperatorTypeList() {
+  static std::vector<std::string> OperatorTypeList() {
     CreatorRegistry& registry = Registry();
-    vector<std::string> operator_types;
+    std::vector<std::string> operator_types;
     for (typename CreatorRegistry::iterator iter = registry.begin();
          iter != registry.end(); ++iter) {
         operator_types.push_back(iter->first);
@@ -70,10 +72,10 @@ class OperatorRegistry {
   // static variables.
   OperatorRegistry() {}
 
-  static string OperatorTypeListString() {
-    vector<std::string> operator_types = OperatorTypeList();
-    string operator_types_str;
-    for (vector<std::string>::iterator iter = operator_types.begin();
+  static std::string OperatorTypeListString() {
+    std::vector<std::string> operator_types = OperatorTypeList();
+    std::string operator_types_str;
+    for (std::vector<std::string>::iterator iter = operator_types.begin();
          iter != operator_types.end(); ++iter) {
       if (iter != operator_types.begin()) {
         operator_types_str += ", ";
@@ -89,7 +91,7 @@ template <typename Dtype>
 class OperatorRegisterer {
  public:
     OperatorRegisterer(const std::string& type,
-                  shared_ptr<Operator<Dtype> > (*creator)(const OperatorDef&, GlobalWorkSpace*)) {
+                  boost::shared_ptr<Operator<Dtype> > (*creator)(const OperatorDef&, GlobalWorkSpace<Dtype>*)) {
    
     OperatorRegistry<Dtype>::AddCreator(type, creator);
   }
@@ -102,7 +104,7 @@ class OperatorRegisterer {
 
 #define REGISTER_OPERATOR_CLASS(type)                                             \
   template <typename Dtype>                                                    \
-  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorDef& param,GlobalWorkSpace* gws) \
+  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorDef& param,GlobalWorkSpace<Dtype>* gws) \
   {                                                                            \
     return boost::shared_ptr<Operator<Dtype> >(new type<Dtype>(param, gws));           \
   }                                                                            \
