@@ -49,9 +49,7 @@ class OperatorRegistry {
     LOG(INFO) << "Creating Operator " << param.name();
     const std::string& type = param.type();
     CreatorRegistry& registry = Registry();
-    LOG(INFO)<<OperatorTypeListString();
-    LOG(INFO)<<registry.count(type);
-    LOG(INFO)<<type;
+
     CHECK_EQ(registry.count(type), 1) << "Unknown Operator type: " << type
         << " (known types: " << OperatorTypeListString() << ")";
     return registry[type](param, gws);

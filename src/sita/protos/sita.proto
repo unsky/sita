@@ -5,6 +5,7 @@ message OperatorDef {
     repeated string outputs = 2;
     optional string name = 3;
     optional string type = 4;
+
 }
 
 message GraphSym {

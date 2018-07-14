@@ -13,10 +13,14 @@ class AddOp: public Operator<Dtype>{
     public:
     AddOp(const OperatorDef& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){}
     ~AddOp(){};
-    void forward(int num);
+    void init();
+    void forward();
     void backward();
     private:
     int _num;
+    bool is_loss_op;
+    bool is_data_op;
+    bool has_param;
 };
 }//namespace
 #endif //SITA_STUFF_OPERATORS_ADD_OP_H

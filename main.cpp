@@ -32,14 +32,13 @@ int main(int argc, char** argv) {
     graph.append("AddOp", "AddOp", inputs, inputs);
     graph.append("AddOp", "data", inputs, inputs);
     
-    graph.append("AdOpaaaaaa", "data", inputs, inputs);
     graph.graph_symbol_show();
     gws.build_graph(&graph);
     gws.global_init();
     LOG(INFO)<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLL"; 
     gws.show()[0]->backward();
     gws.show()[1]->backward();
-    while(k!=2) {
+    while(k!=1) {
         k ++;
 
         std::vector<int> shape;

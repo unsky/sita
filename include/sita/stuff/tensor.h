@@ -91,7 +91,7 @@ public:
 
    int get_site_by_coord(const int num, const int channels, const int height, const int width);
    int get_site_by_coord(const std::vector<int > &coord);
-
+   void clear();
 protected:
     std::vector<int > _shape;
     int _count;

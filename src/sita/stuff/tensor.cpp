@@ -154,6 +154,14 @@ int Tensor<Dtype>::get_site_by_coord(const int num, const int channels, const in
     coord.push_back(width);
     return get_site_by_coord(coord);
 }
+template<typename Dtype>
+void Tensor<Dtype>::clear()
+{
+    _count = 0;
+    _dim = 0;
+    _data.reset();
+    _diff.reset();
+}
 
 INSTANTIATE_CLASS(Tensor);
 }

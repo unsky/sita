@@ -17,13 +17,14 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class Operator{
 public:
-    Operator(const OperatorDef&, GlobalWorkSpace<Dtype> *gws):_gws(gws){}
+    Operator(const OperatorDef& opdef, GlobalWorkSpace<Dtype> *gws):_opdef(opdef),_gws(gws){}
     ~Operator(){}
-    void  init();
-    virtual void forward(int num){};
+    virtual void  init();
+    virtual void forward(){};
     virtual void backward(){};
 protected:
     GlobalWorkSpace<Dtype> *_gws;
+    OperatorDef _opdef;
 };
 
 }//namespace
