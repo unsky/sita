@@ -5,9 +5,9 @@
 namespace sita{
 
 template<typename Dtype>
-void Operator<Dtype>::init(){};
+void Operator<Dtype>::init(){
 
-
+}
 
 INSTANTIATE_CLASS(Operator);
 

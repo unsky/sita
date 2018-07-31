@@ -13,7 +13,7 @@
 #include "macros.h"
 #include "graph.h"
 #include "registry.h"
-#include "sita/protos/sita.pb.h"
+#include "operator.h"
 namespace sita{
 
 
@@ -76,7 +76,9 @@ public:
 
     //grap
     inline void build_graph(Graph * graph){
+
         _graph = graph;
+        graph_show();
     };
     inline void graph_show(){
         _graph->graph_symbol_show();
@@ -87,11 +89,8 @@ public:
     void backward();
     void train();
 
-    
-    std::vector<boost::shared_ptr<Operator<Dtype> > > show(){
-        return _ops;};
 
-    //net
+
 
 private:
     // temp_tensor bool true: using  false:released
@@ -106,6 +105,7 @@ private:
     std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_tensor;
 
     // params         name                   type          weight/bias name  weight/bias
+  //  std::vector<std::pair<std::string, OperatorParam<Dtype> > > _params;
     std::vector<std::pair<std::string,std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
 
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);

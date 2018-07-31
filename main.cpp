@@ -7,18 +7,7 @@
 #include "sita/stuff/workspace.h"
 #include "sita/stuff/graph.h"
 #include <glog/logging.h>
-class A{
-public:
-    A(){};
-    static sita::Tensor<float>  get(){
-        sita::Tensor<float>  aa(2,3,4,5);
-        return aa;
-    }
-};
 
-int test_tensor() {
-    sita::Tensor<float> t(1, 1, 1, 4);
-}
 int main(int argc, char** argv) {
     sita::GlobalWorkSpace<float > gws;
     gws.device_query();
@@ -26,97 +15,37 @@ int main(int argc, char** argv) {
     int k = 0;
     LOG(INFO) << "开始创建图结构： ";
     sita::Graph graph("lenet");
+
     std::vector<std::string> inputs;
     inputs.push_back("images");
     inputs.push_back("data");
-    graph.append("AddOp", "AddOp", inputs, inputs);
-    graph.append("AddOp", "data", inputs, inputs);
+    std::vector<std::string> outputs;
+    outputs.push_back("add_res");
+    sita::SitaParameter data;
+    data.add_op_param.stride_w = 5;
+    data.add_op_param.stride_h = 6;
+    data.filler.type = "gauss";
+    graph.append("AddOp", "data", inputs, outputs, data);
+
+
+    inputs.clear();
+    inputs.push_back("add_res");
+    outputs.clear();
+    outputs.push_back("loss");
+    sita::SitaParameter add1;
+    add1.add_op_param.stride_w = 10;
+    graph.append("AddOp", "add1", inputs, outputs, add1);
     
-    graph.graph_symbol_show();
+    //graph.graph_symbol_show();
     gws.build_graph(&graph);
     gws.global_init();
-    LOG(INFO)<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLL"; 
-    gws.show()[0]->backward();
-    gws.show()[1]->backward();
+
     while(k!=1) {
-        k ++;
-
-        std::vector<int> shape;
-
-        shape.push_back(100);
-        shape.push_back(100);
-        shape.push_back(100);
-        shape.push_back(200);
-
-        boost::shared_ptr <sita::Tensor<float> > test1(new sita::Tensor<float>(shape));
-
-        LOG(INFO) << test1->shape_string() << INT_MAX;
-
-        const float *data1 = test1->cpu_data();
-
-//    for (int i = 0; i < test1->count(); i++) {
-//        LOG(INFO) << data1[i];
-//    }
-
-
-
-        sita::Tensor<float> test2(1, 1, 1, 3);
-        LOG(INFO) << test2.shape_string();
-        float *data2 = test2.mutable_cpu_data();
-
-        test2.gpu_data();
-
-//    for (int i = 0; i < test2.count(); i++) {
-//        LOG(INFO) << data2[i];
-//        data2[i] = i;
-//    }
-
-        test2.reshape(800, 200, 1, 1);
-        LOG(INFO) << test2.shape_string() << test2.count();
-
-        float *data3 = test2.mutable_cpu_data();
-        for (int i = 0; i < test2.count(); i++) {
-            //  LOG(INFO) << data3[i];
-        }
-
-        sita::Tensor<float> t1;
-        t1.copy_from(test2);
-        LOG(INFO) << "t1: " << t1.shape_string() << t1.count();
-        t1.set_data_zero();
-        for (int i = 0; i < t1.count(); i++) {
-            //   LOG(INFO) << t1.cpu_data()[i];
-        }
-        LOG(INFO) << t1.get_site_by_coord(0, 1, 0, 0);
-
-        sita::Tensor<float> t2(1, 100, 1000, 1000);
-        t2.gpu_data();
-        LOG(INFO) << t2.get_site_by_coord(0, 60, 50, 100);
-
-        std::pair<int, sita::Tensor<float> * > Tensor_pair;
-        Tensor_pair = gws.fetch_temp_tensor();
-        Tensor_pair.second->reshape(30,40,50,60);
-        Tensor_pair.second->gpu_data();
-        gws.release_temp_tensor(Tensor_pair.first);
-
-        std::pair<int, sita::Tensor<float> * > Tensor_pair1;
-
-        Tensor_pair1 = gws.fetch_temp_tensor();
-
-        Tensor_pair1.second->reshape(100,100,110,100);
-        Tensor_pair1.second->gpu_data();
-
+        k++;
         LOG(INFO) << gws.temp_tensor_memory_size();
 
-        gws.release_temp_tensor(Tensor_pair1.first);
 
-
-
-        LOG(INFO) << gws.temp_tensor_memory_size();
         gws.train();
-
-       // A a;
-        sita::Tensor<float> k = A::get();
-        LOG(INFO)<<"000000000"<<k.count();
 
 
     }

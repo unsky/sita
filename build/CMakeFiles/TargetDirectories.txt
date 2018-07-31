@@ -1,3 +1,3 @@
-/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/edit_cache.dir
-/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/rebuild_cache.dir
-/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir
+/home/cs/Desktop/cs_work/sita/build/CMakeFiles/edit_cache.dir
+/home/cs/Desktop/cs_work/sita/build/CMakeFiles/rebuild_cache.dir
+/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir

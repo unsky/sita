@@ -8,7 +8,7 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O2 -m64 -fpermissive -std=c++11 
 set (CMAKE_VERBOSE_MAKEFILE ON)
 set (USE_CUDNN ON)
 ##cuda flags
-set(Cuda_ROOT /home/cs/work/detector/thirdparty/for_x86/cuda-80)
+set(Cuda_ROOT /home/cs/caffe_third/for_x86/cuda-80)
 find_package(CUDA 8.0 REQUIRED)
 set (CUDA_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -O2 -m64 -fpermissive -std=c++11 -g -pthread -lboost_system ")
 
@@ -22,13 +22,15 @@ link_directories(SYSTEM /home/cs/Desktop/cs_work/unsky/sita/src)
 link_directories(${Cuda_ROOT}/lib64)
 link_directories(${Cuda_ROOT}/lib64/stubs/)
 
-set(GLOG_ROOT /home/cs/work/detector/thirdparty/for_x86/glog)
+set(GLOG_ROOT /home/cs/caffe_third/for_x86/glog)
 set(GLOG_INCLUDE_DIR ${GLOG_ROOT}/include)
 set(GLOG_LIBRARY_DIR ${GLOG_ROOT}/lib)
 include_directories(${GLOG_INCLUDE_DIR})
 link_directories(${GLOG_LIBRARY_DIR})
 file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
+include_directories(/home/cs/caffe_third/for_x86/protobuf/include)
+link_directories(/home/cs/caffe_third/for_x86/protobuf/lib)
 execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/protos/ ${PROJECT_SOURCE_DIR}/src/sita/protos/sita.proto)
 
 
@@ -36,8 +38,10 @@ set(SITA_FILES
         main.cpp
         src/sita/stuff/memory_control.cpp
         src/sita/stuff/tensor.cpp
+      #  src/sita/protos/sita.pb.cc
+        src/sita/stuff/operators/add_op.cpp
         src/sita/stuff/workspace.cpp
-        src/sita/protos/sita.pb.cc
+        src/sita/stuff/operator.cpp
         src/sita/stuff/graph.cpp
         )
 
@@ -59,18 +63,15 @@ link_directories(core highgui imgproc ${OpenCV_LIBRARIES})
 
 
 target_link_libraries(sita
-"/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/protobuf/lib/libprotobuf.so"
+
 "/usr/lib/x86_64-linux-gnu/libboost_system.so"
         "/usr/lib/x86_64-linux-gnu/libboost_thread.so"
+        "/home/cs/caffe_third/for_x86/protobuf/lib/libprotobuf.so"
 
-${OpenCV_LIBRARIES}
+
+        ${OpenCV_LIBRARIES}
 "/usr/lib/x86_64-linux-gnu/libglog.so.0"
 "/usr/lib/x86_64-linux-gnu/libgflags.so.2"
-"/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/cuda-80/lib64/libcublas.so"
-"/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/cuda-80/lib64/libcudnn.so"
-"/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/cuda-80/lib64/libcurand.so"
-"/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/OpenBLAS/lib/libopenblas.so"
-        "/home/cs/work/baidu/ai-auto/l3-apollo/thirdparty/for_x86/TensorRT-2.1.2/lib/libnvinfer.so.3"
 )
 
 

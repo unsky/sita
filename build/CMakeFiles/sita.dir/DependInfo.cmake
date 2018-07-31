@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cs/Desktop/cs_work/unsky/sita/main.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/main.cpp.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/protos/sita.pb.cc" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/graph.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/memory_control.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/tensor.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
-  "/home/cs/Desktop/cs_work/unsky/sita/src/sita/stuff/workspace.cpp" "/home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/main.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/main.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/graph.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/memory_control.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operator.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operators/add_op.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/tensor.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/workspace.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,13 +18,13 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../src"
-  "/home/cs/work/detector/thirdparty/for_x86/glog/include"
+  "/home/cs/caffe_third/for_x86/glog/include"
+  "/home/cs/caffe_third/for_x86/protobuf/include"
   "/usr/local/cuda/include"
   "../system"
   "../thread"
   "../filesystem"
   "../regex"
-  "/home/cs/boost_1_58_0"
   "../core"
   "../highgui"
   "../imgproc"

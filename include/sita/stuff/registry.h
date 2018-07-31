@@ -15,10 +15,12 @@
 #include <string>
 #include <vector>
 #include <boost/shared_ptr.hpp>
-#include "sita/protos/sita.pb.h"
 #include "workspace.h"
 #include "operator.h"
+#include "sita_parameter.h"
 namespace sita {
+
+
 template <typename Dtype>
 class Operator;
 
@@ -46,8 +48,8 @@ class OperatorRegistry {
 
   // Get a operator using a Parameter.
   static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorDef& param, GlobalWorkSpace<Dtype>* gws) {
-    LOG(INFO) << "Creating Operator " << param.name();
-    const std::string& type = param.type();
+    LOG(INFO) << "Creating Operator " << param.name;
+    const std::string& type = param.type;
     CreatorRegistry& registry = Registry();
 
     CHECK_EQ(registry.count(type), 1) << "Unknown Operator type: " << type

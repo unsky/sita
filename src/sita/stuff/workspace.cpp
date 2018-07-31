@@ -194,9 +194,9 @@ Tensor<Dtype> *GlobalWorkSpace<Dtype>::fecth_param(std::string op_name, std::str
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::global_init(){   
     _ops.clear();
-    for(int i = 0; i < _graph->graph_sym()->op_size(); i++){
+    for(int i = 0; i < _graph->graph_sym()->ops.size(); i++){
         GlobalWorkSpace<Dtype> *gws = this;
-        OperatorDef opdef = _graph->graph_sym()->op(i);
+        OperatorDef opdef = _graph->graph_sym()->ops[i];
         boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef,gws);
         op->init();
         _ops.push_back(op);

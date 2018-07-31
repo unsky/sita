@@ -8,8 +8,11 @@
 #include <string>
 #include "macros.h"
 #include "workspace.h"
-#include "sita/protos/sita.pb.h"
+#include "sita_parameter.h"
+#include "types.h"
 namespace sita{
+
+
 
 template <typename Dtype>
 class GlobalWorkSpace;
@@ -25,6 +28,7 @@ public:
 protected:
     GlobalWorkSpace<Dtype> *_gws;
     OperatorDef _opdef;
+    OperatorConfig _opconfig;
 };
 
 }//namespace

@@ -6,8 +6,9 @@
 #define SITA_STUFF_GRAPH_H
 #include <vector>
 #include <glog/logging.h>
+#include <string>
 #include "macros.h"
-#include "sita/protos/sita.pb.h"
+#include "sita_parameter.h"
 namespace sita{
 
 class Graph{
@@ -15,7 +16,7 @@ public:
     Graph(std::string name);
     ~Graph(){};
 
-    void append(std::string op_type, std::string name, std::vector<std::string> inputs, std::vector<std::string> outputs);
+    void append(std::string op_type, std::string name, std::vector<std::string> inputs, std::vector<std::string> outputs, SitaParameter param);
     void graph_symbol_show();
     GraphSym * graph_sym(){
         return &_graph_sym;}

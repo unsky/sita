@@ -51,10 +51,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cs/Desktop/cs_work/unsky/sita
+CMAKE_SOURCE_DIR = /home/cs/Desktop/cs_work/sita
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cs/Desktop/cs_work/unsky/sita/build
+CMAKE_BINARY_DIR = /home/cs/Desktop/cs_work/sita/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,9 +83,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles /home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cs/Desktop/cs_work/sita/build/CMakeFiles /home/cs/Desktop/cs_work/sita/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cs/Desktop/cs_work/unsky/sita/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cs/Desktop/cs_work/sita/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,33 +153,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/sita/protos/sita.pb.o: src/sita/protos/sita.pb.cc.o
-
-.PHONY : src/sita/protos/sita.pb.o
-
-# target to build an object file
-src/sita/protos/sita.pb.cc.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.o
-.PHONY : src/sita/protos/sita.pb.cc.o
-
-src/sita/protos/sita.pb.i: src/sita/protos/sita.pb.cc.i
-
-.PHONY : src/sita/protos/sita.pb.i
-
-# target to preprocess a source file
-src/sita/protos/sita.pb.cc.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.i
-.PHONY : src/sita/protos/sita.pb.cc.i
-
-src/sita/protos/sita.pb.s: src/sita/protos/sita.pb.cc.s
-
-.PHONY : src/sita/protos/sita.pb.s
-
-# target to generate assembly for a file
-src/sita/protos/sita.pb.cc.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/protos/sita.pb.cc.s
-.PHONY : src/sita/protos/sita.pb.cc.s
-
 src/sita/stuff/graph.o: src/sita/stuff/graph.cpp.o
 
 .PHONY : src/sita/stuff/graph.o
@@ -233,6 +206,60 @@ src/sita/stuff/memory_control.s: src/sita/stuff/memory_control.cpp.s
 src/sita/stuff/memory_control.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.s
 .PHONY : src/sita/stuff/memory_control.cpp.s
+
+src/sita/stuff/operator.o: src/sita/stuff/operator.cpp.o
+
+.PHONY : src/sita/stuff/operator.o
+
+# target to build an object file
+src/sita/stuff/operator.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o
+.PHONY : src/sita/stuff/operator.cpp.o
+
+src/sita/stuff/operator.i: src/sita/stuff/operator.cpp.i
+
+.PHONY : src/sita/stuff/operator.i
+
+# target to preprocess a source file
+src/sita/stuff/operator.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.i
+.PHONY : src/sita/stuff/operator.cpp.i
+
+src/sita/stuff/operator.s: src/sita/stuff/operator.cpp.s
+
+.PHONY : src/sita/stuff/operator.s
+
+# target to generate assembly for a file
+src/sita/stuff/operator.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.s
+.PHONY : src/sita/stuff/operator.cpp.s
+
+src/sita/stuff/operators/add_op.o: src/sita/stuff/operators/add_op.cpp.o
+
+.PHONY : src/sita/stuff/operators/add_op.o
+
+# target to build an object file
+src/sita/stuff/operators/add_op.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o
+.PHONY : src/sita/stuff/operators/add_op.cpp.o
+
+src/sita/stuff/operators/add_op.i: src/sita/stuff/operators/add_op.cpp.i
+
+.PHONY : src/sita/stuff/operators/add_op.i
+
+# target to preprocess a source file
+src/sita/stuff/operators/add_op.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.i
+.PHONY : src/sita/stuff/operators/add_op.cpp.i
+
+src/sita/stuff/operators/add_op.s: src/sita/stuff/operators/add_op.cpp.s
+
+.PHONY : src/sita/stuff/operators/add_op.s
+
+# target to generate assembly for a file
+src/sita/stuff/operators/add_op.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.s
+.PHONY : src/sita/stuff/operators/add_op.cpp.s
 
 src/sita/stuff/tensor.o: src/sita/stuff/tensor.cpp.o
 
@@ -300,15 +327,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/sita/protos/sita.pb.o"
-	@echo "... src/sita/protos/sita.pb.i"
-	@echo "... src/sita/protos/sita.pb.s"
 	@echo "... src/sita/stuff/graph.o"
 	@echo "... src/sita/stuff/graph.i"
 	@echo "... src/sita/stuff/graph.s"
 	@echo "... src/sita/stuff/memory_control.o"
 	@echo "... src/sita/stuff/memory_control.i"
 	@echo "... src/sita/stuff/memory_control.s"
+	@echo "... src/sita/stuff/operator.o"
+	@echo "... src/sita/stuff/operator.i"
+	@echo "... src/sita/stuff/operator.s"
+	@echo "... src/sita/stuff/operators/add_op.o"
+	@echo "... src/sita/stuff/operators/add_op.i"
+	@echo "... src/sita/stuff/operators/add_op.s"
 	@echo "... src/sita/stuff/tensor.o"
 	@echo "... src/sita/stuff/tensor.i"
 	@echo "... src/sita/stuff/tensor.s"

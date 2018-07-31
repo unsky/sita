@@ -1,4 +1,4 @@
-# Install script for directory: /home/cs/Desktop/cs_work/unsky/sita
+# Install script for directory: /home/cs/Desktop/cs_work/sita
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cs/Desktop/cs_work/unsky/sita/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cs/Desktop/cs_work/sita/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

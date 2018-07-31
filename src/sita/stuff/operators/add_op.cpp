@@ -6,30 +6,46 @@ namespace sita{
 
 template<typename Dtype>
 void AddOp<Dtype>::init(){
-    for(int i = 0; i < this->_opdef.inputs_size(); i++){
-        this->_gws->init_input(this->_opdef.inputs(i));
-    }
-    for(int i = 0; i < this->_opdef.outputs_size(); i++){
-        this->_gws->init_output(this->_opdef.outputs(i));
-    }
-    std::vector<int> shape;
-    shape.push_back(5);
-    shape.push_back(6);
-    shape.push_back(7);
-    shape.push_back(8);
+    //common param
+    this->_opconfig.is_loss_op = false;
+    this->_opconfig.is_data_op = false;
+    this->_opconfig.has_param_op = true;
 
-    this->_gws->init_param(this->_opdef.name(), "add_weight", shape);
-    this->_gws->init_param(this->_opdef.name(),"add_bias", shape);
+    //inputs and outputs
+    _inputs.clear();
+    for(int i = 0; i < this->_opdef.inputs.size(); i++){
+        this->_gws->init_input(this->_opdef.inputs[i]);
+        _inputs.push_back(this->_opdef.inputs[i]);
+    }
+    _outputs.clear();
+    for(int i = 0; i < this->_opdef.outputs.size(); i++){
+        this->_gws->init_output(this->_opdef.outputs[i]);
+        _outputs.push_back(this->_opdef.outputs[i]);
+    }
+
+    // params
+    if(this->_opconfig.has_param_op){
+        std::vector<int> shape;
+        shape.push_back(5);
+        shape.push_back(6);
+        shape.push_back(7);
+        shape.push_back(8);
+
+        this->_gws->init_param(this->_opdef.name, "add_weight", shape);
+        this->_gws->init_param(this->_opdef.name,"add_bias", shape);
+    }
+
+
 }
 template<typename Dtype>
 void AddOp<Dtype>::forward(){
-  /*  Tensor<Dtype> * input1 = this->_gws->forward_fetch_input(this->_opdef.inputs());
-    Tensor<Dtype> * input2 = this->_gws->forward_fetch_input();
-    Tensor<Dtype> * weight = this->_gws->fetch_param(this->_opdef.name(), "add_weight");
-    Tensor<Dtype> * bias = this->_gws->fetch_param(this->_opdef.name(), "add_bias");
-    Tensor<Dtype> * output1 = this->_gws->forward_fetch_output();
-*/
-    LOG(INFO)<<"AAAAAAAAAAAAAA";
+ //   Tensor<Dtype> * data = this->_gws->forward_fetch_input(this->_opdef.inputs());
+//    Tensor<Dtype> * input2 = this->_gws->forward_fetch_input();
+//    Tensor<Dtype> * weight = this->_gws->fetch_param(this->_opdef.name(), "add_weight");
+//    Tensor<Dtype> * bias = this->_gws->fetch_param(this->_opdef.name(), "add_bias");
+//    Tensor<Dtype> * output1 = this->_gws->forward_fetch_output();
+
+    LOG(INFO)<<"--------" << this->_opdef.param.add_op_param.stride_w;
 };
 template<typename Dtype>
 void AddOp<Dtype>::backward(){
