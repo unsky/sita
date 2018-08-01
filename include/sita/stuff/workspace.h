@@ -105,7 +105,7 @@ private:
     std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_tensor;
 
     // params         name                   type          weight/bias name  weight/bias
-  //  std::vector<std::pair<std::string, OperatorParam<Dtype> > > _params;
+   // std::vector<std::pair<std::string, OperatorParam<Dtype> > > _params;
     std::vector<std::pair<std::string,std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
 
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);

@@ -6,10 +6,6 @@ namespace sita{
 
 template<typename Dtype>
 void AddOp<Dtype>::init(){
-    //common param
-    this->_opconfig.is_loss_op = false;
-    this->_opconfig.is_data_op = false;
-    this->_opconfig.has_param_op = true;
 
     //inputs and outputs
     _inputs.clear();
@@ -22,15 +18,16 @@ void AddOp<Dtype>::init(){
         this->_gws->init_output(this->_opdef.outputs[i]);
         _outputs.push_back(this->_opdef.outputs[i]);
     }
-
+    LOG(INFO) << "---"<<_add_op_param.stride_w;
     // params
-    if(this->_opconfig.has_param_op){
+    if(true){
         std::vector<int> shape;
         shape.push_back(5);
         shape.push_back(6);
         shape.push_back(7);
         shape.push_back(8);
 
+// todo:Filler
         this->_gws->init_param(this->_opdef.name, "add_weight", shape);
         this->_gws->init_param(this->_opdef.name,"add_bias", shape);
     }
@@ -45,7 +42,6 @@ void AddOp<Dtype>::forward(){
 //    Tensor<Dtype> * bias = this->_gws->fetch_param(this->_opdef.name(), "add_bias");
 //    Tensor<Dtype> * output1 = this->_gws->forward_fetch_output();
 
-    LOG(INFO)<<"--------" << this->_opdef.param.add_op_param.stride_w;
 };
 template<typename Dtype>
 void AddOp<Dtype>::backward(){

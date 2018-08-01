@@ -28,7 +28,6 @@ public:
 protected:
     GlobalWorkSpace<Dtype> *_gws;
     OperatorDef _opdef;
-    OperatorConfig _opconfig;
 };
 
 }//namespace
