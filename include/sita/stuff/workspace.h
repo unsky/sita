@@ -68,9 +68,11 @@ public:
     void try_release_flow_tensor();
     
     //params
-    void init_param(std::string op_name, std::string param_name, std::vector<int> shape);
+    void init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, Filler);
 
-    Tensor<Dtype>* fecth_param(std::string op_name, std::string param_name);
+    Tensor<Dtype>* fetch_param(std::string op_name, std::string param_name);
+
+    std::string param_list();
 
 
 
@@ -105,8 +107,9 @@ private:
     std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_tensor;
 
     // params         name                   type          weight/bias name  weight/bias
+    std::map<std::string, OperatorParam<Dtype> > _params;
    // std::vector<std::pair<std::string, OperatorParam<Dtype> > > _params;
-    std::vector<std::pair<std::string,std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
+    //std::vector<std::pair<std::string,std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
 
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };

@@ -157,39 +157,59 @@ std::string GlobalWorkSpace<Dtype>::flow_tensor_list(){
     return list;
 }
 
-// for params
-// std::vector<std::pair<std::string, std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
+
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string param_name, std::vector<int> shape){
+void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, Filler filler){
     bool has_param = false;
-    for(int i = 0; i < _params.size(); i++){
-        if(_params[i].first == op_name){
-            for(auto it = _params[i].second.second.begin(); it != _params[i].second.second.end(); it++){
+    bool has_op_name = false;
+    for(auto i = _params.begin(); i != _params.end(); i++){
+        if(i->first == op_name){
+            has_op_name = true;
+            for(auto it = i->second.params.begin(); it != i->second.params.end(); it++){
                 if(it->first == param_name)
                    has_param = true;
             }
-            if(has_param == false){
-                Tensor<Dtype> t(shape);
-                _params[i].second.second[param_name] = t;
-            }
-            return;
         }
+    }
+    if(has_op_name == false){
+        OperatorParam<Dtype> p;
+        p.type = op_type;
+        Tensor<Dtype> t(shape);
+        p.params[param_name] = t;
+        p.fillers[param_name] = filler;
+        _params[op_name] = p;
+
+    }else if(has_op_name && has_param == false){
+        Tensor<Dtype> t(shape);
+        _params[op_name].params[param_name] = t;
+        _params[op_name].fillers[param_name] = filler;
+
     }
 }
 template <typename Dtype>
-Tensor<Dtype> *GlobalWorkSpace<Dtype>::fecth_param(std::string op_name, std::string param_name){
-    for(int i = 0; i < _params.size(); i++){
-        if(_params[i].first == op_name){
-            for(auto it = _params[i].second.second.begin(); it != _params[i].second.second.end(); it++){
+Tensor<Dtype> *GlobalWorkSpace<Dtype>::fetch_param(std::string op_name, std::string param_name){
+    for(auto i = _params.begin(); i != _params.end(); i++){
+        if(i->first == op_name){
+            for(auto it = i->second.params.begin(); it != i->second.params.end(); it++){
                 if(it->first == param_name)
                    return &(it->second);
             }
-            LOG(FATAL) << "no this param!!";
+            LOG(FATAL) << "no this param!!" << param_list();
         }
     }
-    LOG(FATAL) << "no this param!!";
+    LOG(FATAL) << "no this param!!" << param_list();
 }
-
+template <typename Dtype>
+std::string GlobalWorkSpace<Dtype>::param_list(){
+    std::string str = "we have params:";
+    for(auto i = _params.begin(); i != _params.end(); i++){
+        str =  str + "\n" +  i->first + ": \n";
+        for(auto it = i->second.params.begin(); it != i->second.params.end(); it++){
+                str = str + it->first + " ";
+        }
+    }
+    return str;
+}
 
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::global_init(){   
