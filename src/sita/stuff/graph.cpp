@@ -33,8 +33,8 @@ void Graph::append(std::string op_type, std::string name, std::vector<std::strin
 }
 
 void Graph::graph_symbol_show(){
-    LOG(INFO) << "#############################";
-    LOG(INFO) << "图" << _graph_sym.graph_name << "结构如下";
+    LOG(INFO) << "graph " << _graph_sym.graph_name << ":";
+    LOG(INFO)<<"-------------------------";
     for(int i = 0; i < _graph_sym.ops.size(); i ++) {
         LOG(INFO) << "op name: " << _graph_sym.ops[i].name;
         LOG(INFO) << "type: " << _graph_sym.ops[i].type;
@@ -48,7 +48,6 @@ void Graph::graph_symbol_show(){
         }
         LOG(INFO)<<"-------------------------";
     }
-    LOG(INFO) << "#############################";
 }
 
 

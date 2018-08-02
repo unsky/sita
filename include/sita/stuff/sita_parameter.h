@@ -9,12 +9,16 @@
 namespace  sita {
 
 struct AddOpParameter {
-    int stride_h;
-    int stride_w;
+    int stride_h = 1;
+    int stride_w =1;
+};
+struct DataTestParameter{
+    int batch_size = 1;
 };
 
 struct SitaParameter {
     AddOpParameter add_op_param;
+    DataTestParameter data_test_param;
     Filler filler;
 };
 struct OperatorDef{

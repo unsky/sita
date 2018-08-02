@@ -11,22 +11,18 @@ void WorkSpace::device_query(){
     cudaError = cudaGetDeviceCount(&deviceCount);
     for (int i = 0; i < deviceCount; i++) {
         cudaError = cudaGetDeviceProperties(&deviceProp, i);
-        LOG(INFO) << "===============================================================";
-        LOG(INFO) << "设备 " << i  << " 的主要属性： ";
-        LOG(INFO) << "设备显卡型号： " << deviceProp.name;
-        LOG(INFO) << "设备全局内存总量（以MB为单位）： " << deviceProp.totalGlobalMem / 1024 / 1024;
-        LOG(INFO) << "设备上一个线程块（Block）中可用的最大共享内存（以KB为单位）： " << deviceProp.sharedMemPerBlock / 1024;
-        LOG(INFO) << "设备上一个线程块（Block）种可用的32位寄存器数量： " << deviceProp.regsPerBlock;
-        LOG(INFO) << "设备上一个线程块（Block）可包含的最大线程数量： " << deviceProp.maxThreadsPerBlock;
-        LOG(INFO) << "设备的计算功能集（Compute Capability）的版本号： " << deviceProp.major << "." << deviceProp.minor;
-        LOG(INFO) << "设备上多处理器的数量： " << deviceProp.multiProcessorCount;
+        LOG(INFO) << "device " << i  << " properties ";
+        LOG(INFO) << "device name: " << deviceProp.name;
+        LOG(INFO) << "Total memory: " << deviceProp.totalGlobalMem / 1024 / 1024;
+        LOG(INFO) << "The max Threads: " << deviceProp.maxThreadsPerBlock;
+        LOG(INFO) << "The Compute Capability version: " << deviceProp.major << "." << deviceProp.minor;
+        LOG(INFO) << "The number of multi-processor in this device: " << deviceProp.multiProcessorCount;
     }
-    LOG(INFO) << "===============================================================";
 }
 void WorkSpace::set_device(int gpu_id){
     _gpu_id = gpu_id;
     CUDA_CHECK(cudaSetDevice(_gpu_id));
-    LOG(INFO) << "正在使用GPU:" << _gpu_id << "进行计算...";
+    LOG(INFO) << "using GPU:" << _gpu_id;
 }
 
 template <typename Dtype>
@@ -194,6 +190,7 @@ void GlobalWorkSpace<Dtype>::global_init(){
         GlobalWorkSpace<Dtype> *gws = this;
         OperatorDef opdef = _graph->graph_sym()->ops[i];
         boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef,gws);
+        op->setup();
         op->init();
         _ops.push_back(op);
     }

@@ -10,7 +10,7 @@
 #include "tensor.h"
 namespace  sita{
 struct Filler{
-    std::string type;
+    std::string type = "gauss";
 };
 
 template <typename Dtype>
