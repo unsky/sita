@@ -1,5 +1,5 @@
 <div align=center>
-![](sita.png)
+<img src="sita.png"/>
 </div>
 
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
@@ -8,5 +8,5 @@
 # Feature
 
 <div align=center>
-![](framework.png)
+<img src="framework.png"/>
 </div>
