@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     gws.device_query();
     gws.set_device(0);
     int k = 0;
-    LOG(INFO) << "开始创建图结构： ";
+
     sita::Graph graph("lenet");
 
     std::vector<std::string> inputs;
@@ -35,16 +35,13 @@ int main(int argc, char** argv) {
     sita::SitaParameter add1;
     add1.add_op_param.stride_w = 10;
     graph.append("AddOp", "add1", inputs, outputs, add1);
-    
-    //graph.graph_symbol_show();
+
     gws.build_graph(&graph);
     gws.global_init();
 
     while(k!=1) {
         k++;
-        LOG(INFO) << gws.temp_tensor_memory_size();
-
-
+      //  LOG(INFO) << gws.temp_tensor_memory_size();
         gws.train();
 
 

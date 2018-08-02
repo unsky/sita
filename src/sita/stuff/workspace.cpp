@@ -71,7 +71,7 @@ float GlobalWorkSpace<Dtype>::temp_tensor_memory_size(){
 }
 
 // flow tensor
-//std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_tensor;
+//std::map<std::string, Tensor<Dtype> > _flow_tensor;
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::init_input(std::string name){
     bool has_flow_tensor = false;
@@ -82,7 +82,7 @@ void GlobalWorkSpace<Dtype>::init_input(std::string name){
     }
     if (has_flow_tensor == false){
         Tensor<Dtype> t;
-        _flow_tensor[name] = std::make_pair(t, 0);
+        _flow_tensor[name] = t;
     }
 }
 
@@ -96,55 +96,30 @@ void GlobalWorkSpace<Dtype>::init_output(std::string name){
     }
     if (has_flow_tensor == false){
         Tensor<Dtype> t;
-        _flow_tensor[name] = std::make_pair(t, 0);
+        _flow_tensor[name] = t;
     }
 }
 
 template <typename Dtype>
-Tensor<Dtype>* GlobalWorkSpace<Dtype>::forward_fetch_input(std::string name, bool has_param = true, bool is_data_op = false){
+Tensor<Dtype>* GlobalWorkSpace<Dtype>::fetch_input(std::string name){
     bool has_flow_tensor = false;
     for(auto it = _flow_tensor.begin(); it != _flow_tensor.end(); it ++){
         if(it->first == name){
-            if(has_param == true || is_data_op == true)
-                it->second.second++;
-            return &(it->second.first);
+            return &(it->second);
         }
     }
     LOG(FATAL) << "no this input in flow tensors, do you have init it?" << flow_tensor_list();
 }
 
 template <typename Dtype>
-Tensor<Dtype>* GlobalWorkSpace<Dtype>::forward_fetch_output(std::string name, bool is_loss_op = false){
+Tensor<Dtype>* GlobalWorkSpace<Dtype>::fetch_output(std::string name){
     bool has_flow_tensor = false;
     for(auto it = _flow_tensor.begin(); it != _flow_tensor.end(); it ++){
         if(it->first == name){
-            if(is_loss_op == true)
-                it->second.second++;
-            return &(it->second.first);
+            return &(it->second);
         }
     }
     LOG(FATAL) << "no this onput in flow tensors, do you have init it?" << flow_tensor_list();
-}
-
-template <typename Dtype>
-Tensor<Dtype>* GlobalWorkSpace<Dtype>::backward_fetch_input(std::string name, bool is_data_op = false){
-    bool has_flow_tensor = false;
-    for(auto it = _flow_tensor.begin(); it != _flow_tensor.end(); it ++){
-        if(it->first == name){
-            if(is_data_op == false)
-                it->second.second--;
-            return &(it->second.first);
-        }
-    }
-    LOG(FATAL) << "no this input in flow tensors, do you have init it?" << flow_tensor_list();
-}
-
-template <typename Dtype>
-void GlobalWorkSpace<Dtype>::try_release_flow_tensor(){
-    for(auto it = _flow_tensor.begin(); it != _flow_tensor.end(); it ++){
-        if(it->second.second == 0)
-            it->second.first.clear();
-    }
 }
 
 template <typename Dtype>
@@ -156,7 +131,6 @@ std::string GlobalWorkSpace<Dtype>::flow_tensor_list(){
     }
     return list;
 }
-
 
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, Filler filler){
@@ -186,6 +160,7 @@ void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type
 
     }
 }
+
 template <typename Dtype>
 Tensor<Dtype> *GlobalWorkSpace<Dtype>::fetch_param(std::string op_name, std::string param_name){
     for(auto i = _params.begin(); i != _params.end(); i++){
@@ -199,6 +174,7 @@ Tensor<Dtype> *GlobalWorkSpace<Dtype>::fetch_param(std::string op_name, std::str
     }
     LOG(FATAL) << "no this param!!" << param_list();
 }
+
 template <typename Dtype>
 std::string GlobalWorkSpace<Dtype>::param_list(){
     std::string str = "we have params:";
@@ -223,7 +199,6 @@ void GlobalWorkSpace<Dtype>::global_init(){
     }
 }
 
-
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::forward(){
     for(int i = 0; i < _ops.size(); i++){
@@ -237,6 +212,7 @@ void GlobalWorkSpace<Dtype>::backward(){
         _ops[i]->backward();
     }
 }
+
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::train(){
     forward();

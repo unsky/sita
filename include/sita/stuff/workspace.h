@@ -57,16 +57,13 @@ public:
 
     void init_output(std::string name);
 
-    Tensor<Dtype>* forward_fetch_input(std::string name, bool has_param = true, bool is_data_op = false);
-    
-    Tensor<Dtype>* forward_fetch_output(std::string name, bool is_loss_op = false);
-    
-    Tensor<Dtype>* backward_fetch_input(std::string name, bool is_data_op = false);
-    
+    Tensor<Dtype>* fetch_input(std::string name);
+
+    Tensor<Dtype>* fetch_output(std::string name);
+
     std::string flow_tensor_list();
     
-    void try_release_flow_tensor();
-    
+
     //params
     void init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, Filler);
 
@@ -78,7 +75,6 @@ public:
 
     //grap
     inline void build_graph(Graph * graph){
-
         _graph = graph;
         graph_show();
     };
@@ -91,26 +87,17 @@ public:
     void backward();
     void train();
 
-
-
-
 private:
     // temp_tensor bool true: using  false:released
     std::vector<std::pair<Tensor<Dtype> *, bool> > _temp_tensor_control;
     std::vector<Tensor<Dtype> > _temp_tensor;
-
-
     //graph
     Graph * _graph;
     std::vector<boost::shared_ptr<Operator<Dtype> > > _ops;
-    // input/output name                         using count
-    std::map<std::string, std::pair<Tensor<Dtype>, int> > _flow_tensor;
-
+    // input/output name
+    std::map<std::string, Tensor<Dtype> > _flow_tensor;
     // params         name                   type          weight/bias name  weight/bias
     std::map<std::string, OperatorParam<Dtype> > _params;
-   // std::vector<std::pair<std::string, OperatorParam<Dtype> > > _params;
-    //std::vector<std::pair<std::string,std::pair<std::string, std::map<std::string, Tensor<Dtype> > > > > _params;
-
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };
 

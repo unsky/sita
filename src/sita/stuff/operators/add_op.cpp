@@ -27,17 +27,14 @@ void AddOp<Dtype>::init(){
     shape.push_back(8);
     this->_gws->init_param(this->_opdef.name,this->_opdef.type, "add_weight", shape, _filler);
     this->_gws->init_param(this->_opdef.name,this->_opdef.type, "add_bias", shape, _filler);
-
-
-
 }
+
 template<typename Dtype>
 void AddOp<Dtype>::forward(){
- //   Tensor<Dtype> * data = this->_gws->forward_fetch_input(this->_opdef.inputs());
-//    Tensor<Dtype> * input2 = this->_gws->forward_fetch_input();
+      Tensor<Dtype> * data = this->_gws->fetch_input(this->_opdef.inputs[0]);
       Tensor<Dtype> * add_weight = this->_gws->fetch_param(this->_opdef.name, "add_weight");
       //  Tensor<Dtype> * bias = this->_gws->fetch_param(this->_opdef.name(), "add_bias");
-//    Tensor<Dtype> * output1 = this->_gws->forward_fetch_output();
+    //  Tensor<Dtype> * output1 = this->_gws->fetch_output("aaa");
 
 };
 template<typename Dtype>
