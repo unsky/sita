@@ -2,7 +2,10 @@
 <img src="sita.png"/>
 </div>
 
-sita is an lightweight tracking architecture. It contain deep learning module, machine learning module.
+sita is an lightweight tracking architecture.
+
+It contain deep learning module, machine learning module.
+
 Integrate an trackor using sita in your project!
 
 
@@ -15,6 +18,7 @@ Integrate an trackor using sita in your project!
 <div align=center>
 <img src="framework.png"/>
 </div>
+
 ## Graph builder
 
 <div align=center>
