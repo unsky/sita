@@ -59,8 +59,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="32">
+              <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -177,8 +177,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="-6" />
+    <option name="x" value="-1855" />
+    <option name="y" value="1074" />
     <option name="width" value="1855" />
     <option name="height" value="1086" />
   </component>
@@ -283,24 +283,24 @@
       <workItem from="1532428284003" duration="556000" />
       <workItem from="1532485661603" duration="8987000" />
       <workItem from="1533016818695" duration="19348000" />
-      <workItem from="1533107987505" duration="17886000" />
+      <workItem from="1533107987505" duration="18336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46777000" />
+    <option name="totallyTimeSpent" value="47227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20232172" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20232172" />
       <window_info anchor="bottom" id="TODO" order="9" />
       <window_info anchor="bottom" id="CMake" order="0" weight="0.17177914" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.37645108" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.37645108" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -651,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="32">
+          <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
         </state>
       </provider>
     </entry>
