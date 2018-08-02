@@ -2,7 +2,7 @@
 <img src="sita.png"/>
 </div>
 
-sita is a lightweight tracking architecture.
+Sita is a lightweight tracking architecture.
 
 It contains deep learning and machine learning modules.
 
