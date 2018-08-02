@@ -11,14 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f7408cd6-6569-443f-b864-d0b99a3f7a7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sita" beforeDir="false" afterPath="$PROJECT_DIR$/build/sita" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/sita/stuff/workspace.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/sita/stuff/workspace.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sita/stuff/operators/add_op.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sita/stuff/operators/add_op.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sita/stuff/workspace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sita/stuff/workspace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,11 +47,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+            <state relative-caret-position="495">
+              <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -138,15 +140,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sita_parameter.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/sita/stuff/sita_parameter.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -170,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/sita/stuff/operators/add_op.cpp" />
         <option value="$PROJECT_DIR$/include/sita/stuff/workspace.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -183,8 +177,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="61" />
-    <option name="y" value="44" />
+    <option name="x" value="65" />
+    <option name="y" value="-6" />
     <option name="width" value="1855" />
     <option name="height" value="1086" />
   </component>
@@ -289,24 +283,24 @@
       <workItem from="1532428284003" duration="556000" />
       <workItem from="1532485661603" duration="8987000" />
       <workItem from="1533016818695" duration="19348000" />
-      <workItem from="1533107987505" duration="17113000" />
+      <workItem from="1533107987505" duration="17886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46004000" />
+    <option name="totallyTimeSpent" value="46777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20232172" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20232172" />
       <window_info anchor="bottom" id="TODO" order="9" />
       <window_info anchor="bottom" id="CMake" order="0" weight="0.17177914" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.37645108" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.37645108" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -326,9 +320,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/sita/stuff/memory_control.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/sita/stuff/macros.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -653,8 +644,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        <state relative-caret-position="495">
+          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,4 @@
-# Sita
-Sita: an synergic islets tracking  architecture
+![](sita.png)
 
 ## grap buiding
 
