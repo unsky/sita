@@ -12,6 +12,7 @@
 #include "context.h"
 #include "macros.h"
 #include "graph.h"
+#include "types.h"
 #include "registry.h"
 #include "operator.h"
 namespace sita{

@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/cs/Desktop/cs_work/sita/main.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/main.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/proto/sita.pb.cc" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/stuff/graph.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/io_protobuff.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/stuff/memory_control.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operator.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operators/add_op.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o"

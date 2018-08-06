@@ -21,6 +21,7 @@ template<typename Dtype>
 void AddOp<Dtype>::forward(){
       Tensor<Dtype> * data = this->fetch_input(this->_inputs[0]);
       Tensor<Dtype> * add_weight = this->fetch_param("add_weight");
+     LOG(INFO)<<_add_op_param.kernel_h();
 
 
 };

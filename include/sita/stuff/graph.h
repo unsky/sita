@@ -8,21 +8,23 @@
 #include <glog/logging.h>
 #include <string>
 #include "macros.h"
-#include "sita_parameter.h"
+#include <google/protobuf/io/coded_stream.h>
+#include <google/protobuf/io/zero_copy_stream_impl.h>
+#include <google/protobuf/text_format.h>
+#include "sita/proto/sita.pb.h"
+#include "io_protobuff.h"
 namespace sita{
 
 class Graph{
 public:
-    Graph(std::string name);
+    Graph(std::string model_file);
     ~Graph(){};
-
-    void append(std::string op_type, std::string name, std::vector<std::string> inputs, std::vector<std::string> outputs, SitaParameter param);
     void graph_symbol_show();
-    GraphSym * graph_sym(){
-        return &_graph_sym;}
+    GraphParameter * graph_sym(){
+        return &_graph;}
 
 private:
-    GraphSym _graph_sym;
+    GraphParameter _graph;
 
 };
 

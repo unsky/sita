@@ -153,6 +153,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/sita/proto/sita.pb.o: src/sita/proto/sita.pb.cc.o
+
+.PHONY : src/sita/proto/sita.pb.o
+
+# target to build an object file
+src/sita/proto/sita.pb.cc.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o
+.PHONY : src/sita/proto/sita.pb.cc.o
+
+src/sita/proto/sita.pb.i: src/sita/proto/sita.pb.cc.i
+
+.PHONY : src/sita/proto/sita.pb.i
+
+# target to preprocess a source file
+src/sita/proto/sita.pb.cc.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.i
+.PHONY : src/sita/proto/sita.pb.cc.i
+
+src/sita/proto/sita.pb.s: src/sita/proto/sita.pb.cc.s
+
+.PHONY : src/sita/proto/sita.pb.s
+
+# target to generate assembly for a file
+src/sita/proto/sita.pb.cc.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.s
+.PHONY : src/sita/proto/sita.pb.cc.s
+
 src/sita/stuff/graph.o: src/sita/stuff/graph.cpp.o
 
 .PHONY : src/sita/stuff/graph.o
@@ -179,6 +206,33 @@ src/sita/stuff/graph.s: src/sita/stuff/graph.cpp.s
 src/sita/stuff/graph.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s
 .PHONY : src/sita/stuff/graph.cpp.s
+
+src/sita/stuff/io_protobuff.o: src/sita/stuff/io_protobuff.cpp.o
+
+.PHONY : src/sita/stuff/io_protobuff.o
+
+# target to build an object file
+src/sita/stuff/io_protobuff.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.o
+.PHONY : src/sita/stuff/io_protobuff.cpp.o
+
+src/sita/stuff/io_protobuff.i: src/sita/stuff/io_protobuff.cpp.i
+
+.PHONY : src/sita/stuff/io_protobuff.i
+
+# target to preprocess a source file
+src/sita/stuff/io_protobuff.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.i
+.PHONY : src/sita/stuff/io_protobuff.cpp.i
+
+src/sita/stuff/io_protobuff.s: src/sita/stuff/io_protobuff.cpp.s
+
+.PHONY : src/sita/stuff/io_protobuff.s
+
+# target to generate assembly for a file
+src/sita/stuff/io_protobuff.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.s
+.PHONY : src/sita/stuff/io_protobuff.cpp.s
 
 src/sita/stuff/memory_control.o: src/sita/stuff/memory_control.cpp.o
 
@@ -327,9 +381,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/sita/proto/sita.pb.o"
+	@echo "... src/sita/proto/sita.pb.i"
+	@echo "... src/sita/proto/sita.pb.s"
 	@echo "... src/sita/stuff/graph.o"
 	@echo "... src/sita/stuff/graph.i"
 	@echo "... src/sita/stuff/graph.s"
+	@echo "... src/sita/stuff/io_protobuff.o"
+	@echo "... src/sita/stuff/io_protobuff.i"
+	@echo "... src/sita/stuff/io_protobuff.s"
 	@echo "... src/sita/stuff/memory_control.o"
 	@echo "... src/sita/stuff/memory_control.i"
 	@echo "... src/sita/stuff/memory_control.s"

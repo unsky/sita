@@ -12,7 +12,8 @@ namespace sita{
 template<typename Dtype>
 class AddOp: public Operator<Dtype>{
 public:
-    AddOp(const OperatorDef& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
+    AddOp(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
+        _add_op_param = opdef.add_op_param();
     }
     ~AddOp(){};
     void init();
@@ -22,6 +23,7 @@ public:
 
 protected:
     bool _has_param = true;
+    AddOpParameter11 _add_op_param;
 
 
 };

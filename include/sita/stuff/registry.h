@@ -17,7 +17,7 @@
 #include <boost/shared_ptr.hpp>
 #include "workspace.h"
 #include "operator.h"
-#include "sita_parameter.h"
+#include "sita/proto/sita.pb.h"
 namespace sita {
 
 
@@ -30,7 +30,7 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class OperatorRegistry {
  public:
-  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorDef&, GlobalWorkSpace<Dtype> *);
+  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorParameter&, GlobalWorkSpace<Dtype> *);
   typedef std::map<std::string, Creator> CreatorRegistry;
 
   static CreatorRegistry& Registry() {
@@ -47,9 +47,9 @@ class OperatorRegistry {
   }
 
   // Get a operator using a Parameter.
-  static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorDef& param, GlobalWorkSpace<Dtype>* gws) {
-    LOG(INFO) << "Creating Operator " << param.name;
-    const std::string& type = param.type;
+  static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorParameter& param, GlobalWorkSpace<Dtype>* gws) {
+    LOG(INFO) << "Creating Operator " << param.name();
+    const std::string& type = param.type();
     CreatorRegistry& registry = Registry();
 
     CHECK_EQ(registry.count(type), 1) << "Unknown Operator type: " << type
@@ -91,7 +91,7 @@ template <typename Dtype>
 class OperatorRegisterer {
  public:
     OperatorRegisterer(const std::string& type,
-                  boost::shared_ptr<Operator<Dtype> > (*creator)(const OperatorDef&, GlobalWorkSpace<Dtype>*)) {
+                  boost::shared_ptr<Operator<Dtype> > (*creator)(const OperatorParameter&, GlobalWorkSpace<Dtype>*)) {
    
     OperatorRegistry<Dtype>::AddCreator(type, creator);
   }
@@ -104,7 +104,7 @@ class OperatorRegisterer {
 
 #define REGISTER_OPERATOR_CLASS(type)                                             \
   template <typename Dtype>                                                    \
-  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorDef& param,GlobalWorkSpace<Dtype>* gws) \
+  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorParameter& param,GlobalWorkSpace<Dtype>* gws) \
   {                                                                            \
     return boost::shared_ptr<Operator<Dtype> >(new type<Dtype>(param, gws));           \
   }                                                                            \

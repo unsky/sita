@@ -8,23 +8,22 @@ template<typename Dtype>
 void Operator<Dtype>::setup(){
     //inputs and outputs
     _inputs.clear();
-    for(int i = 0; i < _opdef.inputs.size(); i++){
-        _gws->init_input(_opdef.inputs[i]);
-        _inputs.push_back(_opdef.inputs[i]);
+    for(int i = 0; i < _opdef.input_size(); i++){
+        _gws->init_input(_opdef.input(i));
+        _inputs.push_back(_opdef.input(i));
     }
     _outputs.clear();
-    for(int i = 0; i < _opdef.outputs.size(); i++){
-        _gws->init_output(_opdef.outputs[i]);
-        _outputs.push_back(_opdef.outputs[i]);
+    for(int i = 0; i < _opdef.output_size(); i++){
+        _gws->init_output(_opdef.output(i));
+        _outputs.push_back(_opdef.output(i));
     }
-    _filler = _opdef.param.filler;
     _params.clear();
 
 }
 
 template<typename Dtype>
 void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape){
-    _gws->init_param(_opdef.name, _opdef.type, param_name, shape, _filler);
+    _gws->init_param(_opdef.name(), _opdef.type(), param_name, shape, _filler);
     _params.push_back(param_name);
 
 }
@@ -38,7 +37,7 @@ Tensor<Dtype> * Operator<Dtype>::fetch_input(std::string name){
     if(has_input) {
         return this->_gws->fetch_input(name);
     }else{
-        LOG(FATAL) << "no " << name <<" in the inputs of " << _opdef.name;
+        LOG(FATAL) << "no " << name <<" in the inputs of " << _opdef.name();
     }
 
 }
@@ -52,7 +51,7 @@ Tensor<Dtype> * Operator<Dtype>::fetch_output(std::string name){
     if(has_output) {
         return this->_gws->fetch_output(name);
     }else{
-        LOG(FATAL) << "no " << name <<" in the outputs of " << _opdef.name;
+        LOG(FATAL) << "no " << name <<" in the outputs of " << _opdef.name();
     }
 }
 
@@ -64,9 +63,9 @@ Tensor<Dtype> * Operator<Dtype>::fetch_param(std::string name){
             has_param = true;
 
     if(has_param) {
-        return this->_gws->fetch_param(_opdef.name, name);;
+        return this->_gws->fetch_param(_opdef.name(), name);;
     }else{
-        LOG(FATAL) << "no " << name <<" in the params of " << _opdef.name;
+        LOG(FATAL) << "no " << name <<" in the params of " << _opdef.name();
     }
 
 }

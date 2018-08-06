@@ -4,18 +4,50 @@
 CMakeFiles/sita.dir/main.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/graph.h
+ ../include/sita/stuff/io_protobuff.h
  ../include/sita/stuff/macros.h
  ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/operator.h
  ../include/sita/stuff/registry.h
- ../include/sita/stuff/sita_parameter.h
  ../include/sita/stuff/tensor.h
  ../include/sita/stuff/types.h
  ../include/sita/stuff/workspace.h
+ ../src/sita/proto/sita.pb.h
  /home/cs/Desktop/cs_work/sita/main.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
  /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
  /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
  /usr/local/cuda/include/builtin_types.h
  /usr/local/cuda/include/channel_descriptor.h
  /usr/local/cuda/include/common_functions.h
@@ -69,71 +101,98 @@ CMakeFiles/sita.dir/main.cpp.o
  /usr/local/cuda/include/vector_functions.h
  /usr/local/cuda/include/vector_functions.hpp
  /usr/local/cuda/include/vector_types.h
+CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o
+ /home/cs/Desktop/cs_work/sita/src/sita/proto/sita.pb.cc
+ /home/cs/Desktop/cs_work/sita/src/sita/proto/sita.pb.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.pb.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_enum_reflection.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_reflection.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/reflection_ops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite_inl.h
 CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o
- ../include/sita/stuff/context.h
  ../include/sita/stuff/graph.h
+ ../include/sita/stuff/io_protobuff.h
  ../include/sita/stuff/macros.h
- ../include/sita/stuff/memory_control.h
- ../include/sita/stuff/sita_parameter.h
- ../include/sita/stuff/tensor.h
- ../include/sita/stuff/types.h
+ ../src/sita/proto/sita.pb.h
  /home/cs/Desktop/cs_work/sita/src/sita/stuff/graph.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
  /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
  /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
- /usr/local/cuda/include/builtin_types.h
- /usr/local/cuda/include/channel_descriptor.h
- /usr/local/cuda/include/common_functions.h
- /usr/local/cuda/include/crt/func_macro.h
- /usr/local/cuda/include/cuda_device_runtime_api.h
- /usr/local/cuda/include/cuda_runtime.h
- /usr/local/cuda/include/cuda_runtime_api.h
- /usr/local/cuda/include/cuda_surface_types.h
- /usr/local/cuda/include/cuda_texture_types.h
- /usr/local/cuda/include/device_atomic_functions.h
- /usr/local/cuda/include/device_atomic_functions.hpp
- /usr/local/cuda/include/device_double_functions.h
- /usr/local/cuda/include/device_double_functions.hpp
- /usr/local/cuda/include/device_functions.h
- /usr/local/cuda/include/device_functions.hpp
- /usr/local/cuda/include/device_functions_decls.h
- /usr/local/cuda/include/device_launch_parameters.h
- /usr/local/cuda/include/device_types.h
- /usr/local/cuda/include/driver_functions.h
- /usr/local/cuda/include/driver_types.h
- /usr/local/cuda/include/host_config.h
- /usr/local/cuda/include/host_defines.h
- /usr/local/cuda/include/library_types.h
- /usr/local/cuda/include/math_constants.h
- /usr/local/cuda/include/math_functions.h
- /usr/local/cuda/include/math_functions.hpp
- /usr/local/cuda/include/math_functions_dbl_ptx3.h
- /usr/local/cuda/include/math_functions_dbl_ptx3.hpp
- /usr/local/cuda/include/sm_20_atomic_functions.h
- /usr/local/cuda/include/sm_20_atomic_functions.hpp
- /usr/local/cuda/include/sm_20_intrinsics.h
- /usr/local/cuda/include/sm_20_intrinsics.hpp
- /usr/local/cuda/include/sm_30_intrinsics.h
- /usr/local/cuda/include/sm_30_intrinsics.hpp
- /usr/local/cuda/include/sm_32_atomic_functions.h
- /usr/local/cuda/include/sm_32_atomic_functions.hpp
- /usr/local/cuda/include/sm_32_intrinsics.h
- /usr/local/cuda/include/sm_32_intrinsics.hpp
- /usr/local/cuda/include/sm_35_atomic_functions.h
- /usr/local/cuda/include/sm_35_intrinsics.h
- /usr/local/cuda/include/sm_60_atomic_functions.h
- /usr/local/cuda/include/sm_60_atomic_functions.hpp
- /usr/local/cuda/include/sm_61_intrinsics.h
- /usr/local/cuda/include/sm_61_intrinsics.hpp
- /usr/local/cuda/include/surface_functions.h
- /usr/local/cuda/include/surface_indirect_functions.h
- /usr/local/cuda/include/surface_types.h
- /usr/local/cuda/include/texture_fetch_functions.h
- /usr/local/cuda/include/texture_indirect_functions.h
- /usr/local/cuda/include/texture_types.h
- /usr/local/cuda/include/vector_functions.h
- /usr/local/cuda/include/vector_functions.hpp
- /usr/local/cuda/include/vector_types.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
+CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.o
+ ../include/sita/stuff/io_protobuff.h
+ /home/cs/Desktop/cs_work/sita/src/sita/stuff/io_protobuff.cpp
+ /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
+ /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
+ /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
 CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/macros.h
@@ -198,18 +257,50 @@ CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
 CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/graph.h
+ ../include/sita/stuff/io_protobuff.h
  ../include/sita/stuff/macros.h
  ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/operator.h
  ../include/sita/stuff/registry.h
- ../include/sita/stuff/sita_parameter.h
  ../include/sita/stuff/tensor.h
  ../include/sita/stuff/types.h
  ../include/sita/stuff/workspace.h
+ ../src/sita/proto/sita.pb.h
  /home/cs/Desktop/cs_work/sita/src/sita/stuff/operator.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
  /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
  /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
  /usr/local/cuda/include/builtin_types.h
  /usr/local/cuda/include/channel_descriptor.h
  /usr/local/cuda/include/common_functions.h
@@ -266,19 +357,51 @@ CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o
 CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/graph.h
+ ../include/sita/stuff/io_protobuff.h
  ../include/sita/stuff/macros.h
  ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/operator.h
  ../include/sita/stuff/operators/add_op.h
  ../include/sita/stuff/registry.h
- ../include/sita/stuff/sita_parameter.h
  ../include/sita/stuff/tensor.h
  ../include/sita/stuff/types.h
  ../include/sita/stuff/workspace.h
+ ../src/sita/proto/sita.pb.h
  /home/cs/Desktop/cs_work/sita/src/sita/stuff/operators/add_op.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
  /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
  /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
  /usr/local/cuda/include/builtin_types.h
  /usr/local/cuda/include/channel_descriptor.h
  /usr/local/cuda/include/common_functions.h
@@ -397,18 +520,50 @@ CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
 CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o
  ../include/sita/stuff/context.h
  ../include/sita/stuff/graph.h
+ ../include/sita/stuff/io_protobuff.h
  ../include/sita/stuff/macros.h
  ../include/sita/stuff/memory_control.h
  ../include/sita/stuff/operator.h
  ../include/sita/stuff/registry.h
- ../include/sita/stuff/sita_parameter.h
  ../include/sita/stuff/tensor.h
  ../include/sita/stuff/types.h
  ../include/sita/stuff/workspace.h
+ ../src/sita/proto/sita.pb.h
  /home/cs/Desktop/cs_work/sita/src/sita/stuff/workspace.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
  /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
  /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/descriptor.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/extension_set.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/generated_message_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/coded_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/message_lite.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/repeated_field.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm64_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_arm_qnx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_atomicword_compat.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_macosx.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_mips_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_pnacl.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_solaris.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_tsan.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_gcc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/atomicops_internals_x86_msvc.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/common.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/once.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/platform_macros.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/stl_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/template_util.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/stubs/type_traits.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/text_format.h
+ /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/unknown_field_set.h
  /usr/local/cuda/include/builtin_types.h
  /usr/local/cuda/include/channel_descriptor.h
  /usr/local/cuda/include/common_functions.h

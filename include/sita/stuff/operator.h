@@ -8,11 +8,8 @@
 #include <string>
 #include "macros.h"
 #include "workspace.h"
-#include "sita_parameter.h"
 #include "types.h"
 namespace sita{
-
-
 
 template <typename Dtype>
 class GlobalWorkSpace;
@@ -20,7 +17,7 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class Operator{
 public:
-    Operator(const OperatorDef& opdef, GlobalWorkSpace<Dtype> *gws):_opdef(opdef),_gws(gws){}
+    Operator(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):_opdef(opdef),_gws(gws){}
     ~Operator(){}
     void setup();
     void init_param(std::string param_name, std::vector<int> shape);
@@ -34,7 +31,7 @@ public:
     virtual void backward(){};
 protected:
     GlobalWorkSpace<Dtype> *_gws;
-    OperatorDef _opdef;
+    OperatorParameter _opdef;
     Filler _filler;
     std::vector<std::string> _inputs;
     std::vector<std::string> _outputs;

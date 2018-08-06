@@ -186,10 +186,10 @@ std::string GlobalWorkSpace<Dtype>::param_list(){
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::global_init(){   
     _ops.clear();
-    for(int i = 0; i < _graph->graph_sym()->ops.size(); i++){
+    for(int i = 0; i < _graph->graph_sym()->operatordef_size(); i++){
         GlobalWorkSpace<Dtype> *gws = this;
-        OperatorDef opdef = _graph->graph_sym()->ops[i];
-        boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef,gws);
+        OperatorParameter opdef = _graph->graph_sym()->operatordef(i);
+        boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef, gws);
         op->setup();
         op->init();
         _ops.push_back(op);

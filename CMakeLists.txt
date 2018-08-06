@@ -38,11 +38,12 @@ set(SITA_FILES
         main.cpp
         src/sita/stuff/memory_control.cpp
         src/sita/stuff/tensor.cpp
-      #  src/sita/protos/sita.pb.cc
+        src/sita/proto/sita.pb.cc
         src/sita/stuff/operators/add_op.cpp
         src/sita/stuff/workspace.cpp
         src/sita/stuff/operator.cpp
         src/sita/stuff/graph.cpp
+        src/sita/stuff/io_protobuff.cpp
         )
 
 

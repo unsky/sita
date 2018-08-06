@@ -1,0 +1,21 @@
+name: "LeNet"
+operatordef {
+  name: "data"
+  type: "AddOp"
+  input: "aaa"
+  output: "data"
+  add_op_param {
+  kernel_h: 5
+
+   }
+}
+operatordef {
+  name: "conv1"
+  type: "AddOp"
+  input: "data"
+  output: "conv1"
+  add_op_param{
+  kernel_h: 6
+  }
+}
+
