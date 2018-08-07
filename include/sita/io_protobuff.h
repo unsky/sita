@@ -27,7 +27,9 @@ namespace  sita{
     using google::protobuf::io::ZeroCopyOutputStream;
     using google::protobuf::io::CodedOutputStream;
     using google::protobuf::Message;
-    bool ReadProtoFromTextFile(const char* filename, Message* proto);
+
+    bool read_proto_from_txt(const char* filename, Message* proto);
+
 }
 
 #endif //SITA_IO_PROTOBUFF_H

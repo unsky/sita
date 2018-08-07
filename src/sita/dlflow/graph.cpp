@@ -5,7 +5,7 @@
 namespace sita{
 
 Graph::Graph(std::string model_file){
-    CHECK(ReadProtoFromTextFile(model_file.c_str(), &_graph))
+    CHECK(read_proto_from_txt(model_file.c_str(), &_graph))
             << "Failed to parse SolverParameter file: " << model_file;
 }
 

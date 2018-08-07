@@ -6,7 +6,7 @@
 
 namespace sita{
 
-    bool ReadProtoFromTextFile(const char* filename, Message* proto) {
+    bool read_proto_from_txt(const char* filename, Message* proto) {
         int fd = open(filename, O_RDONLY);
         CHECK_NE(fd, -1) << "File not found: " << filename;
         FileInputStream* input = new FileInputStream(fd);
