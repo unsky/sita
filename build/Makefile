@@ -153,6 +153,195 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/sita/blocking_queue.o: src/sita/blocking_queue.cpp.o
+
+.PHONY : src/sita/blocking_queue.o
+
+# target to build an object file
+src/sita/blocking_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o
+.PHONY : src/sita/blocking_queue.cpp.o
+
+src/sita/blocking_queue.i: src/sita/blocking_queue.cpp.i
+
+.PHONY : src/sita/blocking_queue.i
+
+# target to preprocess a source file
+src/sita/blocking_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.i
+.PHONY : src/sita/blocking_queue.cpp.i
+
+src/sita/blocking_queue.s: src/sita/blocking_queue.cpp.s
+
+.PHONY : src/sita/blocking_queue.s
+
+# target to generate assembly for a file
+src/sita/blocking_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.s
+.PHONY : src/sita/blocking_queue.cpp.s
+
+src/sita/dlflow/graph.o: src/sita/dlflow/graph.cpp.o
+
+.PHONY : src/sita/dlflow/graph.o
+
+# target to build an object file
+src/sita/dlflow/graph.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o
+.PHONY : src/sita/dlflow/graph.cpp.o
+
+src/sita/dlflow/graph.i: src/sita/dlflow/graph.cpp.i
+
+.PHONY : src/sita/dlflow/graph.i
+
+# target to preprocess a source file
+src/sita/dlflow/graph.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.i
+.PHONY : src/sita/dlflow/graph.cpp.i
+
+src/sita/dlflow/graph.s: src/sita/dlflow/graph.cpp.s
+
+.PHONY : src/sita/dlflow/graph.s
+
+# target to generate assembly for a file
+src/sita/dlflow/graph.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.s
+.PHONY : src/sita/dlflow/graph.cpp.s
+
+src/sita/dlflow/operator.o: src/sita/dlflow/operator.cpp.o
+
+.PHONY : src/sita/dlflow/operator.o
+
+# target to build an object file
+src/sita/dlflow/operator.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operator.cpp.o
+.PHONY : src/sita/dlflow/operator.cpp.o
+
+src/sita/dlflow/operator.i: src/sita/dlflow/operator.cpp.i
+
+.PHONY : src/sita/dlflow/operator.i
+
+# target to preprocess a source file
+src/sita/dlflow/operator.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operator.cpp.i
+.PHONY : src/sita/dlflow/operator.cpp.i
+
+src/sita/dlflow/operator.s: src/sita/dlflow/operator.cpp.s
+
+.PHONY : src/sita/dlflow/operator.s
+
+# target to generate assembly for a file
+src/sita/dlflow/operator.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operator.cpp.s
+.PHONY : src/sita/dlflow/operator.cpp.s
+
+src/sita/dlflow/operators/add_op.o: src/sita/dlflow/operators/add_op.cpp.o
+
+.PHONY : src/sita/dlflow/operators/add_op.o
+
+# target to build an object file
+src/sita/dlflow/operators/add_op.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.o
+.PHONY : src/sita/dlflow/operators/add_op.cpp.o
+
+src/sita/dlflow/operators/add_op.i: src/sita/dlflow/operators/add_op.cpp.i
+
+.PHONY : src/sita/dlflow/operators/add_op.i
+
+# target to preprocess a source file
+src/sita/dlflow/operators/add_op.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.i
+.PHONY : src/sita/dlflow/operators/add_op.cpp.i
+
+src/sita/dlflow/operators/add_op.s: src/sita/dlflow/operators/add_op.cpp.s
+
+.PHONY : src/sita/dlflow/operators/add_op.s
+
+# target to generate assembly for a file
+src/sita/dlflow/operators/add_op.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.s
+.PHONY : src/sita/dlflow/operators/add_op.cpp.s
+
+src/sita/internal_thread.o: src/sita/internal_thread.cpp.o
+
+.PHONY : src/sita/internal_thread.o
+
+# target to build an object file
+src/sita/internal_thread.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o
+.PHONY : src/sita/internal_thread.cpp.o
+
+src/sita/internal_thread.i: src/sita/internal_thread.cpp.i
+
+.PHONY : src/sita/internal_thread.i
+
+# target to preprocess a source file
+src/sita/internal_thread.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/internal_thread.cpp.i
+.PHONY : src/sita/internal_thread.cpp.i
+
+src/sita/internal_thread.s: src/sita/internal_thread.cpp.s
+
+.PHONY : src/sita/internal_thread.s
+
+# target to generate assembly for a file
+src/sita/internal_thread.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/internal_thread.cpp.s
+.PHONY : src/sita/internal_thread.cpp.s
+
+src/sita/io_protobuff.o: src/sita/io_protobuff.cpp.o
+
+.PHONY : src/sita/io_protobuff.o
+
+# target to build an object file
+src/sita/io_protobuff.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o
+.PHONY : src/sita/io_protobuff.cpp.o
+
+src/sita/io_protobuff.i: src/sita/io_protobuff.cpp.i
+
+.PHONY : src/sita/io_protobuff.i
+
+# target to preprocess a source file
+src/sita/io_protobuff.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.i
+.PHONY : src/sita/io_protobuff.cpp.i
+
+src/sita/io_protobuff.s: src/sita/io_protobuff.cpp.s
+
+.PHONY : src/sita/io_protobuff.s
+
+# target to generate assembly for a file
+src/sita/io_protobuff.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.s
+.PHONY : src/sita/io_protobuff.cpp.s
+
+src/sita/memory_control.o: src/sita/memory_control.cpp.o
+
+.PHONY : src/sita/memory_control.o
+
+# target to build an object file
+src/sita/memory_control.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/memory_control.cpp.o
+.PHONY : src/sita/memory_control.cpp.o
+
+src/sita/memory_control.i: src/sita/memory_control.cpp.i
+
+.PHONY : src/sita/memory_control.i
+
+# target to preprocess a source file
+src/sita/memory_control.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/memory_control.cpp.i
+.PHONY : src/sita/memory_control.cpp.i
+
+src/sita/memory_control.s: src/sita/memory_control.cpp.s
+
+.PHONY : src/sita/memory_control.s
+
+# target to generate assembly for a file
+src/sita/memory_control.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/memory_control.cpp.s
+.PHONY : src/sita/memory_control.cpp.s
+
 src/sita/proto/sita.pb.o: src/sita/proto/sita.pb.cc.o
 
 .PHONY : src/sita/proto/sita.pb.o
@@ -180,194 +369,59 @@ src/sita/proto/sita.pb.cc.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.s
 .PHONY : src/sita/proto/sita.pb.cc.s
 
-src/sita/stuff/graph.o: src/sita/stuff/graph.cpp.o
+src/sita/tensor.o: src/sita/tensor.cpp.o
 
-.PHONY : src/sita/stuff/graph.o
-
-# target to build an object file
-src/sita/stuff/graph.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o
-.PHONY : src/sita/stuff/graph.cpp.o
-
-src/sita/stuff/graph.i: src/sita/stuff/graph.cpp.i
-
-.PHONY : src/sita/stuff/graph.i
-
-# target to preprocess a source file
-src/sita/stuff/graph.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.i
-.PHONY : src/sita/stuff/graph.cpp.i
-
-src/sita/stuff/graph.s: src/sita/stuff/graph.cpp.s
-
-.PHONY : src/sita/stuff/graph.s
-
-# target to generate assembly for a file
-src/sita/stuff/graph.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.s
-.PHONY : src/sita/stuff/graph.cpp.s
-
-src/sita/stuff/io_protobuff.o: src/sita/stuff/io_protobuff.cpp.o
-
-.PHONY : src/sita/stuff/io_protobuff.o
+.PHONY : src/sita/tensor.o
 
 # target to build an object file
-src/sita/stuff/io_protobuff.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.o
-.PHONY : src/sita/stuff/io_protobuff.cpp.o
+src/sita/tensor.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/tensor.cpp.o
+.PHONY : src/sita/tensor.cpp.o
 
-src/sita/stuff/io_protobuff.i: src/sita/stuff/io_protobuff.cpp.i
+src/sita/tensor.i: src/sita/tensor.cpp.i
 
-.PHONY : src/sita/stuff/io_protobuff.i
+.PHONY : src/sita/tensor.i
 
 # target to preprocess a source file
-src/sita/stuff/io_protobuff.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.i
-.PHONY : src/sita/stuff/io_protobuff.cpp.i
+src/sita/tensor.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/tensor.cpp.i
+.PHONY : src/sita/tensor.cpp.i
 
-src/sita/stuff/io_protobuff.s: src/sita/stuff/io_protobuff.cpp.s
+src/sita/tensor.s: src/sita/tensor.cpp.s
 
-.PHONY : src/sita/stuff/io_protobuff.s
+.PHONY : src/sita/tensor.s
 
 # target to generate assembly for a file
-src/sita/stuff/io_protobuff.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.s
-.PHONY : src/sita/stuff/io_protobuff.cpp.s
+src/sita/tensor.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/tensor.cpp.s
+.PHONY : src/sita/tensor.cpp.s
 
-src/sita/stuff/memory_control.o: src/sita/stuff/memory_control.cpp.o
+src/sita/workspace.o: src/sita/workspace.cpp.o
 
-.PHONY : src/sita/stuff/memory_control.o
+.PHONY : src/sita/workspace.o
 
 # target to build an object file
-src/sita/stuff/memory_control.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o
-.PHONY : src/sita/stuff/memory_control.cpp.o
+src/sita/workspace.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/workspace.cpp.o
+.PHONY : src/sita/workspace.cpp.o
 
-src/sita/stuff/memory_control.i: src/sita/stuff/memory_control.cpp.i
+src/sita/workspace.i: src/sita/workspace.cpp.i
 
-.PHONY : src/sita/stuff/memory_control.i
-
-# target to preprocess a source file
-src/sita/stuff/memory_control.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.i
-.PHONY : src/sita/stuff/memory_control.cpp.i
-
-src/sita/stuff/memory_control.s: src/sita/stuff/memory_control.cpp.s
-
-.PHONY : src/sita/stuff/memory_control.s
-
-# target to generate assembly for a file
-src/sita/stuff/memory_control.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.s
-.PHONY : src/sita/stuff/memory_control.cpp.s
-
-src/sita/stuff/operator.o: src/sita/stuff/operator.cpp.o
-
-.PHONY : src/sita/stuff/operator.o
-
-# target to build an object file
-src/sita/stuff/operator.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o
-.PHONY : src/sita/stuff/operator.cpp.o
-
-src/sita/stuff/operator.i: src/sita/stuff/operator.cpp.i
-
-.PHONY : src/sita/stuff/operator.i
+.PHONY : src/sita/workspace.i
 
 # target to preprocess a source file
-src/sita/stuff/operator.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.i
-.PHONY : src/sita/stuff/operator.cpp.i
+src/sita/workspace.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/workspace.cpp.i
+.PHONY : src/sita/workspace.cpp.i
 
-src/sita/stuff/operator.s: src/sita/stuff/operator.cpp.s
+src/sita/workspace.s: src/sita/workspace.cpp.s
 
-.PHONY : src/sita/stuff/operator.s
-
-# target to generate assembly for a file
-src/sita/stuff/operator.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.s
-.PHONY : src/sita/stuff/operator.cpp.s
-
-src/sita/stuff/operators/add_op.o: src/sita/stuff/operators/add_op.cpp.o
-
-.PHONY : src/sita/stuff/operators/add_op.o
-
-# target to build an object file
-src/sita/stuff/operators/add_op.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o
-.PHONY : src/sita/stuff/operators/add_op.cpp.o
-
-src/sita/stuff/operators/add_op.i: src/sita/stuff/operators/add_op.cpp.i
-
-.PHONY : src/sita/stuff/operators/add_op.i
-
-# target to preprocess a source file
-src/sita/stuff/operators/add_op.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.i
-.PHONY : src/sita/stuff/operators/add_op.cpp.i
-
-src/sita/stuff/operators/add_op.s: src/sita/stuff/operators/add_op.cpp.s
-
-.PHONY : src/sita/stuff/operators/add_op.s
+.PHONY : src/sita/workspace.s
 
 # target to generate assembly for a file
-src/sita/stuff/operators/add_op.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.s
-.PHONY : src/sita/stuff/operators/add_op.cpp.s
-
-src/sita/stuff/tensor.o: src/sita/stuff/tensor.cpp.o
-
-.PHONY : src/sita/stuff/tensor.o
-
-# target to build an object file
-src/sita/stuff/tensor.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o
-.PHONY : src/sita/stuff/tensor.cpp.o
-
-src/sita/stuff/tensor.i: src/sita/stuff/tensor.cpp.i
-
-.PHONY : src/sita/stuff/tensor.i
-
-# target to preprocess a source file
-src/sita/stuff/tensor.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.i
-.PHONY : src/sita/stuff/tensor.cpp.i
-
-src/sita/stuff/tensor.s: src/sita/stuff/tensor.cpp.s
-
-.PHONY : src/sita/stuff/tensor.s
-
-# target to generate assembly for a file
-src/sita/stuff/tensor.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.s
-.PHONY : src/sita/stuff/tensor.cpp.s
-
-src/sita/stuff/workspace.o: src/sita/stuff/workspace.cpp.o
-
-.PHONY : src/sita/stuff/workspace.o
-
-# target to build an object file
-src/sita/stuff/workspace.cpp.o:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o
-.PHONY : src/sita/stuff/workspace.cpp.o
-
-src/sita/stuff/workspace.i: src/sita/stuff/workspace.cpp.i
-
-.PHONY : src/sita/stuff/workspace.i
-
-# target to preprocess a source file
-src/sita/stuff/workspace.cpp.i:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.i
-.PHONY : src/sita/stuff/workspace.cpp.i
-
-src/sita/stuff/workspace.s: src/sita/stuff/workspace.cpp.s
-
-.PHONY : src/sita/stuff/workspace.s
-
-# target to generate assembly for a file
-src/sita/stuff/workspace.cpp.s:
-	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.s
-.PHONY : src/sita/stuff/workspace.cpp.s
+src/sita/workspace.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/workspace.cpp.s
+.PHONY : src/sita/workspace.cpp.s
 
 # Help Target
 help:
@@ -381,30 +435,36 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/sita/blocking_queue.o"
+	@echo "... src/sita/blocking_queue.i"
+	@echo "... src/sita/blocking_queue.s"
+	@echo "... src/sita/dlflow/graph.o"
+	@echo "... src/sita/dlflow/graph.i"
+	@echo "... src/sita/dlflow/graph.s"
+	@echo "... src/sita/dlflow/operator.o"
+	@echo "... src/sita/dlflow/operator.i"
+	@echo "... src/sita/dlflow/operator.s"
+	@echo "... src/sita/dlflow/operators/add_op.o"
+	@echo "... src/sita/dlflow/operators/add_op.i"
+	@echo "... src/sita/dlflow/operators/add_op.s"
+	@echo "... src/sita/internal_thread.o"
+	@echo "... src/sita/internal_thread.i"
+	@echo "... src/sita/internal_thread.s"
+	@echo "... src/sita/io_protobuff.o"
+	@echo "... src/sita/io_protobuff.i"
+	@echo "... src/sita/io_protobuff.s"
+	@echo "... src/sita/memory_control.o"
+	@echo "... src/sita/memory_control.i"
+	@echo "... src/sita/memory_control.s"
 	@echo "... src/sita/proto/sita.pb.o"
 	@echo "... src/sita/proto/sita.pb.i"
 	@echo "... src/sita/proto/sita.pb.s"
-	@echo "... src/sita/stuff/graph.o"
-	@echo "... src/sita/stuff/graph.i"
-	@echo "... src/sita/stuff/graph.s"
-	@echo "... src/sita/stuff/io_protobuff.o"
-	@echo "... src/sita/stuff/io_protobuff.i"
-	@echo "... src/sita/stuff/io_protobuff.s"
-	@echo "... src/sita/stuff/memory_control.o"
-	@echo "... src/sita/stuff/memory_control.i"
-	@echo "... src/sita/stuff/memory_control.s"
-	@echo "... src/sita/stuff/operator.o"
-	@echo "... src/sita/stuff/operator.i"
-	@echo "... src/sita/stuff/operator.s"
-	@echo "... src/sita/stuff/operators/add_op.o"
-	@echo "... src/sita/stuff/operators/add_op.i"
-	@echo "... src/sita/stuff/operators/add_op.s"
-	@echo "... src/sita/stuff/tensor.o"
-	@echo "... src/sita/stuff/tensor.i"
-	@echo "... src/sita/stuff/tensor.s"
-	@echo "... src/sita/stuff/workspace.o"
-	@echo "... src/sita/stuff/workspace.i"
-	@echo "... src/sita/stuff/workspace.s"
+	@echo "... src/sita/tensor.o"
+	@echo "... src/sita/tensor.i"
+	@echo "... src/sita/tensor.s"
+	@echo "... src/sita/workspace.o"
+	@echo "... src/sita/workspace.i"
+	@echo "... src/sita/workspace.s"
 .PHONY : help
 
 

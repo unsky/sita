@@ -1,11 +1,11 @@
 //
 // Created by unsky on 28/06/18.
 //
-#include "sita/stuff/macros.h"
-#include "sita/stuff/memory_control.h"
-#include "sita/stuff/tensor.h"
-#include "sita/stuff/workspace.h"
-#include "sita/stuff/graph.h"
+#include "sita/macros.h"
+#include "sita/memory_control.h"
+#include "sita/tensor.h"
+#include "sita/workspace.h"
+#include "sita/dlflow/graph.h"
 #include <glog/logging.h>
 
 int main(int argc, char** argv) {

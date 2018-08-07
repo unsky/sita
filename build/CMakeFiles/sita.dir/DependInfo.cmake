@@ -5,14 +5,16 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/cs/Desktop/cs_work/sita/main.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/main.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/blocking_queue.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/dlflow/graph.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/dlflow/operator.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dlflow/operator.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/dlflow/operators/add_op.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/internal_thread.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/io_protobuff.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/memory_control.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/memory_control.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/proto/sita.pb.cc" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/graph.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/graph.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/io_protobuff.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/io_protobuff.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/memory_control.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/memory_control.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operator.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operator.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/operators/add_op.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/operators/add_op.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/tensor.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/tensor.cpp.o"
-  "/home/cs/Desktop/cs_work/sita/src/sita/stuff/workspace.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/stuff/workspace.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/tensor.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/tensor.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/workspace.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/workspace.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

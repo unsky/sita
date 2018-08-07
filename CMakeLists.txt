@@ -36,14 +36,16 @@ execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/protos/
 
 set(SITA_FILES
         main.cpp
-        src/sita/stuff/memory_control.cpp
-        src/sita/stuff/tensor.cpp
+        src/sita/memory_control.cpp
+        src/sita/tensor.cpp
         src/sita/proto/sita.pb.cc
-        src/sita/stuff/operators/add_op.cpp
-        src/sita/stuff/workspace.cpp
-        src/sita/stuff/operator.cpp
-        src/sita/stuff/graph.cpp
-        src/sita/stuff/io_protobuff.cpp
+        src/sita/dlflow/operators/add_op.cpp
+        src/sita/workspace.cpp
+        src/sita/dlflow/operator.cpp
+        src/sita/dlflow/graph.cpp
+        src/sita/io_protobuff.cpp
+        src/sita/internal_thread.cpp
+        src/sita/blocking_queue.cpp
         )
 
 
