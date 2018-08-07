@@ -180,6 +180,60 @@ src/sita/blocking_queue.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.s
 .PHONY : src/sita/blocking_queue.cpp.s
 
+src/sita/dataprovider/dataprovider.o: src/sita/dataprovider/dataprovider.cpp.o
+
+.PHONY : src/sita/dataprovider/dataprovider.o
+
+# target to build an object file
+src/sita/dataprovider/dataprovider.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o
+.PHONY : src/sita/dataprovider/dataprovider.cpp.o
+
+src/sita/dataprovider/dataprovider.i: src/sita/dataprovider/dataprovider.cpp.i
+
+.PHONY : src/sita/dataprovider/dataprovider.i
+
+# target to preprocess a source file
+src/sita/dataprovider/dataprovider.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.i
+.PHONY : src/sita/dataprovider/dataprovider.cpp.i
+
+src/sita/dataprovider/dataprovider.s: src/sita/dataprovider/dataprovider.cpp.s
+
+.PHONY : src/sita/dataprovider/dataprovider.s
+
+# target to generate assembly for a file
+src/sita/dataprovider/dataprovider.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.s
+.PHONY : src/sita/dataprovider/dataprovider.cpp.s
+
+src/sita/dataprovider/mnist_dataprovider.o: src/sita/dataprovider/mnist_dataprovider.cpp.o
+
+.PHONY : src/sita/dataprovider/mnist_dataprovider.o
+
+# target to build an object file
+src/sita/dataprovider/mnist_dataprovider.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o
+.PHONY : src/sita/dataprovider/mnist_dataprovider.cpp.o
+
+src/sita/dataprovider/mnist_dataprovider.i: src/sita/dataprovider/mnist_dataprovider.cpp.i
+
+.PHONY : src/sita/dataprovider/mnist_dataprovider.i
+
+# target to preprocess a source file
+src/sita/dataprovider/mnist_dataprovider.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.i
+.PHONY : src/sita/dataprovider/mnist_dataprovider.cpp.i
+
+src/sita/dataprovider/mnist_dataprovider.s: src/sita/dataprovider/mnist_dataprovider.cpp.s
+
+.PHONY : src/sita/dataprovider/mnist_dataprovider.s
+
+# target to generate assembly for a file
+src/sita/dataprovider/mnist_dataprovider.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.s
+.PHONY : src/sita/dataprovider/mnist_dataprovider.cpp.s
+
 src/sita/dlflow/graph.o: src/sita/dlflow/graph.cpp.o
 
 .PHONY : src/sita/dlflow/graph.o
@@ -438,6 +492,12 @@ help:
 	@echo "... src/sita/blocking_queue.o"
 	@echo "... src/sita/blocking_queue.i"
 	@echo "... src/sita/blocking_queue.s"
+	@echo "... src/sita/dataprovider/dataprovider.o"
+	@echo "... src/sita/dataprovider/dataprovider.i"
+	@echo "... src/sita/dataprovider/dataprovider.s"
+	@echo "... src/sita/dataprovider/mnist_dataprovider.o"
+	@echo "... src/sita/dataprovider/mnist_dataprovider.i"
+	@echo "... src/sita/dataprovider/mnist_dataprovider.s"
 	@echo "... src/sita/dlflow/graph.o"
 	@echo "... src/sita/dlflow/graph.i"
 	@echo "... src/sita/dlflow/graph.s"

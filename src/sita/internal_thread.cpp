@@ -20,7 +20,6 @@ namespace sita {
     void InternalThread::start_internal_thread() {
         CHECK(!is_started()) << "Threads should persist and not be restarted.";
 
-
         try {
             thread_.reset(new boost::thread(&InternalThread::entry, this));
         } catch (std::exception& e) {

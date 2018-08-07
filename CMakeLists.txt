@@ -46,6 +46,8 @@ set(SITA_FILES
         src/sita/io_protobuff.cpp
         src/sita/internal_thread.cpp
         src/sita/blocking_queue.cpp
+        src/sita/dataprovider/mnist_dataprovider.cpp
+        src/sita/dataprovider/dataprovider.cpp
         )
 
 

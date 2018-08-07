@@ -324,6 +324,54 @@ CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o.provides: CMakeFiles/sita.dir/
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o
 
 
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: CMakeFiles/sita.dir/flags.make
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../src/sita/dataprovider/mnist_dataprovider.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o -c /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp
+
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp > CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.i
+
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp -o CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.s
+
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.requires:
+
+.PHONY : CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.requires
+
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.provides: CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.provides.build
+.PHONY : CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.provides
+
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o
+
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: CMakeFiles/sita.dir/flags.make
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../src/sita/dataprovider/dataprovider.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cs/Desktop/cs_work/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o -c /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp > CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.i
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp -o CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.s
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.requires:
+
+.PHONY : CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.requires
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.provides: CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.provides.build
+.PHONY : CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.provides
+
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.provides.build: CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o
+
+
 # Object files for target sita
 sita_OBJECTS = \
 "CMakeFiles/sita.dir/main.cpp.o" \
@@ -336,7 +384,9 @@ sita_OBJECTS = \
 "CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o" \
 "CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o" \
 "CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o" \
-"CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o"
+"CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o" \
+"CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o" \
+"CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o"
 
 # External object files for target sita
 sita_EXTERNAL_OBJECTS =
@@ -352,6 +402,8 @@ sita: CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o
 sita: CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o
+sita: CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o
+sita: CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o
 sita: CMakeFiles/sita.dir/build.make
 sita: /usr/local/cuda/lib64/libcudart_static.a
 sita: /usr/lib/x86_64-linux-gnu/librt.so
@@ -366,7 +418,7 @@ sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgcodecs3.so.3.3.1
 sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_imgproc3.so.3.3.1
 sita: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
 sita: CMakeFiles/sita.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cs/Desktop/cs_work/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable sita"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cs/Desktop/cs_work/sita/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sita"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sita.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -385,6 +437,8 @@ CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o.re
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o.requires
 CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o.requires
+CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o.requires
+CMakeFiles/sita.dir/requires: CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o.requires
 
 .PHONY : CMakeFiles/sita.dir/requires
 

@@ -7,7 +7,7 @@
 #include "sita/workspace.h"
 #include "sita/dlflow/graph.h"
 #include <glog/logging.h>
-
+#include "sita/dataprovider/mnist_dataprovider.h"
 int main(int argc, char** argv) {
     sita::GlobalWorkSpace<float > gws;
     gws.device_query();
@@ -18,9 +18,17 @@ int main(int argc, char** argv) {
 
     gws.build_graph(&graph);
     gws.global_init();
+    std::vector<float> means;
+    means.push_back(float(0));
+    means.push_back(float(5));
+    means.push_back(float(10));
+    sita::MnistDataProvider<float > mnistdp("aa","nn",means,10,9);
+
     int k = 0;
-    while(k!=1) {
+
+    while(k!=10) {
         k++;
+      //  mnistdp.fetch_batch();
       //  LOG(INFO) << gws.temp_tensor_memory_size();
         gws.train();
     }

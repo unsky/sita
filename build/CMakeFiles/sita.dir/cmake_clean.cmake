@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sita.dir/src/sita/io_protobuff.cpp.o"
   "CMakeFiles/sita.dir/src/sita/internal_thread.cpp.o"
   "CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o"
+  "CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o"
+  "CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o"
   "sita.pdb"
   "sita"
 )

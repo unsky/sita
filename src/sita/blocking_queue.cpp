@@ -2,6 +2,7 @@
 // Created by unsky on 07/08/18.
 //
 #include "sita/blocking_queue.h"
+#include "sita/dataprovider/mnist_dataprovider.h"
 
 namespace sita {
 
@@ -83,7 +84,9 @@ namespace sita {
         return queue_.size();
     }
 
-     template class BlockingQueue<Tensor<float>*>;
+     template class BlockingQueue<MnistBatch<float >*>;
+     template class BlockingQueue<MnistBatch<double >*>;
+    template class BlockingQueue<MnistBatch<int >*>;
 
 
 }  // namespace sita
