@@ -9,7 +9,7 @@
 --   chrono
 --   date_time
 --   atomic
-CMake Error at CMakeLists.txt:60 (find_package):
+CMake Error at CMakeLists.txt:66 (find_package):
   By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
   asked CMake to find a package configuration file provided by "OpenCV", but
   CMake did not find one.

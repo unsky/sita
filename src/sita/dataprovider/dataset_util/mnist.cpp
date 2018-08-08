@@ -47,7 +47,7 @@ void read_mnist_image(char* path, std::vector<cv::Mat> &vec) {
                 for (int r = 0; r < header[2]; ++r) {
                     for (int c = 0; c < header[3]; ++c) {
                         is.read((char*) &temp, sizeof(temp));
-                        image.at < double > (r, c) = (double) temp;
+                        image.at < float > (r, c) = (float) temp;
                     }
                 }
 

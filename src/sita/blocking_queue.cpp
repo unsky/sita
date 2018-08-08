@@ -11,6 +11,7 @@ namespace sita {
     public:
         mutable boost::mutex mutex_;
         boost::condition_variable condition_;
+
     };
 
     template<typename T>

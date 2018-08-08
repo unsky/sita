@@ -23,14 +23,32 @@ int main(int argc, char** argv) {
     means.push_back(float(5));
     means.push_back(float(10));
     sita::MnistDataProvider<float > mnistdp("../data/mnist/train-images-idx3-ubyte",
-                "../data/mnist/train-labels-idx1-ubyte",means,10,2);
+                "../data/mnist/train-labels-idx1-ubyte",means,10,5);
 
     int k = 0;
 
-    while(k!=100000) {
+    while(k != 3000) {
         k++;
-        mnistdp.fetch_batch();
+        sita::MnistBatch<float> * batch = mnistdp.fetch_batch();
+     //   LOG(INFO)<<batch->label()->cpu_data()[0];
+
+        const float *blob_data = batch->data()->cpu_data();
+        cv::Mat cv_img_original(batch->data()->shape()[2], batch->data()->shape()[3], CV_32FC1);
+        for(int b = 0; b<batch->data()->shape()[0]; b++){
+            int offset = batch->data()->get_site_by_coord(b, 0, 0, 0);
+            for(int h = 0; h < batch->data()->shape()[2]; h++){
+                for(int w = 0; w < batch->data()->shape()[3]; w++){
+
+                    float value = blob_data[offset + h*batch->data()->shape()[3] + w];
+
+                    cv_img_original.at<float>(h, w) = value;
+                  //  std::cout<<value;
+                }
+              //  std::cout<<std::endl;
+            }
+        cv::imwrite("vis/" + std::to_string(k)+"_"+ std::to_string(b)+"__"+std::to_string(int(batch->label()->cpu_data()[b]))+ ".jpg", cv_img_original);
       //  LOG(INFO) << gws.temp_tensor_memory_size();
+            }
         gws.train();
     }
     //workspace test

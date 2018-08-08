@@ -17,6 +17,7 @@ template<typename T>
 class BlockingQueue {
 public:
     explicit BlockingQueue();
+    ~BlockingQueue(){};
 
     void push(const T& t);
 
