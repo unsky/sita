@@ -48,6 +48,7 @@ set(SITA_FILES
         src/sita/blocking_queue.cpp
         src/sita/dataprovider/mnist_dataprovider.cpp
         src/sita/dataprovider/dataprovider.cpp
+        src/sita/dataprovider/dataset_util/mnist.cpp
         )
 
 

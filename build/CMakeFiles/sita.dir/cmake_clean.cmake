@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o"
   "CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o"
   "CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o"
+  "CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.o"
   "sita.pdb"
   "sita"
 )

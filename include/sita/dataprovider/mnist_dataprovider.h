@@ -5,6 +5,7 @@
 #ifndef SITA_DATA_PROVIDER_MNIST_DATAPROVIDER_H
 #define SITA_DATA_PROVIDER_MNIST_DATAPROVIDER_H
 #include "dataprovider.h"
+#include "dataset_util/mnist.h"
 namespace sita {
 
     template <typename Dtype>
@@ -44,19 +45,7 @@ namespace sita {
     class MnistDataProvider: public DataProvider<Dtype>{
     public:
         MnistDataProvider(std::string data_file, std::string label_file,
-          std::vector<Dtype> means, int batch_size, int thread_num) :DataProvider<Dtype>(data_file,
-          label_file, means, batch_size, thread_num){
-            _threads.resize(thread_num);
-            for(int i = 0; i < DataProvider<Dtype>::PREFETCH_COUNT; i++){
-                _prefetch[i].data().reshape(10,10,10,10);
-                _prefetch[i].label().reshape(10,10,10,1);
-                _prefetch_free.push(&_prefetch[i]);
-            }
-            for(int i = 0; i < _threads.size(); i ++){
-                _threads[i].init(&_prefetch_free, &_prefetch_full);
-                _threads[i].start_internal_thread();
-            }
-        }
+          std::vector<Dtype> means, int batch_size, int thread_num);
         ~MnistDataProvider(){}
 
         MnistBatch<Dtype> * fetch_batch();
@@ -66,6 +55,8 @@ namespace sita {
         MnistBatch<Dtype> _prefetch[DataProvider<Dtype>::PREFETCH_COUNT];
         BlockingQueue<MnistBatch<Dtype>*> _prefetch_free;
         BlockingQueue<MnistBatch<Dtype>*> _prefetch_full;
+        std::vector<cv::Mat> _images;
+        std::vector<double> _labels;
     };
 }//namespace sita
 

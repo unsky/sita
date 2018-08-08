@@ -22,13 +22,14 @@ int main(int argc, char** argv) {
     means.push_back(float(0));
     means.push_back(float(5));
     means.push_back(float(10));
-    sita::MnistDataProvider<float > mnistdp("aa","nn",means,10,9);
+    sita::MnistDataProvider<float > mnistdp("../data/mnist/train-images-idx3-ubyte",
+                "../data/mnist/train-labels-idx1-ubyte",means,10,2);
 
     int k = 0;
 
-    while(k!=10) {
+    while(k!=100000) {
         k++;
-      //  mnistdp.fetch_batch();
+        mnistdp.fetch_batch();
       //  LOG(INFO) << gws.temp_tensor_memory_size();
         gws.train();
     }

@@ -207,6 +207,33 @@ src/sita/dataprovider/dataprovider.cpp.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.s
 .PHONY : src/sita/dataprovider/dataprovider.cpp.s
 
+src/sita/dataprovider/dataset_util/mnist.o: src/sita/dataprovider/dataset_util/mnist.cpp.o
+
+.PHONY : src/sita/dataprovider/dataset_util/mnist.o
+
+# target to build an object file
+src/sita/dataprovider/dataset_util/mnist.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.o
+.PHONY : src/sita/dataprovider/dataset_util/mnist.cpp.o
+
+src/sita/dataprovider/dataset_util/mnist.i: src/sita/dataprovider/dataset_util/mnist.cpp.i
+
+.PHONY : src/sita/dataprovider/dataset_util/mnist.i
+
+# target to preprocess a source file
+src/sita/dataprovider/dataset_util/mnist.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.i
+.PHONY : src/sita/dataprovider/dataset_util/mnist.cpp.i
+
+src/sita/dataprovider/dataset_util/mnist.s: src/sita/dataprovider/dataset_util/mnist.cpp.s
+
+.PHONY : src/sita/dataprovider/dataset_util/mnist.s
+
+# target to generate assembly for a file
+src/sita/dataprovider/dataset_util/mnist.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.s
+.PHONY : src/sita/dataprovider/dataset_util/mnist.cpp.s
+
 src/sita/dataprovider/mnist_dataprovider.o: src/sita/dataprovider/mnist_dataprovider.cpp.o
 
 .PHONY : src/sita/dataprovider/mnist_dataprovider.o
@@ -495,6 +522,9 @@ help:
 	@echo "... src/sita/dataprovider/dataprovider.o"
 	@echo "... src/sita/dataprovider/dataprovider.i"
 	@echo "... src/sita/dataprovider/dataprovider.s"
+	@echo "... src/sita/dataprovider/dataset_util/mnist.o"
+	@echo "... src/sita/dataprovider/dataset_util/mnist.i"
+	@echo "... src/sita/dataprovider/dataset_util/mnist.s"
 	@echo "... src/sita/dataprovider/mnist_dataprovider.o"
 	@echo "... src/sita/dataprovider/mnist_dataprovider.i"
 	@echo "... src/sita/dataprovider/mnist_dataprovider.s"

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/cs/Desktop/cs_work/sita/main.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/main.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/blocking_queue.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o"
+  "/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataset_util/mnist.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/dlflow/graph.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dlflow/graph.cpp.o"
   "/home/cs/Desktop/cs_work/sita/src/sita/dlflow/operator.cpp" "/home/cs/Desktop/cs_work/sita/build/CMakeFiles/sita.dir/src/sita/dlflow/operator.cpp.o"
