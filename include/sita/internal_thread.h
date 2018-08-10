@@ -13,7 +13,7 @@ namespace boost { class thread; }
 namespace sita {
 class InternalThread {
 public:
-    InternalThread() : thread_() {}
+    InternalThread() : _thread() {}
     virtual ~InternalThread();
 
     void start_internal_thread();
@@ -28,7 +28,7 @@ protected:
 
 private:
     void entry();
-    boost::shared_ptr<boost::thread> thread_;
+    boost::shared_ptr<boost::thread> _thread;
 };
 
 }  // namespace caffe

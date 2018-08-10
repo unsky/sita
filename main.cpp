@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 
     int k = 0;
 
-    while(k != 3) {
+    while(k != 40) {
         k++;
         sita::MnistBatch<float> * batch = mnistdp.fetch_batch();
      //   LOG(INFO)<<batch->label()->cpu_data()[0];
@@ -51,7 +51,6 @@ int main(int argc, char** argv) {
             }
         gws.train();
     }
-
 
 
     return 0;

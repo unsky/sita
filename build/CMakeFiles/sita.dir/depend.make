@@ -13,6 +13,8 @@ CMakeFiles/sita.dir/main.cpp.o: ../include/sita/internal_thread.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/io_protobuff.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/macros.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/memory_control.h
+CMakeFiles/sita.dir/main.cpp.o: ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+CMakeFiles/sita.dir/main.cpp.o: ../include/sita/stuff/stuff.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/tensor.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/types.h
 CMakeFiles/sita.dir/main.cpp.o: ../include/sita/workspace.h
@@ -244,6 +246,8 @@ CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/dataprovider/
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/internal_thread.h
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/macros.h
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/memory_control.h
+CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/stuff/stuff.h
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../include/sita/tensor.h
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: ../src/sita/blocking_queue.cpp
 CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
@@ -642,6 +646,8 @@ CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/s
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/internal_thread.h
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/macros.h
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/memory_control.h
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/stuff/stuff.h
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../include/sita/tensor.h
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: ../src/sita/dataprovider/mnist_dataprovider.cpp
 CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
@@ -1190,6 +1196,13 @@ CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o: /home/cs/caffe_third/for_x86/pr
 CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o: /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format.h
 CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o: /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite.h
 CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o: /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite_inl.h
+
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: ../include/sita/stuff/stuff.h
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: ../src/sita/stuff/shuffle/fisher_yates_shuffler.cpp
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
 
 CMakeFiles/sita.dir/src/sita/tensor.cpp.o: ../include/sita/context.h
 CMakeFiles/sita.dir/src/sita/tensor.cpp.o: ../include/sita/macros.h

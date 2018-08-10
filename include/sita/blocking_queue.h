@@ -37,8 +37,8 @@ public:
 protected:
     class sync;
 
-    std::queue<T> queue_;
-    boost::shared_ptr<sync> sync_;
+    std::queue<T> _queue;
+    boost::shared_ptr<sync> _sync;
 
     DISABLE_COPY_AND_ASSIGN(BlockingQueue);
 };

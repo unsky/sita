@@ -4,17 +4,17 @@
 
 #ifndef SITA_STUFF_STUFF_H
 #define SITA_STUFF_STUFF_H
+#include "shuffle/fisher_yates_shuffler.h"
 namespace  sita {
 
 class Stuff {
 public:
-
     Stuff() {}
     ~Stuff() {}
 
-    virtual void inferance() {}
+    virtual void exec_infer() {}
 
-    virtual void backward() {}
+    virtual void exec_back() {}
 
 private:
     DISABLE_COPY_AND_ASSIGN(Stuff);

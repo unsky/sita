@@ -51,6 +51,8 @@ dataprovider.h
 ../include/sita/dataprovider/dataprovider.h
 dataset_util/mnist.h
 ../include/sita/dataprovider/dataset_util/mnist.h
+sita/stuff/shuffle/fisher_yates_shuffler.h
+../include/sita/dataprovider/sita/stuff/shuffle/fisher_yates_shuffler.h
 
 ../include/sita/dlflow/graph.h
 vector
@@ -161,6 +163,30 @@ sita/macros.h
 ../include/sita/sita/macros.h
 sita/context.h
 ../include/sita/sita/context.h
+
+../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+algorithm
+-
+iterator
+-
+cmath
+-
+cstdio
+-
+ctime
+-
+glog/logging.h
+-
+boost/random/mersenne_twister.hpp
+../include/sita/stuff/shuffle/boost/random/mersenne_twister.hpp
+boost/random/uniform_int.hpp
+../include/sita/stuff/shuffle/boost/random/uniform_int.hpp
+sita/stuff/stuff.h
+../include/sita/stuff/shuffle/sita/stuff/stuff.h
+
+../include/sita/stuff/stuff.h
+shuffle/fisher_yates_shuffler.h
+../include/sita/stuff/shuffle/fisher_yates_shuffler.h
 
 ../include/sita/tensor.h
 vector
@@ -337,6 +363,10 @@ google/protobuf/extension_set.h
 -
 google/protobuf/unknown_field_set.h
 -
+
+/home/cs/Desktop/cs_work/sita/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp
+sita/stuff/shuffle/fisher_yates_shuffler.h
+/home/cs/Desktop/cs_work/sita/src/sita/stuff/shuffle/sita/stuff/shuffle/fisher_yates_shuffler.h
 
 /home/cs/Desktop/cs_work/sita/src/sita/tensor.cpp
 sita/tensor.h

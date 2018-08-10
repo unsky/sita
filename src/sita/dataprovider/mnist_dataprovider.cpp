@@ -8,7 +8,7 @@ template <typename Dtype>
 MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string label_file,
         std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle):DataProvider<Dtype>(data_file,
         label_file, means, batch_size, thread_num, shuffle) {
-    LOG(INFO) << "loading mnist dataset using "<< thread_num <<" threads......";
+    LOG(INFO) << "loading mnist dataset using "<< thread_num <<" threads ...";
     _threads.resize(thread_num);
     _thread_images.resize(thread_num);
     _thread_labels.resize(thread_num);
@@ -23,15 +23,27 @@ MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string l
     CHECK_EQ(_images.size(), _labels.size()) << "label size do not equal image size in mnist!!";
 
     if(shuffle){
+        LOG(INFO) << "shuffling data ...";
 
+        FisherYatesShuffler fy_shuff;
+        std::vector<std::pair<cv::Mat, double> > shuffled_data;
+        for(int i = 0; i < _images.size(); i++){
+            shuffled_data.push_back(std::make_pair(_images[i], _labels[i]));
+        }
+        fy_shuff.shuffle(shuffled_data.begin(),shuffled_data.end());
+        _images.clear();
+        _labels.clear();
+        for(int i = 0; i < shuffled_data.size(); i++){
+            _images.push_back(shuffled_data[i].first);
+            _labels.push_back(shuffled_data[i].second);
+        }
 
-
-
+        LOG(INFO)<<"data is shuffled!!!";
     }
 
     int num_images_in_one_thread = _images.size()/thread_num - 1;
 
-    LOG(INFO) << num_images_in_one_thread << " data processing in each thread !!";
+    LOG(INFO) << num_images_in_one_thread << " data processing in each thread!!!";
 
     for(int i = 0; i < thread_num; i++){
         int begin_indx = i * num_images_in_one_thread;

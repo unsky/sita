@@ -14,6 +14,8 @@ CMakeFiles/sita.dir/main.cpp.o
  ../include/sita/io_protobuff.h
  ../include/sita/macros.h
  ../include/sita/memory_control.h
+ ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+ ../include/sita/stuff/stuff.h
  ../include/sita/tensor.h
  ../include/sita/types.h
  ../include/sita/workspace.h
@@ -245,6 +247,8 @@ CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o
  ../include/sita/internal_thread.h
  ../include/sita/macros.h
  ../include/sita/memory_control.h
+ ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+ ../include/sita/stuff/stuff.h
  ../include/sita/tensor.h
  /home/cs/Desktop/cs_work/sita/src/sita/blocking_queue.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
@@ -643,6 +647,8 @@ CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o
  ../include/sita/internal_thread.h
  ../include/sita/macros.h
  ../include/sita/memory_control.h
+ ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+ ../include/sita/stuff/stuff.h
  ../include/sita/tensor.h
  /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
@@ -1191,6 +1197,13 @@ CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.o
  /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format.h
  /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite.h
  /home/cs/caffe_third/for_x86/protobuf/include/google/protobuf/wire_format_lite_inl.h
+CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o
+ ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+ ../include/sita/stuff/stuff.h
+ /home/cs/Desktop/cs_work/sita/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp
+ /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h
+ /home/cs/caffe_third/for_x86/glog/include/glog/logging.h
+ /home/cs/caffe_third/for_x86/glog/include/glog/vlog_is_on.h
 CMakeFiles/sita.dir/src/sita/tensor.cpp.o
  ../include/sita/context.h
  ../include/sita/macros.h

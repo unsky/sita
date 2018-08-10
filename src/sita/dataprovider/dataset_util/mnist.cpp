@@ -28,13 +28,12 @@ void read_mnist_image(char* path, std::vector<cv::Mat> &vec) {
     } else {
         int num_header = 4;
         int header[num_header];
-        LOG(INFO) << "read image header";
         is.read(reinterpret_cast<char*>(&header), sizeof(header));
         if (is) {
             for (int i = 0; i < num_header; ++i) {
                 header[i] = reverse_int(header[i]);
             }
-            LOG(INFO) << "read successful ";
+            LOG(INFO) << "read successful!!!";
             LOG(INFO) << "magic number: " << header[0];
             LOG(INFO) << "image number: " << header[1];
             LOG(INFO) << "rows  number: " << header[2];
@@ -67,14 +66,13 @@ void read_mnist_label(char* path, std::vector<double> &labels){
     } else {
         int num_header = 2;
         int header[num_header];
-        LOG(INFO) << "read label header";
         is.read(reinterpret_cast<char*>(&header), sizeof(header));
         if (is) {
             for (int i = 0; i < num_header; ++i) {
                 header[i] = reverse_int(header[i]);
             }
 
-            LOG(INFO) << "read successful ";
+            LOG(INFO) << "read successful!!!";
             LOG(INFO) << "magic number: " << header[0];
             LOG(INFO) << "label number: " << header[1];
 

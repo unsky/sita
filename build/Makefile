@@ -450,6 +450,33 @@ src/sita/proto/sita.pb.cc.s:
 	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/proto/sita.pb.cc.s
 .PHONY : src/sita/proto/sita.pb.cc.s
 
+src/sita/stuff/shuffle/fisher_yates_shuffler.o: src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o
+
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.o
+
+# target to build an object file
+src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.o
+
+src/sita/stuff/shuffle/fisher_yates_shuffler.i: src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.i
+
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.i
+
+# target to preprocess a source file
+src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.i:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.i
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.i
+
+src/sita/stuff/shuffle/fisher_yates_shuffler.s: src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.s
+
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.s
+
+# target to generate assembly for a file
+src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.s:
+	$(MAKE) -f CMakeFiles/sita.dir/build.make CMakeFiles/sita.dir/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.s
+.PHONY : src/sita/stuff/shuffle/fisher_yates_shuffler.cpp.s
+
 src/sita/tensor.o: src/sita/tensor.cpp.o
 
 .PHONY : src/sita/tensor.o
@@ -549,6 +576,9 @@ help:
 	@echo "... src/sita/proto/sita.pb.o"
 	@echo "... src/sita/proto/sita.pb.i"
 	@echo "... src/sita/proto/sita.pb.s"
+	@echo "... src/sita/stuff/shuffle/fisher_yates_shuffler.o"
+	@echo "... src/sita/stuff/shuffle/fisher_yates_shuffler.i"
+	@echo "... src/sita/stuff/shuffle/fisher_yates_shuffler.s"
 	@echo "... src/sita/tensor.o"
 	@echo "... src/sita/tensor.i"
 	@echo "... src/sita/tensor.s"

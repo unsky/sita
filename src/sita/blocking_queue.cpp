@@ -6,88 +6,88 @@
 
 namespace sita {
 
-    template<typename T>
-    class BlockingQueue<T>::sync {
-    public:
-        mutable boost::mutex mutex_;
-        boost::condition_variable condition_;
+template<typename T>
+class BlockingQueue<T>::sync {
+public:
+    mutable boost::mutex _mutex;
+    boost::condition_variable _condition;
 
-    };
+};
 
-    template<typename T>
-    BlockingQueue<T>::BlockingQueue()
-            : sync_(new sync()) {
+template<typename T>
+BlockingQueue<T>::BlockingQueue()
+        : _sync(new sync()) {
+}
+
+template<typename T>
+void BlockingQueue<T>::push(const T& t) {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
+    _queue.push(t);
+    lock.unlock();
+    _sync->_condition.notify_one();
+}
+
+template<typename T>
+bool BlockingQueue<T>::try_pop(T* t) {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
+
+    if (_queue.empty()) {
+        return false;
     }
 
-    template<typename T>
-    void BlockingQueue<T>::push(const T& t) {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
-        queue_.push(t);
-        lock.unlock();
-        sync_->condition_.notify_one();
-    }
+    *t = _queue.front();
+    _queue.pop();
+    return true;
+}
 
-    template<typename T>
-    bool BlockingQueue<T>::try_pop(T* t) {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
+template<typename T>
+T BlockingQueue<T>::pop(const std::string& log_on_wait) {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
 
-        if (queue_.empty()) {
-            return false;
+    while (_queue.empty()) {
+        if (!log_on_wait.empty()) {
+            LOG_EVERY_N(INFO, 1000)<< log_on_wait;
         }
-
-        *t = queue_.front();
-        queue_.pop();
-        return true;
+        _sync->_condition.wait(lock);
     }
 
-    template<typename T>
-    T BlockingQueue<T>::pop(const std::string& log_on_wait) {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
+    T t = _queue.front();
+    _queue.pop();
+    return t;
+}
 
-        while (queue_.empty()) {
-            if (!log_on_wait.empty()) {
-                LOG_EVERY_N(INFO, 1000)<< log_on_wait;
-            }
-            sync_->condition_.wait(lock);
-        }
+template<typename T>
+bool BlockingQueue<T>::try_peek(T* t) {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
 
-        T t = queue_.front();
-        queue_.pop();
-        return t;
+    if (_queue.empty()) {
+        return false;
     }
 
-    template<typename T>
-    bool BlockingQueue<T>::try_peek(T* t) {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
+    *t = _queue.front();
+    return true;
+}
 
-        if (queue_.empty()) {
-            return false;
-        }
+template<typename T>
+T BlockingQueue<T>::peek() {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
 
-        *t = queue_.front();
-        return true;
+    while (_queue.empty()) {
+        _sync->_condition.wait(lock);
     }
 
-    template<typename T>
-    T BlockingQueue<T>::peek() {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
+    return _queue.front();
+}
 
-        while (queue_.empty()) {
-            sync_->condition_.wait(lock);
-        }
+template<typename T>
+size_t BlockingQueue<T>::size() const {
+    boost::mutex::scoped_lock lock(_sync->_mutex);
+    return _queue.size();
+}
 
-        return queue_.front();
-    }
-
-    template<typename T>
-    size_t BlockingQueue<T>::size() const {
-        boost::mutex::scoped_lock lock(sync_->mutex_);
-        return queue_.size();
-    }
-
-     template class BlockingQueue<MnistBatch<float >*>;
-     template class BlockingQueue<MnistBatch<double >*>;
-    template class BlockingQueue<MnistBatch<int >*>;
+template class BlockingQueue<MnistBatch<float >*>;
+template class BlockingQueue<MnistBatch<double >*>;
+template class BlockingQueue<MnistBatch<int >*>;
 
 
 }  // namespace sita

@@ -49,6 +49,7 @@ set(SITA_FILES
         src/sita/dataprovider/mnist_dataprovider.cpp
         src/sita/dataprovider/dataprovider.cpp
         src/sita/dataprovider/dataset_util/mnist.cpp
+        src/sita/stuff/shuffle/fisher_yates_shuffler.cpp
         )
 
 
