@@ -36,7 +36,7 @@ private:
 template <typename Dtype>
 class DataProvider{
 public:
-    DataProvider(std::string data_file, std::string label_file, std::vector<Dtype> means, int batch_size, int thread_num){
+    DataProvider(std::string data_file, std::string label_file, std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle){
     };
     ~DataProvider(){};
     static const int PREFETCH_COUNT = 3;

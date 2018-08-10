@@ -32,6 +32,7 @@ namespace sita {
     }
 
     void InternalThread::stop_internal_thread() {
+        //fist thread try to join the main and interupted itself
         if (is_started()) {
             thread_->interrupt();
             try {
@@ -40,6 +41,10 @@ namespace sita {
             } catch (std::exception& e) {
                 LOG(FATAL) << "Thread exception: " << e.what();
             }
+        }
+        //second third,..thread interrupt
+        if(thread_){
+            thread_->interrupt();
         }
     }
 

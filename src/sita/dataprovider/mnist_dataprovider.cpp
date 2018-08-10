@@ -6,8 +6,8 @@ namespace  sita{
 
 template <typename Dtype>
 MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string label_file,
-        std::vector<Dtype> means, int batch_size, int thread_num):DataProvider<Dtype>(data_file,
-        label_file, means, batch_size, thread_num) {
+        std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle):DataProvider<Dtype>(data_file,
+        label_file, means, batch_size, thread_num, shuffle) {
     LOG(INFO) << "loading mnist dataset using "<< thread_num <<" threads......";
     _threads.resize(thread_num);
     _thread_images.resize(thread_num);
@@ -21,6 +21,13 @@ MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string l
     read_mnist_label(label_file.c_str(), _labels);
 
     CHECK_EQ(_images.size(), _labels.size()) << "label size do not equal image size in mnist!!";
+
+    if(shuffle){
+
+
+
+
+    }
 
     int num_images_in_one_thread = _images.size()/thread_num - 1;
 

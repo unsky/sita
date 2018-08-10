@@ -23,11 +23,11 @@ int main(int argc, char** argv) {
     means.push_back(float(5));
     means.push_back(float(10));
     sita::MnistDataProvider<float > mnistdp("../data/mnist/train-images-idx3-ubyte",
-                "../data/mnist/train-labels-idx1-ubyte",means,10,5);
+                "../data/mnist/train-labels-idx1-ubyte",means,1,1,true);
 
     int k = 0;
 
-    while(k != 3000) {
+    while(k != 3) {
         k++;
         sita::MnistBatch<float> * batch = mnistdp.fetch_batch();
      //   LOG(INFO)<<batch->label()->cpu_data()[0];
@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
             }
         gws.train();
     }
-    //workspace test
+
 
 
     return 0;

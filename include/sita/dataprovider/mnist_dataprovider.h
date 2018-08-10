@@ -52,8 +52,13 @@ template <typename Dtype>
 class MnistDataProvider: public DataProvider<Dtype>{
 public:
     MnistDataProvider(std::string data_file, std::string label_file,
-      std::vector<Dtype> means, int batch_size, int thread_num);
-    ~MnistDataProvider(){}
+      std::vector<Dtype> means, int batch_size, int thread_num,bool shuffle);
+    ~MnistDataProvider(){
+        for(int i = 0; i < _threads.size(); i++){
+            _threads[i].stop_internal_thread();//join main processor
+        }
+
+    }
 
     MnistBatch<Dtype> * fetch_batch();
 
