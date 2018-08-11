@@ -4,6 +4,6 @@
 
 #include "sita/dataprovider/dataprovider.h"
 namespace  sita{
-INSTANTIATE_CLASS(DataProvider);
 
+INSTANTIATE_CLASS(DataProvider);
 }

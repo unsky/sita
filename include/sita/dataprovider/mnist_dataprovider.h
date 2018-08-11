@@ -32,7 +32,7 @@ public:
     MnistDataProviderEntry():DataProviderEntry<Dtype>(){}
     ~MnistDataProviderEntry(){}
     inline void init(BlockingQueue<MnistBatch<Dtype>*> *free, BlockingQueue<MnistBatch<Dtype>*> *full,
-                     std::vector<cv::Mat *>  images, std::vector<double *> labels, std::vector<Dtype *>  means){
+                     std::vector<cv::Mat *>  images, std::vector<double *> labels, std::vector<Dtype > *  means){
         _free = free;
         _full = full;
         _images = images;
@@ -46,7 +46,7 @@ private:
     BlockingQueue<MnistBatch<Dtype>*> * _full;
     std::vector<cv::Mat* > _images;
     std::vector<double * >  _labels;
-    std::vector<Dtype *> _means;
+    std::vector<Dtype > * _means;
     int _index = 0;
 };
 
@@ -70,7 +70,6 @@ private:
     BlockingQueue<MnistBatch<Dtype>*> _prefetch_full;
     std::vector<cv::Mat> _images;
     std::vector<double> _labels;
-    std::vector<Dtype> _means;
     std::vector<std::vector<cv::Mat *> > _thread_images;
     std::vector<std::vector<double *> > _thread_labels;
 };

@@ -59,7 +59,10 @@ public:
     inline const std::vector<int >shape() const{
         return _shape;
     }
-
+    inline const int shape(int i) const{
+        CHECK_GT(_dim, i) << "Exceed the dim!!!";
+        return _shape[i];
+    }
     inline std::string shape_string() const {
         std::ostringstream stream;
 

@@ -14,16 +14,20 @@
   <component name="ChangeListManager">
     <list default="true" id="f7408cd6-6569-443f-b864-d0b99a3f7a7a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/blocking_queue.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/dataset_util/mnist.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dataprovider/mnist_dataprovider.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/dlflow/operators/add_op.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/tensor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/tensor.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/workspace.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/sita.dir/src/sita/workspace.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/sita" beforeDir="false" afterPath="$PROJECT_DIR$/build/sita" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/sita/dataprovider/mnist_dataprovider.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/sita/dataprovider/mnist_dataprovider.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/sita/tensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/sita/tensor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sita/dataprovider/mnist_dataprovider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/sita/dataprovider/mnist_dataprovider.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -36,20 +40,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="512">
+              <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist_dataprovider.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mnist_dataprovider.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/mnist_dataprovider.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
+            <state relative-caret-position="543">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#116#132#0" expanded="true" />
                 <element signature="e#3090#3106#0" expanded="true" />
@@ -58,11 +62,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.prototxt">
+      <file leaf-file-name="tensor.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/sita/tensor.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="416">
+              <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+              <folding>
+                <element signature="e#357#373#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,10 +83,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="tensor.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sita/tensor.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+              <folding>
+                <element signature="e#91#107#0" expanded="true" />
+                <element signature="e#694#710#0" expanded="true" />
+                <element signature="e#2469#2485#0" expanded="true" />
+                <element signature="e#2591#2607#0" expanded="true" />
+                <element signature="e#3471#3487#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="mnist.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
+            <state relative-caret-position="272">
               <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
             </state>
           </provider>
@@ -88,9 +111,11 @@
       <file leaf-file-name="dataprovider.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="703">
+              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
               <folding>
+                <element signature="e#576#592#0" expanded="true" />
+                <element signature="e#769#785#0" expanded="true" />
                 <element signature="e#1232#1260#0" expanded="true" />
               </folding>
             </state>
@@ -100,8 +125,8 @@
       <file leaf-file-name="dataprovider.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="96">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -109,23 +134,14 @@
       <file leaf-file-name="mnist_dataprovider.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/sita/dataprovider/mnist_dataprovider.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+            <state relative-caret-position="447">
+              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
               <folding>
                 <element signature="e#136#161#0" expanded="true" />
                 <element signature="e#275#291#0" expanded="true" />
                 <element signature="e#658#674#0" expanded="true" />
                 <element signature="e#1424#1440#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blocking_queue.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sita/blocking_queue.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -174,7 +190,6 @@
         <option value="$PROJECT_DIR$/include/sita/context.h" />
         <option value="$PROJECT_DIR$/include/sita/types.h" />
         <option value="$PROJECT_DIR$/include/sita/workspace.h" />
-        <option value="$PROJECT_DIR$/include/sita/tensor.h" />
         <option value="$PROJECT_DIR$/include/sita/dlflow/operator.h" />
         <option value="$PROJECT_DIR$/include/sita/dlflow/registry.h" />
         <option value="$PROJECT_DIR$/include/sita/dataprovider/data_provider.h" />
@@ -183,7 +198,6 @@
         <option value="$PROJECT_DIR$/src/sita/dlflow/graph.cpp" />
         <option value="$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist_util.h" />
         <option value="$PROJECT_DIR$/include/sita/dataprovider/dataset_util/mnist.h" />
-        <option value="$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp" />
         <option value="$PROJECT_DIR$/src/sita/dlflow/operators/add_op.cpp" />
         <option value="$PROJECT_DIR$/src/sita/memory_control.cpp" />
         <option value="$PROJECT_DIR$/include/sita/blocking_queue.h" />
@@ -201,10 +215,12 @@
         <option value="$PROJECT_DIR$/include/sita/stuff/shuffle/fisher_yates_shuffler.h" />
         <option value="$PROJECT_DIR$/test.prototxt" />
         <option value="$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h" />
+        <option value="$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp" />
         <option value="$PROJECT_DIR$/include/sita/dataprovider/mnist_dataprovider.h" />
+        <option value="$PROJECT_DIR$/include/sita/tensor.h" />
+        <option value="$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h" />
         <option value="$PROJECT_DIR$/src/sita/dataprovider/mnist_dataprovider.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -217,11 +233,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="-6" />
-    <option name="width" value="1855" />
-    <option name="height" value="1086" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="632" />
+    <option name="y" value="231" />
+    <option name="width" value="2077" />
+    <option name="height" value="1020" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -312,12 +328,12 @@
       <workItem from="1533107987505" duration="31451000" />
       <workItem from="1533525882465" duration="11000" />
       <workItem from="1533542691057" duration="56271000" />
-      <workItem from="1533717853457" duration="48092000" />
+      <workItem from="1533717853457" duration="49893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164716000" />
+    <option name="totallyTimeSpent" value="166517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
@@ -329,7 +345,7 @@
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.47318962" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.18463239" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -584,20 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sita/tensor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="e#91#107#0" expanded="true" />
-            <element signature="e#694#710#0" expanded="true" />
-            <element signature="e#2469#2485#0" expanded="true" />
-            <element signature="e#2591#2607#0" expanded="true" />
-            <element signature="e#3471#3487#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sita/memory_control.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -609,16 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/sita/tensor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" selection-start-line="17" selection-end-line="101" selection-end-column="2" />
-          <folding>
-            <element signature="e#357#373#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,16 +638,9 @@
     <entry file="file://$PROJECT_DIR$/src/sita/bridge_jointer.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/dataset_util/mnist.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
+        <state relative-caret-position="272">
           <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
@@ -667,27 +652,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp">
+    <entry file="file://$PROJECT_DIR$/src/sita/tensor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="384">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#91#107#0" expanded="true" />
+            <element signature="e#694#710#0" expanded="true" />
+            <element signature="e#2469#2485#0" expanded="true" />
+            <element signature="e#2591#2607#0" expanded="true" />
+            <element signature="e#3471#3487#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h">
+    <entry file="file://$PROJECT_DIR$/include/sita/tensor.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="416">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding>
-            <element signature="e#1232#1260#0" expanded="true" />
+            <element signature="e#357#373#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/sita/dataprovider/mnist_dataprovider.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="447">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
           <folding>
             <element signature="e#136#161#0" expanded="true" />
             <element signature="e#275#291#0" expanded="true" />
@@ -697,14 +689,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/dataprovider.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/sita/dataprovider/dataprovider.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+          <folding>
+            <element signature="e#576#592#0" expanded="true" />
+            <element signature="e#769#785#0" expanded="true" />
+            <element signature="e#1232#1260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sita/dataprovider/mnist_dataprovider.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
+        <state relative-caret-position="543">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#116#132#0" expanded="true" />
             <element signature="e#3090#3106#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
         </state>
       </provider>
     </entry>

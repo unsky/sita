@@ -33,13 +33,13 @@ int main(int argc, char** argv) {
      //   LOG(INFO)<<batch->label()->cpu_data()[0];
 
         const float *blob_data = batch->data()->cpu_data();
-        cv::Mat cv_img_original(batch->data()->shape()[2], batch->data()->shape()[3], CV_32FC1);
-        for(int b = 0; b<batch->data()->shape()[0]; b++){
+        cv::Mat cv_img_original(batch->data()->shape(2), batch->data()->shape(3), CV_32FC1);
+        for(int b = 0; b<batch->data()->shape(0); b++){
             int offset = batch->data()->get_site_by_coord(b, 0, 0, 0);
-            for(int h = 0; h < batch->data()->shape()[2]; h++){
-                for(int w = 0; w < batch->data()->shape()[3]; w++){
+            for(int h = 0; h < batch->data()->shape(2); h++){
+                for(int w = 0; w < batch->data()->shape(3); w++){
 
-                    float value = blob_data[offset + h*batch->data()->shape()[3] + w];
+                    float value = blob_data[offset + h*batch->data()->shape(3) + w];
 
                     cv_img_original.at<float>(h, w) = value;
                   //  std::cout<<value;
