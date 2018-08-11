@@ -21,8 +21,6 @@ void read_mnist_image(char* path, std::vector<cv::Mat> &vec) {
 
     std::ifstream is(path, std::ios::in | std::ios::binary);
 
-
-
     if (!is) {
         LOG(FATAL) << "cannot open file: "<< path;
     } else {

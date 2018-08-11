@@ -19,11 +19,11 @@ int main(int argc, char** argv) {
     gws.build_graph(&graph);
     gws.global_init();
     std::vector<float> means;
-    means.push_back(float(0));
+    means.push_back(float(9));
     means.push_back(float(5));
     means.push_back(float(10));
     sita::MnistDataProvider<float > mnistdp("../data/mnist/train-images-idx3-ubyte",
-                "../data/mnist/train-labels-idx1-ubyte",means,1,1,true);
+                "../data/mnist/train-labels-idx1-ubyte", means, 1, 1,true);
 
     int k = 0;
 

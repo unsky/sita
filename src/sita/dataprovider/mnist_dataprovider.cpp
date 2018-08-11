@@ -9,6 +9,7 @@ MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string l
         std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle):DataProvider<Dtype>(data_file,
         label_file, means, batch_size, thread_num, shuffle) {
     LOG(INFO) << "loading mnist dataset using "<< thread_num <<" threads ...";
+    _means = means;
     _threads.resize(thread_num);
     _thread_images.resize(thread_num);
     _thread_labels.resize(thread_num);
@@ -55,8 +56,14 @@ MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string l
         _prefetch_free.push(&_prefetch[i]);
     }
 
+    std::vector<Dtype *> means_temp;
+    means_temp.clear();
+
+    means_temp.push_back(&(_means[0]));
+
     for(int i = 0; i < _threads.size(); i ++){
-        _threads[i].init(&_prefetch_free, &_prefetch_full, _thread_images[i], _thread_labels[i]);
+
+        _threads[i].init(&_prefetch_free, &_prefetch_full, _thread_images[i], _thread_labels[i], means_temp);
         _threads[i].start_internal_thread();
     }
     LOG(INFO) << " end load mnist dataset.";
@@ -96,7 +103,7 @@ void MnistDataProviderEntry<Dtype>::load_batch(MnistBatch<Dtype>* batch){
             int offset = batch->data()->get_site_by_coord(b, 0, 0, 0);
             for(int h = 0; h < batch->data()->shape()[2]; h++){
                 for(int w = 0; w < batch->data()->shape()[3]; w++){
-                    data[offset+ h*batch->data()->shape()[3] + w] = _images[_index]->at<float>(h, w);
+                    data[offset+ h*batch->data()->shape()[3] + w] = _images[_index]->at<float>(h, w) - Dtype(*(_means[0]));
                 }
             }
         label[b] = Dtype(*_labels[_index]);

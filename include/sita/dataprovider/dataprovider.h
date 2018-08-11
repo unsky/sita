@@ -37,7 +37,8 @@ private:
 template <typename Dtype>
 class DataProvider{
 public:
-    DataProvider(std::string data_file, std::string label_file, std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle){
+    DataProvider(std::string data_file, std::string label_file, std::vector<Dtype> means, int batch_size, int thread_num,
+         bool shuffle): _batch_size(batch_size), _num_thread(thread_num){
     };
     ~DataProvider(){};
     static const int PREFETCH_COUNT = 3;
@@ -48,9 +49,7 @@ public:
     inline int batch_size(){
         return  _batch_size;
     }
-    inline std::vector<Dtype> means(){
-        return  _means;
-    }
+
     template <class RandomAccessIterator>
     void shuffle_data(RandomAccessIterator begin, RandomAccessIterator end){
         LOG(INFO) << "shuffling data ...";
@@ -62,7 +61,6 @@ public:
 private:
     int _num_thread;
     int _batch_size;
-    std::vector<Dtype> _means;
 
 };
 
