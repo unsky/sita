@@ -6,7 +6,6 @@
 #define SITA_DATA_PROVIDER_MNIST_DATAPROVIDER_H
 #include "dataprovider.h"
 #include "dataset_util/mnist.h"
-#include "sita/stuff/shuffle/fisher_yates_shuffler.h"
 namespace sita {
 
 template <typename Dtype>
@@ -62,7 +61,6 @@ public:
     }
 
     MnistBatch<Dtype> * fetch_batch();
-
 private:
     std::vector<MnistDataProviderEntry<Dtype>> _threads;
     MnistBatch<Dtype> _prefetch[DataProvider<Dtype>::PREFETCH_COUNT];

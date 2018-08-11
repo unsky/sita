@@ -37,6 +37,8 @@ string
 -
 vector
 -
+sita/stuff/shuffle/fisher_yates_shuffler.h
+../include/sita/dataprovider/sita/stuff/shuffle/fisher_yates_shuffler.h
 
 ../include/sita/dataprovider/dataset_util/mnist.h
 vector
@@ -51,8 +53,6 @@ dataprovider.h
 ../include/sita/dataprovider/dataprovider.h
 dataset_util/mnist.h
 ../include/sita/dataprovider/dataset_util/mnist.h
-sita/stuff/shuffle/fisher_yates_shuffler.h
-../include/sita/dataprovider/sita/stuff/shuffle/fisher_yates_shuffler.h
 
 ../include/sita/dlflow/graph.h
 vector

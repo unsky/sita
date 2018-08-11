@@ -443,6 +443,8 @@ CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/da
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/internal_thread.h
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/macros.h
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/memory_control.h
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/stuff/stuff.h
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../include/sita/tensor.h
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: ../src/sita/dataprovider/dataprovider.cpp
 CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o: /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h

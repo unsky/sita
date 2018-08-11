@@ -444,6 +444,8 @@ CMakeFiles/sita.dir/src/sita/dataprovider/dataprovider.cpp.o
  ../include/sita/internal_thread.h
  ../include/sita/macros.h
  ../include/sita/memory_control.h
+ ../include/sita/stuff/shuffle/fisher_yates_shuffler.h
+ ../include/sita/stuff/stuff.h
  ../include/sita/tensor.h
  /home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp
  /home/cs/caffe_third/for_x86/glog/include/glog/log_severity.h

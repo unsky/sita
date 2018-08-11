@@ -23,22 +23,17 @@ MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string l
     CHECK_EQ(_images.size(), _labels.size()) << "label size do not equal image size in mnist!!";
 
     if(shuffle){
-        LOG(INFO) << "shuffling data ...";
-
-        FisherYatesShuffler fy_shuff;
         std::vector<std::pair<cv::Mat, double> > shuffled_data;
         for(int i = 0; i < _images.size(); i++){
             shuffled_data.push_back(std::make_pair(_images[i], _labels[i]));
         }
-        fy_shuff.shuffle(shuffled_data.begin(),shuffled_data.end());
+        this->shuffle_data(shuffled_data.begin(), shuffled_data.end());
         _images.clear();
         _labels.clear();
         for(int i = 0; i < shuffled_data.size(); i++){
             _images.push_back(shuffled_data[i].first);
             _labels.push_back(shuffled_data[i].second);
         }
-
-        LOG(INFO)<<"data is shuffled!!!";
     }
 
     int num_images_in_one_thread = _images.size()/thread_num - 1;

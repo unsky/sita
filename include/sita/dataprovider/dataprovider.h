@@ -9,6 +9,7 @@
 #include "sita/tensor.h"
 #include <string>
 #include <vector>
+#include "sita/stuff/shuffle/fisher_yates_shuffler.h"
 namespace sita{
 template <typename Dtype>
 class Batch{
@@ -49,6 +50,13 @@ public:
     }
     inline std::vector<Dtype> means(){
         return  _means;
+    }
+    template <class RandomAccessIterator>
+    void shuffle_data(RandomAccessIterator begin, RandomAccessIterator end){
+        LOG(INFO) << "shuffling data ...";
+        FisherYatesShuffler fy_shuff;
+        fy_shuff.shuffle(begin, end);
+        LOG(INFO)<<"data is shuffled!!!";
     }
 
 private:
