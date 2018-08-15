@@ -6,7 +6,6 @@ namespace sita{
 
 template<typename Dtype>
 void AddOp<Dtype>::init(){
-
     // params
     std::vector<int> shape;
     shape.push_back(5);

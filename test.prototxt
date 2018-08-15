@@ -6,7 +6,11 @@ operatordef {
   input: "data"
   output: "conv1"
   add_op_param{
+
   kernel_h: 6
+  param{
+  name: "add_weight"
+  }
   }
 }
 

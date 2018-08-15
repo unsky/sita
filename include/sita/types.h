@@ -8,16 +8,15 @@
 #include <string>
 #include <map>
 #include "tensor.h"
+#include "sita/proto/sita.h"
 namespace  sita{
-struct Filler{
-    std::string type = "gauss";
-};
+
 
 template <typename Dtype>
 struct OperatorParam{
     std::string type;
     std::map<std::string, Tensor<Dtype> > params;
-    std::map<std::string, Filler> fillers;
+    std::map<std::string, FillerParameter> fillers;
 };
 
 };

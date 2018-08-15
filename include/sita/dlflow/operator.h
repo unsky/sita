@@ -9,6 +9,7 @@
 #include "sita/macros.h"
 #include "sita/workspace.h"
 #include "sita/types.h"
+#include "sita/proto/sita.h"
 namespace sita{
 
 template <typename Dtype>
@@ -32,7 +33,7 @@ public:
 protected:
     GlobalWorkSpace<Dtype> *_gws;
     OperatorParameter _opdef;
-    Filler _filler;
+    FillerParameter _filler;
     std::vector<std::string> _inputs;
     std::vector<std::string> _outputs;
     std::vector<std::string> _params;

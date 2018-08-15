@@ -93,7 +93,6 @@ template <typename Dtype>
 void MnistDataProviderEntry<Dtype>::load_batch(MnistBatch<Dtype>* batch){
     Dtype* data = batch->data()->mutable_cpu_data();
     Dtype* label = batch->label()->mutable_cpu_data();
-    LOG(INFO)<<(*_means)[0];
 
     for(int b = 0; b < batch->data()->shape(0); b++){
 

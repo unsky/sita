@@ -25,7 +25,6 @@ template<typename Dtype>
 void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape){
     _gws->init_param(_opdef.name(), _opdef.type(), param_name, shape, _filler);
     _params.push_back(param_name);
-
 }
 
 template<typename Dtype>

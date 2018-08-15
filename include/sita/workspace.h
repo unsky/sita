@@ -97,7 +97,7 @@ private:
     std::vector<boost::shared_ptr<Operator<Dtype> > > _ops;
     // input/output name
     std::map<std::string, Tensor<Dtype> > _flow_tensor;
-    // params         name                   type          weight/bias name  weight/bias
+    // params      name                type       weight/bias name  weight/bias
     std::map<std::string, OperatorParam<Dtype> > _params;
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };

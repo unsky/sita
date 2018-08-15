@@ -31,14 +31,15 @@ file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
 include_directories(/home/cs/caffe_third/for_x86/protobuf/include)
 link_directories(/home/cs/caffe_third/for_x86/protobuf/lib)
-execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/protos/ ${PROJECT_SOURCE_DIR}/src/sita/protos/sita.proto)
+execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/ ${PROJECT_SOURCE_DIR}/src/sita/protos/sita.proto)
 
 
 set(SITA_FILES
+        src/sita/proto/sita_operators.pb.cc
+        src/sita/proto/sita_utils.pb.cc
         main.cpp
         src/sita/memory_control.cpp
         src/sita/tensor.cpp
-        src/sita/proto/sita.pb.cc
         src/sita/dlflow/operators/add_op.cpp
         src/sita/workspace.cpp
         src/sita/dlflow/operator.cpp

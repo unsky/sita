@@ -15,7 +15,7 @@
 #include <boost/shared_ptr.hpp>
 #include "sita/workspace.h"
 #include "operator.h"
-#include "sita/proto/sita.pb.h"
+#include "sita/proto/sita.h"
 namespace sita {
 
 

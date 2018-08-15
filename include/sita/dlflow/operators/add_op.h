@@ -23,7 +23,7 @@ public:
 
 protected:
     bool _has_param = true;
-    AddOpParameter11 _add_op_param;
+    AddOpParameter _add_op_param;
 
 
 };
