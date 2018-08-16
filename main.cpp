@@ -25,8 +25,14 @@ int main(int argc, char** argv) {
 
     int k = 0;
 
-    while(k != 40) {
+    while(k != 10) {
         k++;
+        sita::TempTensor<float> t = gws.new_tensor();
+        sita::Tensor<float> * a = t.tensor;
+        a->reshape(9,4,5,6);
+       // gws.free_tensor(t);
+
+
         sita::MnistBatch<float> * batch = mnistdp.fetch_batch();
      //   LOG(INFO)<<batch->label()->cpu_data()[0];
 
@@ -43,11 +49,11 @@ int main(int argc, char** argv) {
               //  std::cout<<std::endl;
             }
         cv::imwrite("vis/" + std::to_string(k)+"_"+ std::to_string(b)+"__"+std::to_string(int(batch->label()->cpu_data()[b]))+ ".jpg", cv_img_original);
-      //  LOG(INFO) << gws.temp_tensor_memory_size();
+
             }
         gws.train();
     }
-
+    gws.temp_tensor_memory();
 
     return 0;
 }

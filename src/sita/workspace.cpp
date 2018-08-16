@@ -26,48 +26,58 @@ void WorkSpace::set_device(int gpu_id){
 }
 
 template <typename Dtype>
-std::pair<int, Tensor<Dtype> * > GlobalWorkSpace<Dtype>::fetch_temp_tensor() {
-    if (_temp_tensor.size() == 0) {
+TempTensor<Dtype>  GlobalWorkSpace<Dtype>::new_tensor() {
+    TempTensor<Dtype> t;
+    if (_temp_tensor_num == 0) {
         Tensor<Dtype> temp_tensor;
-        _temp_tensor.push_back(temp_tensor);
-        _temp_tensor_control.push_back(std::make_pair(&(_temp_tensor[0]), true));
-        return std::make_pair(0, &(_temp_tensor[0]));
+        _temp_tensor[0] = temp_tensor;
+        _temp_tensor_control[0] = std::make_pair(&(_temp_tensor[0]), true);
+        _temp_tensor_num++;
+        t.key = 0;
+        t.tensor = &(_temp_tensor[0]);
+        return t;
     } else {
         int released_id = -1;
-        for (int i = 0; i < _temp_tensor.size(); i++) {
+        for (int i = 0; i < _temp_tensor_num; i++) {
             if (_temp_tensor_control[i].second == false) {
                 released_id = i;
             }
         }
         if (released_id == -1) {
             Tensor<Dtype> temp_tensor;
-            _temp_tensor.push_back(temp_tensor);
-            _temp_tensor_control.push_back(std::make_pair(&(_temp_tensor[_temp_tensor.size() - 1]), true));
-            return std::make_pair(0, &(_temp_tensor[_temp_tensor.size()-1]));
-
+            _temp_tensor[_temp_tensor_num] = temp_tensor;
+            _temp_tensor_control[_temp_tensor_num]= std::make_pair(&(_temp_tensor[_temp_tensor_num]), true);
+            t.key = 0;
+            t.tensor = &(_temp_tensor[_temp_tensor_num]);
+            _temp_tensor_num++;
+            return t;
         } else {
             _temp_tensor_control[released_id].second = true;
-            return std::make_pair(released_id, &_temp_tensor[released_id]);
+            t.key = released_id;
+            t.tensor =  &_temp_tensor[released_id];
+            return t;
         }
     }
 }
 
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::release_temp_tensor(int released_id) {
-    _temp_tensor_control[released_id].second = false;
+void GlobalWorkSpace<Dtype>::free_tensor(TempTensor<Dtype> t) {
+    _temp_tensor_control[t.key].second = false;
 }
 
 template <typename Dtype>
-float GlobalWorkSpace<Dtype>::temp_tensor_memory_size(){
-    int memory_size = 0;
-    for(int i = 0; i < _temp_tensor.size(); i++){
+void GlobalWorkSpace<Dtype>::temp_tensor_memory(){
+    float memory_size = 0;
+    for(int i = 0; i < _temp_tensor_num; i++){
         memory_size += (_temp_tensor[i].count() * sizeof(Dtype));
     }
-    return memory_size/(1024 * 1024 * 8);
+    LOG(INFO) << "the fact of temp tensor being used: "<<"[number:" << _temp_tensor_num << " " << "memory size: " <<
+              std::to_string(memory_size/(1024 * 8))<<" KB].";
+
+    return;
 }
 
 // flow tensor
-//std::map<std::string, Tensor<Dtype> > _flow_tensor;
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::init_input(std::string name){
     bool has_flow_tensor = false;
@@ -115,7 +125,7 @@ Tensor<Dtype>* GlobalWorkSpace<Dtype>::fetch_output(std::string name){
             return &(it->second);
         }
     }
-    LOG(FATAL) << "no this onput in flow tensors, do you have init it?" << flow_tensor_list();
+    LOG(FATAL) << "no this output in flow tensors, do you have init it?" << flow_tensor_list();
 }
 
 template <typename Dtype>
@@ -129,7 +139,7 @@ std::string GlobalWorkSpace<Dtype>::flow_tensor_list(){
 }
 
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, Filler filler){
+void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, FillerParameter filler){
     bool has_param = false;
     bool has_op_name = false;
     for(auto i = _params.begin(); i != _params.end(); i++){
@@ -153,6 +163,7 @@ void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type
         Tensor<Dtype> t(shape);
         _params[op_name].params[param_name] = t;
         _params[op_name].fillers[param_name] = filler;
+        _params[op_name].is_inited[param_name] = false;
 
     }
 }
