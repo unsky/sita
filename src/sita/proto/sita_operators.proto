@@ -13,18 +13,29 @@ message  OperatorParameter {
   repeated string input = 3; // the name of each input
   repeated string output = 4; // the name of each output
   repeated float loss_weight = 5;
+  repeated ParamConfig param = 6; //param config
 
   //operators
   optional AddOpParameter add_op_param = 100;
+  optional ConvolutionOpParameter convolution_op_param = 101;
 }
 
 message AddOpParameter{
-  repeated ParamConfig param = 1; //param config
-  optional uint32 pad_h = 2 [default = 0]; // The padding height (2D only)
-  optional uint32 pad_w = 3 [default = 0]; // The padding width (2D only)
-  optional uint32 kernel_h = 4; // The kernel height (2D only)
-  optional uint32 kernel_w = 5; // The kernel width (2D only)
-  optional uint32 stride_h = 6; // The stride height (2D only)
-  optional uint32 stride_w = 7; // The stride width (2D only)
+  optional uint32 pad_h = 1 [default = 0]; // The padding height (2D only)
+  optional uint32 pad_w = 2 [default = 0]; // The padding width (2D only)
+  optional uint32 kernel_h = 3; // The kernel height (2D only)
+  optional uint32 kernel_w = 4; // The kernel width (2D only)
+  optional uint32 stride_h = 5; // The stride height (2D only)
+  optional uint32 stride_w = 6; // The stride width (2D only)
+}
+
+message ConvolutionOpParameter{
+  optional uint32 pad_h = 1 [default = 0]; // The padding height (2D only)
+  optional uint32 pad_w = 2 [default = 0]; // The padding width (2D only)
+  optional uint32 kernel_h = 3; // The kernel height (2D only)
+  optional uint32 kernel_w = 4; // The kernel width (2D only)
+  optional uint32 stride_h = 5; // The stride height (2D only)
+  optional uint32 stride_w = 6; // The stride width (2D only)
+
 }
 

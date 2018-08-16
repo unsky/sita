@@ -22,7 +22,7 @@ template <typename Dtype>
 struct OperatorParam{
     std::string type;
     std::map<std::string, Tensor<Dtype> > params;
-    std::map<std::string, FillerParameter> fillers;
+    std::map<std::string, ParamConfig> param_configs;
     std::map<std::string, bool> is_inited;
 };
 

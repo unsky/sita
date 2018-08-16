@@ -31,7 +31,10 @@ file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
 include_directories(/home/cs/caffe_third/for_x86/protobuf/include)
 link_directories(/home/cs/caffe_third/for_x86/protobuf/lib)
-execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/ ${PROJECT_SOURCE_DIR}/src/sita/protos/sita.proto)
+execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/  --proto_path=${PROJECT_SOURCE_DIR}/src/sita/proto/
+        ${PROJECT_SOURCE_DIR}/src/sita/proto/sita_operators.proto
+        ${PROJECT_SOURCE_DIR}/src/sita/proto/sita_utils.proto
+        )
 
 
 set(SITA_FILES
@@ -40,7 +43,8 @@ set(SITA_FILES
         main.cpp
         src/sita/memory_control.cpp
         src/sita/tensor.cpp
-        src/sita/dlflow/operators/add_op.cpp
+       # src/sita/dlflow/operators/add_op.cpp
+        src/sita/dlflow/operators/convolution_op.cpp
         src/sita/workspace.cpp
         src/sita/dlflow/operator.cpp
         src/sita/dlflow/graph.cpp
@@ -57,7 +61,7 @@ set(SITA_FILES
 ######################c++ and cuda##########################
 cuda_add_executable(sita  ${SITA_FILES})
 
-###########################################################
+##########################################################
 
 
 ###boost

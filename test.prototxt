@@ -2,15 +2,19 @@ name: "LeNet"
 
 operatordef {
   name: "conv1"
-  type: "AddOp"
+  type: "ConvolutionOp"
   input: "data"
   output: "conv1"
-  add_op_param{
-
+  output: "conv2"
+  convolution_op_param{
   kernel_h: 6
+    }
   param{
-  name: "add_weight"
+       filler{type:"xavier"}
   }
-  }
+  param{
+       filler{type:"xavier"}
+}
+
 }
 

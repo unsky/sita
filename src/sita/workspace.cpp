@@ -139,7 +139,8 @@ std::string GlobalWorkSpace<Dtype>::flow_tensor_list(){
 }
 
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, FillerParameter filler){
+void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name,
+    std::vector<int> shape,  ParamConfig p_config, bool is_shared){
     bool has_param = false;
     bool has_op_name = false;
     for(auto i = _params.begin(); i != _params.end(); i++){
@@ -151,35 +152,63 @@ void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type
             }
         }
     }
-    if(has_op_name == false){
-        OperatorParam<Dtype> p;
-        p.type = op_type;
-        Tensor<Dtype> t(shape);
-        p.params[param_name] = t;
-        p.fillers[param_name] = filler;
-        _params[op_name] = p;
-
-    }else if(has_op_name && has_param == false){
-        Tensor<Dtype> t(shape);
-        _params[op_name].params[param_name] = t;
-        _params[op_name].fillers[param_name] = filler;
-        _params[op_name].is_inited[param_name] = false;
-
+    if(is_shared){
+        if (has_param)
+            return;
+        if(has_op_name == false){
+            OperatorParam <Dtype> p;
+            p.type = op_type;
+            Tensor <Dtype> t(shape);
+            p.params[param_name] = t;
+            p.param_configs[param_name] = p_config;
+            p.is_inited[param_name] = false;
+            _params[op_name] = p;
+        }else if(has_op_name && has_param == false){
+            Tensor <Dtype> t(shape);
+            _params[op_name].params[param_name] = t;
+            _params[op_name].param_configs[param_name] = p_config;
+            _params[op_name].is_inited[param_name] = false;
+        }
+    }else {
+        if (has_op_name == false) {
+            OperatorParam <Dtype> p;
+            p.type = op_type;
+            Tensor <Dtype> t(shape);
+            p.params[param_name] = t;
+            p.param_configs[param_name] = p_config;
+            p.is_inited[param_name] = false;
+            _params[op_name] = p;
+        } else if (has_op_name && has_param == false) {
+            Tensor <Dtype> t(shape);
+            _params[op_name].params[param_name] = t;
+            _params[op_name].param_configs[param_name] = p_config;
+            _params[op_name].is_inited[param_name] = false;
+        }
     }
 }
 
 template <typename Dtype>
-Tensor<Dtype> *GlobalWorkSpace<Dtype>::fetch_param(std::string op_name, std::string param_name){
-    for(auto i = _params.begin(); i != _params.end(); i++){
-        if(i->first == op_name){
+Tensor<Dtype> *GlobalWorkSpace<Dtype>::fetch_param(std::string op_name, std::string param_name, bool is_shared){
+    if(is_shared) {
+        for(auto i = _params.begin(); i != _params.end(); i++){
             for(auto it = i->second.params.begin(); it != i->second.params.end(); it++){
                 if(it->first == param_name)
-                   return &(it->second);
+                    return &(it->second);
             }
-            LOG(FATAL) << "no this param!!" << param_list();
         }
+        LOG(FATAL) << "no this param!!" << param_list();
+    }else{
+        for(auto i = _params.begin(); i != _params.end(); i++){
+            if(i->first == op_name){
+                for(auto it = i->second.params.begin(); it != i->second.params.end(); it++){
+                    if(it->first == param_name)
+                       return &(it->second);
+                }
+                LOG(FATAL) << "no this param!!" << param_list();
+            }
+        }
+        LOG(FATAL) << "no this param!!" << param_list();
     }
-    LOG(FATAL) << "no this param!!" << param_list();
 }
 
 template <typename Dtype>

@@ -21,7 +21,7 @@ public:
     Operator(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):_opdef(opdef),_gws(gws){}
     ~Operator(){}
     void setup();
-    void init_param(std::string param_name, std::vector<int> shape);
+    void init_param(std::string param_name, std::vector<int> shape, ParamConfig p_config);
 
     Tensor<Dtype> * fetch_input(std::string name);
     Tensor<Dtype> * fetch_output(std::string name);
@@ -33,10 +33,12 @@ public:
 protected:
     GlobalWorkSpace<Dtype> *_gws;
     OperatorParameter _opdef;
-    FillerParameter _filler;
+    std::vector<ParamConfig> _param_configs;
     std::vector<std::string> _inputs;
     std::vector<std::string> _outputs;
     std::vector<std::string> _params;
+    bool _is_shared;
+    std::vector<std::pair<std::string, std::string> > _shared_param_pairs;
 };
 
 }//namespace

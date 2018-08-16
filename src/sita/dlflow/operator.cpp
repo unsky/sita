@@ -19,12 +19,30 @@ void Operator<Dtype>::setup(){
     }
     _params.clear();
 
+    _param_configs.clear();
+    for(int i = 0; i < _opdef.param_size(); i++) {
+        _param_configs.push_back(_opdef.param(i));
+    }
+    _is_shared = false;
+    _shared_param_pairs.clear();
+
 }
 
 template<typename Dtype>
-void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape){
-    _gws->init_param(_opdef.name(), _opdef.type(), param_name, shape, _filler);
+void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape, ParamConfig p_config){
+    std::string name;
+    if(p_config.has_name()){
+        name = p_config.name();
+        _is_shared = true;
+    }else{
+        name = param_name;
+    }
+    _gws->init_param(_opdef.name(), _opdef.type(), name, shape, p_config, _is_shared);
     _params.push_back(param_name);
+    if(_is_shared){
+        _shared_param_pairs.push_back(std::make_pair(param_name, p_config.name()));
+    }
+
 }
 
 template<typename Dtype>
@@ -57,12 +75,20 @@ Tensor<Dtype> * Operator<Dtype>::fetch_output(std::string name){
 template<typename Dtype>
 Tensor<Dtype> * Operator<Dtype>::fetch_param(std::string name){
     bool has_param = false;
+    if(_is_shared){
+        for(auto it = _shared_param_pairs.begin(); it != _shared_param_pairs.end(); it++){
+            if(it->first == name){
+                has_param = true;
+                name = it->second;
+            }
+        }
+    }
     for(int i = 0; i < _params.size(); i++)
         if(_params[i] == name)
             has_param = true;
 
     if(has_param) {
-        return this->_gws->fetch_param(_opdef.name(), name);;
+        return this->_gws->fetch_param(_opdef.name(), name, _is_shared);
     }else{
         LOG(FATAL) << "no " << name <<" in the params of " << _opdef.name();
     }

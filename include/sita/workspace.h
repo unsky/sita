@@ -63,8 +63,9 @@ public:
     std::string flow_tensor_list();
 
     //params
-    void init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape, FillerParameter filler);
-    Tensor<Dtype>* fetch_param(std::string op_name, std::string param_name);
+    void init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape,
+                    ParamConfig p_config, bool is_shared);
+    Tensor<Dtype>* fetch_param(std::string op_name, std::string param_name, bool is_shared);
     std::string param_list();
 
     //grap

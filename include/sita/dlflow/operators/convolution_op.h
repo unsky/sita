@@ -1,10 +1,13 @@
 //
-// Created by cs on 15/08/18.
+// Created by unsky on 15/08/18.
 //
 
 #ifndef SITA_DLFLOW_CONVOLUTION_OP_H
 #define SITA_DLFLOW_CONVOLUTION_OP_H
+#include "sita/dlflow/operator.h"
+#include "sita/proto/sita.h"
 namespace  sita{
+
 template<typename Dtype>
 class ConvolutionOp: public Operator<Dtype>{
 public:
@@ -13,8 +16,8 @@ public:
     }
     ~ConvolutionOp(){};
     void init();
-    void forward();
-    void backward();
+    void forward(){};
+    void backward(){};
     bool inline has_param(){ return _has_param;}
 
 protected:
