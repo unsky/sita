@@ -13,6 +13,8 @@
 #include "macros.h"
 #include "sita/dlflow/graph.h"
 #include "types.h"
+#include "sita/dataprovider/mnist_dataprovider.h"
+#include "sita/dataprovider/dataprovider.h"
 #include "sita/dlflow/registry.h"
 #include "sita/dlflow/operator.h"
 namespace sita{
@@ -53,7 +55,7 @@ public:
     //temp tensor
     TempTensor<Dtype> new_tensor();
     void free_tensor(TempTensor<Dtype> t);
-    void temp_tensor_memory();
+    void temp_memory();
 
     //flow tensor
     void init_input(std::string name);
@@ -61,23 +63,22 @@ public:
     Tensor<Dtype>* fetch_input(std::string name);
     Tensor<Dtype>* fetch_output(std::string name);
     std::string flow_tensor_list();
+    void flow_memory();
 
     //params
     void init_param(std::string op_name, std::string op_type, std::string param_name, std::vector<int> shape,
                     ParamConfig p_config, bool is_shared);
     Tensor<Dtype>* fetch_param(std::string op_name, std::string param_name, bool is_shared);
     std::string param_list();
+    void param_memory();
+
 
     //grap
-    inline void build_graph(Graph * graph){
-        _graph = graph;
-        graph_show();
-    };
     inline void graph_show(){
         _graph->graph_symbol_show();
     }
 
-    void global_init();
+    void global_init(Graph * graph, DataProvider<Dtype> * data_provider);
     void forward();
     void backward();
     void train();
@@ -94,6 +95,8 @@ private:
     std::map<std::string, Tensor<Dtype> > _flow_tensor;
     // params      name        type       weight/bias name  weight/bias
     std::map<std::string, OperatorParam<Dtype> > _params;
+
+    DataProvider<Dtype> * _data_provider;
     DISABLE_COPY_AND_ASSIGN(GlobalWorkSpace);
 };
 

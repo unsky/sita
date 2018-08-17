@@ -30,12 +30,20 @@ message AddOpParameter{
 }
 
 message ConvolutionOpParameter{
-  optional uint32 pad_h = 1 [default = 0]; // The padding height (2D only)
-  optional uint32 pad_w = 2 [default = 0]; // The padding width (2D only)
-  optional uint32 kernel_h = 3; // The kernel height (2D only)
-  optional uint32 kernel_w = 4; // The kernel width (2D only)
-  optional uint32 stride_h = 5; // The stride height (2D only)
-  optional uint32 stride_w = 6; // The stride width (2D only)
+  optional uint32 num_output = 1; // The number of outputs
+  optional bool bias_term = 2 [default = true]; // whether to have bias terms
+  repeated uint32 pad = 3; // The padding size; defaults to 0
+  repeated uint32 kernel_size = 4; // The kernel size
+  repeated uint32 stride = 5; // The stride; defaults to 1
+  repeated uint32 dilation = 6; // The dilation; defaults to 1
+
+  optional uint32 pad_h = 7 [default = 0]; // The padding height (2D only)
+  optional uint32 pad_w = 8 [default = 0]; // The padding width (2D only)
+  optional uint32 kernel_h = 9; // The kernel height (2D only)
+  optional uint32 kernel_w = 10; // The kernel width (2D only)
+  optional uint32 stride_h = 11; // The stride height (2D only)
+  optional uint32 stride_w = 12; // The stride width (2D only)
+
 
 }
 

@@ -11,18 +11,38 @@ namespace sita {
 template <typename Dtype>
 class MnistBatch : public Batch<Dtype> {
 public:
-    MnistBatch(): Batch<Dtype>(0){}
-    MnistBatch(int batch_size): Batch<Dtype>(batch_size){}
-    ~MnistBatch(){}
-    inline Tensor<Dtype> *data(){
+    MnistBatch(): Batch<Dtype>(){
+        _product.clear();
+        _product.push_back(&_data);
+        _product.push_back(&_label);
+        _product_name.clear();
+        _product_name.push_back("data");
+        _product_name.push_back("label");
+    }
+
+    virtual~MnistBatch(){}
+    virtual Tensor<Dtype> *data(){
         return &_data;
     }
-    inline Tensor<Dtype> *label(){
+    virtual Tensor<Dtype> *label(){
         return &_label;
+    }
+    virtual std::string product_name(int i){
+        CHECK_GT(_product.size(), i) << "dont have that product!!";
+        return _product_name[i];
+    }
+    virtual Tensor<Dtype>* product(int i){
+        CHECK_GT(_product.size(), i) << "dont have that product!!";
+        return _product[i];
+    }
+    virtual int product_size(){
+        return _product.size();
     }
 private:
     Tensor<Dtype> _data;
     Tensor<Dtype> _label;
+    std::vector<std::string> _product_name;
+    std::vector<Tensor<Dtype>* > _product;
 };
 
 
@@ -62,7 +82,8 @@ public:
 
     }
 
-    MnistBatch<Dtype> * fetch_batch();
+    virtual MnistBatch<Dtype> * fetch_batch();
+
 private:
     std::vector<MnistDataProviderEntry<Dtype>> _threads;
     MnistBatch<Dtype> _prefetch[DataProvider<Dtype>::PREFETCH_COUNT];

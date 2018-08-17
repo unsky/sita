@@ -14,15 +14,16 @@ namespace sita{
 template <typename Dtype>
 class Batch{
 public:
-    Batch(): _batch_size(0){}
-    Batch(int batch_size): _batch_size(batch_size){}
+    Batch(){}
     ~Batch(){};
-    inline int batch_size(){
-        return _batch_size;
-    }
-private:
-    int _batch_size;
+
+    virtual std::string product_name(int i) = 0;
+    virtual Tensor<Dtype>* product(int i) = 0;
+    virtual int product_size() = 0;
+    virtual Tensor<Dtype> *data() = 0;
+    virtual Tensor<Dtype> *label() = 0;
 };
+
 
 template <typename Dtype>
 class DataProviderEntry: public InternalThread{
@@ -38,10 +39,11 @@ template <typename Dtype>
 class DataProvider{
 public:
     DataProvider(std::string data_file, std::string label_file, std::vector<Dtype> means, int batch_size, int thread_num,
-         bool shuffle):_means(means), _batch_size(batch_size), _num_thread(thread_num){
+         bool shuffle, std::string type):_means(means), _batch_size(batch_size), _num_thread(thread_num), _type(type){
     };
     ~DataProvider(){};
     static const int PREFETCH_COUNT = 3;
+    virtual Batch<Dtype>* fetch_batch()=0;
 
     inline int num_thread(){
         return _num_thread;
@@ -52,6 +54,10 @@ public:
     inline std::vector<Dtype> * means(){
         return  &_means;
     }
+    inline std::string type(){
+        return _type;
+    }
+
     template <class RandomAccessIterator>
     void shuffle_data(RandomAccessIterator begin, RandomAccessIterator end){
         LOG(INFO) << "shuffling data ...";
@@ -64,6 +70,7 @@ private:
     int _num_thread;
     int _batch_size;
     std::vector<Dtype> _means;
+    std::string _type;
 
 };
 

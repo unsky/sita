@@ -7,7 +7,7 @@ namespace  sita{
 template <typename Dtype>
 MnistDataProvider<Dtype>::MnistDataProvider(std::string data_file, std::string label_file,
         std::vector<Dtype> means, int batch_size, int thread_num, bool shuffle):DataProvider<Dtype>(data_file,
-        label_file, means, batch_size, thread_num, shuffle) {
+        label_file, means, batch_size, thread_num, shuffle, "mnsit") {
     LOG(INFO) << "loading mnist dataset using "<< thread_num <<" threads ...";
     _threads.resize(thread_num);
     _thread_images.resize(thread_num);
@@ -87,8 +87,8 @@ void MnistDataProviderEntry<Dtype>::internal_thread_entry(){
     {
         // Interrupted exception is expected on shutdown
     }
-
 }
+
 template <typename Dtype>
 void MnistDataProviderEntry<Dtype>::load_batch(MnistBatch<Dtype>* batch){
     Dtype* data = batch->data()->mutable_cpu_data();

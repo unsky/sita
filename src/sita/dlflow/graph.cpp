@@ -16,14 +16,16 @@ void Graph::graph_symbol_show(){
     for(int i = 0; i < _graph.operatordef_size(); i ++) {
         LOG(INFO) << "operator name: " << _graph.operatordef(i).name();
         LOG(INFO) << "type: " << _graph.operatordef(i).type();
-        LOG(INFO) << "inputs:";
+        std::string input_str = "inputs: ";
         for(int in = 0; in < _graph.operatordef(i).input_size(); in++ ) {
-            LOG(INFO) << _graph.operatordef(i).input(in);
+            input_str += (_graph.operatordef(i).input(in) + " ");
         }
-        LOG(INFO) << "outputs:";
+        LOG(INFO) << input_str;
+        std::string output_str = "outputs: ";
         for(int ou = 0; ou < _graph.operatordef(i).output_size(); ou++){
-            LOG(INFO) << _graph.operatordef(i).output(ou) << " ";
+            output_str += (_graph.operatordef(i).output(ou)+ " ");
         }
+        LOG(INFO)<< output_str;
         LOG(INFO)<<"-------------------------";
     }
 }

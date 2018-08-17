@@ -5,9 +5,10 @@ operatordef {
   type: "ConvolutionOp"
   input: "data"
   output: "conv1"
-  output: "conv2"
   convolution_op_param{
-  kernel_h: 6
+     num_output: 20
+     kernel_size: 5
+     stride: 1
     }
   param{
        filler{type:"xavier"}
@@ -18,3 +19,41 @@ operatordef {
 
 }
 
+operatordef {
+  name: "conv2"
+  type: "ConvolutionOp"
+  input: "conv1"
+  input: "conv12"
+  input: "conv133"
+  output: "conv2"
+  convolution_op_param{
+     num_output: 20
+     kernel_size: 5
+     stride: 1
+    }
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+}
+
+}
+operatordef {
+   name: "conv3"
+   type: "ConvolutionOp"
+   input: "conv2"
+   output: "conv3"
+   convolution_op_param{
+      num_output: 20
+      kernel_size: 5
+      stride: 1
+     }
+   param{
+        filler{type:"xavier"}
+   }
+   param{
+        filler{type:"xavier"}
+ }
+
+ }

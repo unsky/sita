@@ -86,7 +86,7 @@ public:
     void reshape(const int num, const int channels, const int height, const int width);
     void reshape_like(const Tensor<Dtype> &t_other);
 
-    void copy_from(const Tensor<Dtype> &t_other, bool reshape = true);
+    void copy_from(const Tensor<Dtype> *t_other, bool reshape = false);
 
     void set_data_zero();
     void set_diff_zero();

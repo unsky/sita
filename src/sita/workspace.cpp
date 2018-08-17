@@ -66,13 +66,13 @@ void GlobalWorkSpace<Dtype>::free_tensor(TempTensor<Dtype> t) {
 }
 
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::temp_tensor_memory(){
+void GlobalWorkSpace<Dtype>::temp_memory(){
     float memory_size = 0;
     for(int i = 0; i < _temp_tensor_num; i++){
         memory_size += (_temp_tensor[i].count() * sizeof(Dtype));
     }
-    LOG(INFO) << "the fact of temp tensor being used: "<<"[number:" << _temp_tensor_num << " " << "memory size: " <<
-              std::to_string(memory_size/(1024 * 8))<<" KB].";
+    LOG(INFO) << "the fact of temp tensor being used: "<<"[number: " << _temp_tensor_num << " " << "memory size: " <<
+              std::to_string(memory_size * 2/(1024 * 8))<<" KB].";
 
     return;
 }
@@ -139,6 +139,18 @@ std::string GlobalWorkSpace<Dtype>::flow_tensor_list(){
 }
 
 template <typename Dtype>
+void GlobalWorkSpace<Dtype>::flow_memory(){
+    float memory_size = 0;
+    for(auto it = _flow_tensor.begin(); it != _flow_tensor.end(); it++){
+        memory_size += (it->second.count() * sizeof(Dtype));
+    }
+    LOG(INFO) << "the fact of flow tensor being used: "<<"[number: " << _flow_tensor.size() << " " << "memory size: " <<
+              std::to_string(memory_size*2/(1024 * 8))<<" KB].";
+
+    return;
+}
+
+template <typename Dtype>
 void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type, std::string param_name,
     std::vector<int> shape,  ParamConfig p_config, bool is_shared){
     bool has_param = false;
@@ -170,7 +182,7 @@ void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type
             _params[op_name].is_inited[param_name] = false;
         }
     }else {
-        if (has_op_name == false) {
+        if (has_op_name == false){
             OperatorParam <Dtype> p;
             p.type = op_type;
             Tensor <Dtype> t(shape);
@@ -178,7 +190,7 @@ void GlobalWorkSpace<Dtype>::init_param(std::string op_name, std::string op_type
             p.param_configs[param_name] = p_config;
             p.is_inited[param_name] = false;
             _params[op_name] = p;
-        } else if (has_op_name && has_param == false) {
+        }else if (has_op_name && has_param == false){
             Tensor <Dtype> t(shape);
             _params[op_name].params[param_name] = t;
             _params[op_name].param_configs[param_name] = p_config;
@@ -224,8 +236,34 @@ std::string GlobalWorkSpace<Dtype>::param_list(){
 }
 
 template <typename Dtype>
-void GlobalWorkSpace<Dtype>::global_init(){   
+void GlobalWorkSpace<Dtype>::param_memory(){
+    float memory_size = 0;
+    int num = 0;
+    for(auto it = _params.begin(); it != _params.end(); it++){
+        for(auto i = it->second.params.begin(); i != it->second.params.end(); i++){
+            memory_size += (i->second.count() * sizeof(Dtype));
+            num++;
+        }
+    }
+    LOG(INFO) << "the fact of param tensor being used: "<<"[number: " << num << " " << "memory size: " <<
+              std::to_string(memory_size*2/(1024 * 8))<<" KB].";
+    return;
+}
+
+
+template <typename Dtype>
+void GlobalWorkSpace<Dtype>::global_init(Graph * graph, DataProvider<Dtype> * data_provider){
+
+    _data_provider = data_provider;
+    Batch<Dtype> * batch= data_provider->fetch_batch();
+    //init the output of dataprovider
+    for(int i = 0; i < batch->product_size(); i ++){
+        init_output(batch->product_name(i));
+    }
+    _graph = graph;
+    graph_show();
     _ops.clear();
+    //init param, input and output of ops
     for(int i = 0; i < _graph->graph_sym()->operatordef_size(); i++){
         GlobalWorkSpace<Dtype> *gws = this;
         OperatorParameter opdef = _graph->graph_sym()->operatordef(i);
@@ -252,6 +290,16 @@ void GlobalWorkSpace<Dtype>::backward(){
 
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::train(){
+    Batch<Dtype> *batch = _data_provider->fetch_batch();
+
+    //data and label
+    for(int i = 0; i < batch->product_size();i ++){
+        fetch_output(batch->product_name(i))->copy_from(batch->product(i), true);
+
+    }
+    Tensor<Dtype> * data = fetch_output(batch->product_name(0));
+    Tensor<Dtype> * label = fetch_output(batch->product_name(1));
+
     forward();
     backward();
 }

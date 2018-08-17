@@ -16,7 +16,7 @@ public:
     }
     ~ConvolutionOp(){};
     void init();
-    void forward(){};
+    void forward();
     void backward(){};
     bool inline has_param(){ return _has_param;}
 
@@ -27,4 +27,4 @@ protected:
 
 };
 }
-#endif //CS_WORK_CONVOLUTION_H
+#endif //SITA_DLFLOW_CONVOLUTION_OP_H

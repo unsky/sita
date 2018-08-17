@@ -31,7 +31,6 @@ Tensor<Dtype>::Tensor(const std::vector<int >& shape) {
     for(int i = 0; i <shape.size(); i++){
         CHECK_GT(shape[i], 0) << "axis of tensor should greater than 0";
     }
-
     _count = 0;
     int count = 1;
 
@@ -94,21 +93,21 @@ void Tensor<Dtype>::reshape_like(const Tensor<Dtype> &t_other){
 }
 
 template<typename Dtype>
-void Tensor<Dtype>::copy_from(const Tensor<Dtype> &t_other, bool reshape = true){
+void Tensor<Dtype>::copy_from(const Tensor<Dtype> *t_other, bool reshape = false){
     if(reshape) {
-        reshape_like(t_other);
+        reshape_like(*t_other);
     }else{
-        CHECK_EQ(_dim, t_other.dim()) << "reshape is false, but the dim of dst and src tensor is not equal";
+        CHECK_EQ(_dim, t_other->dim()) << "reshape is false, but the dim of dst and src tensor is not equal";
         for(int i = 0; i < _shape.size(); i++) {
-            CHECK_EQ(_shape[i], t_other.shape()[i])<< "the shape of dst and src is not equal";
+            CHECK_EQ(_shape[i], t_other->shape()[i])<< "the shape of dst and src is not equal";
         }
     }
     //data diff cpu and gpu
-    memcpy(this->mutable_cpu_data(), t_other.cpu_data(), sizeof(Dtype) * _count);
-    memcpy(this->mutable_cpu_diff(), t_other.cpu_diff(), sizeof(Dtype) * _count);
+    Context::cpu_memcpy(this->mutable_cpu_data(), t_other->cpu_data(), sizeof(Dtype) * _count);
+    Context::cpu_memcpy(this->mutable_cpu_diff(), t_other->cpu_diff(), sizeof(Dtype) * _count);
 
-    CUDA_CHECK(cudaMemcpy(this->mutable_gpu_data(), t_other.gpu_data(), sizeof(Dtype) * _count, cudaMemcpyDeviceToDevice));
-    CUDA_CHECK(cudaMemcpy(this->mutable_gpu_diff(), t_other.gpu_diff(), sizeof(Dtype) * _count, cudaMemcpyDeviceToDevice));
+    Context::gpu_memcpy(this->mutable_gpu_data(), t_other->gpu_data(), sizeof(Dtype) * _count, gpu2gpu);
+    Context::gpu_memcpy(this->mutable_gpu_diff(), t_other->gpu_diff(), sizeof(Dtype) * _count, gpu2gpu);
 
 }
 template<typename Dtype>
@@ -116,7 +115,7 @@ void Tensor<Dtype>::set_data_zero(){
     CHECK_GT(_count, 0) << "tensor count must greater than 0 when set to 0";
 
     //data cpu and gpu
-    memset(this->mutable_cpu_data(), 0, sizeof(Dtype) * _count);
+    Context::cpu_memset(this->mutable_cpu_data(),  sizeof(Dtype) * _count);
     this->gpu_data();
 }
 
@@ -125,9 +124,11 @@ void Tensor<Dtype>::set_diff_zero(){
     CHECK_GT(_count, 0) << "tensor count must greater than 0 when set to 0";
 
     //data cpu and gpu
-    memset(this->mutable_cpu_diff(), 0, sizeof(Dtype) * _count);
+    Context::cpu_memset(this->mutable_cpu_diff(),  sizeof(Dtype) * _count);
     this->gpu_diff();
 }
+
+
 
 template<typename Dtype>
 int Tensor<Dtype>::get_site_by_coord(const std::vector<int > &coord){
