@@ -11,12 +11,24 @@
 namespace sita {
 
 
-
 #define  cudaMemcpyHostToDevice cpu2gpu
 #define  cudaMemcpyDeviceToHost gpu2cpu
 #define  cudaMemcpyDeviceToDevice gpu2gpu
 
+//cudnn
+#define CUDNN_VERSION_MIN(major, minor, patch) \
+    (CUDNN_VERSION >= (major * 1000 + minor * 100 + patch))
 
+#define CUDNN_CHECK(condition) \
+  do { \
+    cudnnStatus_t status = condition; \
+    CHECK_EQ(status, CUDNN_STATUS_SUCCESS) << " "\
+      << cudnnGetErrorString(status); \
+  } while (0)
+
+
+
+//cudnn
 const int CUDA_NUM_THREADS = 512;
 // CUDA: number of blocks for threads.
 inline int CUDA_GET_BLOCKS(const int N) {
@@ -66,7 +78,6 @@ private:\
   char gInstantiationGuard##classname; \
   template class classname<float>; \
   template class classname<double>; \
-  template class classname<int>
 
 
 }//namespace

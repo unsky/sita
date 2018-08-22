@@ -13,11 +13,8 @@ class MnistBatch : public Batch<Dtype> {
 public:
     MnistBatch(): Batch<Dtype>(){
         _product.clear();
-        _product.push_back(&_data);
-        _product.push_back(&_label);
-        _product_name.clear();
-        _product_name.push_back("data");
-        _product_name.push_back("label");
+        _product["data"] = &_data;
+        _product["label"] = &_label;
     }
 
     virtual~MnistBatch(){}
@@ -29,11 +26,23 @@ public:
     }
     virtual std::string product_name(int i){
         CHECK_GT(_product.size(), i) << "dont have that product!!";
-        return _product_name[i];
+        int  n = 0;
+        for(auto it = _product.begin(); it != _product.end(); it++){
+            if(n == i){
+                return it->first;
+            }
+            n++;
+        }
     }
     virtual Tensor<Dtype>* product(int i){
         CHECK_GT(_product.size(), i) << "dont have that product!!";
-        return _product[i];
+        int  n = 0;
+        for(auto it = _product.begin(); it != _product.end(); it++) {
+            if (n == i) {
+                return it->second;
+            }
+            n++;
+        }
     }
     virtual int product_size(){
         return _product.size();
@@ -41,8 +50,8 @@ public:
 private:
     Tensor<Dtype> _data;
     Tensor<Dtype> _label;
-    std::vector<std::string> _product_name;
-    std::vector<Tensor<Dtype>* > _product;
+    std::map<std::string, Tensor<Dtype>* > _product;
+
 };
 
 

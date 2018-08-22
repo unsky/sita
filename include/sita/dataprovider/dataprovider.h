@@ -11,6 +11,7 @@
 #include <vector>
 #include "sita/stuff/shuffle/fisher_yates_shuffler.h"
 namespace sita{
+
 template <typename Dtype>
 class Batch{
 public:

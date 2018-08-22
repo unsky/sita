@@ -29,6 +29,10 @@ include_directories(${GLOG_INCLUDE_DIR})
 link_directories(${GLOG_LIBRARY_DIR})
 file(GLOB GLOG_LIBRARIES ${GLOG_LIBRARY_DIR}/*.a)
 
+include_directories(/home/cs/cudnn/cudnn_v7/cuda/include)
+link_directories(/home/cs/cudnn/cudnn_v7/cuda/lib64)
+
+
 include_directories(/home/cs/caffe_third/for_x86/protobuf/include)
 link_directories(/home/cs/caffe_third/for_x86/protobuf/lib)
 execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/  --proto_path=${PROJECT_SOURCE_DIR}/src/sita/proto/

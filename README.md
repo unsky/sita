@@ -1,5 +1,5 @@
 <div align=center>
-<img src="sita.png"/>
+<img src="docs/sita.png"/>
 </div>
 
 Sita is a lightweight tracking architecture.
@@ -16,11 +16,11 @@ Integrate an trackor using sita in your project!
 # deep learning module
 
 <div align=center>
-<img src="framework.png"/>
+<img src="docs/framework.png"/>
 </div>
 
 ## Graph builder
 
 <div align=center>
-<img src="graph.gif"/>
+<img src="docs/graph.gif"/>
 </div>

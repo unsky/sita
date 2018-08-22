@@ -1,0 +1,3 @@
+/home/cs/Desktop/cs_work/sita/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/cs/Desktop/cs_work/sita/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cs/Desktop/cs_work/sita/cmake-build-debug/CMakeFiles/sita.dir

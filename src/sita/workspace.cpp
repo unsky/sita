@@ -295,11 +295,7 @@ void GlobalWorkSpace<Dtype>::train(){
     //data and label
     for(int i = 0; i < batch->product_size();i ++){
         fetch_output(batch->product_name(i))->copy_from(batch->product(i), true);
-
     }
-    Tensor<Dtype> * data = fetch_output(batch->product_name(0));
-    Tensor<Dtype> * label = fetch_output(batch->product_name(1));
-
     forward();
     backward();
 }

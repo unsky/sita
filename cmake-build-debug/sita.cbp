@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sita"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\share\;CMake Files\..\..\..\..\..\usr\share\OpenCV\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cs/Desktop/cs_work/sita/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cs/Desktop/cs_work/sita/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cs/Desktop/cs_work/sita/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sita">
+				<Option output="/home/cs/Desktop/cs_work/sita/cmake-build-debug/sita" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cs/Desktop/cs_work/sita/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cs/Desktop/cs_work/sita/include"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/src"/>
+					<Add directory="/home/cs/caffe_third/for_x86/glog/include"/>
+					<Add directory="/home/cs/caffe_third/for_x86/protobuf/include"/>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/system"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/thread"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/filesystem"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/regex"/>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/core"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/highgui"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/imgproc"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/OpenCV_INCLUDE_DIRS"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 sita"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sita/fast">
+				<Option output="/home/cs/Desktop/cs_work/sita/cmake-build-debug/sita" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cs/Desktop/cs_work/sita/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cs/Desktop/cs_work/sita/include"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/src"/>
+					<Add directory="/home/cs/caffe_third/for_x86/glog/include"/>
+					<Add directory="/home/cs/caffe_third/for_x86/protobuf/include"/>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/system"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/thread"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/filesystem"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/regex"/>
+					<Add directory="/usr/include/opencv"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/core"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/highgui"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/imgproc"/>
+					<Add directory="/home/cs/Desktop/cs_work/sita/OpenCV_INCLUDE_DIRS"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 sita/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cs/Desktop/cs_work/sita/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/main.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/blocking_queue.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataprovider.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/dataset_util/mnist.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dataprovider/mnist_dataprovider.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dlflow/graph.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dlflow/operator.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/dlflow/operators/convolution_op.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/internal_thread.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/io_protobuff.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/memory_control.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/proto/sita_operators.pb.cc">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/proto/sita_utils.pb.cc">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/stuff/shuffle/fisher_yates_shuffler.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/tensor.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/src/sita/workspace.cpp">
+			<Option target="sita"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/../../../../../usr/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/../../../../../usr/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/../../../../../usr/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/cs/Desktop/cs_work/sita/../../../../../usr/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\share\OpenCV\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

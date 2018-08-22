@@ -73,7 +73,7 @@ public:
     void param_memory();
 
 
-    //grap
+    //graph
     inline void graph_show(){
         _graph->graph_symbol_show();
     }
