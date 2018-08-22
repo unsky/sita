@@ -23,8 +23,6 @@ operatordef {
   name: "conv2"
   type: "ConvolutionOp"
   input: "conv1"
-  input: "conv12"
-  input: "conv133"
   output: "conv2"
   convolution_op_param{
      num_output: 20

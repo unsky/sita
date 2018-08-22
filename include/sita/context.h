@@ -103,12 +103,12 @@ public:
 
 
     template <typename Dtype>
-    inline static void create_tensor4d_desc(cudnnTensorDescriptor_t* desc) {
+    inline static void create_tensor4d_descriptor(cudnnTensorDescriptor_t* desc) {
         CUDNN_CHECK(cudnnCreateTensorDescriptor(desc));
     }
 
     template <typename Dtype>
-    inline static void set_tensor4d_desc(cudnnTensorDescriptor_t* desc,
+    inline static void set_tensor4d_descriptor(cudnnTensorDescriptor_t* desc,
                                 int n, int c, int h, int w,
                                 int stride_n, int stride_c, int stride_h, int stride_w) {
         CUDNN_CHECK(cudnnSetTensor4dDescriptorEx(*desc, dataType<Dtype>::type,
@@ -116,18 +116,18 @@ public:
     }
 
     template <typename Dtype>
-    inline static void set_tensor4d_desc(cudnnTensorDescriptor_t* desc,
+    inline static void set_tensor4d_descriptor(cudnnTensorDescriptor_t* desc,
                                 int n, int c, int h, int w) {
         const int stride_w = 1;
         const int stride_h = w * stride_w;
         const int stride_c = h * stride_h;
         const int stride_n = c * stride_c;
-        set_tensor4d_desc<Dtype>(desc, n, c, h, w,
+        set_tensor4d_descriptor<Dtype>(desc, n, c, h, w,
                                stride_n, stride_c, stride_h, stride_w);
     }
 
     template <typename Dtype>
-    inline  static void create_filter_desc(cudnnFilterDescriptor_t* desc,
+    inline  static void create_filter_descriptor(cudnnFilterDescriptor_t* desc,
                                  int n, int c, int h, int w) {
         CUDNN_CHECK(cudnnCreateFilterDescriptor(desc));
 
@@ -141,12 +141,12 @@ public:
     }
 
     template <typename Dtype>
-    inline static void create_convolution_desc(cudnnConvolutionDescriptor_t* conv) {
+    inline static void create_convolution_descriptor(cudnnConvolutionDescriptor_t* conv) {
         CUDNN_CHECK(cudnnCreateConvolutionDescriptor(conv));
     }
 
     template <typename Dtype>
-    inline static void set_convolution_desc(cudnnConvolutionDescriptor_t* conv,
+    inline static void set_convolution_descriptor(cudnnConvolutionDescriptor_t* conv,
                                    cudnnTensorDescriptor_t bottom, cudnnFilterDescriptor_t filter,
                                    int pad_h, int pad_w, int stride_h, int stride_w) {
         #if CUDNN_VERSION_MIN(6, 0, 0)

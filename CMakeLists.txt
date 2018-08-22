@@ -44,7 +44,7 @@ execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/ 
 set(SITA_FILES
         src/sita/proto/sita_operators.pb.cc
         src/sita/proto/sita_utils.pb.cc
-        main.cpp
+        tools/main.cpp
         src/sita/memory_control.cpp
         src/sita/tensor.cpp
        # src/sita/dlflow/operators/add_op.cpp
@@ -83,6 +83,7 @@ target_link_libraries(sita
 "/usr/lib/x86_64-linux-gnu/libboost_system.so"
         "/usr/lib/x86_64-linux-gnu/libboost_thread.so"
         "/home/cs/caffe_third/for_x86/protobuf/lib/libprotobuf.so"
+        "/home/cs/cudnn/cudnn_v7/cuda/lib64/libcudnn.so"
 
 
         ${OpenCV_LIBRARIES}

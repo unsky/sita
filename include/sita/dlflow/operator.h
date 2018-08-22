@@ -26,8 +26,12 @@ public:
     Tensor<Dtype> * fetch_input(std::string name);
     Tensor<Dtype> * fetch_output(std::string name);
     Tensor<Dtype> * fetch_param(std::string name);
+    inline std::string operator_name(){
+        return _opdef.name();
+    }
 
     virtual void  init(){};
+    virtual void  infer_shape(){};
     virtual void forward(){};
     virtual void backward(){};
 protected:
@@ -37,6 +41,8 @@ protected:
     std::vector<std::string> _inputs;
     std::vector<std::string> _outputs;
     std::vector<std::string> _params;
+    std::map<std::string, std::vector<int> > _input_shapes;
+    std::map<std::string, std::vector<int> > _output_shapes;
     bool _is_shared;
     std::vector<std::pair<std::string, std::string> > _shared_param_pairs;
 };

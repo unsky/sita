@@ -12,17 +12,19 @@ template<typename Dtype>
 class ConvolutionOp: public Operator<Dtype>{
 public:
     ConvolutionOp(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
-        _convolution_op_param = opdef.convolution_op_param();
+        _op_param = opdef.convolution_op_param();
     }
     ~ConvolutionOp(){};
     void init();
+    void infer_shape();
     void forward();
     void backward(){};
+
     bool inline has_param(){ return _has_param;}
 
 protected:
     bool _has_param = true;
-    ConvolutionOpParameter _convolution_op_param;
+    ConvolutionOpParameter _op_param;
 
 private:
     bool _handles_setup;
@@ -35,10 +37,11 @@ private:
     cudnnConvolutionBwdDataAlgo_t *_bwd_data_algo;
 
     //data desc
-    std::vector<cudnnTensorDescriptor_t> _bottom_descs, _top_descs;
+    std::vector<cudnnTensorDescriptor_t> _input_descs, _output_descs;
     cudnnTensorDescriptor_t    _bias_desc;
     cudnnFilterDescriptor_t      _filter_desc;
     std::vector<cudnnConvolutionDescriptor_t> _conv_descs;
+
     int _bottom_offset, _top_offset, _bias_offset;
 
     size_t *_workspace_fwd_sizes;

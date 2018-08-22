@@ -42,6 +42,8 @@ void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape,
     if(_is_shared){
         _shared_param_pairs.push_back(std::make_pair(param_name, p_config.name()));
     }
+    Tensor<Dtype>* param = fetch_param(param_name);
+    param->reshape(shape);
 
 }
 

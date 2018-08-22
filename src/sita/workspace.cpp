@@ -260,6 +260,12 @@ void GlobalWorkSpace<Dtype>::global_init(Graph * graph, DataProvider<Dtype> * da
     for(int i = 0; i < batch->product_size(); i ++){
         init_output(batch->product_name(i));
     }
+
+    //data and label
+    for(int i = 0; i < batch->product_size();i ++){
+        fetch_output(batch->product_name(i))->copy_from(batch->product(i), true);
+    }
+
     _graph = graph;
     graph_show();
     _ops.clear();
@@ -270,6 +276,7 @@ void GlobalWorkSpace<Dtype>::global_init(Graph * graph, DataProvider<Dtype> * da
         boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef, gws);
         op->setup();
         op->init();
+        op->infer_shape();
         _ops.push_back(op);
     }
 }
@@ -282,6 +289,13 @@ void GlobalWorkSpace<Dtype>::forward(){
 }
 
 template <typename Dtype>
+void GlobalWorkSpace<Dtype>::infer_shape(){
+    for(int i = 0; i < _ops.size(); i++){
+        _ops[i]->infer_shape();
+    }
+}
+
+template <typename Dtype>
 void GlobalWorkSpace<Dtype>::backward(){
     for(int i = 0; i < _ops.size(); i++){
         _ops[i]->backward();
@@ -290,8 +304,8 @@ void GlobalWorkSpace<Dtype>::backward(){
 
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::train(){
-    Batch<Dtype> *batch = _data_provider->fetch_batch();
 
+    Batch<Dtype> *batch = _data_provider->fetch_batch();
     //data and label
     for(int i = 0; i < batch->product_size();i ++){
         fetch_output(batch->product_name(i))->copy_from(batch->product(i), true);

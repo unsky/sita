@@ -10,7 +10,7 @@
 
 namespace sita {
 
-
+#define CUDNN_STREAMS_PER_GROUP 3
 #define  cudaMemcpyHostToDevice cpu2gpu
 #define  cudaMemcpyDeviceToHost gpu2cpu
 #define  cudaMemcpyDeviceToDevice gpu2gpu

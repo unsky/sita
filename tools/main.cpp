@@ -26,9 +26,10 @@ int main(int argc, char** argv) {
 
     int k = 0;
 
-    while(k != 10){
+    while(k != 10000000){
         gws.train();
         k++;
+        LOG(INFO)<<k;
     }
     gws.temp_memory();
     gws.flow_memory();
