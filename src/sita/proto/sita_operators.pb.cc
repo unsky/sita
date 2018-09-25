@@ -182,14 +182,14 @@ void protobuf_AddDesc_sita_5foperators_2eproto() {
     "eter\"|\n\016AddOpParameter\022\020\n\005pad_h\030\001 \001(\r:\0010"
     "\022\020\n\005pad_w\030\002 \001(\r:\0010\022\020\n\010kernel_h\030\003 \001(\r\022\020\n\010"
     "kernel_w\030\004 \001(\r\022\020\n\010stride_h\030\005 \001(\r\022\020\n\010stri"
-    "de_w\030\006 \001(\r\"\215\002\n\026ConvolutionOpParameter\022\022\n"
+    "de_w\030\006 \001(\r\"\220\002\n\026ConvolutionOpParameter\022\022\n"
     "\nnum_output\030\001 \001(\r\022\027\n\tbias_term\030\002 \001(\010:\004tr"
     "ue\022\013\n\003pad\030\003 \001(\r\022\023\n\013kernel_size\030\004 \001(\r\022\016\n\006"
-    "stride\030\005 \001(\r\022\020\n\010dilation\030\006 \001(\r\022\020\n\005pad_h\030"
-    "\007 \001(\r:\0010\022\020\n\005pad_w\030\010 \001(\r:\0010\022\023\n\010kernel_h\030\t"
-    " \001(\r:\0013\022\023\n\010kernel_w\030\n \001(\r:\0013\022\020\n\010stride_h"
-    "\030\013 \001(\r\022\020\n\010stride_w\030\014 \001(\r\022\020\n\005group\030\r \001(\r:"
-    "\0011", 762);
+    "stride\030\005 \001(\r\022\023\n\010dilation\030\006 \001(\r:\0011\022\020\n\005pad"
+    "_h\030\007 \001(\r:\0010\022\020\n\005pad_w\030\010 \001(\r:\0010\022\023\n\010kernel_"
+    "h\030\t \001(\r:\0013\022\023\n\010kernel_w\030\n \001(\r:\0013\022\020\n\010strid"
+    "e_h\030\013 \001(\r\022\020\n\010stride_w\030\014 \001(\r\022\020\n\005group\030\r \001"
+    "(\r:\0011", 765);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sita_operators.proto", &protobuf_RegisterTypes);
   GraphParameter::default_instance_ = new GraphParameter();
@@ -1534,7 +1534,7 @@ void ConvolutionOpParameter::SharedCtor() {
   pad_ = 0u;
   kernel_size_ = 0u;
   stride_ = 0u;
-  dilation_ = 0u;
+  dilation_ = 1u;
   pad_h_ = 0u;
   pad_w_ = 0u;
   kernel_h_ = 3u;
@@ -1588,9 +1588,11 @@ void ConvolutionOpParameter::Clear() {
   } while (0)
 
   if (_has_bits_[0 / 32] & 255) {
-    ZR_(pad_, pad_w_);
+    ZR_(pad_, stride_);
+    ZR_(pad_h_, pad_w_);
     num_output_ = 0u;
     bias_term_ = true;
+    dilation_ = 1u;
   }
   if (_has_bits_[8 / 32] & 7936) {
     ZR_(stride_h_, stride_w_);
@@ -1690,7 +1692,7 @@ bool ConvolutionOpParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 dilation = 6;
+      // optional uint32 dilation = 6 [default = 1];
       case 6: {
         if (tag == 48) {
          parse_dilation:
@@ -1860,7 +1862,7 @@ void ConvolutionOpParameter::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->stride(), output);
   }
 
-  // optional uint32 dilation = 6;
+  // optional uint32 dilation = 6 [default = 1];
   if (has_dilation()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->dilation(), output);
   }
@@ -1935,7 +1937,7 @@ void ConvolutionOpParameter::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->stride(), target);
   }
 
-  // optional uint32 dilation = 6;
+  // optional uint32 dilation = 6 [default = 1];
   if (has_dilation()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->dilation(), target);
   }
@@ -2020,7 +2022,7 @@ int ConvolutionOpParameter::ByteSize() const {
           this->stride());
     }
 
-    // optional uint32 dilation = 6;
+    // optional uint32 dilation = 6 [default = 1];
     if (has_dilation()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(

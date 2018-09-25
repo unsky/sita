@@ -538,7 +538,7 @@ class ConvolutionOpParameter : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 stride() const;
   inline void set_stride(::google::protobuf::uint32 value);
 
-  // optional uint32 dilation = 6;
+  // optional uint32 dilation = 6 [default = 1];
   inline bool has_dilation() const;
   inline void clear_dilation();
   static const int kDilationFieldNumber = 6;
@@ -1438,7 +1438,7 @@ inline void ConvolutionOpParameter::set_stride(::google::protobuf::uint32 value)
   // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.stride)
 }
 
-// optional uint32 dilation = 6;
+// optional uint32 dilation = 6 [default = 1];
 inline bool ConvolutionOpParameter::has_dilation() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1449,7 +1449,7 @@ inline void ConvolutionOpParameter::clear_has_dilation() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void ConvolutionOpParameter::clear_dilation() {
-  dilation_ = 0u;
+  dilation_ = 1u;
   clear_has_dilation();
 }
 inline ::google::protobuf::uint32 ConvolutionOpParameter::dilation() const {
