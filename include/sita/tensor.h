@@ -77,6 +77,9 @@ public:
     inline const int dim() const {
         return _dim;
     }
+    inline const int size(){
+        return _count * sizeof(Dtype);
+    }
 
     inline const int count() const {
         return _count;

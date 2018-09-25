@@ -80,5 +80,17 @@ private:\
   template class classname<double>; \
 
 
+
+#define INSTANTIATE_OPERATOR_GPU_FORWARD(classname) \
+  template void classname<float>::forward(); \
+  template void classname<double>::forward();
+
+#define INSTANTIATE_OPERATOR_GPU_BACKWARD(classname) \
+  template void classname<float>::backward(); \
+  template void classname<double>::backward()
+
+#define INSTANTIATE_OPERATOR_GPU_FUNCS(classname) \
+  INSTANTIATE_OPERATOR_GPU_FORWARD(classname); \
+  INSTANTIATE_OPERATOR_GPU_BACKWARD(classname)
 }//namespace
 #endif //SITA_MACROS_H

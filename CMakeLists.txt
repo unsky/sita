@@ -44,11 +44,12 @@ execute_process(COMMAND protoc  --cpp_out=${PROJECT_SOURCE_DIR}/src/sita/proto/ 
 set(SITA_FILES
         src/sita/proto/sita_operators.pb.cc
         src/sita/proto/sita_utils.pb.cc
-        tools/main.cpp
+        tools/sita.cpp
         src/sita/memory_control.cpp
         src/sita/tensor.cpp
-       # src/sita/dlflow/operators/add_op.cpp
-        src/sita/dlflow/operators/convolution_op.cpp
+        src/sita/context.cpp
+        src/sita/dlflow/operators/convolution.cpp
+        src/sita/dlflow/operators/convolution.cu
         src/sita/workspace.cpp
         src/sita/dlflow/operator.cpp
         src/sita/dlflow/graph.cpp

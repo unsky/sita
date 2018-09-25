@@ -12,25 +12,21 @@
 namespace sita{
 
 
-template <typename Dtype> class dataType;
-template<> class dataType<float>  {
+template <typename Dtype> class CudnnDataType;
+template<> class CudnnDataType<float>  {
 public:
     static const cudnnDataType_t type = CUDNN_DATA_FLOAT;
-    static float oneval = 1.0;
-    static float zeroval = 0.0;
-    static const void *one = static_cast<void *>(&dataType<float>::oneval);
-    static const void *zero = static_cast<void *>(&dataType<float>::zeroval);
+    static float oneval, zeroval;
+    static const void *one, *zero;
 };
-template<> class dataType<double> {
+template<> class CudnnDataType<double> {
 public:
     static const cudnnDataType_t type = CUDNN_DATA_DOUBLE;
-    static double oneval = 1.0;
-    static double zeroval = 0.0;
-    static const void *one =  static_cast<void *>(&dataType<double>::oneval);
-    static const void *zero = static_cast<void *>(&dataType<double>::zeroval);
+    static double oneval, zeroval;
+    static const void *one, *zero;
 };
 
-    class Context{
+class Context{
 public:
     Context() {}
     ~Context() {}
@@ -111,7 +107,7 @@ public:
     inline static void set_tensor4d_descriptor(cudnnTensorDescriptor_t* desc,
                                 int n, int c, int h, int w,
                                 int stride_n, int stride_c, int stride_h, int stride_w) {
-        CUDNN_CHECK(cudnnSetTensor4dDescriptorEx(*desc, dataType<Dtype>::type,
+        CUDNN_CHECK(cudnnSetTensor4dDescriptorEx(*desc, CudnnDataType<Dtype>::type,
                                                  n, c, h, w, stride_n, stride_c, stride_h, stride_w));
     }
 
@@ -132,10 +128,10 @@ public:
         CUDNN_CHECK(cudnnCreateFilterDescriptor(desc));
 
         #if CUDNN_VERSION_MIN(5, 0, 0)
-                CUDNN_CHECK(cudnnSetFilter4dDescriptor(*desc, dataType<Dtype>::type,
+                CUDNN_CHECK(cudnnSetFilter4dDescriptor(*desc, CudnnDataType<Dtype>::type,
               CUDNN_TENSOR_NCHW, n, c, h, w));
         #else
-                CUDNN_CHECK(cudnnSetFilter4dDescriptor_v4(*desc, dataType<Dtype>::type,
+                CUDNN_CHECK(cudnnSetFilter4dDescriptor_v4(*desc, CudnnDataType<Dtype>::type,
                                                           CUDNN_TENSOR_NCHW, n, c, h, w));
         #endif
     }
@@ -152,7 +148,7 @@ public:
         #if CUDNN_VERSION_MIN(6, 0, 0)
                 CUDNN_CHECK(cudnnSetConvolution2dDescriptor(*conv,
               pad_h, pad_w, stride_h, stride_w, 1, 1, CUDNN_CROSS_CORRELATION,
-              dataType<Dtype>::type));
+              CudnnDataType<Dtype>::type));
         #else
                 CUDNN_CHECK(cudnnSetConvolution2dDescriptor(*conv,
                             pad_h, pad_w, stride_h, stride_w, 1, 1, CUDNN_CROSS_CORRELATION));

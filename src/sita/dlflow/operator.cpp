@@ -24,8 +24,8 @@ void Operator<Dtype>::setup(){
         _param_configs.push_back(_opdef.param(i));
     }
     _is_shared = false;
+    _gradient_block = _opdef.gradient_block();
     _shared_param_pairs.clear();
-
 }
 
 template<typename Dtype>

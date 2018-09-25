@@ -2,13 +2,13 @@ name: "LeNet"
 
 operatordef {
   name: "conv1"
-  type: "ConvolutionOp"
+  type: "Convolution"
   input: "data"
   output: "conv1"
-  convolution_op_param{
-     num_output: 20
-     kernel_size: 5
-     stride: 1
+  convolution_param{
+     num_output: 10
+     kernel_size: 3
+     stride: 2
     }
   param{
        filler{type:"xavier"}
@@ -21,13 +21,13 @@ operatordef {
 
 operatordef {
   name: "conv2"
-  type: "ConvolutionOp"
+  type: "Convolution"
   input: "conv1"
   output: "conv2"
-  convolution_op_param{
+  convolution_param{
      num_output: 20
-     kernel_size: 5
-     stride: 1
+     kernel_size: 3
+     stride: 2
     }
   param{
        filler{type:"xavier"}
@@ -39,13 +39,13 @@ operatordef {
 }
 operatordef {
    name: "conv3"
-   type: "ConvolutionOp"
+   type: "Convolution"
    input: "conv2"
    output: "conv3"
-   convolution_op_param{
-      num_output: 20
-      kernel_size: 5
-      stride: 1
+   convolution_param{
+      num_output: 25
+      kernel_size: 3
+      stride: 2
      }
    param{
         filler{type:"xavier"}

@@ -276,7 +276,6 @@ void GlobalWorkSpace<Dtype>::global_init(Graph * graph, DataProvider<Dtype> * da
         boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef, gws);
         op->setup();
         op->init();
-        op->infer_shape();
         _ops.push_back(op);
     }
 }
@@ -288,12 +287,6 @@ void GlobalWorkSpace<Dtype>::forward(){
     }
 }
 
-template <typename Dtype>
-void GlobalWorkSpace<Dtype>::infer_shape(){
-    for(int i = 0; i < _ops.size(); i++){
-        _ops[i]->infer_shape();
-    }
-}
 
 template <typename Dtype>
 void GlobalWorkSpace<Dtype>::backward(){
@@ -310,8 +303,12 @@ void GlobalWorkSpace<Dtype>::train(){
     for(int i = 0; i < batch->product_size();i ++){
         fetch_output(batch->product_name(i))->copy_from(batch->product(i), true);
     }
-    forward();
-    backward();
+    LOG(INFO) << "--------------------------begin solve---------------------------";
+    int k = 0;
+    while(k != 1000){
+        forward();
+        backward();
+    }
 }
 
 

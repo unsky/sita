@@ -36,8 +36,7 @@ void protobuf_ShutdownFile_sita_5foperators_2eproto();
 
 class GraphParameter;
 class OperatorParameter;
-class AddOpParameter;
-class ConvolutionOpParameter;
+class ConvolutionParameter;
 
 // ===================================================================
 
@@ -247,17 +246,12 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& output() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_output();
 
-  // repeated float loss_weight = 5;
-  inline int loss_weight_size() const;
-  inline void clear_loss_weight();
-  static const int kLossWeightFieldNumber = 5;
-  inline float loss_weight(int index) const;
-  inline void set_loss_weight(int index, float value);
-  inline void add_loss_weight(float value);
-  inline const ::google::protobuf::RepeatedField< float >&
-      loss_weight() const;
-  inline ::google::protobuf::RepeatedField< float >*
-      mutable_loss_weight();
+  // optional bool gradient_block = 5 [default = false];
+  inline bool has_gradient_block() const;
+  inline void clear_gradient_block();
+  static const int kGradientBlockFieldNumber = 5;
+  inline bool gradient_block() const;
+  inline void set_gradient_block(bool value);
 
   // repeated .sita.ParamConfig param = 6;
   inline int param_size() const;
@@ -271,23 +265,14 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::sita::ParamConfig >*
       mutable_param();
 
-  // optional .sita.AddOpParameter add_op_param = 100;
-  inline bool has_add_op_param() const;
-  inline void clear_add_op_param();
-  static const int kAddOpParamFieldNumber = 100;
-  inline const ::sita::AddOpParameter& add_op_param() const;
-  inline ::sita::AddOpParameter* mutable_add_op_param();
-  inline ::sita::AddOpParameter* release_add_op_param();
-  inline void set_allocated_add_op_param(::sita::AddOpParameter* add_op_param);
-
-  // optional .sita.ConvolutionOpParameter convolution_op_param = 101;
-  inline bool has_convolution_op_param() const;
-  inline void clear_convolution_op_param();
-  static const int kConvolutionOpParamFieldNumber = 101;
-  inline const ::sita::ConvolutionOpParameter& convolution_op_param() const;
-  inline ::sita::ConvolutionOpParameter* mutable_convolution_op_param();
-  inline ::sita::ConvolutionOpParameter* release_convolution_op_param();
-  inline void set_allocated_convolution_op_param(::sita::ConvolutionOpParameter* convolution_op_param);
+  // optional .sita.ConvolutionParameter convolution_param = 101;
+  inline bool has_convolution_param() const;
+  inline void clear_convolution_param();
+  static const int kConvolutionParamFieldNumber = 101;
+  inline const ::sita::ConvolutionParameter& convolution_param() const;
+  inline ::sita::ConvolutionParameter* mutable_convolution_param();
+  inline ::sita::ConvolutionParameter* release_convolution_param();
+  inline void set_allocated_convolution_param(::sita::ConvolutionParameter* convolution_param);
 
   // @@protoc_insertion_point(class_scope:sita.OperatorParameter)
  private:
@@ -295,10 +280,10 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline void clear_has_name();
   inline void set_has_type();
   inline void clear_has_type();
-  inline void set_has_add_op_param();
-  inline void clear_has_add_op_param();
-  inline void set_has_convolution_op_param();
-  inline void clear_has_convolution_op_param();
+  inline void set_has_gradient_block();
+  inline void clear_has_gradient_block();
+  inline void set_has_convolution_param();
+  inline void clear_has_convolution_param();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -308,10 +293,9 @@ class OperatorParameter : public ::google::protobuf::Message {
   ::std::string* type_;
   ::google::protobuf::RepeatedPtrField< ::std::string> input_;
   ::google::protobuf::RepeatedPtrField< ::std::string> output_;
-  ::google::protobuf::RepeatedField< float > loss_weight_;
   ::google::protobuf::RepeatedPtrField< ::sita::ParamConfig > param_;
-  ::sita::AddOpParameter* add_op_param_;
-  ::sita::ConvolutionOpParameter* convolution_op_param_;
+  ::sita::ConvolutionParameter* convolution_param_;
+  bool gradient_block_;
   friend void  protobuf_AddDesc_sita_5foperators_2eproto();
   friend void protobuf_AssignDesc_sita_5foperators_2eproto();
   friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
@@ -321,14 +305,14 @@ class OperatorParameter : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class AddOpParameter : public ::google::protobuf::Message {
+class ConvolutionParameter : public ::google::protobuf::Message {
  public:
-  AddOpParameter();
-  virtual ~AddOpParameter();
+  ConvolutionParameter();
+  virtual ~ConvolutionParameter();
 
-  AddOpParameter(const AddOpParameter& from);
+  ConvolutionParameter(const ConvolutionParameter& from);
 
-  inline AddOpParameter& operator=(const AddOpParameter& from) {
+  inline ConvolutionParameter& operator=(const ConvolutionParameter& from) {
     CopyFrom(from);
     return *this;
   }
@@ -342,146 +326,17 @@ class AddOpParameter : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const AddOpParameter& default_instance();
+  static const ConvolutionParameter& default_instance();
 
-  void Swap(AddOpParameter* other);
-
-  // implements Message ----------------------------------------------
-
-  AddOpParameter* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const AddOpParameter& from);
-  void MergeFrom(const AddOpParameter& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint32 pad_h = 1 [default = 0];
-  inline bool has_pad_h() const;
-  inline void clear_pad_h();
-  static const int kPadHFieldNumber = 1;
-  inline ::google::protobuf::uint32 pad_h() const;
-  inline void set_pad_h(::google::protobuf::uint32 value);
-
-  // optional uint32 pad_w = 2 [default = 0];
-  inline bool has_pad_w() const;
-  inline void clear_pad_w();
-  static const int kPadWFieldNumber = 2;
-  inline ::google::protobuf::uint32 pad_w() const;
-  inline void set_pad_w(::google::protobuf::uint32 value);
-
-  // optional uint32 kernel_h = 3;
-  inline bool has_kernel_h() const;
-  inline void clear_kernel_h();
-  static const int kKernelHFieldNumber = 3;
-  inline ::google::protobuf::uint32 kernel_h() const;
-  inline void set_kernel_h(::google::protobuf::uint32 value);
-
-  // optional uint32 kernel_w = 4;
-  inline bool has_kernel_w() const;
-  inline void clear_kernel_w();
-  static const int kKernelWFieldNumber = 4;
-  inline ::google::protobuf::uint32 kernel_w() const;
-  inline void set_kernel_w(::google::protobuf::uint32 value);
-
-  // optional uint32 stride_h = 5;
-  inline bool has_stride_h() const;
-  inline void clear_stride_h();
-  static const int kStrideHFieldNumber = 5;
-  inline ::google::protobuf::uint32 stride_h() const;
-  inline void set_stride_h(::google::protobuf::uint32 value);
-
-  // optional uint32 stride_w = 6;
-  inline bool has_stride_w() const;
-  inline void clear_stride_w();
-  static const int kStrideWFieldNumber = 6;
-  inline ::google::protobuf::uint32 stride_w() const;
-  inline void set_stride_w(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:sita.AddOpParameter)
- private:
-  inline void set_has_pad_h();
-  inline void clear_has_pad_h();
-  inline void set_has_pad_w();
-  inline void clear_has_pad_w();
-  inline void set_has_kernel_h();
-  inline void clear_has_kernel_h();
-  inline void set_has_kernel_w();
-  inline void clear_has_kernel_w();
-  inline void set_has_stride_h();
-  inline void clear_has_stride_h();
-  inline void set_has_stride_w();
-  inline void clear_has_stride_w();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 pad_h_;
-  ::google::protobuf::uint32 pad_w_;
-  ::google::protobuf::uint32 kernel_h_;
-  ::google::protobuf::uint32 kernel_w_;
-  ::google::protobuf::uint32 stride_h_;
-  ::google::protobuf::uint32 stride_w_;
-  friend void  protobuf_AddDesc_sita_5foperators_2eproto();
-  friend void protobuf_AssignDesc_sita_5foperators_2eproto();
-  friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
-
-  void InitAsDefaultInstance();
-  static AddOpParameter* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class ConvolutionOpParameter : public ::google::protobuf::Message {
- public:
-  ConvolutionOpParameter();
-  virtual ~ConvolutionOpParameter();
-
-  ConvolutionOpParameter(const ConvolutionOpParameter& from);
-
-  inline ConvolutionOpParameter& operator=(const ConvolutionOpParameter& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ConvolutionOpParameter& default_instance();
-
-  void Swap(ConvolutionOpParameter* other);
+  void Swap(ConvolutionParameter* other);
 
   // implements Message ----------------------------------------------
 
-  ConvolutionOpParameter* New() const;
+  ConvolutionParameter* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ConvolutionOpParameter& from);
-  void MergeFrom(const ConvolutionOpParameter& from);
+  void CopyFrom(const ConvolutionParameter& from);
+  void MergeFrom(const ConvolutionParameter& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -517,84 +372,77 @@ class ConvolutionOpParameter : public ::google::protobuf::Message {
   inline bool bias_term() const;
   inline void set_bias_term(bool value);
 
-  // optional uint32 pad = 3;
+  // optional uint32 pad = 3 [default = 1];
   inline bool has_pad() const;
   inline void clear_pad();
   static const int kPadFieldNumber = 3;
   inline ::google::protobuf::uint32 pad() const;
   inline void set_pad(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_size = 4;
+  // optional uint32 kernel_size = 4 [default = 3];
   inline bool has_kernel_size() const;
   inline void clear_kernel_size();
   static const int kKernelSizeFieldNumber = 4;
   inline ::google::protobuf::uint32 kernel_size() const;
   inline void set_kernel_size(::google::protobuf::uint32 value);
 
-  // optional uint32 stride = 5;
+  // optional uint32 stride = 5 [default = 1];
   inline bool has_stride() const;
   inline void clear_stride();
   static const int kStrideFieldNumber = 5;
   inline ::google::protobuf::uint32 stride() const;
   inline void set_stride(::google::protobuf::uint32 value);
 
-  // optional uint32 dilation = 6 [default = 1];
-  inline bool has_dilation() const;
-  inline void clear_dilation();
-  static const int kDilationFieldNumber = 6;
-  inline ::google::protobuf::uint32 dilation() const;
-  inline void set_dilation(::google::protobuf::uint32 value);
-
-  // optional uint32 pad_h = 7 [default = 0];
+  // optional uint32 pad_h = 6;
   inline bool has_pad_h() const;
   inline void clear_pad_h();
-  static const int kPadHFieldNumber = 7;
+  static const int kPadHFieldNumber = 6;
   inline ::google::protobuf::uint32 pad_h() const;
   inline void set_pad_h(::google::protobuf::uint32 value);
 
-  // optional uint32 pad_w = 8 [default = 0];
+  // optional uint32 pad_w = 7;
   inline bool has_pad_w() const;
   inline void clear_pad_w();
-  static const int kPadWFieldNumber = 8;
+  static const int kPadWFieldNumber = 7;
   inline ::google::protobuf::uint32 pad_w() const;
   inline void set_pad_w(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_h = 9 [default = 3];
+  // optional uint32 kernel_h = 8;
   inline bool has_kernel_h() const;
   inline void clear_kernel_h();
-  static const int kKernelHFieldNumber = 9;
+  static const int kKernelHFieldNumber = 8;
   inline ::google::protobuf::uint32 kernel_h() const;
   inline void set_kernel_h(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_w = 10 [default = 3];
+  // optional uint32 kernel_w = 9;
   inline bool has_kernel_w() const;
   inline void clear_kernel_w();
-  static const int kKernelWFieldNumber = 10;
+  static const int kKernelWFieldNumber = 9;
   inline ::google::protobuf::uint32 kernel_w() const;
   inline void set_kernel_w(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_h = 11;
+  // optional uint32 stride_h = 10;
   inline bool has_stride_h() const;
   inline void clear_stride_h();
-  static const int kStrideHFieldNumber = 11;
+  static const int kStrideHFieldNumber = 10;
   inline ::google::protobuf::uint32 stride_h() const;
   inline void set_stride_h(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_w = 12;
+  // optional uint32 stride_w = 11;
   inline bool has_stride_w() const;
   inline void clear_stride_w();
-  static const int kStrideWFieldNumber = 12;
+  static const int kStrideWFieldNumber = 11;
   inline ::google::protobuf::uint32 stride_w() const;
   inline void set_stride_w(::google::protobuf::uint32 value);
 
-  // optional uint32 group = 13 [default = 1];
+  // optional uint32 group = 12 [default = 1];
   inline bool has_group() const;
   inline void clear_group();
-  static const int kGroupFieldNumber = 13;
+  static const int kGroupFieldNumber = 12;
   inline ::google::protobuf::uint32 group() const;
   inline void set_group(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:sita.ConvolutionOpParameter)
+  // @@protoc_insertion_point(class_scope:sita.ConvolutionParameter)
  private:
   inline void set_has_num_output();
   inline void clear_has_num_output();
@@ -606,8 +454,6 @@ class ConvolutionOpParameter : public ::google::protobuf::Message {
   inline void clear_has_kernel_size();
   inline void set_has_stride();
   inline void clear_has_stride();
-  inline void set_has_dilation();
-  inline void clear_has_dilation();
   inline void set_has_pad_h();
   inline void clear_has_pad_h();
   inline void set_has_pad_w();
@@ -632,7 +478,6 @@ class ConvolutionOpParameter : public ::google::protobuf::Message {
   ::google::protobuf::uint32 pad_;
   ::google::protobuf::uint32 kernel_size_;
   ::google::protobuf::uint32 stride_;
-  ::google::protobuf::uint32 dilation_;
   ::google::protobuf::uint32 pad_h_;
   ::google::protobuf::uint32 pad_w_;
   ::google::protobuf::uint32 kernel_h_;
@@ -645,7 +490,7 @@ class ConvolutionOpParameter : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
 
   void InitAsDefaultInstance();
-  static ConvolutionOpParameter* default_instance_;
+  static ConvolutionParameter* default_instance_;
 };
 // ===================================================================
 
@@ -1024,34 +869,28 @@ OperatorParameter::mutable_output() {
   return &output_;
 }
 
-// repeated float loss_weight = 5;
-inline int OperatorParameter::loss_weight_size() const {
-  return loss_weight_.size();
+// optional bool gradient_block = 5 [default = false];
+inline bool OperatorParameter::has_gradient_block() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void OperatorParameter::clear_loss_weight() {
-  loss_weight_.Clear();
+inline void OperatorParameter::set_has_gradient_block() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline float OperatorParameter::loss_weight(int index) const {
-  // @@protoc_insertion_point(field_get:sita.OperatorParameter.loss_weight)
-  return loss_weight_.Get(index);
+inline void OperatorParameter::clear_has_gradient_block() {
+  _has_bits_[0] &= ~0x00000010u;
 }
-inline void OperatorParameter::set_loss_weight(int index, float value) {
-  loss_weight_.Set(index, value);
-  // @@protoc_insertion_point(field_set:sita.OperatorParameter.loss_weight)
+inline void OperatorParameter::clear_gradient_block() {
+  gradient_block_ = false;
+  clear_has_gradient_block();
 }
-inline void OperatorParameter::add_loss_weight(float value) {
-  loss_weight_.Add(value);
-  // @@protoc_insertion_point(field_add:sita.OperatorParameter.loss_weight)
+inline bool OperatorParameter::gradient_block() const {
+  // @@protoc_insertion_point(field_get:sita.OperatorParameter.gradient_block)
+  return gradient_block_;
 }
-inline const ::google::protobuf::RepeatedField< float >&
-OperatorParameter::loss_weight() const {
-  // @@protoc_insertion_point(field_list:sita.OperatorParameter.loss_weight)
-  return loss_weight_;
-}
-inline ::google::protobuf::RepeatedField< float >*
-OperatorParameter::mutable_loss_weight() {
-  // @@protoc_insertion_point(field_mutable_list:sita.OperatorParameter.loss_weight)
-  return &loss_weight_;
+inline void OperatorParameter::set_gradient_block(bool value) {
+  set_has_gradient_block();
+  gradient_block_ = value;
+  // @@protoc_insertion_point(field_set:sita.OperatorParameter.gradient_block)
 }
 
 // repeated .sita.ParamConfig param = 6;
@@ -1084,550 +923,337 @@ OperatorParameter::mutable_param() {
   return &param_;
 }
 
-// optional .sita.AddOpParameter add_op_param = 100;
-inline bool OperatorParameter::has_add_op_param() const {
+// optional .sita.ConvolutionParameter convolution_param = 101;
+inline bool OperatorParameter::has_convolution_param() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void OperatorParameter::set_has_add_op_param() {
+inline void OperatorParameter::set_has_convolution_param() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void OperatorParameter::clear_has_add_op_param() {
+inline void OperatorParameter::clear_has_convolution_param() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void OperatorParameter::clear_add_op_param() {
-  if (add_op_param_ != NULL) add_op_param_->::sita::AddOpParameter::Clear();
-  clear_has_add_op_param();
+inline void OperatorParameter::clear_convolution_param() {
+  if (convolution_param_ != NULL) convolution_param_->::sita::ConvolutionParameter::Clear();
+  clear_has_convolution_param();
 }
-inline const ::sita::AddOpParameter& OperatorParameter::add_op_param() const {
-  // @@protoc_insertion_point(field_get:sita.OperatorParameter.add_op_param)
-  return add_op_param_ != NULL ? *add_op_param_ : *default_instance_->add_op_param_;
+inline const ::sita::ConvolutionParameter& OperatorParameter::convolution_param() const {
+  // @@protoc_insertion_point(field_get:sita.OperatorParameter.convolution_param)
+  return convolution_param_ != NULL ? *convolution_param_ : *default_instance_->convolution_param_;
 }
-inline ::sita::AddOpParameter* OperatorParameter::mutable_add_op_param() {
-  set_has_add_op_param();
-  if (add_op_param_ == NULL) add_op_param_ = new ::sita::AddOpParameter;
-  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.add_op_param)
-  return add_op_param_;
+inline ::sita::ConvolutionParameter* OperatorParameter::mutable_convolution_param() {
+  set_has_convolution_param();
+  if (convolution_param_ == NULL) convolution_param_ = new ::sita::ConvolutionParameter;
+  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.convolution_param)
+  return convolution_param_;
 }
-inline ::sita::AddOpParameter* OperatorParameter::release_add_op_param() {
-  clear_has_add_op_param();
-  ::sita::AddOpParameter* temp = add_op_param_;
-  add_op_param_ = NULL;
+inline ::sita::ConvolutionParameter* OperatorParameter::release_convolution_param() {
+  clear_has_convolution_param();
+  ::sita::ConvolutionParameter* temp = convolution_param_;
+  convolution_param_ = NULL;
   return temp;
 }
-inline void OperatorParameter::set_allocated_add_op_param(::sita::AddOpParameter* add_op_param) {
-  delete add_op_param_;
-  add_op_param_ = add_op_param;
-  if (add_op_param) {
-    set_has_add_op_param();
+inline void OperatorParameter::set_allocated_convolution_param(::sita::ConvolutionParameter* convolution_param) {
+  delete convolution_param_;
+  convolution_param_ = convolution_param;
+  if (convolution_param) {
+    set_has_convolution_param();
   } else {
-    clear_has_add_op_param();
+    clear_has_convolution_param();
   }
-  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.add_op_param)
-}
-
-// optional .sita.ConvolutionOpParameter convolution_op_param = 101;
-inline bool OperatorParameter::has_convolution_op_param() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void OperatorParameter::set_has_convolution_op_param() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void OperatorParameter::clear_has_convolution_op_param() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void OperatorParameter::clear_convolution_op_param() {
-  if (convolution_op_param_ != NULL) convolution_op_param_->::sita::ConvolutionOpParameter::Clear();
-  clear_has_convolution_op_param();
-}
-inline const ::sita::ConvolutionOpParameter& OperatorParameter::convolution_op_param() const {
-  // @@protoc_insertion_point(field_get:sita.OperatorParameter.convolution_op_param)
-  return convolution_op_param_ != NULL ? *convolution_op_param_ : *default_instance_->convolution_op_param_;
-}
-inline ::sita::ConvolutionOpParameter* OperatorParameter::mutable_convolution_op_param() {
-  set_has_convolution_op_param();
-  if (convolution_op_param_ == NULL) convolution_op_param_ = new ::sita::ConvolutionOpParameter;
-  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.convolution_op_param)
-  return convolution_op_param_;
-}
-inline ::sita::ConvolutionOpParameter* OperatorParameter::release_convolution_op_param() {
-  clear_has_convolution_op_param();
-  ::sita::ConvolutionOpParameter* temp = convolution_op_param_;
-  convolution_op_param_ = NULL;
-  return temp;
-}
-inline void OperatorParameter::set_allocated_convolution_op_param(::sita::ConvolutionOpParameter* convolution_op_param) {
-  delete convolution_op_param_;
-  convolution_op_param_ = convolution_op_param;
-  if (convolution_op_param) {
-    set_has_convolution_op_param();
-  } else {
-    clear_has_convolution_op_param();
-  }
-  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.convolution_op_param)
+  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.convolution_param)
 }
 
 // -------------------------------------------------------------------
 
-// AddOpParameter
-
-// optional uint32 pad_h = 1 [default = 0];
-inline bool AddOpParameter::has_pad_h() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void AddOpParameter::set_has_pad_h() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void AddOpParameter::clear_has_pad_h() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void AddOpParameter::clear_pad_h() {
-  pad_h_ = 0u;
-  clear_has_pad_h();
-}
-inline ::google::protobuf::uint32 AddOpParameter::pad_h() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.pad_h)
-  return pad_h_;
-}
-inline void AddOpParameter::set_pad_h(::google::protobuf::uint32 value) {
-  set_has_pad_h();
-  pad_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.pad_h)
-}
-
-// optional uint32 pad_w = 2 [default = 0];
-inline bool AddOpParameter::has_pad_w() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void AddOpParameter::set_has_pad_w() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void AddOpParameter::clear_has_pad_w() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void AddOpParameter::clear_pad_w() {
-  pad_w_ = 0u;
-  clear_has_pad_w();
-}
-inline ::google::protobuf::uint32 AddOpParameter::pad_w() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.pad_w)
-  return pad_w_;
-}
-inline void AddOpParameter::set_pad_w(::google::protobuf::uint32 value) {
-  set_has_pad_w();
-  pad_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.pad_w)
-}
-
-// optional uint32 kernel_h = 3;
-inline bool AddOpParameter::has_kernel_h() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void AddOpParameter::set_has_kernel_h() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void AddOpParameter::clear_has_kernel_h() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void AddOpParameter::clear_kernel_h() {
-  kernel_h_ = 0u;
-  clear_has_kernel_h();
-}
-inline ::google::protobuf::uint32 AddOpParameter::kernel_h() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.kernel_h)
-  return kernel_h_;
-}
-inline void AddOpParameter::set_kernel_h(::google::protobuf::uint32 value) {
-  set_has_kernel_h();
-  kernel_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.kernel_h)
-}
-
-// optional uint32 kernel_w = 4;
-inline bool AddOpParameter::has_kernel_w() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void AddOpParameter::set_has_kernel_w() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void AddOpParameter::clear_has_kernel_w() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void AddOpParameter::clear_kernel_w() {
-  kernel_w_ = 0u;
-  clear_has_kernel_w();
-}
-inline ::google::protobuf::uint32 AddOpParameter::kernel_w() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.kernel_w)
-  return kernel_w_;
-}
-inline void AddOpParameter::set_kernel_w(::google::protobuf::uint32 value) {
-  set_has_kernel_w();
-  kernel_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.kernel_w)
-}
-
-// optional uint32 stride_h = 5;
-inline bool AddOpParameter::has_stride_h() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void AddOpParameter::set_has_stride_h() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void AddOpParameter::clear_has_stride_h() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void AddOpParameter::clear_stride_h() {
-  stride_h_ = 0u;
-  clear_has_stride_h();
-}
-inline ::google::protobuf::uint32 AddOpParameter::stride_h() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.stride_h)
-  return stride_h_;
-}
-inline void AddOpParameter::set_stride_h(::google::protobuf::uint32 value) {
-  set_has_stride_h();
-  stride_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.stride_h)
-}
-
-// optional uint32 stride_w = 6;
-inline bool AddOpParameter::has_stride_w() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void AddOpParameter::set_has_stride_w() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void AddOpParameter::clear_has_stride_w() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void AddOpParameter::clear_stride_w() {
-  stride_w_ = 0u;
-  clear_has_stride_w();
-}
-inline ::google::protobuf::uint32 AddOpParameter::stride_w() const {
-  // @@protoc_insertion_point(field_get:sita.AddOpParameter.stride_w)
-  return stride_w_;
-}
-inline void AddOpParameter::set_stride_w(::google::protobuf::uint32 value) {
-  set_has_stride_w();
-  stride_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.AddOpParameter.stride_w)
-}
-
-// -------------------------------------------------------------------
-
-// ConvolutionOpParameter
+// ConvolutionParameter
 
 // optional uint32 num_output = 1;
-inline bool ConvolutionOpParameter::has_num_output() const {
+inline bool ConvolutionParameter::has_num_output() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_num_output() {
+inline void ConvolutionParameter::set_has_num_output() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ConvolutionOpParameter::clear_has_num_output() {
+inline void ConvolutionParameter::clear_has_num_output() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ConvolutionOpParameter::clear_num_output() {
+inline void ConvolutionParameter::clear_num_output() {
   num_output_ = 0u;
   clear_has_num_output();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::num_output() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.num_output)
+inline ::google::protobuf::uint32 ConvolutionParameter::num_output() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.num_output)
   return num_output_;
 }
-inline void ConvolutionOpParameter::set_num_output(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_num_output(::google::protobuf::uint32 value) {
   set_has_num_output();
   num_output_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.num_output)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.num_output)
 }
 
 // optional bool bias_term = 2 [default = true];
-inline bool ConvolutionOpParameter::has_bias_term() const {
+inline bool ConvolutionParameter::has_bias_term() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_bias_term() {
+inline void ConvolutionParameter::set_has_bias_term() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ConvolutionOpParameter::clear_has_bias_term() {
+inline void ConvolutionParameter::clear_has_bias_term() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ConvolutionOpParameter::clear_bias_term() {
+inline void ConvolutionParameter::clear_bias_term() {
   bias_term_ = true;
   clear_has_bias_term();
 }
-inline bool ConvolutionOpParameter::bias_term() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.bias_term)
+inline bool ConvolutionParameter::bias_term() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.bias_term)
   return bias_term_;
 }
-inline void ConvolutionOpParameter::set_bias_term(bool value) {
+inline void ConvolutionParameter::set_bias_term(bool value) {
   set_has_bias_term();
   bias_term_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.bias_term)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.bias_term)
 }
 
-// optional uint32 pad = 3;
-inline bool ConvolutionOpParameter::has_pad() const {
+// optional uint32 pad = 3 [default = 1];
+inline bool ConvolutionParameter::has_pad() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_pad() {
+inline void ConvolutionParameter::set_has_pad() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ConvolutionOpParameter::clear_has_pad() {
+inline void ConvolutionParameter::clear_has_pad() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ConvolutionOpParameter::clear_pad() {
-  pad_ = 0u;
+inline void ConvolutionParameter::clear_pad() {
+  pad_ = 1u;
   clear_has_pad();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::pad() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.pad)
+inline ::google::protobuf::uint32 ConvolutionParameter::pad() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.pad)
   return pad_;
 }
-inline void ConvolutionOpParameter::set_pad(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_pad(::google::protobuf::uint32 value) {
   set_has_pad();
   pad_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.pad)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.pad)
 }
 
-// optional uint32 kernel_size = 4;
-inline bool ConvolutionOpParameter::has_kernel_size() const {
+// optional uint32 kernel_size = 4 [default = 3];
+inline bool ConvolutionParameter::has_kernel_size() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_kernel_size() {
+inline void ConvolutionParameter::set_has_kernel_size() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ConvolutionOpParameter::clear_has_kernel_size() {
+inline void ConvolutionParameter::clear_has_kernel_size() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ConvolutionOpParameter::clear_kernel_size() {
-  kernel_size_ = 0u;
+inline void ConvolutionParameter::clear_kernel_size() {
+  kernel_size_ = 3u;
   clear_has_kernel_size();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::kernel_size() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.kernel_size)
+inline ::google::protobuf::uint32 ConvolutionParameter::kernel_size() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.kernel_size)
   return kernel_size_;
 }
-inline void ConvolutionOpParameter::set_kernel_size(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_kernel_size(::google::protobuf::uint32 value) {
   set_has_kernel_size();
   kernel_size_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.kernel_size)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.kernel_size)
 }
 
-// optional uint32 stride = 5;
-inline bool ConvolutionOpParameter::has_stride() const {
+// optional uint32 stride = 5 [default = 1];
+inline bool ConvolutionParameter::has_stride() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_stride() {
+inline void ConvolutionParameter::set_has_stride() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void ConvolutionOpParameter::clear_has_stride() {
+inline void ConvolutionParameter::clear_has_stride() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void ConvolutionOpParameter::clear_stride() {
-  stride_ = 0u;
+inline void ConvolutionParameter::clear_stride() {
+  stride_ = 1u;
   clear_has_stride();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::stride() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.stride)
+inline ::google::protobuf::uint32 ConvolutionParameter::stride() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.stride)
   return stride_;
 }
-inline void ConvolutionOpParameter::set_stride(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_stride(::google::protobuf::uint32 value) {
   set_has_stride();
   stride_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.stride)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.stride)
 }
 
-// optional uint32 dilation = 6 [default = 1];
-inline bool ConvolutionOpParameter::has_dilation() const {
+// optional uint32 pad_h = 6;
+inline bool ConvolutionParameter::has_pad_h() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_dilation() {
+inline void ConvolutionParameter::set_has_pad_h() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void ConvolutionOpParameter::clear_has_dilation() {
+inline void ConvolutionParameter::clear_has_pad_h() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void ConvolutionOpParameter::clear_dilation() {
-  dilation_ = 1u;
-  clear_has_dilation();
-}
-inline ::google::protobuf::uint32 ConvolutionOpParameter::dilation() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.dilation)
-  return dilation_;
-}
-inline void ConvolutionOpParameter::set_dilation(::google::protobuf::uint32 value) {
-  set_has_dilation();
-  dilation_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.dilation)
-}
-
-// optional uint32 pad_h = 7 [default = 0];
-inline bool ConvolutionOpParameter::has_pad_h() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void ConvolutionOpParameter::set_has_pad_h() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void ConvolutionOpParameter::clear_has_pad_h() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void ConvolutionOpParameter::clear_pad_h() {
+inline void ConvolutionParameter::clear_pad_h() {
   pad_h_ = 0u;
   clear_has_pad_h();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::pad_h() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.pad_h)
+inline ::google::protobuf::uint32 ConvolutionParameter::pad_h() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.pad_h)
   return pad_h_;
 }
-inline void ConvolutionOpParameter::set_pad_h(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_pad_h(::google::protobuf::uint32 value) {
   set_has_pad_h();
   pad_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.pad_h)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.pad_h)
 }
 
-// optional uint32 pad_w = 8 [default = 0];
-inline bool ConvolutionOpParameter::has_pad_w() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+// optional uint32 pad_w = 7;
+inline bool ConvolutionParameter::has_pad_w() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_pad_w() {
-  _has_bits_[0] |= 0x00000080u;
+inline void ConvolutionParameter::set_has_pad_w() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void ConvolutionOpParameter::clear_has_pad_w() {
-  _has_bits_[0] &= ~0x00000080u;
+inline void ConvolutionParameter::clear_has_pad_w() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void ConvolutionOpParameter::clear_pad_w() {
+inline void ConvolutionParameter::clear_pad_w() {
   pad_w_ = 0u;
   clear_has_pad_w();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::pad_w() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.pad_w)
+inline ::google::protobuf::uint32 ConvolutionParameter::pad_w() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.pad_w)
   return pad_w_;
 }
-inline void ConvolutionOpParameter::set_pad_w(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_pad_w(::google::protobuf::uint32 value) {
   set_has_pad_w();
   pad_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.pad_w)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.pad_w)
 }
 
-// optional uint32 kernel_h = 9 [default = 3];
-inline bool ConvolutionOpParameter::has_kernel_h() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+// optional uint32 kernel_h = 8;
+inline bool ConvolutionParameter::has_kernel_h() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_kernel_h() {
-  _has_bits_[0] |= 0x00000100u;
+inline void ConvolutionParameter::set_has_kernel_h() {
+  _has_bits_[0] |= 0x00000080u;
 }
-inline void ConvolutionOpParameter::clear_has_kernel_h() {
-  _has_bits_[0] &= ~0x00000100u;
+inline void ConvolutionParameter::clear_has_kernel_h() {
+  _has_bits_[0] &= ~0x00000080u;
 }
-inline void ConvolutionOpParameter::clear_kernel_h() {
-  kernel_h_ = 3u;
+inline void ConvolutionParameter::clear_kernel_h() {
+  kernel_h_ = 0u;
   clear_has_kernel_h();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::kernel_h() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.kernel_h)
+inline ::google::protobuf::uint32 ConvolutionParameter::kernel_h() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.kernel_h)
   return kernel_h_;
 }
-inline void ConvolutionOpParameter::set_kernel_h(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_kernel_h(::google::protobuf::uint32 value) {
   set_has_kernel_h();
   kernel_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.kernel_h)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.kernel_h)
 }
 
-// optional uint32 kernel_w = 10 [default = 3];
-inline bool ConvolutionOpParameter::has_kernel_w() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+// optional uint32 kernel_w = 9;
+inline bool ConvolutionParameter::has_kernel_w() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_kernel_w() {
-  _has_bits_[0] |= 0x00000200u;
+inline void ConvolutionParameter::set_has_kernel_w() {
+  _has_bits_[0] |= 0x00000100u;
 }
-inline void ConvolutionOpParameter::clear_has_kernel_w() {
-  _has_bits_[0] &= ~0x00000200u;
+inline void ConvolutionParameter::clear_has_kernel_w() {
+  _has_bits_[0] &= ~0x00000100u;
 }
-inline void ConvolutionOpParameter::clear_kernel_w() {
-  kernel_w_ = 3u;
+inline void ConvolutionParameter::clear_kernel_w() {
+  kernel_w_ = 0u;
   clear_has_kernel_w();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::kernel_w() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.kernel_w)
+inline ::google::protobuf::uint32 ConvolutionParameter::kernel_w() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.kernel_w)
   return kernel_w_;
 }
-inline void ConvolutionOpParameter::set_kernel_w(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_kernel_w(::google::protobuf::uint32 value) {
   set_has_kernel_w();
   kernel_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.kernel_w)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.kernel_w)
 }
 
-// optional uint32 stride_h = 11;
-inline bool ConvolutionOpParameter::has_stride_h() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+// optional uint32 stride_h = 10;
+inline bool ConvolutionParameter::has_stride_h() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_stride_h() {
-  _has_bits_[0] |= 0x00000400u;
+inline void ConvolutionParameter::set_has_stride_h() {
+  _has_bits_[0] |= 0x00000200u;
 }
-inline void ConvolutionOpParameter::clear_has_stride_h() {
-  _has_bits_[0] &= ~0x00000400u;
+inline void ConvolutionParameter::clear_has_stride_h() {
+  _has_bits_[0] &= ~0x00000200u;
 }
-inline void ConvolutionOpParameter::clear_stride_h() {
+inline void ConvolutionParameter::clear_stride_h() {
   stride_h_ = 0u;
   clear_has_stride_h();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::stride_h() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.stride_h)
+inline ::google::protobuf::uint32 ConvolutionParameter::stride_h() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.stride_h)
   return stride_h_;
 }
-inline void ConvolutionOpParameter::set_stride_h(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_stride_h(::google::protobuf::uint32 value) {
   set_has_stride_h();
   stride_h_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.stride_h)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.stride_h)
 }
 
-// optional uint32 stride_w = 12;
-inline bool ConvolutionOpParameter::has_stride_w() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+// optional uint32 stride_w = 11;
+inline bool ConvolutionParameter::has_stride_w() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_stride_w() {
-  _has_bits_[0] |= 0x00000800u;
+inline void ConvolutionParameter::set_has_stride_w() {
+  _has_bits_[0] |= 0x00000400u;
 }
-inline void ConvolutionOpParameter::clear_has_stride_w() {
-  _has_bits_[0] &= ~0x00000800u;
+inline void ConvolutionParameter::clear_has_stride_w() {
+  _has_bits_[0] &= ~0x00000400u;
 }
-inline void ConvolutionOpParameter::clear_stride_w() {
+inline void ConvolutionParameter::clear_stride_w() {
   stride_w_ = 0u;
   clear_has_stride_w();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::stride_w() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.stride_w)
+inline ::google::protobuf::uint32 ConvolutionParameter::stride_w() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.stride_w)
   return stride_w_;
 }
-inline void ConvolutionOpParameter::set_stride_w(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_stride_w(::google::protobuf::uint32 value) {
   set_has_stride_w();
   stride_w_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.stride_w)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.stride_w)
 }
 
-// optional uint32 group = 13 [default = 1];
-inline bool ConvolutionOpParameter::has_group() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+// optional uint32 group = 12 [default = 1];
+inline bool ConvolutionParameter::has_group() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void ConvolutionOpParameter::set_has_group() {
-  _has_bits_[0] |= 0x00001000u;
+inline void ConvolutionParameter::set_has_group() {
+  _has_bits_[0] |= 0x00000800u;
 }
-inline void ConvolutionOpParameter::clear_has_group() {
-  _has_bits_[0] &= ~0x00001000u;
+inline void ConvolutionParameter::clear_has_group() {
+  _has_bits_[0] &= ~0x00000800u;
 }
-inline void ConvolutionOpParameter::clear_group() {
+inline void ConvolutionParameter::clear_group() {
   group_ = 1u;
   clear_has_group();
 }
-inline ::google::protobuf::uint32 ConvolutionOpParameter::group() const {
-  // @@protoc_insertion_point(field_get:sita.ConvolutionOpParameter.group)
+inline ::google::protobuf::uint32 ConvolutionParameter::group() const {
+  // @@protoc_insertion_point(field_get:sita.ConvolutionParameter.group)
   return group_;
 }
-inline void ConvolutionOpParameter::set_group(::google::protobuf::uint32 value) {
+inline void ConvolutionParameter::set_group(::google::protobuf::uint32 value) {
   set_has_group();
   group_ = value;
-  // @@protoc_insertion_point(field_set:sita.ConvolutionOpParameter.group)
+  // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.group)
 }
 
 

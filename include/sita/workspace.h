@@ -79,7 +79,6 @@ public:
     }
 
     void global_init(Graph * graph, DataProvider<Dtype> * data_provider);
-    void infer_shape();
     void forward();
     void backward();
     void train();

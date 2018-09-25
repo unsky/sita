@@ -24,13 +24,7 @@ int main(int argc, char** argv) {
 
     gws.global_init(&graph, &mnistdp);
 
-    int k = 0;
-
-    while(k != 10000000){
-        gws.train();
-        k++;
-        LOG(INFO)<<k;
-    }
+    gws.train();
     gws.temp_memory();
     gws.flow_memory();
     gws.param_memory();

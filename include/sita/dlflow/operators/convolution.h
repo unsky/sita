@@ -2,29 +2,29 @@
 // Created by unsky on 15/08/18.
 //
 
-#ifndef SITA_DLFLOW_CONVOLUTION_OP_H
-#define SITA_DLFLOW_CONVOLUTION_OP_H
+#ifndef SITA_DLFLOW_CONVOLUTION_H
+#define SITA_DLFLOW_CONVOLUTION_H
 #include "sita/dlflow/operator.h"
 #include "sita/proto/sita.h"
 namespace  sita{
 
 template<typename Dtype>
-class ConvolutionOp: public Operator<Dtype>{
+class Convolution: public Operator<Dtype>{
 public:
-    ConvolutionOp(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
-        _op_param = opdef.convolution_op_param();
+    Convolution(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
+        _op_param = opdef.convolution_param();
     }
-    ~ConvolutionOp(){};
+    ~Convolution();
     void init();
     void infer_shape();
     void forward();
-    void backward(){};
+    void backward();
 
     bool inline has_param(){ return _has_param;}
 
 protected:
     bool _has_param = true;
-    ConvolutionOpParameter _op_param;
+    ConvolutionParameter _op_param;
 
 private:
     bool _handles_setup;
@@ -54,4 +54,4 @@ private:
 
 };
 }
-#endif //SITA_DLFLOW_CONVOLUTION_OP_H
+#endif //SITA_DLFLOW_CONVOLUTION_H

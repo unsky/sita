@@ -43,8 +43,10 @@ protected:
     std::vector<std::string> _params;
     std::map<std::string, std::vector<int> > _input_shapes;
     std::map<std::string, std::vector<int> > _output_shapes;
+    std::map<std::string, std::vector<int> > _param_shapes;
     bool _is_shared;
     std::vector<std::pair<std::string, std::string> > _shared_param_pairs;
+    bool _gradient_block;
 };
 
 }//namespace

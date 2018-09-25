@@ -12,39 +12,27 @@ message  OperatorParameter {
   optional string type = 2; // the operator type
   repeated string input = 3; // the name of each input
   repeated string output = 4; // the name of each output
-  repeated float loss_weight = 5;
+  optional bool gradient_block = 5 [default = false];
   repeated ParamConfig param = 6; //param config
 
   //operators
-  optional AddOpParameter add_op_param = 100;
-  optional ConvolutionOpParameter convolution_op_param = 101;
+  optional ConvolutionParameter convolution_param = 101;
 }
 
-message AddOpParameter{
-  optional uint32 pad_h = 1 [default = 0]; // The padding height (2D only)
-  optional uint32 pad_w = 2 [default = 0]; // The padding width (2D only)
-  optional uint32 kernel_h = 3; // The kernel height (2D only)
-  optional uint32 kernel_w = 4; // The kernel width (2D only)
-  optional uint32 stride_h = 5; // The stride height (2D only)
-  optional uint32 stride_w = 6; // The stride width (2D only)
-}
 
-message ConvolutionOpParameter{
+message ConvolutionParameter{
   optional uint32 num_output = 1; // The number of outputs
   optional bool bias_term = 2 [default = true]; // whether to have bias terms
-  optional uint32 pad = 3; // The padding size; defaults to 0
-  optional uint32 kernel_size = 4; // The kernel size
-  optional uint32 stride = 5; // The stride; defaults to 1
-  optional uint32 dilation = 6 [default = 1]; // The dilation; defaults to 1
+  optional uint32 pad = 3 [default = 1]; // The padding size; defaults to 0
+  optional uint32 kernel_size = 4 [default = 3]; // The kernel size
+  optional uint32 stride = 5 [default = 1]; // The stride defaults to 1
 
-  optional uint32 pad_h = 7 [default = 0]; // The padding height (2D only)
-  optional uint32 pad_w = 8 [default = 0]; // The padding width (2D only)
-  optional uint32 kernel_h = 9 [default = 3]; // The kernel height (2D only)
-  optional uint32 kernel_w = 10 [default = 3]; // The kernel width (2D only)
-  optional uint32 stride_h = 11; // The stride height (2D only)
-  optional uint32 stride_w = 12; // The stride width (2D only)
-  optional uint32 group = 13 [default = 1]; // The group size for group conv
-
-
+  optional uint32 pad_h = 6; // The padding height (2D only)
+  optional uint32 pad_w = 7; // The padding width (2D only)
+  optional uint32 kernel_h = 8; // The kernel height (2D only)
+  optional uint32 kernel_w = 9; // The kernel width (2D only)
+  optional uint32 stride_h = 10; // The stride height (2D only)
+  optional uint32 stride_w = 11; // The stride width (2D only)
+  optional uint32 group = 12 [default = 1]; // The group size for group conv
 }
 
