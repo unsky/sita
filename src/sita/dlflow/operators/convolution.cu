@@ -57,10 +57,7 @@ void Convolution<Dtype>::backward(){
     Tensor<Dtype>* input_tensor = this->fetch_input(this->_inputs[i]);
     const Dtype * input_data = input_tensor->gpu_data();
     Dtype * input_diff = input_tensor->mutable_gpu_data();
-    if(this->_gradient_block){
-      Context::gpu_memset(input_diff, input_tensor->size());
-      
-    }else{
+    if(!this->_gradient_block){
       Tensor<Dtype>* output_tensor = this->fetch_output(this->_outputs[i]);
       const Dtype * output_data = output_tensor->gpu_data();
       Dtype * output_diff = output_tensor->mutable_gpu_diff();

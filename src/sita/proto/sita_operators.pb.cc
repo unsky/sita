@@ -29,6 +29,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ConvolutionParameter_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ConvolutionParameter_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BatchNormParameter_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BatchNormParameter_reflection_ = NULL;
 
 }  // namespace
 
@@ -40,8 +43,9 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
       "sita_operators.proto");
   GOOGLE_CHECK(file != NULL);
   GraphParameter_descriptor_ = file->message_type(0);
-  static const int GraphParameter_offsets_[2] = {
+  static const int GraphParameter_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphParameter, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphParameter, phase_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GraphParameter, operatordef_),
   };
   GraphParameter_reflection_ =
@@ -56,13 +60,14 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GraphParameter));
   OperatorParameter_descriptor_ = file->message_type(1);
-  static const int OperatorParameter_offsets_[7] = {
+  static const int OperatorParameter_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, input_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, output_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, gradient_block_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, param_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, batch_norm_param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, convolution_param_),
   };
   OperatorParameter_reflection_ =
@@ -102,6 +107,23 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ConvolutionParameter));
+  BatchNormParameter_descriptor_ = file->message_type(3);
+  static const int BatchNormParameter_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BatchNormParameter, use_global_stats_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BatchNormParameter, moving_average_fraction_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BatchNormParameter, eps_),
+  };
+  BatchNormParameter_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BatchNormParameter_descriptor_,
+      BatchNormParameter::default_instance_,
+      BatchNormParameter_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BatchNormParameter, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BatchNormParameter, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BatchNormParameter));
 }
 
 namespace {
@@ -120,6 +142,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     OperatorParameter_descriptor_, &OperatorParameter::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ConvolutionParameter_descriptor_, &ConvolutionParameter::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BatchNormParameter_descriptor_, &BatchNormParameter::default_instance());
 }
 
 }  // namespace
@@ -131,6 +155,8 @@ void protobuf_ShutdownFile_sita_5foperators_2eproto() {
   delete OperatorParameter_reflection_;
   delete ConvolutionParameter::default_instance_;
   delete ConvolutionParameter_reflection_;
+  delete BatchNormParameter::default_instance_;
+  delete BatchNormParameter_reflection_;
 }
 
 void protobuf_AddDesc_sita_5foperators_2eproto() {
@@ -142,28 +168,34 @@ void protobuf_AddDesc_sita_5foperators_2eproto() {
   ::sita::protobuf_AddDesc_sita_5futils_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024sita_operators.proto\022\004sita\032\020sita_utils"
-    ".proto\"L\n\016GraphParameter\022\014\n\004name\030\001 \001(\t\022,"
-    "\n\013operatordef\030\002 \003(\0132\027.sita.OperatorParam"
-    "eter\"\306\001\n\021OperatorParameter\022\014\n\004name\030\001 \001(\t"
-    "\022\014\n\004type\030\002 \001(\t\022\r\n\005input\030\003 \003(\t\022\016\n\006output\030"
-    "\004 \003(\t\022\035\n\016gradient_block\030\005 \001(\010:\005false\022 \n\005"
-    "param\030\006 \003(\0132\021.sita.ParamConfig\0225\n\021convol"
-    "ution_param\030e \001(\0132\032.sita.ConvolutionPara"
-    "meter\"\366\001\n\024ConvolutionParameter\022\022\n\nnum_ou"
-    "tput\030\001 \001(\r\022\027\n\tbias_term\030\002 \001(\010:\004true\022\016\n\003p"
-    "ad\030\003 \001(\r:\0011\022\026\n\013kernel_size\030\004 \001(\r:\0013\022\021\n\006s"
-    "tride\030\005 \001(\r:\0011\022\r\n\005pad_h\030\006 \001(\r\022\r\n\005pad_w\030\007"
-    " \001(\r\022\020\n\010kernel_h\030\010 \001(\r\022\020\n\010kernel_w\030\t \001(\r"
-    "\022\020\n\010stride_h\030\n \001(\r\022\020\n\010stride_w\030\013 \001(\r\022\020\n\005"
-    "group\030\014 \001(\r:\0011", 574);
+    ".proto\"[\n\016GraphParameter\022\014\n\004name\030\001 \001(\t\022\r"
+    "\n\005phase\030\002 \001(\t\022,\n\013operatordef\030\003 \003(\0132\027.sit"
+    "a.OperatorParameter\"\372\001\n\021OperatorParamete"
+    "r\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\r\n\005input\030\003"
+    " \003(\t\022\016\n\006output\030\004 \003(\t\022\035\n\016gradient_block\030\005"
+    " \001(\010:\005false\022 \n\005param\030\006 \003(\0132\021.sita.ParamC"
+    "onfig\0222\n\020batch_norm_param\030d \001(\0132\030.sita.B"
+    "atchNormParameter\0225\n\021convolution_param\030e"
+    " \001(\0132\032.sita.ConvolutionParameter\"\366\001\n\024Con"
+    "volutionParameter\022\022\n\nnum_output\030\001 \001(\r\022\027\n"
+    "\tbias_term\030\002 \001(\010:\004true\022\016\n\003pad\030\003 \001(\r:\0011\022\026"
+    "\n\013kernel_size\030\004 \001(\r:\0013\022\021\n\006stride\030\005 \001(\r:\001"
+    "1\022\r\n\005pad_h\030\006 \001(\r\022\r\n\005pad_w\030\007 \001(\r\022\020\n\010kerne"
+    "l_h\030\010 \001(\r\022\020\n\010kernel_w\030\t \001(\r\022\020\n\010stride_h\030"
+    "\n \001(\r\022\020\n\010stride_w\030\013 \001(\r\022\020\n\005group\030\014 \001(\r:\001"
+    "1\"j\n\022BatchNormParameter\022\030\n\020use_global_st"
+    "ats\030\001 \001(\010\022&\n\027moving_average_fraction\030\002 \001"
+    "(\002:\0050.999\022\022\n\003eps\030\003 \001(\002:\0051e-05", 749);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sita_operators.proto", &protobuf_RegisterTypes);
   GraphParameter::default_instance_ = new GraphParameter();
   OperatorParameter::default_instance_ = new OperatorParameter();
   ConvolutionParameter::default_instance_ = new ConvolutionParameter();
+  BatchNormParameter::default_instance_ = new BatchNormParameter();
   GraphParameter::default_instance_->InitAsDefaultInstance();
   OperatorParameter::default_instance_->InitAsDefaultInstance();
   ConvolutionParameter::default_instance_->InitAsDefaultInstance();
+  BatchNormParameter::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_sita_5foperators_2eproto);
 }
 
@@ -178,6 +210,7 @@ struct StaticDescriptorInitializer_sita_5foperators_2eproto {
 
 #ifndef _MSC_VER
 const int GraphParameter::kNameFieldNumber;
+const int GraphParameter::kPhaseFieldNumber;
 const int GraphParameter::kOperatordefFieldNumber;
 #endif  // !_MSC_VER
 
@@ -201,6 +234,7 @@ void GraphParameter::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  phase_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -212,6 +246,9 @@ GraphParameter::~GraphParameter() {
 void GraphParameter::SharedDtor() {
   if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete name_;
+  }
+  if (phase_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete phase_;
   }
   if (this != default_instance_) {
   }
@@ -239,9 +276,16 @@ GraphParameter* GraphParameter::New() const {
 }
 
 void GraphParameter::Clear() {
-  if (has_name()) {
-    if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-      name_->clear();
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        name_->clear();
+      }
+    }
+    if (has_phase()) {
+      if (phase_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        phase_->clear();
+      }
     }
   }
   operatordef_.Clear();
@@ -271,20 +315,37 @@ bool GraphParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_operatordef;
+        if (input->ExpectTag(18)) goto parse_phase;
         break;
       }
 
-      // repeated .sita.OperatorParameter operatordef = 2;
+      // optional string phase = 2;
       case 2: {
         if (tag == 18) {
+         parse_phase:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_phase()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->phase().data(), this->phase().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "phase");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_operatordef;
+        break;
+      }
+
+      // repeated .sita.OperatorParameter operatordef = 3;
+      case 3: {
+        if (tag == 26) {
          parse_operatordef:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_operatordef()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_operatordef;
+        if (input->ExpectTag(26)) goto parse_operatordef;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -324,10 +385,20 @@ void GraphParameter::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // repeated .sita.OperatorParameter operatordef = 2;
+  // optional string phase = 2;
+  if (has_phase()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->phase().data(), this->phase().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "phase");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->phase(), output);
+  }
+
+  // repeated .sita.OperatorParameter operatordef = 3;
   for (int i = 0; i < this->operatordef_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->operatordef(i), output);
+      3, this->operatordef(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -351,11 +422,22 @@ void GraphParameter::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // repeated .sita.OperatorParameter operatordef = 2;
+  // optional string phase = 2;
+  if (has_phase()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->phase().data(), this->phase().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "phase");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->phase(), target);
+  }
+
+  // repeated .sita.OperatorParameter operatordef = 3;
   for (int i = 0; i < this->operatordef_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->operatordef(i), target);
+        3, this->operatordef(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -377,8 +459,15 @@ int GraphParameter::ByteSize() const {
           this->name());
     }
 
+    // optional string phase = 2;
+    if (has_phase()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->phase());
+    }
+
   }
-  // repeated .sita.OperatorParameter operatordef = 2;
+  // repeated .sita.OperatorParameter operatordef = 3;
   total_size += 1 * this->operatordef_size();
   for (int i = 0; i < this->operatordef_size(); i++) {
     total_size +=
@@ -416,6 +505,9 @@ void GraphParameter::MergeFrom(const GraphParameter& from) {
     if (from.has_name()) {
       set_name(from.name());
     }
+    if (from.has_phase()) {
+      set_phase(from.phase());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -440,6 +532,7 @@ bool GraphParameter::IsInitialized() const {
 void GraphParameter::Swap(GraphParameter* other) {
   if (other != this) {
     std::swap(name_, other->name_);
+    std::swap(phase_, other->phase_);
     operatordef_.Swap(&other->operatordef_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -465,6 +558,7 @@ const int OperatorParameter::kInputFieldNumber;
 const int OperatorParameter::kOutputFieldNumber;
 const int OperatorParameter::kGradientBlockFieldNumber;
 const int OperatorParameter::kParamFieldNumber;
+const int OperatorParameter::kBatchNormParamFieldNumber;
 const int OperatorParameter::kConvolutionParamFieldNumber;
 #endif  // !_MSC_VER
 
@@ -475,6 +569,7 @@ OperatorParameter::OperatorParameter()
 }
 
 void OperatorParameter::InitAsDefaultInstance() {
+  batch_norm_param_ = const_cast< ::sita::BatchNormParameter*>(&::sita::BatchNormParameter::default_instance());
   convolution_param_ = const_cast< ::sita::ConvolutionParameter*>(&::sita::ConvolutionParameter::default_instance());
 }
 
@@ -491,6 +586,7 @@ void OperatorParameter::SharedCtor() {
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   gradient_block_ = false;
+  batch_norm_param_ = NULL;
   convolution_param_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -508,6 +604,7 @@ void OperatorParameter::SharedDtor() {
     delete type_;
   }
   if (this != default_instance_) {
+    delete batch_norm_param_;
     delete convolution_param_;
   }
 }
@@ -534,7 +631,7 @@ OperatorParameter* OperatorParameter::New() const {
 }
 
 void OperatorParameter::Clear() {
-  if (_has_bits_[0 / 32] & 83) {
+  if (_has_bits_[0 / 32] & 211) {
     if (has_name()) {
       if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         name_->clear();
@@ -546,6 +643,9 @@ void OperatorParameter::Clear() {
       }
     }
     gradient_block_ = false;
+    if (has_batch_norm_param()) {
+      if (batch_norm_param_ != NULL) batch_norm_param_->::sita::BatchNormParameter::Clear();
+    }
     if (has_convolution_param()) {
       if (convolution_param_ != NULL) convolution_param_->::sita::ConvolutionParameter::Clear();
     }
@@ -663,6 +763,19 @@ bool OperatorParameter::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(50)) goto parse_param;
+        if (input->ExpectTag(802)) goto parse_batch_norm_param;
+        break;
+      }
+
+      // optional .sita.BatchNormParameter batch_norm_param = 100;
+      case 100: {
+        if (tag == 802) {
+         parse_batch_norm_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_batch_norm_param()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectTag(810)) goto parse_convolution_param;
         break;
       }
@@ -756,6 +869,12 @@ void OperatorParameter::SerializeWithCachedSizes(
       6, this->param(i), output);
   }
 
+  // optional .sita.BatchNormParameter batch_norm_param = 100;
+  if (has_batch_norm_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      100, this->batch_norm_param(), output);
+  }
+
   // optional .sita.ConvolutionParameter convolution_param = 101;
   if (has_convolution_param()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -826,6 +945,13 @@ void OperatorParameter::SerializeWithCachedSizes(
         6, this->param(i), target);
   }
 
+  // optional .sita.BatchNormParameter batch_norm_param = 100;
+  if (has_batch_norm_param()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        100, this->batch_norm_param(), target);
+  }
+
   // optional .sita.ConvolutionParameter convolution_param = 101;
   if (has_convolution_param()) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -862,6 +988,13 @@ int OperatorParameter::ByteSize() const {
     // optional bool gradient_block = 5 [default = false];
     if (has_gradient_block()) {
       total_size += 1 + 1;
+    }
+
+    // optional .sita.BatchNormParameter batch_norm_param = 100;
+    if (has_batch_norm_param()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->batch_norm_param());
     }
 
     // optional .sita.ConvolutionParameter convolution_param = 101;
@@ -932,6 +1065,9 @@ void OperatorParameter::MergeFrom(const OperatorParameter& from) {
     if (from.has_gradient_block()) {
       set_gradient_block(from.gradient_block());
     }
+    if (from.has_batch_norm_param()) {
+      mutable_batch_norm_param()->::sita::BatchNormParameter::MergeFrom(from.batch_norm_param());
+    }
     if (from.has_convolution_param()) {
       mutable_convolution_param()->::sita::ConvolutionParameter::MergeFrom(from.convolution_param());
     }
@@ -964,6 +1100,7 @@ void OperatorParameter::Swap(OperatorParameter* other) {
     output_.Swap(&other->output_);
     std::swap(gradient_block_, other->gradient_block_);
     param_.Swap(&other->param_);
+    std::swap(batch_norm_param_, other->batch_norm_param_);
     std::swap(convolution_param_, other->convolution_param_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -1643,6 +1780,302 @@ void ConvolutionParameter::Swap(ConvolutionParameter* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = ConvolutionParameter_descriptor_;
   metadata.reflection = ConvolutionParameter_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BatchNormParameter::kUseGlobalStatsFieldNumber;
+const int BatchNormParameter::kMovingAverageFractionFieldNumber;
+const int BatchNormParameter::kEpsFieldNumber;
+#endif  // !_MSC_VER
+
+BatchNormParameter::BatchNormParameter()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:sita.BatchNormParameter)
+}
+
+void BatchNormParameter::InitAsDefaultInstance() {
+}
+
+BatchNormParameter::BatchNormParameter(const BatchNormParameter& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:sita.BatchNormParameter)
+}
+
+void BatchNormParameter::SharedCtor() {
+  _cached_size_ = 0;
+  use_global_stats_ = false;
+  moving_average_fraction_ = 0.999f;
+  eps_ = 1e-05f;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BatchNormParameter::~BatchNormParameter() {
+  // @@protoc_insertion_point(destructor:sita.BatchNormParameter)
+  SharedDtor();
+}
+
+void BatchNormParameter::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void BatchNormParameter::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BatchNormParameter::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BatchNormParameter_descriptor_;
+}
+
+const BatchNormParameter& BatchNormParameter::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_sita_5foperators_2eproto();
+  return *default_instance_;
+}
+
+BatchNormParameter* BatchNormParameter::default_instance_ = NULL;
+
+BatchNormParameter* BatchNormParameter::New() const {
+  return new BatchNormParameter;
+}
+
+void BatchNormParameter::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    use_global_stats_ = false;
+    moving_average_fraction_ = 0.999f;
+    eps_ = 1e-05f;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BatchNormParameter::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:sita.BatchNormParameter)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool use_global_stats = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &use_global_stats_)));
+          set_has_use_global_stats();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(21)) goto parse_moving_average_fraction;
+        break;
+      }
+
+      // optional float moving_average_fraction = 2 [default = 0.999];
+      case 2: {
+        if (tag == 21) {
+         parse_moving_average_fraction:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &moving_average_fraction_)));
+          set_has_moving_average_fraction();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(29)) goto parse_eps;
+        break;
+      }
+
+      // optional float eps = 3 [default = 1e-05];
+      case 3: {
+        if (tag == 29) {
+         parse_eps:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &eps_)));
+          set_has_eps();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:sita.BatchNormParameter)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:sita.BatchNormParameter)
+  return false;
+#undef DO_
+}
+
+void BatchNormParameter::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:sita.BatchNormParameter)
+  // optional bool use_global_stats = 1;
+  if (has_use_global_stats()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->use_global_stats(), output);
+  }
+
+  // optional float moving_average_fraction = 2 [default = 0.999];
+  if (has_moving_average_fraction()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->moving_average_fraction(), output);
+  }
+
+  // optional float eps = 3 [default = 1e-05];
+  if (has_eps()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->eps(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:sita.BatchNormParameter)
+}
+
+::google::protobuf::uint8* BatchNormParameter::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:sita.BatchNormParameter)
+  // optional bool use_global_stats = 1;
+  if (has_use_global_stats()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->use_global_stats(), target);
+  }
+
+  // optional float moving_average_fraction = 2 [default = 0.999];
+  if (has_moving_average_fraction()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->moving_average_fraction(), target);
+  }
+
+  // optional float eps = 3 [default = 1e-05];
+  if (has_eps()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->eps(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:sita.BatchNormParameter)
+  return target;
+}
+
+int BatchNormParameter::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional bool use_global_stats = 1;
+    if (has_use_global_stats()) {
+      total_size += 1 + 1;
+    }
+
+    // optional float moving_average_fraction = 2 [default = 0.999];
+    if (has_moving_average_fraction()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float eps = 3 [default = 1e-05];
+    if (has_eps()) {
+      total_size += 1 + 4;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BatchNormParameter::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BatchNormParameter* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BatchNormParameter*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BatchNormParameter::MergeFrom(const BatchNormParameter& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_use_global_stats()) {
+      set_use_global_stats(from.use_global_stats());
+    }
+    if (from.has_moving_average_fraction()) {
+      set_moving_average_fraction(from.moving_average_fraction());
+    }
+    if (from.has_eps()) {
+      set_eps(from.eps());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BatchNormParameter::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BatchNormParameter::CopyFrom(const BatchNormParameter& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BatchNormParameter::IsInitialized() const {
+
+  return true;
+}
+
+void BatchNormParameter::Swap(BatchNormParameter* other) {
+  if (other != this) {
+    std::swap(use_global_stats_, other->use_global_stats_);
+    std::swap(moving_average_fraction_, other->moving_average_fraction_);
+    std::swap(eps_, other->eps_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BatchNormParameter::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BatchNormParameter_descriptor_;
+  metadata.reflection = BatchNormParameter_reflection_;
   return metadata;
 }
 

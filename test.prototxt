@@ -1,4 +1,5 @@
 name: "LeNet"
+phase: "train"
 
 operatordef {
   name: "conv1"
@@ -16,13 +17,31 @@ operatordef {
   param{
        filler{type:"xavier"}
 }
-
 }
 
 operatordef {
+  name: "bn1"
+  type: "BatchNorm"
+  input: "conv1"
+  output: "conv1_bn"
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+
+}
+operatordef {
   name: "conv2"
   type: "Convolution"
-  input: "conv1"
+  input: "conv1_bn"
   output: "conv2"
   convolution_param{
      num_output: 20

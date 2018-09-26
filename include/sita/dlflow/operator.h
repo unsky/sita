@@ -18,7 +18,7 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class Operator{
 public:
-    Operator(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):_opdef(opdef),_gws(gws){}
+    Operator(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws, std::string phase):_opdef(opdef),_gws(gws),_phase(phase){}
     ~Operator(){}
     void setup();
     void init_param(std::string param_name, std::vector<int> shape, ParamConfig p_config);
@@ -47,6 +47,8 @@ protected:
     bool _is_shared;
     std::vector<std::pair<std::string, std::string> > _shared_param_pairs;
     bool _gradient_block;
+    std::string _phase;
+    std::string _op_name;
 };
 
 }//namespace

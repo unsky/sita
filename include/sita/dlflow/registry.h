@@ -1,9 +1,6 @@
-// --------------------------------------------------------
-// Dragon
-// Copyright(c) 2017 SeetaTech
-// Written by Ting Pan
-// --------------------------------------------------------
-
+//
+// Created by unsky on 03/07/18.
+//
 #ifndef SITA_DLFLOW_REGISTRY_H_
 #define SITA_DLFLOW_REGISTRY_H_
 
@@ -28,7 +25,7 @@ class GlobalWorkSpace;
 template <typename Dtype>
 class OperatorRegistry {
  public:
-  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorParameter&, GlobalWorkSpace<Dtype> *);
+  typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorParameter&, GlobalWorkSpace<Dtype> *, std::string );
   typedef std::map<std::string, Creator> CreatorRegistry;
 
   static CreatorRegistry& Registry() {
@@ -45,14 +42,14 @@ class OperatorRegistry {
   }
 
   // Get a operator using a Parameter.
-  static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorParameter& param, GlobalWorkSpace<Dtype>* gws) {
+  static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorParameter& param, GlobalWorkSpace<Dtype>* gws, std::string phase) {
     LOG(INFO) << "Creating Operator " << param.name();
     const std::string& type = param.type();
     CreatorRegistry& registry = Registry();
 
     CHECK_EQ(registry.count(type), 1) << "Unknown Operator type: " << type
         << " (known types: " << OperatorTypeListString() << ")";
-    return registry[type](param, gws);
+    return registry[type](param, gws, phase);
   }
 
   static std::vector<std::string> OperatorTypeList() {
@@ -89,7 +86,7 @@ template <typename Dtype>
 class OperatorRegisterer {
  public:
     OperatorRegisterer(const std::string& type,
-                  boost::shared_ptr<Operator<Dtype> > (*creator)(const OperatorParameter&, GlobalWorkSpace<Dtype>*)) {
+                  boost::shared_ptr<Operator<Dtype> > (*creator)(const OperatorParameter&, GlobalWorkSpace<Dtype>*, std::string)) {
    
     OperatorRegistry<Dtype>::AddCreator(type, creator);
   }
@@ -102,9 +99,9 @@ class OperatorRegisterer {
 
 #define REGISTER_OPERATOR_CLASS(type)                                             \
   template <typename Dtype>                                                    \
-  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorParameter& param,GlobalWorkSpace<Dtype>* gws) \
+  boost::shared_ptr<Operator<Dtype> > Creator_##type(const OperatorParameter& param,GlobalWorkSpace<Dtype>* gws, std::string phase) \
   {                                                                            \
-    return boost::shared_ptr<Operator<Dtype> >(new type<Dtype>(param, gws));           \
+    return boost::shared_ptr<Operator<Dtype> >(new type<Dtype>(param, gws, phase));           \
   }                                                                            \
   REGISTER_OPERATOR_CREATOR(type, Creator_##type)
 

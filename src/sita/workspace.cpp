@@ -273,7 +273,11 @@ void GlobalWorkSpace<Dtype>::global_init(Graph * graph, DataProvider<Dtype> * da
     for(int i = 0; i < _graph->graph_sym()->operatordef_size(); i++){
         GlobalWorkSpace<Dtype> *gws = this;
         OperatorParameter opdef = _graph->graph_sym()->operatordef(i);
-        boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef, gws);
+        std::string phase = _graph->graph_sym()->phase();
+        if(phase !="train" && phase != "test"){
+            LOG(FATAL)<< "unkown phase: " << phase;
+        }
+        boost::shared_ptr<Operator<Dtype> > op = OperatorRegistry<Dtype>::CreateOperator(opdef, gws, phase);
         op->setup();
         op->init();
         _ops.push_back(op);

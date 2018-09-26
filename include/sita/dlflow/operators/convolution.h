@@ -11,7 +11,7 @@ namespace  sita{
 template<typename Dtype>
 class Convolution: public Operator<Dtype>{
 public:
-    Convolution(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws):Operator<Dtype>(opdef,gws){
+    Convolution(const OperatorParameter& opdef, GlobalWorkSpace<Dtype> *gws, std::string phase):Operator<Dtype>(opdef,gws, phase){
         _op_param = opdef.convolution_param();
     }
     ~Convolution();

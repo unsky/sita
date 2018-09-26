@@ -4,7 +4,8 @@ package sita;
 import "sita_utils.proto";
 message GraphParameter {
    optional string name = 1;
-   repeated OperatorParameter operatordef = 2;
+   optional string phase = 2;
+   repeated OperatorParameter operatordef = 3;
  }
 
 message  OperatorParameter {
@@ -16,6 +17,7 @@ message  OperatorParameter {
   repeated ParamConfig param = 6; //param config
 
   //operators
+  optional BatchNormParameter batch_norm_param = 100;
   optional ConvolutionParameter convolution_param = 101;
 }
 
@@ -35,4 +37,14 @@ message ConvolutionParameter{
   optional uint32 stride_w = 11; // The stride width (2D only)
   optional uint32 group = 12 [default = 1]; // The group size for group conv
 }
-
+message BatchNormParameter {
+  // If false, accumulate global mean/variance values via a moving average. If
+  // true, use those accumulated values instead of computing mean/variance
+  // across the batch.
+  optional bool use_global_stats = 1;
+  // How much does the moving average decay each iteration?
+  optional float moving_average_fraction = 2 [default = .999];
+  // Small value to add to the variance estimate so that we don't divide by
+  // zero.
+  optional float eps = 3 [default = 1e-5];
+}

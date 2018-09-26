@@ -327,8 +327,6 @@ void Convolution<Dtype>::infer_shape() {
 
 }
 
-
-
 INSTANTIATE_CLASS(Convolution);
 REGISTER_OPERATOR_CLASS(Convolution);
 }//namespace

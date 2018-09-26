@@ -37,6 +37,7 @@ void protobuf_ShutdownFile_sita_5foperators_2eproto();
 class GraphParameter;
 class OperatorParameter;
 class ConvolutionParameter;
+class BatchNormParameter;
 
 // ===================================================================
 
@@ -105,10 +106,22 @@ class GraphParameter : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
-  // repeated .sita.OperatorParameter operatordef = 2;
+  // optional string phase = 2;
+  inline bool has_phase() const;
+  inline void clear_phase();
+  static const int kPhaseFieldNumber = 2;
+  inline const ::std::string& phase() const;
+  inline void set_phase(const ::std::string& value);
+  inline void set_phase(const char* value);
+  inline void set_phase(const char* value, size_t size);
+  inline ::std::string* mutable_phase();
+  inline ::std::string* release_phase();
+  inline void set_allocated_phase(::std::string* phase);
+
+  // repeated .sita.OperatorParameter operatordef = 3;
   inline int operatordef_size() const;
   inline void clear_operatordef();
-  static const int kOperatordefFieldNumber = 2;
+  static const int kOperatordefFieldNumber = 3;
   inline const ::sita::OperatorParameter& operatordef(int index) const;
   inline ::sita::OperatorParameter* mutable_operatordef(int index);
   inline ::sita::OperatorParameter* add_operatordef();
@@ -121,12 +134,15 @@ class GraphParameter : public ::google::protobuf::Message {
  private:
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_phase();
+  inline void clear_has_phase();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* name_;
+  ::std::string* phase_;
   ::google::protobuf::RepeatedPtrField< ::sita::OperatorParameter > operatordef_;
   friend void  protobuf_AddDesc_sita_5foperators_2eproto();
   friend void protobuf_AssignDesc_sita_5foperators_2eproto();
@@ -265,6 +281,15 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::sita::ParamConfig >*
       mutable_param();
 
+  // optional .sita.BatchNormParameter batch_norm_param = 100;
+  inline bool has_batch_norm_param() const;
+  inline void clear_batch_norm_param();
+  static const int kBatchNormParamFieldNumber = 100;
+  inline const ::sita::BatchNormParameter& batch_norm_param() const;
+  inline ::sita::BatchNormParameter* mutable_batch_norm_param();
+  inline ::sita::BatchNormParameter* release_batch_norm_param();
+  inline void set_allocated_batch_norm_param(::sita::BatchNormParameter* batch_norm_param);
+
   // optional .sita.ConvolutionParameter convolution_param = 101;
   inline bool has_convolution_param() const;
   inline void clear_convolution_param();
@@ -282,6 +307,8 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline void clear_has_type();
   inline void set_has_gradient_block();
   inline void clear_has_gradient_block();
+  inline void set_has_batch_norm_param();
+  inline void clear_has_batch_norm_param();
   inline void set_has_convolution_param();
   inline void clear_has_convolution_param();
 
@@ -294,6 +321,7 @@ class OperatorParameter : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::std::string> input_;
   ::google::protobuf::RepeatedPtrField< ::std::string> output_;
   ::google::protobuf::RepeatedPtrField< ::sita::ParamConfig > param_;
+  ::sita::BatchNormParameter* batch_norm_param_;
   ::sita::ConvolutionParameter* convolution_param_;
   bool gradient_block_;
   friend void  protobuf_AddDesc_sita_5foperators_2eproto();
@@ -492,6 +520,105 @@ class ConvolutionParameter : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ConvolutionParameter* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class BatchNormParameter : public ::google::protobuf::Message {
+ public:
+  BatchNormParameter();
+  virtual ~BatchNormParameter();
+
+  BatchNormParameter(const BatchNormParameter& from);
+
+  inline BatchNormParameter& operator=(const BatchNormParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BatchNormParameter& default_instance();
+
+  void Swap(BatchNormParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  BatchNormParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BatchNormParameter& from);
+  void MergeFrom(const BatchNormParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool use_global_stats = 1;
+  inline bool has_use_global_stats() const;
+  inline void clear_use_global_stats();
+  static const int kUseGlobalStatsFieldNumber = 1;
+  inline bool use_global_stats() const;
+  inline void set_use_global_stats(bool value);
+
+  // optional float moving_average_fraction = 2 [default = 0.999];
+  inline bool has_moving_average_fraction() const;
+  inline void clear_moving_average_fraction();
+  static const int kMovingAverageFractionFieldNumber = 2;
+  inline float moving_average_fraction() const;
+  inline void set_moving_average_fraction(float value);
+
+  // optional float eps = 3 [default = 1e-05];
+  inline bool has_eps() const;
+  inline void clear_eps();
+  static const int kEpsFieldNumber = 3;
+  inline float eps() const;
+  inline void set_eps(float value);
+
+  // @@protoc_insertion_point(class_scope:sita.BatchNormParameter)
+ private:
+  inline void set_has_use_global_stats();
+  inline void clear_has_use_global_stats();
+  inline void set_has_moving_average_fraction();
+  inline void clear_has_moving_average_fraction();
+  inline void set_has_eps();
+  inline void clear_has_eps();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  bool use_global_stats_;
+  float moving_average_fraction_;
+  float eps_;
+  friend void  protobuf_AddDesc_sita_5foperators_2eproto();
+  friend void protobuf_AssignDesc_sita_5foperators_2eproto();
+  friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
+
+  void InitAsDefaultInstance();
+  static BatchNormParameter* default_instance_;
+};
 // ===================================================================
 
 
@@ -575,7 +702,83 @@ inline void GraphParameter::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:sita.GraphParameter.name)
 }
 
-// repeated .sita.OperatorParameter operatordef = 2;
+// optional string phase = 2;
+inline bool GraphParameter::has_phase() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GraphParameter::set_has_phase() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GraphParameter::clear_has_phase() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GraphParameter::clear_phase() {
+  if (phase_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    phase_->clear();
+  }
+  clear_has_phase();
+}
+inline const ::std::string& GraphParameter::phase() const {
+  // @@protoc_insertion_point(field_get:sita.GraphParameter.phase)
+  return *phase_;
+}
+inline void GraphParameter::set_phase(const ::std::string& value) {
+  set_has_phase();
+  if (phase_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    phase_ = new ::std::string;
+  }
+  phase_->assign(value);
+  // @@protoc_insertion_point(field_set:sita.GraphParameter.phase)
+}
+inline void GraphParameter::set_phase(const char* value) {
+  set_has_phase();
+  if (phase_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    phase_ = new ::std::string;
+  }
+  phase_->assign(value);
+  // @@protoc_insertion_point(field_set_char:sita.GraphParameter.phase)
+}
+inline void GraphParameter::set_phase(const char* value, size_t size) {
+  set_has_phase();
+  if (phase_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    phase_ = new ::std::string;
+  }
+  phase_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:sita.GraphParameter.phase)
+}
+inline ::std::string* GraphParameter::mutable_phase() {
+  set_has_phase();
+  if (phase_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    phase_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:sita.GraphParameter.phase)
+  return phase_;
+}
+inline ::std::string* GraphParameter::release_phase() {
+  clear_has_phase();
+  if (phase_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = phase_;
+    phase_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void GraphParameter::set_allocated_phase(::std::string* phase) {
+  if (phase_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete phase_;
+  }
+  if (phase) {
+    set_has_phase();
+    phase_ = phase;
+  } else {
+    clear_has_phase();
+    phase_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:sita.GraphParameter.phase)
+}
+
+// repeated .sita.OperatorParameter operatordef = 3;
 inline int GraphParameter::operatordef_size() const {
   return operatordef_.size();
 }
@@ -923,15 +1126,56 @@ OperatorParameter::mutable_param() {
   return &param_;
 }
 
-// optional .sita.ConvolutionParameter convolution_param = 101;
-inline bool OperatorParameter::has_convolution_param() const {
+// optional .sita.BatchNormParameter batch_norm_param = 100;
+inline bool OperatorParameter::has_batch_norm_param() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void OperatorParameter::set_has_convolution_param() {
+inline void OperatorParameter::set_has_batch_norm_param() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void OperatorParameter::clear_has_convolution_param() {
+inline void OperatorParameter::clear_has_batch_norm_param() {
   _has_bits_[0] &= ~0x00000040u;
+}
+inline void OperatorParameter::clear_batch_norm_param() {
+  if (batch_norm_param_ != NULL) batch_norm_param_->::sita::BatchNormParameter::Clear();
+  clear_has_batch_norm_param();
+}
+inline const ::sita::BatchNormParameter& OperatorParameter::batch_norm_param() const {
+  // @@protoc_insertion_point(field_get:sita.OperatorParameter.batch_norm_param)
+  return batch_norm_param_ != NULL ? *batch_norm_param_ : *default_instance_->batch_norm_param_;
+}
+inline ::sita::BatchNormParameter* OperatorParameter::mutable_batch_norm_param() {
+  set_has_batch_norm_param();
+  if (batch_norm_param_ == NULL) batch_norm_param_ = new ::sita::BatchNormParameter;
+  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.batch_norm_param)
+  return batch_norm_param_;
+}
+inline ::sita::BatchNormParameter* OperatorParameter::release_batch_norm_param() {
+  clear_has_batch_norm_param();
+  ::sita::BatchNormParameter* temp = batch_norm_param_;
+  batch_norm_param_ = NULL;
+  return temp;
+}
+inline void OperatorParameter::set_allocated_batch_norm_param(::sita::BatchNormParameter* batch_norm_param) {
+  delete batch_norm_param_;
+  batch_norm_param_ = batch_norm_param;
+  if (batch_norm_param) {
+    set_has_batch_norm_param();
+  } else {
+    clear_has_batch_norm_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.batch_norm_param)
+}
+
+// optional .sita.ConvolutionParameter convolution_param = 101;
+inline bool OperatorParameter::has_convolution_param() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void OperatorParameter::set_has_convolution_param() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void OperatorParameter::clear_has_convolution_param() {
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void OperatorParameter::clear_convolution_param() {
   if (convolution_param_ != NULL) convolution_param_->::sita::ConvolutionParameter::Clear();
@@ -1254,6 +1498,82 @@ inline void ConvolutionParameter::set_group(::google::protobuf::uint32 value) {
   set_has_group();
   group_ = value;
   // @@protoc_insertion_point(field_set:sita.ConvolutionParameter.group)
+}
+
+// -------------------------------------------------------------------
+
+// BatchNormParameter
+
+// optional bool use_global_stats = 1;
+inline bool BatchNormParameter::has_use_global_stats() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BatchNormParameter::set_has_use_global_stats() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BatchNormParameter::clear_has_use_global_stats() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BatchNormParameter::clear_use_global_stats() {
+  use_global_stats_ = false;
+  clear_has_use_global_stats();
+}
+inline bool BatchNormParameter::use_global_stats() const {
+  // @@protoc_insertion_point(field_get:sita.BatchNormParameter.use_global_stats)
+  return use_global_stats_;
+}
+inline void BatchNormParameter::set_use_global_stats(bool value) {
+  set_has_use_global_stats();
+  use_global_stats_ = value;
+  // @@protoc_insertion_point(field_set:sita.BatchNormParameter.use_global_stats)
+}
+
+// optional float moving_average_fraction = 2 [default = 0.999];
+inline bool BatchNormParameter::has_moving_average_fraction() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BatchNormParameter::set_has_moving_average_fraction() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BatchNormParameter::clear_has_moving_average_fraction() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BatchNormParameter::clear_moving_average_fraction() {
+  moving_average_fraction_ = 0.999f;
+  clear_has_moving_average_fraction();
+}
+inline float BatchNormParameter::moving_average_fraction() const {
+  // @@protoc_insertion_point(field_get:sita.BatchNormParameter.moving_average_fraction)
+  return moving_average_fraction_;
+}
+inline void BatchNormParameter::set_moving_average_fraction(float value) {
+  set_has_moving_average_fraction();
+  moving_average_fraction_ = value;
+  // @@protoc_insertion_point(field_set:sita.BatchNormParameter.moving_average_fraction)
+}
+
+// optional float eps = 3 [default = 1e-05];
+inline bool BatchNormParameter::has_eps() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BatchNormParameter::set_has_eps() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BatchNormParameter::clear_has_eps() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BatchNormParameter::clear_eps() {
+  eps_ = 1e-05f;
+  clear_has_eps();
+}
+inline float BatchNormParameter::eps() const {
+  // @@protoc_insertion_point(field_get:sita.BatchNormParameter.eps)
+  return eps_;
+}
+inline void BatchNormParameter::set_eps(float value) {
+  set_has_eps();
+  eps_ = value;
+  // @@protoc_insertion_point(field_set:sita.BatchNormParameter.eps)
 }
 
 
