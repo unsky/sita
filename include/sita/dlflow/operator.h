@@ -22,14 +22,12 @@ public:
     ~Operator(){}
     void setup();
     void init_param(std::string param_name, std::vector<int> shape, ParamConfig p_config);
-
     Tensor<Dtype> * fetch_input(std::string name);
     Tensor<Dtype> * fetch_output(std::string name);
     Tensor<Dtype> * fetch_param(std::string name);
     inline std::string operator_name(){
         return _opdef.name();
     }
-
     virtual void  init(){};
     virtual void  infer_shape(){};
     virtual void forward(){};

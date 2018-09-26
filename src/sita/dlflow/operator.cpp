@@ -44,7 +44,6 @@ void Operator<Dtype>::init_param(std::string param_name, std::vector<int> shape,
     }
     Tensor<Dtype>* param = fetch_param(param_name);
     param->reshape(shape);
-
 }
 
 template<typename Dtype>

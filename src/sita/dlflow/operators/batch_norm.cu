@@ -80,7 +80,6 @@ void BatchNorm<Dtype>::backward(){
       _scale_bias_mean_var_desc,
       scale_data, scale_diff, bias_diff,
       epsilon, save_mean, save_inv_var));
-  LOG(INFO)<< CUDNN_VERSION;
 }
 
 INSTANTIATE_OPERATOR_GPU_FUNCS(BatchNorm);

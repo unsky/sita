@@ -15,7 +15,6 @@
 #include "sita/proto/sita.h"
 namespace sita {
 
-
 template <typename Dtype>
 class Operator;
 
@@ -27,12 +26,10 @@ class OperatorRegistry {
  public:
   typedef boost::shared_ptr<Operator<Dtype> > (*Creator)(const OperatorParameter&, GlobalWorkSpace<Dtype> *, std::string );
   typedef std::map<std::string, Creator> CreatorRegistry;
-
   static CreatorRegistry& Registry() {
     static CreatorRegistry* g_registry_ = new CreatorRegistry();
     return *g_registry_;
   }
-
   // Adds a creator.
   static void  AddCreator(const std::string& type, Creator creator) {
     CreatorRegistry& registry = Registry();
@@ -61,7 +58,6 @@ class OperatorRegistry {
     }
     return operator_types;
   }
-
  private:
   //  registry should never be instantiated - everything is done with its
   // static variables.
