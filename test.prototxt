@@ -36,12 +36,17 @@ operatordef {
   param{
        filler{type:"xavier"}
   }
-
+}
+operatordef {
+  name: "relu1"
+  type: "ReLU"
+  input: "conv1_bn"
+  output: "conv1_relu"
 }
 operatordef {
   name: "conv2"
   type: "Convolution"
-  input: "conv1_bn"
+  input: "conv1_relu"
   output: "conv2"
   convolution_param{
      num_output: 20
@@ -54,8 +59,34 @@ operatordef {
   param{
        filler{type:"xavier"}
 }
-
 }
+
+operatordef {
+  name: "bn2"
+  type: "BatchNorm"
+  input: "conv2"
+  output: "conv2_bn"
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+  param{
+       filler{type:"xavier"}
+  }
+}
+
+operatordef {
+  name: "relu2"
+  type: "ReLU"
+  input: "conv2_bn"
+  output: "conv2_relu"
+}
+
 operatordef {
    name: "conv3"
    type: "Convolution"
@@ -72,5 +103,4 @@ operatordef {
    param{
         filler{type:"xavier"}
  }
-
- }
+}

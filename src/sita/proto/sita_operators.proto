@@ -19,6 +19,7 @@ message  OperatorParameter {
   //operators
   optional BatchNormParameter batch_norm_param = 100;
   optional ConvolutionParameter convolution_param = 101;
+  optional ReLUParameter relu_param = 102;
 }
 
 
@@ -47,4 +48,7 @@ message BatchNormParameter {
   // Small value to add to the variance estimate so that we don't divide by
   // zero.
   optional float eps = 3 [default = 1e-5];
+}
+message ReLUParameter{
+  
 }

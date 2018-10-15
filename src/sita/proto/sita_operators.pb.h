@@ -38,6 +38,7 @@ class GraphParameter;
 class OperatorParameter;
 class ConvolutionParameter;
 class BatchNormParameter;
+class ReLUParameter;
 
 // ===================================================================
 
@@ -299,6 +300,15 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline ::sita::ConvolutionParameter* release_convolution_param();
   inline void set_allocated_convolution_param(::sita::ConvolutionParameter* convolution_param);
 
+  // optional .sita.ReLUParameter relu_param = 102;
+  inline bool has_relu_param() const;
+  inline void clear_relu_param();
+  static const int kReluParamFieldNumber = 102;
+  inline const ::sita::ReLUParameter& relu_param() const;
+  inline ::sita::ReLUParameter* mutable_relu_param();
+  inline ::sita::ReLUParameter* release_relu_param();
+  inline void set_allocated_relu_param(::sita::ReLUParameter* relu_param);
+
   // @@protoc_insertion_point(class_scope:sita.OperatorParameter)
  private:
   inline void set_has_name();
@@ -311,6 +321,8 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline void clear_has_batch_norm_param();
   inline void set_has_convolution_param();
   inline void clear_has_convolution_param();
+  inline void set_has_relu_param();
+  inline void clear_has_relu_param();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -323,6 +335,7 @@ class OperatorParameter : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::sita::ParamConfig > param_;
   ::sita::BatchNormParameter* batch_norm_param_;
   ::sita::ConvolutionParameter* convolution_param_;
+  ::sita::ReLUParameter* relu_param_;
   bool gradient_block_;
   friend void  protobuf_AddDesc_sita_5foperators_2eproto();
   friend void protobuf_AssignDesc_sita_5foperators_2eproto();
@@ -618,6 +631,75 @@ class BatchNormParameter : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static BatchNormParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ReLUParameter : public ::google::protobuf::Message {
+ public:
+  ReLUParameter();
+  virtual ~ReLUParameter();
+
+  ReLUParameter(const ReLUParameter& from);
+
+  inline ReLUParameter& operator=(const ReLUParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReLUParameter& default_instance();
+
+  void Swap(ReLUParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  ReLUParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReLUParameter& from);
+  void MergeFrom(const ReLUParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:sita.ReLUParameter)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_sita_5foperators_2eproto();
+  friend void protobuf_AssignDesc_sita_5foperators_2eproto();
+  friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReLUParameter* default_instance_;
 };
 // ===================================================================
 
@@ -1208,6 +1290,47 @@ inline void OperatorParameter::set_allocated_convolution_param(::sita::Convoluti
   // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.convolution_param)
 }
 
+// optional .sita.ReLUParameter relu_param = 102;
+inline bool OperatorParameter::has_relu_param() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void OperatorParameter::set_has_relu_param() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void OperatorParameter::clear_has_relu_param() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void OperatorParameter::clear_relu_param() {
+  if (relu_param_ != NULL) relu_param_->::sita::ReLUParameter::Clear();
+  clear_has_relu_param();
+}
+inline const ::sita::ReLUParameter& OperatorParameter::relu_param() const {
+  // @@protoc_insertion_point(field_get:sita.OperatorParameter.relu_param)
+  return relu_param_ != NULL ? *relu_param_ : *default_instance_->relu_param_;
+}
+inline ::sita::ReLUParameter* OperatorParameter::mutable_relu_param() {
+  set_has_relu_param();
+  if (relu_param_ == NULL) relu_param_ = new ::sita::ReLUParameter;
+  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.relu_param)
+  return relu_param_;
+}
+inline ::sita::ReLUParameter* OperatorParameter::release_relu_param() {
+  clear_has_relu_param();
+  ::sita::ReLUParameter* temp = relu_param_;
+  relu_param_ = NULL;
+  return temp;
+}
+inline void OperatorParameter::set_allocated_relu_param(::sita::ReLUParameter* relu_param) {
+  delete relu_param_;
+  relu_param_ = relu_param;
+  if (relu_param) {
+    set_has_relu_param();
+  } else {
+    clear_has_relu_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.relu_param)
+}
+
 // -------------------------------------------------------------------
 
 // ConvolutionParameter
@@ -1575,6 +1698,10 @@ inline void BatchNormParameter::set_eps(float value) {
   eps_ = value;
   // @@protoc_insertion_point(field_set:sita.BatchNormParameter.eps)
 }
+
+// -------------------------------------------------------------------
+
+// ReLUParameter
 
 
 // @@protoc_insertion_point(namespace_scope)

@@ -40,7 +40,7 @@ class OperatorRegistry {
 
   // Get a operator using a Parameter.
   static boost::shared_ptr<Operator<Dtype> > CreateOperator(const OperatorParameter& param, GlobalWorkSpace<Dtype>* gws, std::string phase) {
-    LOG(INFO) << "Creating Operator " << param.name();
+    LOG(INFO) << "Creating Operator " << param.name() << " Type: " << param.type();
     const std::string& type = param.type();
     CreatorRegistry& registry = Registry();
 

@@ -90,7 +90,6 @@ public:
         }
 
     }
-
     virtual MnistBatch<Dtype> * fetch_batch();
 
 private:

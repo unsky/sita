@@ -32,6 +32,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BatchNormParameter_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BatchNormParameter_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ReLUParameter_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ReLUParameter_reflection_ = NULL;
 
 }  // namespace
 
@@ -60,7 +63,7 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GraphParameter));
   OperatorParameter_descriptor_ = file->message_type(1);
-  static const int OperatorParameter_offsets_[8] = {
+  static const int OperatorParameter_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, input_),
@@ -69,6 +72,7 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, batch_norm_param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, convolution_param_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OperatorParameter, relu_param_),
   };
   OperatorParameter_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -124,6 +128,20 @@ void protobuf_AssignDesc_sita_5foperators_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BatchNormParameter));
+  ReLUParameter_descriptor_ = file->message_type(4);
+  static const int ReLUParameter_offsets_[1] = {
+  };
+  ReLUParameter_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ReLUParameter_descriptor_,
+      ReLUParameter::default_instance_,
+      ReLUParameter_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReLUParameter, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReLUParameter, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ReLUParameter));
 }
 
 namespace {
@@ -144,6 +162,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ConvolutionParameter_descriptor_, &ConvolutionParameter::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BatchNormParameter_descriptor_, &BatchNormParameter::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ReLUParameter_descriptor_, &ReLUParameter::default_instance());
 }
 
 }  // namespace
@@ -157,6 +177,8 @@ void protobuf_ShutdownFile_sita_5foperators_2eproto() {
   delete ConvolutionParameter_reflection_;
   delete BatchNormParameter::default_instance_;
   delete BatchNormParameter_reflection_;
+  delete ReLUParameter::default_instance_;
+  delete ReLUParameter_reflection_;
 }
 
 void protobuf_AddDesc_sita_5foperators_2eproto() {
@@ -170,32 +192,36 @@ void protobuf_AddDesc_sita_5foperators_2eproto() {
     "\n\024sita_operators.proto\022\004sita\032\020sita_utils"
     ".proto\"[\n\016GraphParameter\022\014\n\004name\030\001 \001(\t\022\r"
     "\n\005phase\030\002 \001(\t\022,\n\013operatordef\030\003 \003(\0132\027.sit"
-    "a.OperatorParameter\"\372\001\n\021OperatorParamete"
+    "a.OperatorParameter\"\243\002\n\021OperatorParamete"
     "r\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\r\n\005input\030\003"
     " \003(\t\022\016\n\006output\030\004 \003(\t\022\035\n\016gradient_block\030\005"
     " \001(\010:\005false\022 \n\005param\030\006 \003(\0132\021.sita.ParamC"
     "onfig\0222\n\020batch_norm_param\030d \001(\0132\030.sita.B"
     "atchNormParameter\0225\n\021convolution_param\030e"
-    " \001(\0132\032.sita.ConvolutionParameter\"\366\001\n\024Con"
-    "volutionParameter\022\022\n\nnum_output\030\001 \001(\r\022\027\n"
-    "\tbias_term\030\002 \001(\010:\004true\022\016\n\003pad\030\003 \001(\r:\0011\022\026"
-    "\n\013kernel_size\030\004 \001(\r:\0013\022\021\n\006stride\030\005 \001(\r:\001"
-    "1\022\r\n\005pad_h\030\006 \001(\r\022\r\n\005pad_w\030\007 \001(\r\022\020\n\010kerne"
-    "l_h\030\010 \001(\r\022\020\n\010kernel_w\030\t \001(\r\022\020\n\010stride_h\030"
-    "\n \001(\r\022\020\n\010stride_w\030\013 \001(\r\022\020\n\005group\030\014 \001(\r:\001"
-    "1\"j\n\022BatchNormParameter\022\030\n\020use_global_st"
-    "ats\030\001 \001(\010\022&\n\027moving_average_fraction\030\002 \001"
-    "(\002:\0050.999\022\022\n\003eps\030\003 \001(\002:\0051e-05", 749);
+    " \001(\0132\032.sita.ConvolutionParameter\022\'\n\nrelu"
+    "_param\030f \001(\0132\023.sita.ReLUParameter\"\366\001\n\024Co"
+    "nvolutionParameter\022\022\n\nnum_output\030\001 \001(\r\022\027"
+    "\n\tbias_term\030\002 \001(\010:\004true\022\016\n\003pad\030\003 \001(\r:\0011\022"
+    "\026\n\013kernel_size\030\004 \001(\r:\0013\022\021\n\006stride\030\005 \001(\r:"
+    "\0011\022\r\n\005pad_h\030\006 \001(\r\022\r\n\005pad_w\030\007 \001(\r\022\020\n\010kern"
+    "el_h\030\010 \001(\r\022\020\n\010kernel_w\030\t \001(\r\022\020\n\010stride_h"
+    "\030\n \001(\r\022\020\n\010stride_w\030\013 \001(\r\022\020\n\005group\030\014 \001(\r:"
+    "\0011\"j\n\022BatchNormParameter\022\030\n\020use_global_s"
+    "tats\030\001 \001(\010\022&\n\027moving_average_fraction\030\002 "
+    "\001(\002:\0050.999\022\022\n\003eps\030\003 \001(\002:\0051e-05\"\017\n\rReLUPa"
+    "rameter", 807);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sita_operators.proto", &protobuf_RegisterTypes);
   GraphParameter::default_instance_ = new GraphParameter();
   OperatorParameter::default_instance_ = new OperatorParameter();
   ConvolutionParameter::default_instance_ = new ConvolutionParameter();
   BatchNormParameter::default_instance_ = new BatchNormParameter();
+  ReLUParameter::default_instance_ = new ReLUParameter();
   GraphParameter::default_instance_->InitAsDefaultInstance();
   OperatorParameter::default_instance_->InitAsDefaultInstance();
   ConvolutionParameter::default_instance_->InitAsDefaultInstance();
   BatchNormParameter::default_instance_->InitAsDefaultInstance();
+  ReLUParameter::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_sita_5foperators_2eproto);
 }
 
@@ -560,6 +586,7 @@ const int OperatorParameter::kGradientBlockFieldNumber;
 const int OperatorParameter::kParamFieldNumber;
 const int OperatorParameter::kBatchNormParamFieldNumber;
 const int OperatorParameter::kConvolutionParamFieldNumber;
+const int OperatorParameter::kReluParamFieldNumber;
 #endif  // !_MSC_VER
 
 OperatorParameter::OperatorParameter()
@@ -571,6 +598,7 @@ OperatorParameter::OperatorParameter()
 void OperatorParameter::InitAsDefaultInstance() {
   batch_norm_param_ = const_cast< ::sita::BatchNormParameter*>(&::sita::BatchNormParameter::default_instance());
   convolution_param_ = const_cast< ::sita::ConvolutionParameter*>(&::sita::ConvolutionParameter::default_instance());
+  relu_param_ = const_cast< ::sita::ReLUParameter*>(&::sita::ReLUParameter::default_instance());
 }
 
 OperatorParameter::OperatorParameter(const OperatorParameter& from)
@@ -588,6 +616,7 @@ void OperatorParameter::SharedCtor() {
   gradient_block_ = false;
   batch_norm_param_ = NULL;
   convolution_param_ = NULL;
+  relu_param_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -606,6 +635,7 @@ void OperatorParameter::SharedDtor() {
   if (this != default_instance_) {
     delete batch_norm_param_;
     delete convolution_param_;
+    delete relu_param_;
   }
 }
 
@@ -649,6 +679,9 @@ void OperatorParameter::Clear() {
     if (has_convolution_param()) {
       if (convolution_param_ != NULL) convolution_param_->::sita::ConvolutionParameter::Clear();
     }
+  }
+  if (has_relu_param()) {
+    if (relu_param_ != NULL) relu_param_->::sita::ReLUParameter::Clear();
   }
   input_.Clear();
   output_.Clear();
@@ -789,6 +822,19 @@ bool OperatorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(818)) goto parse_relu_param;
+        break;
+      }
+
+      // optional .sita.ReLUParameter relu_param = 102;
+      case 102: {
+        if (tag == 818) {
+         parse_relu_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_relu_param()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -881,6 +927,12 @@ void OperatorParameter::SerializeWithCachedSizes(
       101, this->convolution_param(), output);
   }
 
+  // optional .sita.ReLUParameter relu_param = 102;
+  if (has_relu_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      102, this->relu_param(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -959,6 +1011,13 @@ void OperatorParameter::SerializeWithCachedSizes(
         101, this->convolution_param(), target);
   }
 
+  // optional .sita.ReLUParameter relu_param = 102;
+  if (has_relu_param()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        102, this->relu_param(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1002,6 +1061,15 @@ int OperatorParameter::ByteSize() const {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->convolution_param());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional .sita.ReLUParameter relu_param = 102;
+    if (has_relu_param()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->relu_param());
     }
 
   }
@@ -1072,6 +1140,11 @@ void OperatorParameter::MergeFrom(const OperatorParameter& from) {
       mutable_convolution_param()->::sita::ConvolutionParameter::MergeFrom(from.convolution_param());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_relu_param()) {
+      mutable_relu_param()->::sita::ReLUParameter::MergeFrom(from.relu_param());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1102,6 +1175,7 @@ void OperatorParameter::Swap(OperatorParameter* other) {
     param_.Swap(&other->param_);
     std::swap(batch_norm_param_, other->batch_norm_param_);
     std::swap(convolution_param_, other->convolution_param_);
+    std::swap(relu_param_, other->relu_param_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2076,6 +2150,180 @@ void BatchNormParameter::Swap(BatchNormParameter* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = BatchNormParameter_descriptor_;
   metadata.reflection = BatchNormParameter_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+ReLUParameter::ReLUParameter()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:sita.ReLUParameter)
+}
+
+void ReLUParameter::InitAsDefaultInstance() {
+}
+
+ReLUParameter::ReLUParameter(const ReLUParameter& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:sita.ReLUParameter)
+}
+
+void ReLUParameter::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ReLUParameter::~ReLUParameter() {
+  // @@protoc_insertion_point(destructor:sita.ReLUParameter)
+  SharedDtor();
+}
+
+void ReLUParameter::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ReLUParameter::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ReLUParameter::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ReLUParameter_descriptor_;
+}
+
+const ReLUParameter& ReLUParameter::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_sita_5foperators_2eproto();
+  return *default_instance_;
+}
+
+ReLUParameter* ReLUParameter::default_instance_ = NULL;
+
+ReLUParameter* ReLUParameter::New() const {
+  return new ReLUParameter;
+}
+
+void ReLUParameter::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ReLUParameter::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:sita.ReLUParameter)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:sita.ReLUParameter)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:sita.ReLUParameter)
+  return false;
+#undef DO_
+}
+
+void ReLUParameter::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:sita.ReLUParameter)
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:sita.ReLUParameter)
+}
+
+::google::protobuf::uint8* ReLUParameter::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:sita.ReLUParameter)
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:sita.ReLUParameter)
+  return target;
+}
+
+int ReLUParameter::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ReLUParameter::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ReLUParameter* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ReLUParameter*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ReLUParameter::MergeFrom(const ReLUParameter& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ReLUParameter::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReLUParameter::CopyFrom(const ReLUParameter& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReLUParameter::IsInitialized() const {
+
+  return true;
+}
+
+void ReLUParameter::Swap(ReLUParameter* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ReLUParameter::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ReLUParameter_descriptor_;
+  metadata.reflection = ReLUParameter_reflection_;
   return metadata;
 }
 

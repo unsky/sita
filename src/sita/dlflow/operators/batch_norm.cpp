@@ -1,24 +1,25 @@
 #include "sita/dlflow/operators/batch_norm.h"
 namespace sita{
+  
 template <typename Dtype>
 BatchNorm<Dtype>::~BatchNorm() {
-  if (!_handles_setup) return;
-  cudnnDestroyTensorDescriptor(_input_desc);
-  cudnnDestroyTensorDescriptor(_output_desc);
-  cudnnDestroyTensorDescriptor(_scale_bias_mean_var_desc);
+    if (!_handles_setup) return;
+    cudnnDestroyTensorDescriptor(_input_desc);
+    cudnnDestroyTensorDescriptor(_output_desc);
+    cudnnDestroyTensorDescriptor(_scale_bias_mean_var_desc);
 }
 
 template<typename Dtype>
 void BatchNorm<Dtype>::init(){
-	CHECK_EQ(this->_inputs.size(), this->_outputs.size()) << "input size should equal to output size";
-	LOG(INFO) << "Inputs:";
-	//Initialize param input and outputs
-	for(int i = 0; i < this->_inputs.size(); i++){
-	    Tensor<Dtype> *input = this->fetch_input(this->_inputs[i]);
-	    this->_input_shapes[this->_inputs[i]] = input->shape();
-	    CHECK_GT(input->count(), 0) << "check your graph, cannot infer " << this->_inputs[i] <<  " shape,in " << this->operator_name()<<"!!";
-	    LOG(INFO) << this->_inputs[i]<<": "<< this->fetch_input(this->_inputs[i])->shape_string();
-	}
+  	CHECK_EQ(this->_inputs.size(), this->_outputs.size()) << "input size should equal to output size";
+  	LOG(INFO) << "Inputs:";
+  	//Initialize param input and outputs
+  	for(int i = 0; i < this->_inputs.size(); i++){
+  	    Tensor<Dtype> *input = this->fetch_input(this->_inputs[i]);
+  	    this->_input_shapes[this->_inputs[i]] = input->shape();
+  	    CHECK_GT(input->count(), 0) << "check your graph, cannot infer " << this->_inputs[i] <<  " shape,in " << this->operator_name()<<"!!";
+  	    LOG(INFO) << this->_inputs[i]<<": "<< this->fetch_input(this->_inputs[i])->shape_string();
+  	}
   	Context::create_tensor4d_descriptor<Dtype>(&_input_desc);
   	Context::create_tensor4d_descriptor<Dtype>(&_output_desc);
   	Context::create_tensor4d_descriptor<Dtype>(&_scale_bias_mean_var_desc);
@@ -68,16 +69,16 @@ void BatchNorm<Dtype>::init(){
     Tensor<Dtype> * var = this->fetch_param("bacth_norm_var");
     LOG(INFO) <<"batch norm var: " << var->shape_string();
 
-	LOG(INFO) << "Outputs:";
-	for(int i = 0; i < this->_outputs.size(); i++){
-	    Tensor<Dtype> *output = this->fetch_output(this->_outputs[i]);
-	    this->_output_shapes[this->_outputs[i]] = this->_input_shapes[this->_inputs[i]];
-	    output->reshape(this->fetch_input(this->_inputs[i])->shape());
-	    LOG(INFO) << this->_outputs[i]<<": "<< this->fetch_output(this->_outputs[i])->shape_string();
-	}
+    LOG(INFO) << "Outputs:";
+    for(int i = 0; i < this->_outputs.size(); i++){
+        Tensor<Dtype> *output = this->fetch_output(this->_outputs[i]);
+        this->_output_shapes[this->_outputs[i]] = this->_input_shapes[this->_inputs[i]];
+        output->reshape(this->fetch_input(this->_inputs[i])->shape());
+        LOG(INFO) << this->_outputs[i]<<": "<< this->fetch_output(this->_outputs[i])->shape_string();
+    }
 
 
-	_stream = new cudaStream_t[2];
+    _stream = new cudaStream_t[2];
     _handle = new cudnnHandle_t[2];
 
     for (int g = 0; g < 2; g++) {
@@ -91,17 +92,17 @@ void BatchNorm<Dtype>::init(){
 
 template<typename Dtype>
 void BatchNorm<Dtype>::infer_shape() {
-  // set up main tensors
-  Context::set_tensor4d_descriptor<Dtype>(&_input_desc, this->_input_shapes[this->_inputs[0]][0],
-    this->_input_shapes[this->_inputs[0]][1], this->_input_shapes[this->_inputs[0]][2], this->_input_shapes[this->_inputs[0]][3]);
-  Context::set_tensor4d_descriptor<Dtype>(&_output_desc, this->_output_shapes[this->_outputs[0]][0],
-    this->_output_shapes[this->_outputs[0]][1], this->_output_shapes[this->_outputs[0]][2], this->_output_shapes[this->_outputs[0]][3]);
+    // set up main tensors
+    Context::set_tensor4d_descriptor<Dtype>(&_input_desc, this->_input_shapes[this->_inputs[0]][0],
+      this->_input_shapes[this->_inputs[0]][1], this->_input_shapes[this->_inputs[0]][2], this->_input_shapes[this->_inputs[0]][3]);
+    Context::set_tensor4d_descriptor<Dtype>(&_output_desc, this->_output_shapes[this->_outputs[0]][0],
+      this->_output_shapes[this->_outputs[0]][1], this->_output_shapes[this->_outputs[0]][2], this->_output_shapes[this->_outputs[0]][3]);
 
-  if (_mode != CUDNN_BATCHNORM_SPATIAL && _mode != CUDNN_BATCHNORM_PER_ACTIVATION) {
-    LOG(FATAL) << "Unknown cudnnBatchNormMode_t";
-  }
-  CUDNN_CHECK(cudnnDeriveBNTensorDescriptor(_scale_bias_mean_var_desc,
-      _input_desc, _mode));
+    if (_mode != CUDNN_BATCHNORM_SPATIAL && _mode != CUDNN_BATCHNORM_PER_ACTIVATION) {
+      LOG(FATAL) << "Unknown cudnnBatchNormMode_t";
+    }
+    CUDNN_CHECK(cudnnDeriveBNTensorDescriptor(_scale_bias_mean_var_desc,
+        _input_desc, _mode));
 }
 
 INSTANTIATE_CLASS(BatchNorm);

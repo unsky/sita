@@ -49,9 +49,11 @@ set(SITA_FILES
         src/sita/tensor.cpp
         src/sita/context.cpp
         src/sita/dlflow/operators/convolution.cpp
+        src/sita/dlflow/operators/convolution.cu
         src/sita/dlflow/operators/batch_norm.cpp
         src/sita/dlflow/operators/batch_norm.cu
-        src/sita/dlflow/operators/convolution.cu
+        src/sita/dlflow/operators/relu.cpp
+        src/sita/dlflow/operators/relu.cu
         src/sita/workspace.cpp
         src/sita/dlflow/operator.cpp
         src/sita/dlflow/graph.cpp
