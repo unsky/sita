@@ -1,7 +1,7 @@
 //
 // Created by unsky on 16/08/18.
 //
-#include "sita/dlflow/operators/convolution.h"
+#include "sita/operators/convolution.h"
 namespace sita{
 template<typename Dtype>
 Convolution<Dtype>::~Convolution(){

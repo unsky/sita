@@ -2,8 +2,8 @@
 // Created by unsky on 02/07/18.
 //
 
-#ifndef SITA_DLFLOW_GRAPH_H
-#define SITA_DLFLOW_GRAPH_H
+#ifndef SITA_GRAPH_H
+#define SITA_GRAPH_H
 #include <vector>
 #include <glog/logging.h>
 #include <string>
@@ -21,7 +21,8 @@ public:
     ~Graph(){};
     void graph_symbol_show();
     GraphParameter * graph_sym(){
-        return &_graph;}
+        return &_graph;
+    }
 
 private:
     GraphParameter _graph;

@@ -2,9 +2,9 @@
 // Created by unsky on 15/08/18.
 //
 
-#ifndef SITA_DLFLOW_CONVOLUTION_H
-#define SITA_DLFLOW_CONVOLUTION_H
-#include "sita/dlflow/operator.h"
+#ifndef SITA_OPERATORS_CONVOLUTION_H
+#define SITA_OPERATORS_CONVOLUTION_H
+#include "sita/operator.h"
 #include "sita/proto/sita.h"
 namespace  sita{
 
@@ -54,4 +54,4 @@ private:
 
 };
 }
-#endif //SITA_DLFLOW_CONVOLUTION_H
+#endif //SITA_OPERATORS_CONVOLUTION_H

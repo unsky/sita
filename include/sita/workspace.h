@@ -1,8 +1,8 @@
 //---------------------------------
 //write by unsky
 //---------------------------------
-#ifndef SITA_WORKSPACE_H_
-#define SITA_WORKSPACE_H_
+#ifndef SITA_WORKSPACE_H
+#define SITA_WORKSPACE_H
 #include <vector>
 #include <map>
 #include <set>
@@ -11,7 +11,7 @@
 #include "tensor.h"
 #include "context.h"
 #include "macros.h"
-#include "sita/dlflow/graph.h"
+#include "sita/graph.h"
 #include "types.h"
 #include "sita/dataprovider/mnist_dataprovider.h"
 #include "sita/dataprovider/dataprovider.h"

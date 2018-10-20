@@ -1,4 +1,4 @@
-#include "sita/dlflow/operators/batch_norm.h"
+#include "sita/operators/batch_norm.h"
 namespace sita{
   
 template <typename Dtype>

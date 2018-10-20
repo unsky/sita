@@ -1,8 +1,8 @@
 //---------------------------------
 //write by unsky
 //---------------------------------
-#ifndef SITA_TENSOR_H_
-#define SITA_TENSOR_H_
+#ifndef SITA_TENSOR_H
+#define SITA_TENSOR_H
 
 #include <vector>
 #include <iostream>

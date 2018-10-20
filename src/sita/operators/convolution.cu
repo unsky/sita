@@ -1,4 +1,4 @@
-#include "sita/dlflow/operators/convolution.h"
+#include "sita/operators/convolution.h"
 namespace sita{
 
 __global__ void sync_conv_groups() { }

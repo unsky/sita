@@ -16,7 +16,6 @@ int main(int argc, char** argv) {
     std::string model_file = "../test.prototxt";
     sita::Graph graph(model_file);
 
-
     std::vector<float> means;
     means.push_back(float(0));
     sita::MnistDataProvider<float > mnistdp("../data/mnist/train-images-idx3-ubyte",

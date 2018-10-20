@@ -1,7 +1,7 @@
 //
 // Created by unsky on 27/06/18.
 //
-#include "sita/dlflow/operator.h"
+#include "sita/operator.h"
 namespace sita{
 
 template<typename Dtype>

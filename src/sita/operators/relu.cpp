@@ -1,4 +1,4 @@
-#include "sita/dlflow/operators/relu.h"
+#include "sita/operators/relu.h"
 namespace sita{
 
 template <typename Dtype>

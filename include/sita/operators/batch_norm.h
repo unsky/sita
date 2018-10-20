@@ -2,9 +2,9 @@
 // Created by unsky on 15/08/18.
 //
 
-#ifndef SITA_DLFLOW_BATCH_NORM_H
-#define SITA_DLFLOW_BATCH_NORM_H
-#include "sita/dlflow/operator.h"
+#ifndef SITA_OPERATORS_BATCH_NORM_H
+#define SITA_OPERATORS_BATCH_NORM_H
+#include "sita/operator.h"
 #include "sita/proto/sita.h"
 namespace  sita{
 
@@ -38,4 +38,4 @@ private:
   bool _handles_setup;
 };
 }
-#endif //SITA_DLFLOW_BATCH_NORM_H
+#endif //SITA_OPERATORS_BATCH_NORM_H

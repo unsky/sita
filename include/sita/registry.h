@@ -1,8 +1,8 @@
 //
 // Created by unsky on 03/07/18.
 //
-#ifndef SITA_DLFLOW_REGISTRY_H_
-#define SITA_DLFLOW_REGISTRY_H_
+#ifndef SITA_REGISTRY_H
+#define SITA_REGISTRY_H
 
 
 #include "sita/macros.h"

@@ -1,7 +1,7 @@
 //
 // Created by unsky on 02/07/18.
 //
-#include "sita/dlflow/graph.h"
+#include "sita/graph.h"
 namespace sita{
 
 Graph::Graph(std::string model_file){
