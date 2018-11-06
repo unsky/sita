@@ -39,6 +39,7 @@ class OperatorParameter;
 class ConvolutionParameter;
 class BatchNormParameter;
 class ReLUParameter;
+class PoolingParameter;
 
 // ===================================================================
 
@@ -309,6 +310,15 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline ::sita::ReLUParameter* release_relu_param();
   inline void set_allocated_relu_param(::sita::ReLUParameter* relu_param);
 
+  // optional .sita.PoolingParameter pooling_param = 103;
+  inline bool has_pooling_param() const;
+  inline void clear_pooling_param();
+  static const int kPoolingParamFieldNumber = 103;
+  inline const ::sita::PoolingParameter& pooling_param() const;
+  inline ::sita::PoolingParameter* mutable_pooling_param();
+  inline ::sita::PoolingParameter* release_pooling_param();
+  inline void set_allocated_pooling_param(::sita::PoolingParameter* pooling_param);
+
   // @@protoc_insertion_point(class_scope:sita.OperatorParameter)
  private:
   inline void set_has_name();
@@ -323,6 +333,8 @@ class OperatorParameter : public ::google::protobuf::Message {
   inline void clear_has_convolution_param();
   inline void set_has_relu_param();
   inline void clear_has_relu_param();
+  inline void set_has_pooling_param();
+  inline void clear_has_pooling_param();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -336,6 +348,7 @@ class OperatorParameter : public ::google::protobuf::Message {
   ::sita::BatchNormParameter* batch_norm_param_;
   ::sita::ConvolutionParameter* convolution_param_;
   ::sita::ReLUParameter* relu_param_;
+  ::sita::PoolingParameter* pooling_param_;
   bool gradient_block_;
   friend void  protobuf_AddDesc_sita_5foperators_2eproto();
   friend void protobuf_AssignDesc_sita_5foperators_2eproto();
@@ -700,6 +713,165 @@ class ReLUParameter : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ReLUParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PoolingParameter : public ::google::protobuf::Message {
+ public:
+  PoolingParameter();
+  virtual ~PoolingParameter();
+
+  PoolingParameter(const PoolingParameter& from);
+
+  inline PoolingParameter& operator=(const PoolingParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PoolingParameter& default_instance();
+
+  void Swap(PoolingParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  PoolingParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PoolingParameter& from);
+  void MergeFrom(const PoolingParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 pad = 1 [default = 1];
+  inline bool has_pad() const;
+  inline void clear_pad();
+  static const int kPadFieldNumber = 1;
+  inline ::google::protobuf::uint32 pad() const;
+  inline void set_pad(::google::protobuf::uint32 value);
+
+  // optional uint32 kernel_size = 2 [default = 3];
+  inline bool has_kernel_size() const;
+  inline void clear_kernel_size();
+  static const int kKernelSizeFieldNumber = 2;
+  inline ::google::protobuf::uint32 kernel_size() const;
+  inline void set_kernel_size(::google::protobuf::uint32 value);
+
+  // optional uint32 stride = 3 [default = 1];
+  inline bool has_stride() const;
+  inline void clear_stride();
+  static const int kStrideFieldNumber = 3;
+  inline ::google::protobuf::uint32 stride() const;
+  inline void set_stride(::google::protobuf::uint32 value);
+
+  // optional uint32 pad_h = 4;
+  inline bool has_pad_h() const;
+  inline void clear_pad_h();
+  static const int kPadHFieldNumber = 4;
+  inline ::google::protobuf::uint32 pad_h() const;
+  inline void set_pad_h(::google::protobuf::uint32 value);
+
+  // optional uint32 pad_w = 5;
+  inline bool has_pad_w() const;
+  inline void clear_pad_w();
+  static const int kPadWFieldNumber = 5;
+  inline ::google::protobuf::uint32 pad_w() const;
+  inline void set_pad_w(::google::protobuf::uint32 value);
+
+  // optional uint32 kernel_h = 6;
+  inline bool has_kernel_h() const;
+  inline void clear_kernel_h();
+  static const int kKernelHFieldNumber = 6;
+  inline ::google::protobuf::uint32 kernel_h() const;
+  inline void set_kernel_h(::google::protobuf::uint32 value);
+
+  // optional uint32 kernel_w = 7;
+  inline bool has_kernel_w() const;
+  inline void clear_kernel_w();
+  static const int kKernelWFieldNumber = 7;
+  inline ::google::protobuf::uint32 kernel_w() const;
+  inline void set_kernel_w(::google::protobuf::uint32 value);
+
+  // optional uint32 stride_h = 8;
+  inline bool has_stride_h() const;
+  inline void clear_stride_h();
+  static const int kStrideHFieldNumber = 8;
+  inline ::google::protobuf::uint32 stride_h() const;
+  inline void set_stride_h(::google::protobuf::uint32 value);
+
+  // optional uint32 stride_w = 9;
+  inline bool has_stride_w() const;
+  inline void clear_stride_w();
+  static const int kStrideWFieldNumber = 9;
+  inline ::google::protobuf::uint32 stride_w() const;
+  inline void set_stride_w(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:sita.PoolingParameter)
+ private:
+  inline void set_has_pad();
+  inline void clear_has_pad();
+  inline void set_has_kernel_size();
+  inline void clear_has_kernel_size();
+  inline void set_has_stride();
+  inline void clear_has_stride();
+  inline void set_has_pad_h();
+  inline void clear_has_pad_h();
+  inline void set_has_pad_w();
+  inline void clear_has_pad_w();
+  inline void set_has_kernel_h();
+  inline void clear_has_kernel_h();
+  inline void set_has_kernel_w();
+  inline void clear_has_kernel_w();
+  inline void set_has_stride_h();
+  inline void clear_has_stride_h();
+  inline void set_has_stride_w();
+  inline void clear_has_stride_w();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 pad_;
+  ::google::protobuf::uint32 kernel_size_;
+  ::google::protobuf::uint32 stride_;
+  ::google::protobuf::uint32 pad_h_;
+  ::google::protobuf::uint32 pad_w_;
+  ::google::protobuf::uint32 kernel_h_;
+  ::google::protobuf::uint32 kernel_w_;
+  ::google::protobuf::uint32 stride_h_;
+  ::google::protobuf::uint32 stride_w_;
+  friend void  protobuf_AddDesc_sita_5foperators_2eproto();
+  friend void protobuf_AssignDesc_sita_5foperators_2eproto();
+  friend void protobuf_ShutdownFile_sita_5foperators_2eproto();
+
+  void InitAsDefaultInstance();
+  static PoolingParameter* default_instance_;
 };
 // ===================================================================
 
@@ -1331,6 +1503,47 @@ inline void OperatorParameter::set_allocated_relu_param(::sita::ReLUParameter* r
   // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.relu_param)
 }
 
+// optional .sita.PoolingParameter pooling_param = 103;
+inline bool OperatorParameter::has_pooling_param() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void OperatorParameter::set_has_pooling_param() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void OperatorParameter::clear_has_pooling_param() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void OperatorParameter::clear_pooling_param() {
+  if (pooling_param_ != NULL) pooling_param_->::sita::PoolingParameter::Clear();
+  clear_has_pooling_param();
+}
+inline const ::sita::PoolingParameter& OperatorParameter::pooling_param() const {
+  // @@protoc_insertion_point(field_get:sita.OperatorParameter.pooling_param)
+  return pooling_param_ != NULL ? *pooling_param_ : *default_instance_->pooling_param_;
+}
+inline ::sita::PoolingParameter* OperatorParameter::mutable_pooling_param() {
+  set_has_pooling_param();
+  if (pooling_param_ == NULL) pooling_param_ = new ::sita::PoolingParameter;
+  // @@protoc_insertion_point(field_mutable:sita.OperatorParameter.pooling_param)
+  return pooling_param_;
+}
+inline ::sita::PoolingParameter* OperatorParameter::release_pooling_param() {
+  clear_has_pooling_param();
+  ::sita::PoolingParameter* temp = pooling_param_;
+  pooling_param_ = NULL;
+  return temp;
+}
+inline void OperatorParameter::set_allocated_pooling_param(::sita::PoolingParameter* pooling_param) {
+  delete pooling_param_;
+  pooling_param_ = pooling_param;
+  if (pooling_param) {
+    set_has_pooling_param();
+  } else {
+    clear_has_pooling_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:sita.OperatorParameter.pooling_param)
+}
+
 // -------------------------------------------------------------------
 
 // ConvolutionParameter
@@ -1702,6 +1915,226 @@ inline void BatchNormParameter::set_eps(float value) {
 // -------------------------------------------------------------------
 
 // ReLUParameter
+
+// -------------------------------------------------------------------
+
+// PoolingParameter
+
+// optional uint32 pad = 1 [default = 1];
+inline bool PoolingParameter::has_pad() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PoolingParameter::set_has_pad() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PoolingParameter::clear_has_pad() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PoolingParameter::clear_pad() {
+  pad_ = 1u;
+  clear_has_pad();
+}
+inline ::google::protobuf::uint32 PoolingParameter::pad() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.pad)
+  return pad_;
+}
+inline void PoolingParameter::set_pad(::google::protobuf::uint32 value) {
+  set_has_pad();
+  pad_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.pad)
+}
+
+// optional uint32 kernel_size = 2 [default = 3];
+inline bool PoolingParameter::has_kernel_size() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PoolingParameter::set_has_kernel_size() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PoolingParameter::clear_has_kernel_size() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PoolingParameter::clear_kernel_size() {
+  kernel_size_ = 3u;
+  clear_has_kernel_size();
+}
+inline ::google::protobuf::uint32 PoolingParameter::kernel_size() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.kernel_size)
+  return kernel_size_;
+}
+inline void PoolingParameter::set_kernel_size(::google::protobuf::uint32 value) {
+  set_has_kernel_size();
+  kernel_size_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.kernel_size)
+}
+
+// optional uint32 stride = 3 [default = 1];
+inline bool PoolingParameter::has_stride() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PoolingParameter::set_has_stride() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PoolingParameter::clear_has_stride() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PoolingParameter::clear_stride() {
+  stride_ = 1u;
+  clear_has_stride();
+}
+inline ::google::protobuf::uint32 PoolingParameter::stride() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.stride)
+  return stride_;
+}
+inline void PoolingParameter::set_stride(::google::protobuf::uint32 value) {
+  set_has_stride();
+  stride_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.stride)
+}
+
+// optional uint32 pad_h = 4;
+inline bool PoolingParameter::has_pad_h() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PoolingParameter::set_has_pad_h() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PoolingParameter::clear_has_pad_h() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PoolingParameter::clear_pad_h() {
+  pad_h_ = 0u;
+  clear_has_pad_h();
+}
+inline ::google::protobuf::uint32 PoolingParameter::pad_h() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.pad_h)
+  return pad_h_;
+}
+inline void PoolingParameter::set_pad_h(::google::protobuf::uint32 value) {
+  set_has_pad_h();
+  pad_h_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.pad_h)
+}
+
+// optional uint32 pad_w = 5;
+inline bool PoolingParameter::has_pad_w() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PoolingParameter::set_has_pad_w() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PoolingParameter::clear_has_pad_w() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PoolingParameter::clear_pad_w() {
+  pad_w_ = 0u;
+  clear_has_pad_w();
+}
+inline ::google::protobuf::uint32 PoolingParameter::pad_w() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.pad_w)
+  return pad_w_;
+}
+inline void PoolingParameter::set_pad_w(::google::protobuf::uint32 value) {
+  set_has_pad_w();
+  pad_w_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.pad_w)
+}
+
+// optional uint32 kernel_h = 6;
+inline bool PoolingParameter::has_kernel_h() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void PoolingParameter::set_has_kernel_h() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void PoolingParameter::clear_has_kernel_h() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void PoolingParameter::clear_kernel_h() {
+  kernel_h_ = 0u;
+  clear_has_kernel_h();
+}
+inline ::google::protobuf::uint32 PoolingParameter::kernel_h() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.kernel_h)
+  return kernel_h_;
+}
+inline void PoolingParameter::set_kernel_h(::google::protobuf::uint32 value) {
+  set_has_kernel_h();
+  kernel_h_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.kernel_h)
+}
+
+// optional uint32 kernel_w = 7;
+inline bool PoolingParameter::has_kernel_w() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PoolingParameter::set_has_kernel_w() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PoolingParameter::clear_has_kernel_w() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PoolingParameter::clear_kernel_w() {
+  kernel_w_ = 0u;
+  clear_has_kernel_w();
+}
+inline ::google::protobuf::uint32 PoolingParameter::kernel_w() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.kernel_w)
+  return kernel_w_;
+}
+inline void PoolingParameter::set_kernel_w(::google::protobuf::uint32 value) {
+  set_has_kernel_w();
+  kernel_w_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.kernel_w)
+}
+
+// optional uint32 stride_h = 8;
+inline bool PoolingParameter::has_stride_h() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void PoolingParameter::set_has_stride_h() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void PoolingParameter::clear_has_stride_h() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void PoolingParameter::clear_stride_h() {
+  stride_h_ = 0u;
+  clear_has_stride_h();
+}
+inline ::google::protobuf::uint32 PoolingParameter::stride_h() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.stride_h)
+  return stride_h_;
+}
+inline void PoolingParameter::set_stride_h(::google::protobuf::uint32 value) {
+  set_has_stride_h();
+  stride_h_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.stride_h)
+}
+
+// optional uint32 stride_w = 9;
+inline bool PoolingParameter::has_stride_w() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void PoolingParameter::set_has_stride_w() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void PoolingParameter::clear_has_stride_w() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void PoolingParameter::clear_stride_w() {
+  stride_w_ = 0u;
+  clear_has_stride_w();
+}
+inline ::google::protobuf::uint32 PoolingParameter::stride_w() const {
+  // @@protoc_insertion_point(field_get:sita.PoolingParameter.stride_w)
+  return stride_w_;
+}
+inline void PoolingParameter::set_stride_w(::google::protobuf::uint32 value) {
+  set_has_stride_w();
+  stride_w_ = value;
+  // @@protoc_insertion_point(field_set:sita.PoolingParameter.stride_w)
+}
 
 
 // @@protoc_insertion_point(namespace_scope)

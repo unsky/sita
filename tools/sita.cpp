@@ -5,7 +5,7 @@
 #include "sita/memory_control.h"
 #include "sita/tensor.h"
 #include "sita/workspace.h"
-#include "sita/dlflow/graph.h"
+#include "sita/graph.h"
 #include <glog/logging.h>
 #include "sita/dataprovider/mnist_dataprovider.h"
 int main(int argc, char** argv) {

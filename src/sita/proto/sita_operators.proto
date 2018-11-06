@@ -20,6 +20,7 @@ message  OperatorParameter {
   optional BatchNormParameter batch_norm_param = 100;
   optional ConvolutionParameter convolution_param = 101;
   optional ReLUParameter relu_param = 102;
+  optional PoolingParameter pooling_param = 103;
 }
 
 
@@ -51,4 +52,16 @@ message BatchNormParameter {
 }
 message ReLUParameter{
   
+}
+message PoolingParameter{
+  optional uint32 pad = 1 [default = 1]; // The padding size; defaults to 0
+  optional uint32 kernel_size = 2 [default = 3]; // The kernel size
+  optional uint32 stride = 3 [default = 1]; // The stride defaults to 1
+
+  optional uint32 pad_h = 4; // The padding height (2D only)
+  optional uint32 pad_w = 5; // The padding width (2D only)
+  optional uint32 kernel_h = 6; // The kernel height (2D only)
+  optional uint32 kernel_w = 7; // The kernel width (2D only)
+  optional uint32 stride_h = 8; // The stride height (2D only)
+  optional uint32 stride_w = 9; // The stride width (2D only)
 }

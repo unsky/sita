@@ -15,8 +15,8 @@
 #include "types.h"
 #include "sita/dataprovider/mnist_dataprovider.h"
 #include "sita/dataprovider/dataprovider.h"
-#include "sita/dlflow/registry.h"
-#include "sita/dlflow/operator.h"
+#include "sita/registry.h"
+#include "sita/operator.h"
 namespace sita{
 
 

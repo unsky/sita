@@ -48,15 +48,16 @@ set(SITA_FILES
         src/sita/memory_control.cpp
         src/sita/tensor.cpp
         src/sita/context.cpp
-        src/sita/dlflow/operators/convolution.cpp
-        src/sita/dlflow/operators/convolution.cu
-        src/sita/dlflow/operators/batch_norm.cpp
-        src/sita/dlflow/operators/batch_norm.cu
-        src/sita/dlflow/operators/relu.cpp
-        src/sita/dlflow/operators/relu.cu
+        src/sita/operators/convolution.cpp
+        src/sita/operators/convolution.cu
+        src/sita/operators/batch_norm.cpp
+        src/sita/operators/batch_norm.cu
+        src/sita/operators/relu.cpp
+        src/sita/operators/relu.cu
+       # src/sita/operators/pooling.cpp
         src/sita/workspace.cpp
-        src/sita/dlflow/operator.cpp
-        src/sita/dlflow/graph.cpp
+        src/sita/operator.cpp
+        src/sita/graph.cpp
         src/sita/io_protobuff.cpp
         src/sita/internal_thread.cpp
         src/sita/blocking_queue.cpp
